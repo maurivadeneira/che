@@ -4,7 +4,7 @@
     "features": {
         "ghcr.io/devcontainers/features/node:1": {}
     },
-    "postCreateCommand": "npm install && npm install -g eslint",
+    "postCreateCommand": "npm install -g eslint && npm install",
     "workspaceFolder": "/workspaces/che",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/che,type=bind,consistency=cached"
 }
