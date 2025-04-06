@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -13,19 +14,31 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Enlaces Rápidos</h3>
           <ul>
-            <li><a href="/fondos">Fondos Rotatorios</a></li>
-            <li><a href="/about">Sobre Nosotros</a></li>
-            <li><a href="/contact">Contacto</a></li>
+            <li><Link to="/">Inicio</Link></li>
+            <li><Link to="/fondos">Fondos Rotatorios</Link></li>
+            <li><Link to="/about">Sobre Nosotros</Link></li>
+            <li><Link to="/contact">Contacto</Link></li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3>Fondos Principales</h3>
+          <ul>
+            <li><Link to="/fondos/inversion-empresarial">Inversión Empresarial</Link></li>
+            <li><Link to="/fondos/editorial-medios">Editorial y Medios</Link></li>
+            <li><Link to="/fondos/investigacion-cientifica">Investigación Científica</Link></li>
+            <li><Link to="/fondos/arte-cultura">Arte y Cultura</Link></li>
           </ul>
         </div>
         <div className="footer-section">
           <h3>Contacto</h3>
-          <p>Email: info@che.org</p>
-          <p>Teléfono: +123 456 7890</p>
+          <p>Email: info@corporacionche.org</p>
+          <p>Teléfono: +57 123 456 7890</p>
+          <p>Dirección: Av. Siempre Viva 123, Ciudad Ejemplo</p>
         </div>
       </div>
-      <div className="copyright">
+      <div className="footer-bottom">
         <p>&copy; {year} CHE - Corporación Herejía Económica. Todos los derechos reservados.</p>
+        <p>Desarrollado por Mauricio Rivadeneira Mora</p>
       </div>
     </footer>
   );
