@@ -1,0 +1,59 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Home = () => {
+  return (
+    <div className="home-page">
+      <section className="hero">
+        <div className="hero-content">
+          <h1>CHE - Corporación Herejía Económica</h1>
+          <p>Un proyecto social global para desarrollarlo en el mundo entero</p>
+          <Link to="/fondos" className="cta-button">Conoce nuestros Fondos Rotatorios</Link>
+        </div>
+      </section>
+      
+      <section className="about-section">
+        <h2>Sobre Nosotros</h2>
+        <p>
+          La Corporación Herejía Económica es un proyecto social global que busca promover 
+          actividades culturales, cívicas y sociales a favor de la institución, sus integrantes 
+          y comunidades asociadas.
+        </p>
+      </section>
+      
+      <section className="funds-overview">
+        <h2>Nuestros Fondos Rotatorios</h2>
+        <div className="funds-grid">
+          <div className="fund-card">
+            <h3>Inversión Empresarial</h3>
+            <p>Fondo para análisis, estudios, proyectos e inversiones empresariales.</p>
+            <Link to="/fondos/inversion-empresarial">Más información</Link>
+          </div>
+          
+          <div className="fund-card">
+            <h3>Editorial y Medios</h3>
+            <p>Para la generación de medios, videos, películas, publicaciones y divulgación.</p>
+            <Link to="/fondos/editorial-medios">Más información</Link>
+          </div>
+          
+          <div className="fund-card">
+            <h3>Sanación Emocional</h3>
+            <p>Asistencia social-emocional enmarcada en la medicina alternativa no invasiva.</p>
+            <Link to="/fondos/sanacion-emocional">Más información</Link>
+          </div>
+          
+          <div className="fund-card">
+            <h3>Vivienda</h3>
+            <p>Destinado a la construcción de vivienda.</p>
+            <Link to="/fondos/vivienda">Más información</Link>
+          </div>
+        </div>
+        <div className="view-all">
+          <Link to="/fondos">Ver todos los fondos</Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
