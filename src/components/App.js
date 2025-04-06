@@ -4,7 +4,7 @@ import Layout from '../layout/Layout.js';
 import Home from '../pages/Home.js';
 import FondosPage from '../pages/FondosPage.js';
 import AboutPage from '../pages/AboutPage.js';
-import ContactPage from '../pages/.js';
+import ContactPage from '../pages/ContactPage.js';
 
 const App = () => {
   return (
