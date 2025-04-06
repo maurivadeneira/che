@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Layout from '../layout/Layout';
-import Home from '../pages/Home';
-import FondosPage from '../pages/FondosPage';
-import AboutPage from '../pages/AboutPage';
-import ContactPage from '../pages/ContactPage';
+import Layout from '../layout/Layout.js';
+import Home from '../pages/Home.js';
+import FondosPage from '../pages/FondosPage.js';
+import AboutPage from '../pages/AboutPage.js';
+import ContactPage from '../pages/.js';
 
 const App = () => {
   return (
