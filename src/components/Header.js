@@ -1,5 +1,5 @@
 import React from 'react';
-import logoPath from '../assets/logo.png';
+import logoPath from '../assets/logo-new.svg';
 
 const Header = () => {
   return (
@@ -18,8 +18,8 @@ const Header = () => {
           src={logoPath}
           alt="CHE - Corporación Herejía Económica" 
           style={{
-            maxHeight: '120px', 
-            maxWidth: '250px', 
+            maxHeight: '150px', 
+            maxWidth: '150px', 
             objectFit: 'contain'
           }}
         />
