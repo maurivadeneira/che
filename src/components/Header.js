@@ -1,4 +1,5 @@
 import React from 'react';
+import logoPath from '../assets/logo.png';
 
 const Header = () => {
   return (
@@ -14,27 +15,19 @@ const Header = () => {
         alignItems: 'center'
       }}>
         <img 
-          src="/images/logo.png" 
+          src={logoPath}
           alt="CHE - Corporación Herejía Económica" 
           style={{
             maxHeight: '120px', 
             maxWidth: '250px', 
-            objectFit: 'contain',
-            border: '2px solid red' // Añadimos borde rojo para verificar
-          }}
-          onError={(e) => {
-            console.error('Error de carga de imagen', e);
-            e.target.style.display = 'none';
+            objectFit: 'contain'
           }}
         />
-        <p style={{color: 'white', marginLeft: '10px'}}>
-          Verificando ruta: {window.location.origin + '/images/logo.png'}
-        </p>
       </div>
       <nav>
         <ul style={{
           display: 'flex', 
-          listList: 'none', 
+          listStyle: 'none', 
           gap: '15px', 
           color: 'white'
         }}>
