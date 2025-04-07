@@ -13,23 +13,15 @@ const Header = () => {
         display: 'flex', 
         alignItems: 'center'
       }}>
-        <div>
-          <img 
-            src="/images/logo.png" 
-            alt="CHE - Corporación Herejía Económica" 
-            style={{
-              maxHeight: '120px', 
-              maxWidth: '250px', 
-              objectFit: 'contain',
-              border: '2px solid red' // Añadimos un borde rojo para verificar
-            }}
-            onError={(e) => {
-              console.error('Error loading image', e);
-              e.target.style.display = 'none';
-            }}
-          />
-          <p style={{color: 'white'}}>Debug: Logo check</p>
-        </div>
+        <img 
+          src="/images/logo.png" 
+          alt="CHE - Corporación Herejía Económica" 
+          style={{
+            maxHeight: '120px', 
+            maxWidth: '250px', 
+            objectFit: 'contain'
+          }}
+        />
       </div>
       <nav>
         <ul style={{
