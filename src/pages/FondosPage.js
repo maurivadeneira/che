@@ -99,47 +99,47 @@ const FondosList = () => (
     
     <div className="fondos-grid">
       <div className="fondo-item">
-        <h3>1. Inversión Empresarial</h3>
+        <h3>1. Inversión Empresarial <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Análisis, estudios, proyectos e inversiones empresariales.</p>
       </div>
       <div className="fondo-item">
-        <h3>2. Editorial y Medios</h3>
+        <h3>2. Editorial y Medios <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Generación de medios, videos, películas y publicaciones.</p>
       </div>
       <div className="fondo-item">
-        <h3>3. Sanación Emocional</h3>
+        <h3>3. Sanación Emocional <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Asistencia social-emocional con medicina alternativa no invasiva.</p>
       </div>
       <div className="fondo-item">
-        <h3>4. Vivienda</h3>
+        <h3>4. Vivienda <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Construcción de vivienda.</p>
       </div>
       <div className="fondo-item">
-        <h3>5. Recreación y Hotelería</h3>
+        <h3>5. Recreación y Hotelería <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Proyectos de recreación social y hotelería.</p>
       </div>
       <div className="fondo-item">
-        <h3>6. Sistemas y Plataformas</h3>
+        <h3>6. Sistemas y Plataformas <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Desarrollo de plataformas y software empresarial.</p>
       </div>
       <div className="fondo-item">
-        <h3>7. Bancario</h3>
+        <h3>7. Bancario <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Operaciones financieras y bancarias.</p>
       </div>
       <div className="fondo-item">
-        <h3>8. Proyectos de Ingeniería</h3>
+        <h3>8. Proyectos de Ingeniería <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Elaboración de proyectos y construcciones de ingeniería.</p>
       </div>
       <div className="fondo-item">
-        <h3>9. Comercial</h3>
+        <h3>9. Comercial <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Compra, venta y distribución de productos.</p>
       </div>
       <div className="fondo-item">
-        <h3>10. Investigación Científica</h3>
+        <h3>10. Investigación Científica <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Apoyo a la investigación científica.</p>
       </div>
       <div className="fondo-item">
-        <h3>11. Arte y Cultura</h3>
+        <h3>11. Arte y Cultura <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Desarrollo de expresiones artísticas y culturales.</p>
       </div>
     </div>
