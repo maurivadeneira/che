@@ -1,5 +1,6 @@
 import React from 'react';
-import logoPath from '../assets/logo.png';
+// Usar logo desde la carpeta public
+const logoPath = '/images/logo.png';
 
 const Header = () => {
   return (
