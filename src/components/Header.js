@@ -19,14 +19,22 @@ const Header = () => {
           style={{
             maxHeight: '120px', 
             maxWidth: '250px', 
-            objectFit: 'contain'
+            objectFit: 'contain',
+            border: '2px solid red' // Añadimos borde rojo para verificar
+          }}
+          onError={(e) => {
+            console.error('Error de carga de imagen', e);
+            e.target.style.display = 'none';
           }}
         />
+        <p style={{color: 'white', marginLeft: '10px'}}>
+          Verificando ruta: {window.location.origin + '/images/logo.png'}
+        </p>
       </div>
       <nav>
         <ul style={{
           display: 'flex', 
-          listStyle: 'none', 
+          listList: 'none', 
           gap: '15px', 
           color: 'white'
         }}>
