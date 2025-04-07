@@ -1,12 +1,13 @@
 import React from 'react';
+import CheMiniLogo from '../components/CheMiniLogo.js';
 
 const AboutPage = () => {
   return (
     <div className="about-page">
-      <h2>Sobre Nosotros</h2>
+      <h2>Sobre Nosotros <CheMiniLogo style={{ height: '25px', width: '50px' }} /></h2>
       
       <div className="mission-section">
-        <h3>Nuestra Misión</h3>
+        <h3>Nuestra Misión <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>
           La CORPORACION HEREJIA ECONOMICA (C.H.E. MUNDO LIBRE) tiene por objeto divulgar y 
           hacer realidad las ideas económicas de la "HEREJIA ECONOMICA", teoría económica basada 
@@ -25,7 +26,7 @@ const AboutPage = () => {
       </div>
       
       <div className="vision-section">
-        <h3>Nuestros Objetivos</h3>
+        <h3>Nuestros Objetivos <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>
           La CORPORACION HEREJIA ECONOMICA (C.H.E. MUNDO LIBRE) tiene como objetivo promover la libertad 
           económica de los individuos y países, según se desprende de las tesis de la teoría HEREJIA ECONOMICA 
@@ -45,7 +46,7 @@ const AboutPage = () => {
       </div>
       
       <div className="activities-section">
-        <h3>Nuestras Actividades</h3>
+        <h3>Nuestras Actividades <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>Entre nuestras actividades principales se encuentran:</p>
         <ul>
           <li>Promover actividades que permitan mantener o aumentar el patrimonio de la Corporación.</li>
@@ -60,7 +61,7 @@ const AboutPage = () => {
       </div>
       
       <div className="values-section">
-        <h3>Nuestros Fondos Rotatorios</h3>
+        <h3>Nuestros Fondos Rotatorios <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>
           La Corporación ha establecido fondos rotatorios permanentes que son la base para el desarrollo 
           de sus actividades y objetivos. Cada uno de estos fondos está diseñado para abordar un área 

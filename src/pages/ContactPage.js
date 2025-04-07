@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CheMiniLogo from '../components/CheMiniLogo.js';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
-      <h2>Contacto</h2>
+      <h2>Contacto <CheMiniLogo style={{ height: '25px', width: '50px' }} /></h2>
       <p>Nos encantaría saber de usted. Complete el formulario a continuación para enviarnos un mensaje.</p>
       
       {submitStatus.submitted && (
@@ -118,7 +119,7 @@ const ContactPage = () => {
       </div>
       
       <div className="contact-info">
-        <h3>Información de Contacto</h3>
+        <h3>Información de Contacto <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>También puede ponerse en contacto con nosotros utilizando la siguiente información:</p>
         <ul>
           <li><strong>Dirección:</strong> Av. Siempre Viva 123, Ciudad Ejemplo</li>
