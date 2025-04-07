@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams, Routes, Route } from 'react-router-dom';
+import CheMiniLogo from '../components/CheMiniLogo';
 
 // Componentes para cada fondo
 const FondoInversionEmpresarial = () => (
   <div>
-    <h2>Fondo Rotatorio De Inversión Empresarial CHE</h2>
+    <h2>Fondo Rotatorio De Inversión Empresarial <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Fondo dedicado a análisis, estudios, proyectos e inversiones empresariales.</p>
     <p>Este fondo permite a la corporación invertir en nuevos proyectos empresariales, realizar estudios de viabilidad económica y financiera, y desarrollar planes de negocio sustentables.</p>
   </div>
@@ -12,7 +13,7 @@ const FondoInversionEmpresarial = () => (
 
 const FondoEditorialMedios = () => (
   <div>
-    <h2>Fondo Rotatorio Editorial y de Medios Audiovisuales CHE</h2>
+    <h2>Fondo Rotatorio Editorial y de Medios Audiovisuales <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Dedicado a la generación de medios, videos, películas, publicaciones y divulgación.</p>
     <p>Este fondo permite crear y difundir contenido audiovisual y editorial que promueva los valores y objetivos de la corporación.</p>
   </div>
@@ -20,7 +21,7 @@ const FondoEditorialMedios = () => (
 
 const FondoSanacionEmocional = () => (
   <div>
-    <h2>Fondo Rotatorio de Sanación Emocional CHE</h2>
+    <h2>Sanación Emocional <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para la asistencia social-emocional enmarcada en la medicina alternativa de medios no invasivos.</p>
     <p>Este fondo promueve prácticas de sanación emocional a través de terapias alternativas no invasivas, contribuyendo al bienestar integral de las personas.</p>
   </div>
@@ -28,7 +29,7 @@ const FondoSanacionEmocional = () => (
 
 const FondoVivienda = () => (
   <div>
-    <h2>Fondo Rotatorio de Vivienda CHE</h2>
+    <h2>Vivienda <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Destinado a la construcción de vivienda.</p>
     <p>Este fondo facilita el acceso a viviendas dignas y económicas a través de diferentes proyectos de construcción y desarrollo inmobiliario.</p>
   </div>
@@ -36,7 +37,7 @@ const FondoVivienda = () => (
 
 const FondoRecreacionHotelera = () => (
   <div>
-    <h2>Fondo Rotatorio de Recreación Social y Hotelera CHE</h2>
+    <h2>Fondo Rotatorio de Recreación Social y Hotelera <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para la creación y construcción de proyectos de recreación y hotelería.</p>
     <p>Este fondo desarrolla espacios de esparcimiento, turismo y recreación que fomentan el bienestar y la integración social.</p>
   </div>
@@ -44,7 +45,7 @@ const FondoRecreacionHotelera = () => (
 
 const FondoSistemasPlataformas = () => (
   <div>
-    <h2>Fondo rotatorio de Sistemas y plataformas CHE</h2>
+    <h2>Fondo rotatorio de Sistemas y plataformas <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para la generación de plataformas y software de sistemas y empresarial.</p>
     <p>Este fondo impulsa el desarrollo tecnológico mediante la creación de software y plataformas que optimizan procesos y facilitan la gestión empresarial.</p>
   </div>
@@ -52,7 +53,7 @@ const FondoSistemasPlataformas = () => (
 
 const FondoBancario = () => (
   <div>
-    <h2>Fondo rotatorio Bancario CHE</h2>
+    <h2>Fondo rotatorio Bancario <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Dedicado a operaciones financieras y bancarias.</p>
     <p>Este fondo facilita transacciones financieras y servicios bancarios adaptados a las necesidades de la comunidad y los proyectos de la corporación.</p>
   </div>
@@ -60,7 +61,7 @@ const FondoBancario = () => (
 
 const FondoProyectosIngenieria = () => (
   <div>
-    <h2>Fondo rotatorio de Proyectos de Ingeniería CHE</h2>
+    <h2>Fondo rotatorio de Proyectos de Ingeniería <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para la elaboración de proyectos y construcciones de ingeniería de todo tipo.</p>
     <p>Este fondo apoya la creación y ejecución de proyectos de ingeniería civil, eléctrica, mecánica y otras ramas, contribuyendo al desarrollo de infraestructuras.</p>
   </div>
@@ -68,7 +69,7 @@ const FondoProyectosIngenieria = () => (
 
 const FondoComercial = () => (
   <div>
-    <h2>Fondo Rotatorio Comercial CHE</h2>
+    <h2>Fondo Rotatorio Comercial <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para la compra venta y distribución de todo tipo de productos.</p>
     <p>Este fondo facilita la comercialización y distribución de productos diversos, generando redes comerciales que beneficien a productores y consumidores.</p>
   </div>
@@ -76,7 +77,7 @@ const FondoComercial = () => (
 
 const FondoInvestigacionCientifica = () => (
   <div>
-    <h2>Fondo rotatorio para la investigación científica CHE</h2>
+    <h2>Fondo rotatorio para la investigación científica <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Dedicado a la investigación científica en diversas áreas.</p>
     <p>Este fondo promueve la investigación y el desarrollo científico en campos diversos que contribuyan al bienestar social y al avance del conocimiento.</p>
   </div>
@@ -84,7 +85,7 @@ const FondoInvestigacionCientifica = () => (
 
 const FondoArteCultura = () => (
   <div>
-    <h2>Fondo Rotatorio para el desarrollo del Arte y la Cultura CHE</h2>
+    <h2>Fondo Rotatorio para el desarrollo del Arte y la Cultura <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>Para el fomento y desarrollo de expresiones artísticas y culturales.</p>
     <p>Este fondo apoya iniciativas artísticas y culturales que enriquezcan la experiencia humana y preserven el patrimonio cultural.</p>
   </div>
@@ -93,7 +94,7 @@ const FondoArteCultura = () => (
 // Listado general de fondos
 const FondosList = () => (
   <div className="fondos-list">
-    <h2>Fondos Rotatorios Permanentes</h2>
+    <h2>Fondos Rotatorios Permanentes <CheMiniLogo style={{ height: '30px', width: '60px' }} /></h2>
     <p>La Corporación CHE cuenta con los siguientes fondos rotatorios permanentes para el desarrollo de sus actividades:</p>
     
     <div className="fondos-grid">
