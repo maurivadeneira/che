@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Routes, Route } from 'react-router-dom';
-import CheMiniLogo from '../components/CheMiniLogo';
+import CheMiniLogo from '../components/CheMiniLogo.js';
 
 // Componentes para cada fondo
 const FondoInversionEmpresarial = () => (
