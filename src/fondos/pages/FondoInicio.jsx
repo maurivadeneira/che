@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
+import CheMediumLogo from '../../components/CheMediumLogo.js';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
 const fondosData = [
@@ -69,7 +70,30 @@ const FondoInicio = () => {
 
   return (
     <div className="fondo-inicio fade-in">
-      {/* Encabezado con imagen principal */}
+      {/* Encabezado con título y logo */}
+      <div style={{ 
+        textAlign: 'center',
+        marginBottom: '30px'
+      }}>
+        <h1 style={{ 
+          fontSize: '32px',
+          fontWeight: 'bold',
+          color: 'var(--secondary-color)',
+          marginBottom: '20px'
+        }}>
+          {fondo.titulo}
+        </h1>
+        <div style={{ 
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: '20px'
+        }}>
+          <CheMediumLogo style={{ height: '80px', width: '160px' }} />
+        </div>
+      </div>
+      
+      {/* Banner con imagen principal */}
       <div style={{ 
         position: 'relative',
         height: '300px', 
@@ -92,26 +116,6 @@ const FondoInicio = () => {
             e.target.src = "/images/placeholder-400x200.svg";
           }}
         />
-        
-        {/* Overlay con título */}
-        <div style={{ 
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-          padding: '20px',
-          color: 'white'
-        }}>
-          <h1 style={{ 
-            fontSize: '28px',
-            fontWeight: 'bold',
-            margin: 0,
-            textShadow: '1px 1px 3px rgba(0,0,0,0.5)'
-          }}>
-            {fondo.titulo}
-          </h1>
-        </div>
       </div>
       
       {/* Secciones de contenido */}

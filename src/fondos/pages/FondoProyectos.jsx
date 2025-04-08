@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CheMediumLogo from '../../components/CheMediumLogo.js';
 
 // Datos ficticios para proyectos extendidos
 const getProyectosExtendidos = (fondoId) => {
@@ -183,14 +184,24 @@ const FondoProyectos = () => {
   return (
     <div className="fondo-proyectos fade-in">
       <div style={{ marginBottom: '30px' }}>
-        <h1 style={{ 
-          fontSize: '28px',
-          fontWeight: 'bold',
-          color: 'var(--secondary-color)',
-          marginBottom: '20px'
-        }}>
-          Proyectos
-        </h1>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h1 style={{ 
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: 'var(--secondary-color)',
+            marginBottom: '15px'
+          }}>
+            Proyectos
+          </h1>
+          <div style={{ 
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '20px'
+          }}>
+            <CheMediumLogo style={{ height: '80px', width: '160px' }} />
+          </div>
+        </div>
         
         {/* Filtros */}
         <div style={{ 

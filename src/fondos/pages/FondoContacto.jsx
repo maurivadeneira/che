@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import CheMediumLogo from '../../components/CheMediumLogo.js';
 
 // Datos ficticios para información de contacto según el fondo
 const getInfoContacto = (fondoId) => {
@@ -156,14 +157,24 @@ const FondoContacto = () => {
   return (
     <div className="fondo-contacto fade-in">
       <div style={{ marginBottom: '30px' }}>
-        <h1 style={{ 
-          fontSize: '28px',
-          fontWeight: 'bold',
-          color: 'var(--secondary-color)',
-          marginBottom: '20px'
-        }}>
-          Contacto
-        </h1>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h1 style={{ 
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: 'var(--secondary-color)',
+            marginBottom: '15px'
+          }}>
+            Contacto
+          </h1>
+          <div style={{ 
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '20px'
+          }}>
+            <CheMediumLogo style={{ height: '80px', width: '160px' }} />
+          </div>
+        </div>
         
         <div style={{ 
           backgroundColor: 'white',
