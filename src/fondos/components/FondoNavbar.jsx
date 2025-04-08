@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
+import CheMediumLogo from '../../components/CheMediumLogo.js';
 
 /**
  * Barra de navegación específica para cada fondo
@@ -24,15 +25,17 @@ const FondoNavbar = ({ fondoId, fondoNombre }) => {
         alignItems: 'center'
       }}>
         {/* Logo y nombre del fondo */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <CheMiniLogo style={{ height: '24px', width: '48px', marginRight: '10px' }} />
-          <h1 style={{ 
-            fontSize: '18px', 
-            fontWeight: 'bold',
-            margin: 0
-          }}>
-            {fondoNombre}
-          </h1>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <CheMediumLogo style={{ height: '40px', width: '80px' }} />
+          <div style={{ marginLeft: '15px' }}>
+            <h1 style={{ 
+              fontSize: '18px', 
+              fontWeight: 'bold',
+              margin: 0
+            }}>
+              {fondoNombre}
+            </h1>
+          </div>
         </div>
 
         {/* Menú de navegación del fondo */}
