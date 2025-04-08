@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import CheMiniLogo from '../components/CheMiniLogo.js';
+import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
 
 // Datos de todos los fondos (estos datos podrían venir de una API en el futuro)
 const fondosData = [
@@ -252,7 +253,8 @@ const FondoDetalle = () => {
   }
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
+    <div className="fade-in" style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
+      <DevelopmentBanner />
       {/* Encabezado */}
       <div style={{ marginBottom: '25px' }}>
         <Link to="/fondos" style={{ color: 'var(--secondary-color)', marginBottom: '15px', display: 'inline-block' }}>
@@ -260,8 +262,9 @@ const FondoDetalle = () => {
         </Link>
         
         <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
-          <CheMiniLogo style={{ height: '30px', width: '60px' }} />
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--secondary-color)' }}>{fondo.titulo}</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--secondary-color)', display: 'flex', alignItems: 'center' }}>            {fondo.titulo}
+            <CheMiniLogo style={{ height: '30px', width: '60px', marginLeft: '10px', verticalAlign: 'middle' }} />
+          </h1>
         </div>
       </div>
 

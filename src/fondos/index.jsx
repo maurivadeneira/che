@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CheMiniLogo from '../components/CheMiniLogo.js';
+import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
 
 // Componente para un Fondo Rotatorio individual
 const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
@@ -9,7 +10,7 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       {/* Primer contenedor: Título y minilogo */}
       <div style={{ backgroundColor: 'var(--light-color)', padding: '15px', borderBottom: '1px solid #e0e0e0' }}>
         <h3 style={{ display: 'flex', alignItems: 'center', color: 'var(--secondary-color)', marginBottom: '5px' }}>
-          {titulo} <CheMiniLogo style={{ height: '20px', width: '40px', marginLeft: '8px' }} />
+          {titulo} <CheMiniLogo style={{ height: '20px', width: '40px', marginLeft: '8px', verticalAlign: 'middle' }} />
         </h3>
       </div>
       
@@ -119,7 +120,8 @@ const FondosRotatoriosCHE = () => {
   ];
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+    <div className="fade-in" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+      <DevelopmentBanner />
       <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--secondary-color)', fontSize: '1.8rem' }}>
         Fondos Rotatorios C.H.E. MUNDO LIBRE <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle', marginLeft: '10px' }} />
       </h2>
