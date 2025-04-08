@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import CheMiniLogo from '../components/CheMiniLogo.js';
 
 // Datos de todos los fondos (estos datos podrían venir de una API en el futuro)
 const fondosData = [
@@ -231,20 +232,18 @@ const FondoDetalle = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto p-4">
-        <div className="flex justify-center items-center h-64">
-          <p className="text-lg text-gray-600">Cargando información del fondo...</p>
-        </div>
+      <div style={{ textAlign: 'center', padding: '40px' }}>
+        <p>Cargando información del fondo...</p>
       </div>
     );
   }
 
   if (!fondo) {
     return (
-      <div className="container mx-auto p-4">
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+        <div style={{ backgroundColor: '#f8d7da', border: '1px solid #f5c6cb', color: '#721c24', padding: '15px', borderRadius: '4px' }}>
           <p>No se encontró información para el fondo solicitado.</p>
-          <Link to="/fondos" className="text-blue-600 hover:underline mt-2 inline-block">
+          <Link to="/fondos" style={{ color: '#0056b3', textDecoration: 'underline', display: 'inline-block', marginTop: '10px' }}>
             Volver a todos los fondos
           </Link>
         </div>
@@ -253,69 +252,76 @@ const FondoDetalle = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
       {/* Encabezado */}
-      <div className="mb-6">
-        <Link to="/fondos" className="text-blue-600 hover:underline mb-4 inline-block">
+      <div style={{ marginBottom: '25px' }}>
+        <Link to="/fondos" style={{ color: 'var(--secondary-color)', marginBottom: '15px', display: 'inline-block' }}>
           ← Volver a todos los fondos
         </Link>
         
-        <div className="flex items-center mt-2">
-          <MiniLogo />
-          <h1 className="text-2xl font-bold text-blue-900">{fondo.titulo}</h1>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
+          <CheMiniLogo style={{ height: '30px', width: '60px' }} />
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--secondary-color)' }}>{fondo.titulo}</h1>
         </div>
       </div>
 
       {/* Imagen principal */}
-      <div className="mb-6 rounded-lg overflow-hidden shadow-md">
+      <div style={{ marginBottom: '25px', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--box-shadow)' }}>
         <img 
           src={`/images/fondos/fondo-${fondo.id}-large.jpg`} 
           alt={`Imagen representativa de ${fondo.titulo}`}
-          className="w-full h-64 object-cover"
+          style={{ width: '100%', height: '250px', objectFit: 'cover' }}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-800x400.jpg";
+            e.target.src = "/images/placeholder-400x200.jpg";
           }}
         />
       </div>
 
       {/* Descripción general */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-xl font-semibold mb-3 text-blue-800">Descripción General</h2>
-        <p className="text-gray-700">{fondo.descripcion}</p>
+      <div style={{ backgroundColor: 'white', borderRadius: '8px', boxShadow: 'var(--box-shadow)', padding: '20px', marginBottom: '25px' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '15px', color: 'var(--secondary-color)' }}>Descripción General</h2>
+        <p style={{ color: '#333' }}>{fondo.descripcion}</p>
       </div>
 
       {/* Detalles del fondo */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-xl font-semibold mb-3 text-blue-800">Áreas de Actividad</h2>
-        <ul className="list-disc pl-5 text-gray-700">
+      <div style={{ backgroundColor: 'white', borderRadius: '8px', boxShadow: 'var(--box-shadow)', padding: '20px', marginBottom: '25px' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '15px', color: 'var(--secondary-color)' }}>Áreas de Actividad</h2>
+        <ul style={{ paddingLeft: '20px', listStyleType: 'disc', color: '#333' }}>
           {fondo.detalles.map((detalle, index) => (
-            <li key={index} className="mb-2">{detalle}</li>
+            <li key={index} style={{ marginBottom: '10px' }}>{detalle}</li>
           ))}
         </ul>
       </div>
 
       {/* Proyectos actuales */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-3 text-blue-800">Proyectos Actuales</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
-            <thead className="bg-blue-100">
+      <div style={{ backgroundColor: 'white', borderRadius: '8px', boxShadow: 'var(--box-shadow)', padding: '20px' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '15px', color: 'var(--secondary-color)' }}>Proyectos Actuales</h2>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ minWidth: '100%', backgroundColor: 'white', borderCollapse: 'collapse' }}>
+            <thead style={{ backgroundColor: '#e6f0ff' }}>
               <tr>
-                <th className="py-2 px-4 border-b text-left">Nombre del Proyecto</th>
-                <th className="py-2 px-4 border-b text-left">Estado</th>
+                <th style={{ padding: '10px 15px', borderBottom: '1px solid #ddd', textAlign: 'left' }}>Nombre del Proyecto</th>
+                <th style={{ padding: '10px 15px', borderBottom: '1px solid #ddd', textAlign: 'left' }}>Estado</th>
               </tr>
             </thead>
             <tbody>
               {fondo.proyectos.map((proyecto, index) => (
-                <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                  <td className="py-2 px-4 border-b">{proyecto.nombre}</td>
-                  <td className="py-2 px-4 border-b">
+                <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#f9f9f9' : 'white' }}>
+                  <td style={{ padding: '10px 15px', borderBottom: '1px solid #ddd' }}>{proyecto.nombre}</td>
+                  <td style={{ padding: '10px 15px', borderBottom: '1px solid #ddd' }}>
                     <span 
-                      className={`inline-block px-2 py-1 rounded text-xs font-semibold
-                        ${proyecto.estado === 'Activo' ? 'bg-green-100 text-green-800' :
-                          proyecto.estado === 'En desarrollo' ? 'bg-blue-100 text-blue-800' :
-                            'bg-yellow-100 text-yellow-800'}`}
+                      style={{
+                        display: 'inline-block', 
+                        padding: '3px 8px', 
+                        borderRadius: '4px', 
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        backgroundColor: proyecto.estado === 'Activo' ? '#d4edda' : 
+                                        proyecto.estado === 'En desarrollo' ? '#cce5ff' : '#fff3cd',
+                        color: proyecto.estado === 'Activo' ? '#155724' : 
+                               proyecto.estado === 'En desarrollo' ? '#004085' : '#856404'
+                      }}
                     >
                       {proyecto.estado}
                     </span>
@@ -328,12 +334,19 @@ const FondoDetalle = () => {
       </div>
 
       {/* Sección de contacto */}
-      <div className="bg-blue-50 rounded-lg shadow-md p-6 mt-6">
-        <h2 className="text-xl font-semibold mb-3 text-blue-800">¿Interesado en participar?</h2>
-        <p className="text-gray-700 mb-4">
+      <div style={{ backgroundColor: '#e6f0ff', borderRadius: '8px', boxShadow: 'var(--box-shadow)', padding: '20px', marginTop: '25px' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '15px', color: 'var(--secondary-color)' }}>¿Interesado en participar?</h2>
+        <p style={{ color: '#333', marginBottom: '15px' }}>
           Si estás interesado en contribuir o participar en este fondo, puedes contactarnos para obtener más información.
         </p>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+        <button style={{ 
+          backgroundColor: 'var(--secondary-color)', 
+          color: 'white', 
+          padding: '8px 16px', 
+          borderRadius: '4px', 
+          border: 'none',
+          cursor: 'pointer' 
+        }}>
           Contactar
         </button>
       </div>

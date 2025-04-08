@@ -28,30 +28,28 @@ const Home = () => {
           <div className="fund-card">
             <h3>Inversión Empresarial <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
             <p>Fondo para análisis, estudios, proyectos e inversiones empresariales.</p>
-            <Link to="/fondos/inversion-empresarial">Más información</Link>
+            <Link to="/fondos/1">Más información</Link>
           </div>
           
           <div className="fund-card">
             <h3>Editorial y Medios <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
             <p>Para la generación de medios, videos, películas, publicaciones y divulgación.</p>
-            <Link to="/fondos/editorial-medios">Más información</Link>
+            <Link to="/fondos/2">Más información</Link>
           </div>
           
           <div className="fund-card">
             <h3>Sanación Emocional <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
             <p>Asistencia social-emocional enmarcada en la medicina alternativa no invasiva.</p>
-            <Link to="/fondos/sanacion-emocional">Más información</Link>
+            <Link to="/fondos/3">Más información</Link>
           </div>
           
           <div className="fund-card">
             <h3>Vivienda <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
             <p>Destinado a la construcción de vivienda.</p>
-            <Link to="/fondos/vivienda">Más información</Link>
+            <Link to="/fondos/4">Más información</Link>
           </div>
         </div>
-        <div className="view-all">
-          <Link to="/fondos">Ver todos los fondos</Link>
-        </div>
+        {/* Se ha eliminado el enlace "Ver todos los fondos" para que la página se muestre completa y se desplace naturalmente */}
       </section>
     </div>
   );

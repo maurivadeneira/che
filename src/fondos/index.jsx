@@ -1,51 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CheMiniLogo from '../components/CheMiniLogo.js';
 
 // Componente para un Fondo Rotatorio individual
 const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
-  // Minilogo para "CHE MUNDO LIBRE"
-  const MiniLogo = () => (
-    <div className="h-6 w-6 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xs mr-1">
-      CHE
-    </div>
-  );
-
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+    <div className="fund-card" style={{ border: '1px solid #e0e0e0', borderRadius: 'var(--border-radius)', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
       {/* Primer contenedor: Título y minilogo */}
-      <div className="bg-blue-100 p-4 border-b border-gray-300">
-        <div className="flex items-center">
-          <h3 className="text-lg font-bold text-blue-800 mr-2">{titulo}</h3>
-          <div className="flex items-center bg-blue-50 px-2 py-1 rounded-full">
-            <MiniLogo />
-            <span className="text-xs font-bold text-blue-800">MUNDO LIBRE</span>
-          </div>
-        </div>
+      <div style={{ backgroundColor: 'var(--light-color)', padding: '15px', borderBottom: '1px solid #e0e0e0' }}>
+        <h3 style={{ display: 'flex', alignItems: 'center', color: 'var(--secondary-color)', marginBottom: '5px' }}>
+          {titulo} <CheMiniLogo style={{ height: '20px', width: '40px', marginLeft: '8px' }} />
+        </h3>
       </div>
       
       {/* Segundo contenedor: Imagen (placeholder) */}
-      <div className="h-48 bg-gray-200 overflow-hidden">
+      <div style={{ height: '180px', overflow: 'hidden', borderBottom: '1px solid #e0e0e0' }}>
         <img 
           src={`/images/fondos/fondo-${id}.jpg`} 
           alt={`Imagen representativa de ${titulo}`} 
-          className="w-full h-full object-cover"
           title={imagenDesc}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/images/placeholder-400x200.jpg";
           }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
       
       {/* Tercer contenedor: Objetivos */}
-      <div className="p-4 bg-white flex-grow flex flex-col">
-        <h4 className="font-semibold mb-2 text-gray-700">Objetivos:</h4>
-        <p className="text-sm text-gray-600 mb-4">{descripcion}</p>
+      <div style={{ padding: '15px', backgroundColor: 'white', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <h4 style={{ fontWeight: '600', marginBottom: '10px', color: 'var(--secondary-color)' }}>Objetivos:</h4>
+        <p style={{ fontSize: '0.9rem', marginBottom: '15px', flexGrow: 1 }}>{descripcion}</p>
         
-        <div className="flex justify-end items-center mt-auto pt-4">
+        <div style={{ marginTop: 'auto', textAlign: 'right' }}>
           <Link 
             to={`/fondos/${id}`} 
-            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
+            className="cta-button"
+            style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: 'var(--secondary-color)', color: 'white', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem' }}
           >
             Ver más detalles →
           </Link>
@@ -128,9 +119,11 @@ const FondosRotatoriosCHE = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6 text-blue-900">Fondos Rotatorios C.H.E. MUNDO LIBRE</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--secondary-color)', fontSize: '1.8rem' }}>
+        Fondos Rotatorios C.H.E. MUNDO LIBRE <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle', marginLeft: '10px' }} />
+      </h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '25px', overflow: 'visible' }}>
         {fondos.map(fondo => (
           <FondoRotatorio 
             key={fondo.id}
