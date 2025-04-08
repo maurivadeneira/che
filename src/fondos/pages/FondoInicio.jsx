@@ -1,0 +1,312 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import CheMiniLogo from '../../components/CheMiniLogo.js';
+
+// Datos de los fondos (esto podría venir de un contexto o API)
+const fondosData = [
+  {
+    id: 1,
+    titulo: "Fondo Rotatorio De Inversión Empresarial",
+    descripcion: "Dedicado al análisis, estudios, proyectos e inversiones empresariales. Busca fomentar el desarrollo de nuevas empresas y fortalecer las existentes siguiendo los principios de la Herejía Económica, generando oportunidades de crecimiento económico sostenible.",
+    imagenDesc: "Equipo diverso de profesionales analizando proyectos de inversión en una oficina moderna con gráficos de crecimiento",
+    detalles: [
+      "Análisis de viabilidad de proyectos empresariales",
+      "Inversión en start-ups con alto potencial de crecimiento",
+      "Fortalecimiento de empresas existentes mediante asesoría y capital",
+      "Promoción de modelos empresariales basados en principios de la Herejía Económica",
+      "Desarrollo de ecosistemas empresariales sostenibles"
+    ],
+    proyectos: [
+      { nombre: "Incubadora de Empresas CHE", estado: "En desarrollo" },
+      { nombre: "Fondo de Capital Semilla", estado: "Activo" },
+      { nombre: "Red de Mentores Empresariales", estado: "Planificación" }
+    ]
+  },
+  // El resto de fondos serían añadidos aquí...
+];
+
+/**
+ * Página principal/inicio de un fondo específico
+ */
+const FondoInicio = () => {
+  const { id } = useParams();
+  const [fondo, setFondo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulamos una carga de datos
+    setLoading(true);
+    
+    // Buscar el fondo por ID
+    const fondoEncontrado = fondosData.find(f => f.id === parseInt(id));
+    
+    if (fondoEncontrado) {
+      setFondo(fondoEncontrado);
+    } else {
+      // Crear un fondo temporal con información básica
+      setFondo({
+        id: parseInt(id),
+        titulo: `Fondo Rotatorio #${id}`,
+        descripcion: "Información del fondo en desarrollo.",
+        detalles: ["Detalle 1", "Detalle 2", "Detalle 3"],
+        proyectos: [
+          { nombre: "Proyecto 1", estado: "En desarrollo" },
+          { nombre: "Proyecto 2", estado: "Planificación" }
+        ]
+      });
+    }
+    
+    setLoading(false);
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: 'center', padding: '40px' }}>
+        <p>Cargando información del fondo...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="fondo-inicio fade-in">
+      {/* Encabezado con imagen principal */}
+      <div style={{ 
+        position: 'relative',
+        height: '300px', 
+        borderRadius: '8px',
+        overflow: 'hidden',
+        marginBottom: '30px',
+        boxShadow: 'var(--box-shadow)'
+      }}>
+        <img 
+          src={`/images/fondos/fondo-${fondo.id}.svg`} 
+          alt={`Imagen representativa de ${fondo.titulo}`}
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover'
+          }}
+          loading="lazy"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/images/placeholder-400x200.svg";
+          }}
+        />
+        
+        {/* Overlay con título */}
+        <div style={{ 
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+          padding: '20px',
+          color: 'white'
+        }}>
+          <h1 style={{ 
+            fontSize: '28px',
+            fontWeight: 'bold',
+            margin: 0,
+            textShadow: '1px 1px 3px rgba(0,0,0,0.5)'
+          }}>
+            {fondo.titulo}
+          </h1>
+        </div>
+      </div>
+      
+      {/* Secciones de contenido */}
+      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px' }}>
+        {/* Columna principal */}
+        <div>
+          {/* Misión y visión */}
+          <section style={{ 
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            boxShadow: 'var(--box-shadow)',
+            padding: '25px',
+            marginBottom: '30px'
+          }}>
+            <h2 style={{ 
+              fontSize: '22px',
+              fontWeight: 'bold',
+              color: 'var(--secondary-color)',
+              marginBottom: '15px'
+            }}>
+              Nuestra Misión
+            </h2>
+            <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
+              {fondo.descripcion}
+            </p>
+            
+            <h2 style={{ 
+              fontSize: '22px',
+              fontWeight: 'bold',
+              color: 'var(--secondary-color)',
+              marginBottom: '15px',
+              marginTop: '30px'
+            }}>
+              Visión
+            </h2>
+            <p style={{ lineHeight: '1.6' }}>
+              Ser un referente en el desarrollo de soluciones económicas alternativas 
+              que promuevan la libertad financiera y el bienestar integral de las personas 
+              y comunidades, siguiendo los principios de la Herejía Económica.
+            </p>
+          </section>
+          
+          {/* Áreas de enfoque */}
+          <section style={{ 
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            boxShadow: 'var(--box-shadow)',
+            padding: '25px'
+          }}>
+            <h2 style={{ 
+              fontSize: '22px',
+              fontWeight: 'bold',
+              color: 'var(--secondary-color)',
+              marginBottom: '20px'
+            }}>
+              Áreas de Enfoque
+            </h2>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+              {fondo.detalles.map((detalle, index) => (
+                <div key={index} style={{ 
+                  backgroundColor: '#f8f9fa',
+                  borderRadius: '8px',
+                  padding: '15px',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                }}>
+                  <div style={{ 
+                    color: 'var(--secondary-color)',
+                    fontWeight: 'bold',
+                    marginBottom: '8px',
+                    fontSize: '16px'
+                  }}>
+                    Área {index + 1}
+                  </div>
+                  <p style={{ fontSize: '14px' }}>{detalle}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+        
+        {/* Columna lateral */}
+        <div>
+          {/* Proyectos destacados */}
+          <section style={{ 
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            boxShadow: 'var(--box-shadow)',
+            padding: '20px',
+            marginBottom: '30px'
+          }}>
+            <h2 style={{ 
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: 'var(--secondary-color)',
+              marginBottom: '15px'
+            }}>
+              Proyectos Destacados
+            </h2>
+            
+            <div>
+              {fondo.proyectos.map((proyecto, index) => (
+                <div key={index} style={{ 
+                  padding: '12px 0',
+                  borderBottom: index < fondo.proyectos.length - 1 ? '1px solid #eee' : 'none'
+                }}>
+                  <div style={{ 
+                    fontWeight: 'bold',
+                    marginBottom: '5px'
+                  }}>
+                    {proyecto.nombre}
+                  </div>
+                  <div>
+                    <span style={{
+                      display: 'inline-block', 
+                      padding: '3px 8px', 
+                      borderRadius: '4px', 
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      backgroundColor: proyecto.estado === 'Activo' ? '#d4edda' : 
+                                      proyecto.estado === 'En desarrollo' ? '#cce5ff' : '#fff3cd',
+                      color: proyecto.estado === 'Activo' ? '#155724' : 
+                             proyecto.estado === 'En desarrollo' ? '#004085' : '#856404'
+                    }}>
+                      {proyecto.estado}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+          
+          {/* Contacto rápido */}
+          <section style={{ 
+            backgroundColor: '#e6f0ff',
+            borderRadius: '8px',
+            boxShadow: 'var(--box-shadow)',
+            padding: '20px'
+          }}>
+            <h2 style={{ 
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: 'var(--secondary-color)',
+              marginBottom: '15px'
+            }}>
+              Contacto Rápido
+            </h2>
+            
+            <form>
+              <div style={{ marginBottom: '15px' }}>
+                <input 
+                  type="email" 
+                  placeholder="Tu correo electrónico" 
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    borderRadius: '4px',
+                    border: '1px solid #ccc',
+                    fontSize: '14px'
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: '15px' }}>
+                <textarea 
+                  placeholder="Tu mensaje" 
+                  rows={4}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    borderRadius: '4px',
+                    border: '1px solid #ccc',
+                    fontSize: '14px',
+                    resize: 'vertical'
+                  }}
+                ></textarea>
+              </div>
+              <button style={{
+                backgroundColor: 'var(--secondary-color)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '10px 20px',
+                fontSize: '14px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                width: '100%'
+              }}>
+                Enviar Mensaje
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FondoInicio;
