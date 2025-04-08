@@ -1,11 +1,17 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import FondosRotatoriosCHE from './index';
 import FondoLayout from './components/FondoLayout';
 import FondoInicio from './pages/FondoInicio';
 import FondoProyectos from './pages/FondoProyectos';
 import FondoEquipo from './pages/FondoEquipo';
 import FondoContacto from './pages/FondoContacto';
+
+// Componente de redirección para la ruta simple del fondo a la página de inicio
+const RedirectToFondoInicio = () => {
+  const { id } = useParams();
+  return <Navigate to={`/fondos/${id}/inicio`} replace />;
+};
 
 /**
  * Configuración de rutas para los fondos
@@ -18,6 +24,9 @@ const FondosRoutes = () => {
     <Routes>
       {/* Vista general de todos los fondos */}
       <Route index element={<FondosRotatoriosCHE />} />
+      
+      {/* Redirección para rutas simples de fondos */}
+      <Route path=":id" element={<RedirectToFondoInicio />} />
       
       {/* Nueva estructura de fondo con múltiples páginas */}
       <Route path=":id/*" element={<FondoLayout />}>

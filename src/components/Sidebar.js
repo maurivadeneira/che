@@ -24,7 +24,7 @@ const Sidebar = () => {
           {fondos.map((fondo) => (
             <li key={fondo.id}>
               <NavLink 
-                to={`/fondos/${fondo.id}`}
+                to={`/fondos/${fondo.id}/inicio`}
                 className={({ isActive }) => isActive ? 'active' : ''}
               >
                 {fondo.name}
