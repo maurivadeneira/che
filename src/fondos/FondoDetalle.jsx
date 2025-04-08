@@ -262,9 +262,11 @@ const FondoDetalle = () => {
         </Link>
         
         <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--secondary-color)', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <span style={{ marginRight: '10px', flex: '1 1 auto' }}>{fondo.titulo}</span>
-            <CheMiniLogo style={{ height: '30px', width: '60px', minWidth: '60px', verticalAlign: 'middle', flexShrink: 0 }} />
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--secondary-color)', textAlign: 'center', width: '100%' }}>
+            <div>{fondo.titulo}</div>
+            <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
+              <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle' }} />
+            </div>
           </h1>
         </div>
       </div>
