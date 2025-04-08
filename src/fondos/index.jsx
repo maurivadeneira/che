@@ -9,8 +9,9 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
     <div className="fund-card" style={{ border: '1px solid #e0e0e0', borderRadius: 'var(--border-radius)', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
       {/* Primer contenedor: Título y minilogo */}
       <div style={{ backgroundColor: 'var(--light-color)', padding: '15px', borderBottom: '1px solid #e0e0e0' }}>
-        <h3 style={{ display: 'flex', alignItems: 'center', color: 'var(--secondary-color)', marginBottom: '5px' }}>
-          {titulo} <CheMiniLogo style={{ height: '20px', width: '40px', marginLeft: '8px', verticalAlign: 'middle' }} />
+        <h3 style={{ display: 'flex', alignItems: 'center', color: 'var(--secondary-color)', marginBottom: '5px', flexWrap: 'wrap' }}>
+          <span style={{ marginRight: '8px', flex: '1 1 auto' }}>{titulo}</span> 
+          <CheMiniLogo style={{ height: '20px', width: '40px', minWidth: '40px', verticalAlign: 'middle', flexShrink: 0 }} />
         </h3>
       </div>
       
@@ -123,8 +124,9 @@ const FondosRotatoriosCHE = () => {
   return (
     <div className="fade-in" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <DevelopmentBanner />
-      <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--secondary-color)', fontSize: '1.8rem' }}>
-        Fondos Rotatorios C.H.E. MUNDO LIBRE <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle', marginLeft: '10px' }} />
+      <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--secondary-color)', fontSize: '1.8rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <span style={{ marginRight: '10px' }}>Fondos Rotatorios C.H.E. MUNDO LIBRE</span> 
+        <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle', flexShrink: 0, minWidth: '60px' }} />
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '25px', overflow: 'visible' }}>
         {fondos.map(fondo => (
