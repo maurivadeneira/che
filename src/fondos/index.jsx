@@ -11,17 +11,15 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
   );
 
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md m-2 overflow-hidden flex-1 flex flex-col max-w-md hover:shadow-lg transition-shadow duration-300">
+    <div className="border border-gray-300 rounded-lg shadow-md overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
       {/* Primer contenedor: Título y minilogo */}
       <div className="bg-blue-100 p-4 border-b border-gray-300">
         <div className="flex items-center">
-          <h3 className="text-lg font-bold text-blue-800">{titulo}</h3>
-          <span className="text-blue-800 mx-1">(</span>
-          <div className="flex items-center">
+          <h3 className="text-lg font-bold text-blue-800 mr-2">{titulo}</h3>
+          <div className="flex items-center bg-blue-50 px-2 py-1 rounded-full">
             <MiniLogo />
             <span className="text-xs font-bold text-blue-800">MUNDO LIBRE</span>
           </div>
-          <span className="text-blue-800 ml-1">)</span>
         </div>
       </div>
       
@@ -40,14 +38,14 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       </div>
       
       {/* Tercer contenedor: Objetivos */}
-      <div className="p-4 bg-white flex-grow">
+      <div className="p-4 bg-white flex-grow flex flex-col">
         <h4 className="font-semibold mb-2 text-gray-700">Objetivos:</h4>
         <p className="text-sm text-gray-600 mb-4">{descripcion}</p>
         
-        <div className="flex justify-end items-center mt-auto">
+        <div className="flex justify-end items-center mt-auto pt-4">
           <Link 
             to={`/fondos/${id}`} 
-            className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
           >
             Ver más detalles →
           </Link>
@@ -132,16 +130,15 @@ const FondosRotatoriosCHE = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6 text-blue-900">Fondos Rotatorios C.H.E. MUNDO LIBRE</h1>
-      <div className="flex flex-wrap justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {fondos.map(fondo => (
-          <div key={fondo.id} className="w-full md:w-1/2 p-2">
-            <FondoRotatorio 
-              id={fondo.id}
-              titulo={fondo.titulo}
-              descripcion={fondo.descripcion}
-              imagenDesc={fondo.imagenDesc}
-            />
-          </div>
+          <FondoRotatorio 
+            key={fondo.id}
+            id={fondo.id}
+            titulo={fondo.titulo}
+            descripcion={fondo.descripcion}
+            imagenDesc={fondo.imagenDesc}
+          />
         ))}
       </div>
     </div>

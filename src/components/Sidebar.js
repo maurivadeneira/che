@@ -2,17 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const fondos = [
-  { id: 'inversion-empresarial', name: 'Inversión Empresarial' },
-  { id: 'editorial-medios', name: 'Editorial y Medios Audiovisuales' },
-  { id: 'sanacion-emocional', name: 'Sanación Emocional' },
-  { id: 'vivienda', name: 'Vivienda' },
-  { id: 'recreacion-hotelera', name: 'Recreación Social y Hotelera' },
-  { id: 'sistemas-plataformas', name: 'Sistemas y Plataformas' },
-  { id: 'bancario', name: 'Bancario' },
-  { id: 'proyectos-ingenieria', name: 'Proyectos de Ingeniería' },
-  { id: 'comercial', name: 'Comercial' },
-  { id: 'investigacion-cientifica', name: 'Investigación Científica' },
-  { id: 'arte-cultura', name: 'Arte y Cultura' },
+  { id: '1', name: 'Inversión Empresarial' },
+  { id: '2', name: 'Editorial y Medios Audiovisuales' },
+  { id: '3', name: 'Sanación Emocional' },
+  { id: '4', name: 'Vivienda' },
+  { id: '5', name: 'Recreación Social y Hotelera' },
+  { id: '6', name: 'Sistemas y Plataformas' },
+  { id: '7', name: 'Bancario' },
+  { id: '8', name: 'Proyectos de Ingeniería' },
+  { id: '9', name: 'Comercial' },
+  { id: '10', name: 'Investigación Científica' },
+  { id: '11', name: 'Arte y Cultura' },
 ];
 
 const Sidebar = () => {
