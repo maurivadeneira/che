@@ -1,1 +1,1 @@
-<!-- Este es un archivo de texto que simula una imagen placeholder. En un entorno real, necesitarías crear/descargar un archivo de imagen JPG real. -->
+/* No podemos crear un archivo de imagen directamente, ya que es un archivo binario. En su lugar, debemos indicar al usuario que coloque una imagen de placeholder. */

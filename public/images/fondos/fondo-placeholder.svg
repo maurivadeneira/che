@@ -1,0 +1,9 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#e6f0ff"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#00569e">
+    CHE - Fondos Rotatorios
+  </text>
+  <text x="200" y="125" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#00569e">
+    Imagen en desarrollo
+  </text>
+</svg>

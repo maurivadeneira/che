@@ -269,14 +269,15 @@ const FondoDetalle = () => {
       </div>
 
       {/* Imagen principal */}
-      <div style={{ marginBottom: '25px', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--box-shadow)' }}>
+      <div className="img-container" style={{ marginBottom: '25px', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--box-shadow)' }}>
         <img 
-          src={`/images/fondos/fondo-${fondo.id}-large.jpg`} 
+          src={`/images/fondos/fondo-${fondo.id}.svg`} 
           alt={`Imagen representativa de ${fondo.titulo}`}
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
+          loading="lazy"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x200.jpg";
+            e.target.src = "/images/placeholder-400x200.svg";
           }}
         />
       </div>

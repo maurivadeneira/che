@@ -1,4 +1,32 @@
 /* Estilos principales del sitio CHE */
+/* Manejo de imágenes */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 0;
+}
+
+.img-container img {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
 :root {
   --primary-color: #ff4500;
   --secondary-color: #00569e;
@@ -50,6 +78,7 @@ ul {
   display: flex;
   flex: 1;
   overflow-y: auto;
+  min-height: 500px;
 }
 
 .content {

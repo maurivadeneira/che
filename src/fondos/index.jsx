@@ -15,16 +15,17 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       </div>
       
       {/* Segundo contenedor: Imagen (placeholder) */}
-      <div style={{ height: '180px', overflow: 'hidden', borderBottom: '1px solid #e0e0e0' }}>
+      <div className="img-container" style={{ height: '180px', borderBottom: '1px solid #e0e0e0' }}>
         <img 
-          src={`/images/fondos/fondo-${id}.jpg`} 
+          src={`/images/fondos/fondo-${id}.svg`} 
           alt={`Imagen representativa de ${titulo}`} 
           title={imagenDesc}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x200.jpg";
+            e.target.src = "/images/placeholder-400x200.svg";
           }}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          loading="lazy"
         />
       </div>
       
