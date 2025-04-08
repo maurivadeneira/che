@@ -218,6 +218,23 @@ const FondoEquipo = () => {
           </div>
         </div>
         
+        {/* Banner azul con "Imagen en desarrollo" */}
+        <div style={{ 
+          backgroundColor: '#e6f0ff',
+          padding: '30px',
+          textAlign: 'center',
+          borderRadius: '8px',
+          marginBottom: '30px'
+        }}>
+          <h2 style={{ 
+            fontSize: '28px',
+            color: '#888',
+            fontWeight: 'normal'
+          }}>
+            Imagen en desarrollo
+          </h2>
+        </div>
+        
         <div style={{ 
           backgroundColor: 'white',
           borderRadius: '8px',

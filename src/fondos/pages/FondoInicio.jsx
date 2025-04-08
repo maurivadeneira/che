@@ -38,8 +38,64 @@ const FondoInicio = () => {
     // Simulamos una carga de datos
     setLoading(true);
     
+    // Datos correctos para cada fondo
+    const fondosCompletos = [
+      {
+        id: 1,
+        titulo: "Fondo Rotatorio De Inversión Empresarial",
+        descripcion: "Dedicado al análisis, estudios, proyectos e inversiones empresariales. Busca fomentar el desarrollo de nuevas empresas y fortalecer las existentes siguiendo los principios de la Herejía Económica, generando oportunidades de crecimiento económico sostenible.",
+        detalles: [
+          "Análisis de viabilidad de proyectos empresariales",
+          "Inversión en start-ups con alto potencial de crecimiento",
+          "Fortalecimiento de empresas existentes mediante asesoría y capital",
+          "Promoción de modelos empresariales basados en principios de la Herejía Económica",
+          "Desarrollo de ecosistemas empresariales sostenibles"
+        ],
+        proyectos: [
+          { nombre: "Incubadora de Empresas CHE", estado: "En desarrollo" },
+          { nombre: "Fondo de Capital Semilla", estado: "Activo" },
+          { nombre: "Red de Mentores Empresariales", estado: "Planificación" }
+        ]
+      },
+      {
+        id: 2,
+        titulo: "Fondo Rotatorio Editorial y de Medios Audiovisuales",
+        descripcion: "Enfocado en la generación de medios, videos, películas, publicaciones y divulgación de las ideas de la Herejía Económica. Promueve la creación de contenido educativo e informativo accesible para todos los públicos.",
+        detalles: [
+          "Producción de material audiovisual sobre principios económicos",
+          "Publicación de libros y artículos sobre Herejía Económica",
+          "Desarrollo de plataformas digitales para divulgación",
+          "Creación de documentales y series educativas",
+          "Gestión de canales de comunicación multimedia"
+        ],
+        proyectos: [
+          { nombre: "Serie Documental 'Libertad Económica'", estado: "En producción" },
+          { nombre: "Revista Digital Mensual", estado: "Activo" },
+          { nombre: "Canal de YouTube Educativo", estado: "Activo" }
+        ]
+      },
+      {
+        id: 3,
+        titulo: "Fondo Rotatorio de Sanación Emocional",
+        descripcion: "Orientado a la asistencia social-emocional enmarcada en la medicina alternativa de medios no invasivos. Busca el bienestar integral de las personas como base para su libertad económica.",
+        detalles: [
+          "Programas de terapia emocional mediante técnicas alternativas",
+          "Talleres de sanación grupal e individual",
+          "Formación de terapeutas en metodologías de sanación holística",
+          "Investigación de técnicas innovadoras no invasivas",
+          "Centros de bienestar integral para la comunidad"
+        ],
+        proyectos: [
+          { nombre: "Centro de Bienestar Integral CHE", estado: "En desarrollo" },
+          { nombre: "Programa de Formación de Terapeutas", estado: "Planificación" },
+          { nombre: "Talleres Comunitarios de Sanación", estado: "Activo" }
+        ]
+      },
+      // ... resto de fondos
+    ];
+    
     // Buscar el fondo por ID
-    const fondoEncontrado = fondosData.find(f => f.id === parseInt(id));
+    const fondoEncontrado = fondosCompletos.find(f => f.id === parseInt(id));
     
     if (fondoEncontrado) {
       setFondo(fondoEncontrado);
@@ -93,29 +149,21 @@ const FondoInicio = () => {
         </div>
       </div>
       
-      {/* Banner con imagen principal */}
+      {/* Banner azul con "Imagen en desarrollo" */}
       <div style={{ 
-        position: 'relative',
-        height: '300px', 
+        backgroundColor: '#e6f0ff',
+        padding: '30px',
+        textAlign: 'center',
         borderRadius: '8px',
-        overflow: 'hidden',
-        marginBottom: '30px',
-        boxShadow: 'var(--box-shadow)'
+        marginBottom: '30px'
       }}>
-        <img 
-          src={`/images/fondos/fondo-${fondo.id}.svg`} 
-          alt={`Imagen representativa de ${fondo.titulo}`}
-          style={{ 
-            width: '100%', 
-            height: '100%', 
-            objectFit: 'cover'
-          }}
-          loading="lazy"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x200.svg";
-          }}
-        />
+        <h2 style={{ 
+          fontSize: '28px',
+          color: '#888',
+          fontWeight: 'normal'
+        }}>
+          Imagen en desarrollo
+        </h2>
       </div>
       
       {/* Secciones de contenido */}
