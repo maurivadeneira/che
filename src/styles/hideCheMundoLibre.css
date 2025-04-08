@@ -1,0 +1,40 @@
+/* Este archivo CSS oculta el texto "CHE - Mundo Libre" en el fondo azul claro */
+[style*="background-color: rgb(230, 240, 255)"] {
+  position: relative;
+}
+
+[style*="background-color: rgb(230, 240, 255)"]:has(div:contains('CHE - Mundo Libre')) {
+  position: relative;
+}
+
+[style*="background-color: rgb(230, 240, 255)"]:has(div:contains('CHE - Mundo Libre')) div:contains('CHE - Mundo Libre') {
+  display: none !important;
+}
+
+[style*="background-color: rgb(224, 242, 254)"]:has(div:contains('CHE - Mundo Libre')) div:contains('CHE - Mundo Libre') {
+  display: none !important;
+}
+
+[style*="background-color: rgb(235, 245, 255)"]:has(div:contains('CHE - Mundo Libre')) div:contains('CHE - Mundo Libre') {
+  display: none !important;
+}
+
+/* Selector más específico para cualquier elemento con este texto */
+*:not(style):not(script):not(head):not(meta):not(link):not(title) {
+  position: relative;
+}
+
+*:not(style):not(script):not(head):not(meta):not(link):not(title):contains('CHE - Mundo Libre') {
+  background-color: transparent !important;
+}
+
+*:not(style):not(script):not(head):not(meta):not(link):not(title):contains('CHE - Mundo Libre')::after {
+  content: "" !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  z-index: 1;
+}
