@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import FondoNavbar from './FondoNavbar';
+import CheMiniLogo from '../../components/CheMiniLogo.js';
 import { useParams } from 'react-router-dom';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
@@ -58,9 +59,16 @@ const FondoLayout = () => {
           margin: '0 auto', 
           padding: '0 20px',
           textAlign: 'center',
-          color: '#666'
+          color: '#666',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}>
-          <p>&copy; {new Date().getFullYear()} {fondo.nombre} - C.H.E. Mundo Libre</p>
+          <p style={{ marginBottom: '10px' }}>&copy; {new Date().getFullYear()} {fondo.nombre}</p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <CheMiniLogo style={{ height: '20px', width: '40px', marginRight: '5px' }} />
+            <span>Mundo Libre</span>
+          </div>
         </div>
       </footer>
     </div>
