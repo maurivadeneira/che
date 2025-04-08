@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "dev": "webpack serve",
     "build": "webpack --mode production",
-    "start": "node server.js"
+    "start": "webpack serve"
   },
   "keywords": [],
   "author": "",

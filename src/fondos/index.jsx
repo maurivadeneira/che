@@ -39,7 +39,7 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
         
         <div style={{ marginTop: 'auto', textAlign: 'right' }}>
           <Link 
-            to={`/fondos/${id}`} 
+            to={`/fondos/${id}/inicio`} 
             className="cta-button"
             style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: 'var(--secondary-color)', color: 'white', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem' }}
           >
