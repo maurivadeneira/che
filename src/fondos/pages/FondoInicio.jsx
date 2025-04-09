@@ -100,10 +100,22 @@ const FondoInicio = () => {
     if (fondoEncontrado) {
       setFondo(fondoEncontrado);
     } else {
-      // Crear un fondo temporal con información básica
+      // Títulos para los fondos del 4 al 11
+      const titulosFondos = {
+        4: "Fondo Rotatorio de Vivienda",
+        5: "Fondo Rotatorio de Recreación Social y Hotelera",
+        6: "Fondo Rotatorio de Sistemas y Plataformas",
+        7: "Fondo Rotatorio Bancario",
+        8: "Fondo Rotatorio de Proyectos de Ingeniería",
+        9: "Fondo Rotatorio Comercial",
+        10: "Fondo Rotatorio para la Investigación Científica",
+        11: "Fondo Rotatorio para el Desarrollo del Arte y la Cultura"
+      };
+      
+      // Crear un fondo temporal con información básica pero con el título correcto
       setFondo({
         id: parseInt(id),
-        titulo: `Fondo Rotatorio #${id}`,
+        titulo: titulosFondos[id] || `Fondo Rotatorio #${id}`,
         descripcion: "Información del fondo en desarrollo.",
         detalles: ["Detalle 1", "Detalle 2", "Detalle 3"],
         proyectos: [
