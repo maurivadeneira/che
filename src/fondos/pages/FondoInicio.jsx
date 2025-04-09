@@ -35,6 +35,9 @@ const FondoInicio = () => {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
+    // Desplazar la página hacia arriba al cargar
+    window.scrollTo(0, 0);
+    
     // Simulamos una carga de datos
     setLoading(true);
     

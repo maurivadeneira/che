@@ -64,6 +64,9 @@ const FondoProyectos = () => {
   const [filtro, setFiltro] = useState('todos');
   
   useEffect(() => {
+    // Desplazar la página hacia arriba al cargar
+    window.scrollTo(0, 0);
+    
     // Simulamos carga de datos
     setLoading(true);
     

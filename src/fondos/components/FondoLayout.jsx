@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import FondoNavbar from './FondoNavbar';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
 import { useParams } from 'react-router-dom';
@@ -25,7 +25,13 @@ const fondosInfo = [
  */
 const FondoLayout = () => {
   const { id } = useParams();
+  const location = useLocation();
   const fondoId = parseInt(id);
+  
+  // Desplazar al inicio cuando cambie la ruta
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   
   // Buscar el fondo por ID
   const fondo = fondosInfo.find(f => f.id === fondoId) || { 

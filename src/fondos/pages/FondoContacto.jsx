@@ -70,6 +70,9 @@ const FondoContacto = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   
   useEffect(() => {
+    // Desplazar la página hacia arriba al cargar
+    window.scrollTo(0, 0);
+    
     // Simulamos carga de datos
     setLoading(true);
     

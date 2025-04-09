@@ -40,16 +40,16 @@ const FondoNavbar = ({ fondoId, fondoNombre }) => {
 
         {/* Menú de navegación del fondo */}
         <div className="fondo-menu" style={{ display: 'flex', gap: '20px' }}>
-          <Link to={`/fondos/${fondoId}/inicio`} style={{ color: 'white', textDecoration: 'none' }}>
+          <Link to={`/fondos/${fondoId}/inicio`} style={{ color: 'white', textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
             Inicio
           </Link>
-          <Link to={`/fondos/${fondoId}/proyectos`} style={{ color: 'white', textDecoration: 'none' }}>
+          <Link to={`/fondos/${fondoId}/proyectos`} style={{ color: 'white', textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
             Proyectos
           </Link>
-          <Link to={`/fondos/${fondoId}/equipo`} style={{ color: 'white', textDecoration: 'none' }}>
+          <Link to={`/fondos/${fondoId}/equipo`} style={{ color: 'white', textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
             Equipo
           </Link>
-          <Link to={`/fondos/${fondoId}/contacto`} style={{ color: 'white', textDecoration: 'none' }}>
+          <Link to={`/fondos/${fondoId}/contacto`} style={{ color: 'white', textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
             Contacto
           </Link>
         </div>
@@ -61,7 +61,7 @@ const FondoNavbar = ({ fondoId, fondoNombre }) => {
           display: 'flex',
           alignItems: 'center',
           fontSize: '14px'
-        }}>
+        }} onClick={() => window.scrollTo(0, 0)}>
           <span style={{ marginRight: '5px' }}>Volver a CHE</span>
           <CheMiniLogo style={{ height: '16px', width: '32px' }} />
         </Link>
