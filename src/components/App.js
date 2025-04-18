@@ -12,13 +12,18 @@ const HerejiaIAPage = () => (
     <h1>Herejías con IA</h1>
     <p>Esta sección contiene diálogos profundos en todos los campos con la inteligencia artificial.</p>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '30px' }}>
-      {['CUESTIONANDOLAFÍSICA', 'CUESTIONANDOTEORÍA', 'ECONOMIAvsCIENCIA', 'ExtraterrestresDialogo'].map((doc, index) => (
+      {[
+        {title: 'CUESTIONANDO LA FÍSICA', file: '/documentos/herejias-ia/CUESTIONANDO_LA_FISICA.pdf'},
+        {title: 'CUESTIONANDO TEORÍA DEL BIG BANG', file: '/documentos/herejias-ia/CUESTIONANDO_BIG_BANG.pdf'},
+        {title: 'ECONOMÍA vs CIENCIA', file: '/documentos/herejias-ia/ECONOMIAvsCIENCIA.pdf'},
+        {title: 'EXTRATERRESTRES DIÁLOGO', file: '/documentos/herejias-ia/ExtraterrestresDialogo.pdf'}
+      ].map((doc, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
-          <h3>{doc}</h3>
+          <h3>{doc.title}</h3>
           <p>Diálogo con la inteligencia artificial sobre temas de frontera.</p>
-          <button style={{ backgroundColor: '#f59e0b', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}>
+          <a href={doc.file} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#f59e0b', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', textDecoration: 'none' }}>
             Ver documento
-          </button>
+          </a>
         </div>
       ))}
     </div>
@@ -30,16 +35,19 @@ const ConferenciasPage = () => (
     <h1>Conferencias</h1>
     <p>Conferencias y presentaciones sobre Herejía Económica y otros temas de interés.</p>
     <div style={{ marginTop: '30px' }}>
-      {['Conferencia 1', 'Conferencia 2', 'Kit de Herejía Económica', 'Presentación del Autor'].map((conf, index) => (
+      {[
+        {title: 'Conferencia 1', url: 'https://www.youtube.com/watch?v=videoId1', details: 'Conferencia introductoria a la Herejía Económica'},
+        {title: 'Conferencia 2', url: 'https://www.youtube.com/watch?v=videoId2', details: 'Fundamentos de la Herejía Económica'},
+        {title: 'Kit de Herejía Económica', url: 'https://www.youtube.com/watch?v=videoId3', details: 'Herramientas para el análisis económico alternativo'},
+        {title: 'Presentación del Autor', url: 'https://www.youtube.com/watch?v=videoId4', details: 'Biografía y trayectoria del autor'}
+      ].map((conf, index) => (
         <div key={index} style={{ marginBottom: '20px', padding: '15px', borderBottom: '1px solid #eee' }}>
-          <h3>{conf}</h3>
+          <h3>{conf.title}</h3>
+          <p>{conf.details}</p>
           <p>Fecha: {new Date().toLocaleDateString()}</p>
-          <button style={{ backgroundColor: '#3498db', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', marginRight: '10px' }}>
-            Ver detalles
-          </button>
-          <button style={{ backgroundColor: '#e74c3c', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}>
+          <a href={conf.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#e74c3c', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', textDecoration: 'none' }}>
             Ver video
-          </button>
+          </a>
         </div>
       ))}
     </div>
@@ -53,26 +61,40 @@ const BibliotecaPage = () => (
     
     <h2 style={{ marginTop: '30px' }}>Artículos</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
-      {['COMPROBADO', 'DOS PROBLEMAS FUNDAMENTALES', 'ECONOMIA MUNDIAL SOS', 'EL AHORRO EN COLOMBIA', 'EL PROBLEMA DE LA INFLACIÓN', 'EL PROBLEMA DEL DEFICIT', 'Reflexiones'].map((art, index) => (
+      {[
+        {title: 'COMPROBADO', file: '/documentos/articulos/COMPROBADO.pdf'},
+        {title: 'DOS PROBLEMAS FUNDAMENTALES', file: '/documentos/articulos/DOS_PROBLEMAS_FUNDAMENTALES.pdf'},
+        {title: 'ECONOMÍA MUNDIAL SOS', file: '/documentos/articulos/ECONOMIA_MUNDIAL_SOS.pdf'},
+        {title: 'EL AHORRO EN COLOMBIA', file: '/documentos/articulos/EL_AHORRO_EN_COLOMBIA.pdf'},
+        {title: 'EL PROBLEMA DE LA INFLACIÓN', file: '/documentos/articulos/EL_PROBLEMA_DE_LA_INFLACION.pdf'},
+        {title: 'EL PROBLEMA DEL DÉFICIT', file: '/documentos/articulos/EL_PROBLEMA_DEL_DEFICIT.pdf'},
+        {title: 'REFLEXIONES', file: '/documentos/articulos/REFLEXIONES.pdf'}
+      ].map((art, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
-          <h3>{art}</h3>
+          <h3>{art.title}</h3>
           <p>Artículo sobre economía y herejía económica.</p>
-          <button style={{ backgroundColor: '#2ecc71', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}>
+          <a href={art.file} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#2ecc71', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', textDecoration: 'none' }}>
             Leer artículo
-          </button>
+          </a>
         </div>
       ))}
     </div>
     
     <h2 style={{ marginTop: '40px' }}>Libros</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
-      {['LIBRO PRIMERO TEORÍA ECONÓMICA', 'Análisis Comprehensivo', 'Comentario al libro Primero', 'LIBRO SEGUNDO HEREJIA ECONOMICA', 'Presentación al LIBRO segundo'].map((libro, index) => (
+      {[
+        {title: 'LIBRO PRIMERO TEORÍA ECONÓMICA', file: '/documentos/libros/LIBRO_PRIMERO.pdf'},
+        {title: 'Análisis Comprehensivo', file: '/documentos/libros/AnalisisComprehensivo.pdf'},
+        {title: 'Comentario al libro Primero', file: '/documentos/libros/ComentarioLibroPrimero.pdf'},
+        {title: 'LIBRO SEGUNDO HEREJIA ECONOMICA', file: '/documentos/libros/LIBRO_SEGUNDO.pdf'},
+        {title: 'Presentación al LIBRO segundo', file: '/documentos/libros/PresentacionLibroSegundo.pdf'}
+      ].map((libro, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
-          <h3>{libro}</h3>
+          <h3>{libro.title}</h3>
           <p>Libro sobre la teoría de la herejía económica.</p>
-          <button style={{ backgroundColor: '#9b59b6', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}>
+          <a href={libro.file} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: '#9b59b6', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', textDecoration: 'none' }}>
             Ver libro
-          </button>
+          </a>
         </div>
       ))}
     </div>
