@@ -14,7 +14,9 @@ const HerejiaIAPage = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '30px' }}>
       {[
         {title: 'CUESTIONANDO LA FÍSICA', file: '/documentos/herejias-ia/CUESTIONANDO_LA_FISICA.pdf'},
-        {title: 'CUESTIONANDO TEORÍA DEL BIG BANG', file: '/documentos/herejias-ia/CUESTIONANDO_BIG_BANG.pdf'}
+        {title: 'CUESTIONANDO TEORÍA DEL BIG BANG', file: '/documentos/herejias-ia/CUESTIONANDO_BIG_BANG.pdf'},
+        {title: 'ECONOMÍA vs CIENCIA', file: '/documentos/herejias-ia/ECONOMIA_vs_CIENCIA.pdf'},
+        {title: 'EXTRATERRESTRES DIÁLOGO', file: '/documentos/herejias-ia/EXTRATERRESTRES.pdf'}
       ].map((doc, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
           <h3>{doc.title}</h3>
@@ -34,10 +36,10 @@ const ConferenciasPage = () => (
     <p>Conferencias y presentaciones sobre Herejía Económica y otros temas de interés.</p>
     <div style={{ marginTop: '30px' }}>
       {[
-        {title: 'Conferencia 1', url: 'https://youtu.be/y6oPSjHh_Ug', details: 'Conferencia introductoria a la Herejía Económica'},
-        {title: 'Conferencia 2', url: 'https://youtu.be/UvSKBh4DcPE', details: 'Fundamentos de la Herejía Económica'},
-        {title: 'Kit de Herejía Económica', url: 'https://youtu.be/CkZmKIy4SuU', details: 'Herramientas para el análisis económico alternativo'},
-        {title: 'Presentación del Autor', url: 'https://youtu.be/CkZmKIy4SuU', details: 'Biografía y trayectoria del autor'}
+        {title: 'Conferencia 1', url: 'https://youtu.be/m9rDQNNp6is?si=wpkoQXiK6sQRHMR2', details: 'Conferencia introductoria a la Herejía Económica'},
+        {title: 'Conferencia 2', url: 'https://www.youtube.com/watch?v=S6vZCz20t9s&t=1s', details: 'Fundamentos de la Herejía Económica'},
+        {title: 'Kit de Herejía Económica', url: 'https://www.youtube.com/watch?v=B6zuFjeFNMQ', details: 'Herramientas para el análisis económico alternativo'},
+        {title: 'Presentación del Autor', url: 'https://www.youtube.com/watch?v=9ZnozV3EgwE', details: 'Biografía y trayectoria del autor'}
       ].map((conf, index) => (
         <div key={index} style={{ marginBottom: '20px', padding: '15px', borderBottom: '1px solid #eee' }}>
           <h3>{conf.title}</h3>
@@ -76,8 +78,11 @@ const BibliotecaPage = () => (
     <h2 style={{ marginTop: '40px' }}>Libros</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
       {[
+        {title: 'LIBRO PRIMERO TEORÍA ECONÓMICA', file: '/documentos/libros/LIBRO_PRIMERO.pdf'},
         {title: 'Análisis Comprehensivo', file: '/documentos/libros/AnalisisComprehensivo.pdf'},
-        {title: 'LIBRO SEGUNDO HEREJIA ECONOMICA', file: '/documentos/libros/LIBRO_SEGUNDO.pdf'}
+        {title: 'LIBRO SEGUNDO HEREJIA ECONOMICA', file: '/documentos/libros/LIBRO_SEGUNDO.pdf'},
+        {title: 'Comentario al libro Primero', file: '/documentos/libros/ComentarioLibroPrimero.pdf'},
+        {title: 'Presentación al LIBRO segundo', file: '/documentos/libros/PresentacionLibroSegundo.pdf'}
       ].map((libro, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
           <h3>{libro.title}</h3>
