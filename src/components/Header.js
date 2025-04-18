@@ -143,6 +143,9 @@ const Header = () => {
           color: 'white'
         }}>
           <li><a href="/" style={{color: 'white', textDecoration: 'none'}}>Inicio</a></li>
+          <li><a href="/herejias-ia" style={{color: '#f59e0b', textDecoration: 'none', fontWeight: 'bold'}}>Herejías con IA</a></li>
+          <li><a href="/conferencias" style={{color: 'white', textDecoration: 'none'}}>Conferencias</a></li>
+          <li><a href="/biblioteca" style={{color: 'white', textDecoration: 'none'}}>Biblioteca</a></li>
           <li><a href="/fondos" style={{color: 'white', textDecoration: 'none'}}>Fondos Rotatorios</a></li>
           <li><a href="/about" style={{color: 'white', textDecoration: 'none'}}>Nosotros</a></li>
           <li><a href="/contact" style={{color: 'white', textDecoration: 'none'}}>Contacto</a></li>

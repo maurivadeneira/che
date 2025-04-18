@@ -122,9 +122,9 @@ const ContactPage = () => {
         <h3>Información de Contacto <CheMiniLogo style={{ height: '20px', width: '40px' }} /></h3>
         <p>También puede ponerse en contacto con nosotros utilizando la siguiente información:</p>
         <ul>
-          <li><strong>Dirección:</strong> Av. Siempre Viva 123, Ciudad Ejemplo</li>
-          <li><strong>Teléfono:</strong> +57 123 456 7890</li>
-          <li><strong>Email:</strong> info@corporacionche.org</li>
+          <li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+          <li><strong>Email principal:</strong> maurivadeneira@gmail.com</li>
+          <li><strong>Email alternativo:</strong> maurivadeneira@yahoo.es</li>
         </ul>
       </div>
     </div>
