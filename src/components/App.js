@@ -63,7 +63,13 @@ const BibliotecaPage = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
       {[
         {title: 'COMPROBADO', file: '/documentos/articulos/COMPROBADO.pdf'},
-        {title: 'DOS PROBLEMAS FUNDAMENTALES', file: '/documentos/articulos/DOS_PROBLEMAS_FUNDAMENTALES.pdf'}
+        {title: 'DOS PROBLEMAS FUNDAMENTALES', file: '/documentos/articulos/DOS_PROBLEMAS_FUNDAMENTALES.pdf'},
+        {title: 'ECONOMIA MUNDIAL SOS', file: '/documentos/articulos/ECONOMIA MUNDIAL SOS.pdf'},
+        {title: 'EL AHORRO EN COLOMBIA ERROR CONCEPTUAL', file: '/documentos/articulos/EL AHORRO EN COLOMBIA ERROR CONCEPTUAL.pdf'},
+        {title: 'EL PROBLEMA DE LA INFLACIÓN INERCIAL', file: '/documentos/articulos/EL PROBLEMA DE LA INFLACIÓN INERCIAL.pdf'},
+        {title: 'EL PROBLEMA DEL DEFICIT FISCAL', file: '/documentos/articulos/EL PROBLEMA DEL DEFICIT FISCAL.pdf'},
+        {title: 'JAQUE AL SISTEMA ECONOMICO MUNDIAL', file: '/documentos/articulos/JAQUE AL SISTEMA ECONOMICO MUNDIAL.pdf'},
+        {title: 'REFLEXIONES ECONOMISTA HEREJE', file: '/documentos/articulos/ReflexionesEconomistaHereje (1).docx.pdf'}
       ].map((art, index) => (
         <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', backgroundColor: '#f8f9fa' }}>
           <h3>{art.title}</h3>
