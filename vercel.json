@@ -11,7 +11,7 @@
   ],
   "headers": [
     {
-      "source": "/documentos/(articulos|herejias-la|libros)/(.+)\\.pdf",
+      "source": "/documentos/articulos/(.*\\.pdf)",
       "headers": [
         {
           "key": "Content-Type",
@@ -22,12 +22,12 @@
   ],
   "rewrites": [
     {
-      "source": "/documentos/(articulos|herejias-la|libros)/(.*)",
-      "destination": "/documentos/$1/$2"
+      "source": "/documentos/articulos/(.*)",
+      "destination": "/documentos/articulos/$1"
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/$1"
     }
   ]
 }
