@@ -10,28 +10,7 @@
     }
   ],
   "routes": [
-    {
-      "src": "/documentos/(.*\\.pdf)",
-      "dest": "/documentos/$1"
-    },
-    {
-      "src": "/documentos/articulos/(.*\\.pdf)",
-      "dest": "/documentos/articulos/$1"
-    },
-    {
-      "src": "/documentos/libros/(.*\\.pdf)",
-      "dest": "/documentos/libros/$1"
-    },
-    {
-      "src": "/documentos/herejias-ia/(.*\\.pdf)",
-      "dest": "/documentos/herejias-ia/$1"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

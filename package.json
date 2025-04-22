@@ -5,12 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "dev": "webpack serve",
-    "build": "webpack --mode production",
-    "start": "webpack serve"
-  },
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "lint": "eslint .",
+  "dev": "webpack serve",
+  "copy-docs": "copyfiles -u 1 \"public/documentos/**/*.pdf\" dist",
+  "build": "webpack --mode production && npm run copy-docs",
+  "start": "webpack serve"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "@babel/preset-react": "^7.26.3",
     "@vue/cli": "^4.2.2",
     "babel-loader": "^10.0.0",
+    "copyfiles": "^2.4.1",
     "css-loader": "^7.1.2",
     "eslint": "^9.23.0",
     "html-webpack-plugin": "^5.6.3",
