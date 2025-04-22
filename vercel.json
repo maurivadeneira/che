@@ -9,25 +9,8 @@
       }
     }
   ],
-  "headers": [
-    {
-      "source": "/documentos/articulos/(.*\\.pdf)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/pdf"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/documentos/articulos/(.*)",
-      "destination": "/documentos/articulos/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
