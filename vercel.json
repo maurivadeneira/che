@@ -9,21 +9,25 @@
       }
     }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/documentos/(articulos|herejias-la|libros)/(.+)\\.pdf",
-      "headers": {
-        "Content-Type": "application/pdf"
-      },
-      "dest": "/documentos/$1/$2"
-    },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+      "source": "/documentos/(articulos|herejias-la|libros)/(.+)\\.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        }
+      ]
+    }
   ],
   "rewrites": [
     {
-      "source": "/documentos/(articulos|herejias-la|libros)/*",
-      "destination": "/documentos/$1/*"
+      "source": "/documentos/(articulos|herejias-la|libros)/(.*)",
+      "destination": "/documentos/$1/$2"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
