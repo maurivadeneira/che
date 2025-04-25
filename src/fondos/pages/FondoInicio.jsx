@@ -146,7 +146,10 @@ const FondoInicio = () => {
       {/* Encabezado con título y logo */}
       <div style={{ 
         textAlign: 'center',
-        marginBottom: '30px'
+        marginBottom: '30px',
+        maxWidth: '1200px',
+        margin: '0 auto 30px auto',
+        padding: '0 20px'
       }}>
         <h1 style={{ 
           fontSize: '32px',
@@ -166,7 +169,7 @@ const FondoInicio = () => {
         </div>
       </div>
       
-      {/* Banner con imagen del fondo */}
+      {/* Banner con imagen del fondo - Ahora a ancho completo */}
       <div className="fondo-detail-image-container">
         <FondosSvgCollection 
           id={fondo.id} 
@@ -175,8 +178,15 @@ const FondoInicio = () => {
         />
       </div>
       
-      {/* Secciones de contenido */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px' }}>
+      {/* Secciones de contenido - con ancho máximo para mejor legibilidad */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: '2fr 1fr', 
+        gap: '30px',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 20px'
+      }}>
         {/* Columna principal */}
         <div>
           {/* Misión y visión */}

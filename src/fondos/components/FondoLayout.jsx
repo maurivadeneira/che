@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import FondoNavbar from './FondoNavbar';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
 import { useParams } from 'react-router-dom';
+import './layout.css';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
 const fondosInfo = [
@@ -46,9 +47,9 @@ const FondoLayout = () => {
       
       {/* Contenido específico de la página */}
       <div className="fondo-content" style={{ 
-        maxWidth: '1200px', 
+        maxWidth: '100%', 
         margin: '0 auto', 
-        padding: '0 20px' 
+        padding: '0' 
       }}>
         <Outlet />
       </div>
