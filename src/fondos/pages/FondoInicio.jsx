@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
 import CheMediumLogo from '../../components/CheMediumLogo.js';
+import { getFondoImageUrl, handleImageError } from '../components/ImageLoader';
+import '../components/fondos.css';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
 const fondosData = [
@@ -165,33 +167,12 @@ const FondoInicio = () => {
       </div>
       
       {/* Banner con imagen del fondo */}
-      <div style={{ 
-        backgroundColor: '#e6f0ff',
-        padding: '10px',
-        textAlign: 'center',
-        borderRadius: '8px',
-        marginBottom: '30px',
-        height: '300px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden'
-      }}>
+      <div className="fondo-detail-image-container">
         <img 
-          src={`/images/fondos/fondo-${fondo.id}.svg`} 
+          className="fondo-detail-image"
+          src={getFondoImageUrl(fondo.id)} 
           alt={`Imagen representativa de ${fondo.titulo}`} 
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.innerHTML = 'Imagen en desarrollo';
-            e.target.style.fontSize = '28px';
-            e.target.style.color = '#888';
-            e.target.style.fontWeight = 'normal';
-          }}
-          style={{ 
-            maxWidth: '100%', 
-            maxHeight: '100%', 
-            objectFit: 'contain'
-          }}
+          onError={(e) => handleImageError(e, true)}
           loading="lazy"
         />
       </div>
