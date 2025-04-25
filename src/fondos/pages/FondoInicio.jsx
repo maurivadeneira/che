@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
 import CheMediumLogo from '../../components/CheMediumLogo.js';
 import FondosSvgCollection from '../../components/FondosSvgCollection';
+import FullImageViewer from '../components/FullImageViewer';
 import '../components/fondos.css';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
@@ -170,15 +171,11 @@ const FondoInicio = () => {
       </div>
       
       {/* Banner con imagen del fondo - Ahora a ancho completo */}
-      {/* Banner con imagen del fondo - ahora con espacio vertical suficiente */}
-      <div className="fondo-detail-image-container">
-        <FondosSvgCollection 
-          id={fondo.id} 
-          className="fondo-detail-image" 
-          aria-label={`Imagen representativa de ${fondo.titulo}`}
-          style={{ width: '95%', height: 'auto', maxHeight: '95%', objectFit: 'contain' }}
-        />
-      </div>
+      {/* Banner con imagen del fondo - usando el nuevo componente de imagen completa */}
+      <FullImageViewer 
+        imageId={fondo.id}
+        alt={`Imagen representativa de ${fondo.titulo}`}
+      />
       
       {/* Secciones de contenido - con ancho máximo para mejor legibilidad */}
       <div style={{ 
