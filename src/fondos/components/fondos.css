@@ -23,14 +23,14 @@
 }
 
 .fondo-detail-image-container {
-  background-color: #1a2a3a; /* Fondo oscuro que combine mejor con las imágenes */
-  padding: 0;
+  background-color: #1a2a3a;
+  padding: 20px;
   text-align: center;
   border-radius: 0;
   margin-bottom: 30px;
-  /* Ajustar para formato rectangular para mostrar la imagen completa */
-  aspect-ratio: 1 / 1;
-  max-height: 650px;
+  /* Contenedor cuadrado con dimensiones fijas */
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,16 +38,15 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
   transition: all 0.3s ease;
-  width: 100%;
-  max-width: 1000px; /* Anchura máxima para formato cuadrado */
+  max-width: 100%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
 }
 
 .fondo-detail-image {
-  width: 90%;
-  height: 90%;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
@@ -71,7 +70,9 @@
   }
   
   .fondo-detail-image-container {
+    width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
-    max-height: 450px;
+    max-width: 400px;
   }
 }
