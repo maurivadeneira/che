@@ -1,77 +1,24 @@
+/* Reglas para contenedores y componentes de fondos */
+
 .fondo-image-container {
   height: 250px;
-  border-bottom: 1px solid #e0e0e0;
   background-color: #1a2a3a; /* Mismo fondo que la vista detallada */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: all 0.3s ease;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.fondo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%; /* Ajuste vertical para mostrar mejor el contenido */
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.fondo-image-container:hover .fondo-image {
+/* Efecto hover para las imágenes de la lista */
+.list-viewer-image:hover {
   transform: scale(1.05);
 }
 
-.fondo-detail-image-container {
-  background-color: #1a2a3a;
-  padding: 0;
-  text-align: center;
-  border-radius: 0;
-  margin-bottom: 30px;
-  /* Aumentamos significativamente la altura para mostrar toda la imagen */
-  width: 100%;
-  max-width: 1200px;
-  height: 750px; /* Altura aumentada para eliminar recortes verticales */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: none;
-  transition: all 0.3s ease;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.fondo-detail-image {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease;
-}
-
-.fondo-detail-image-container:hover .fondo-detail-image {
-  transform: scale(1.02);
-}
-
-/* Estilos específicos para objetos SVG */
-.svg-object {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Usar cover en lugar de contain para consistencia */
-  object-position: center center;
-}
-
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
   .fondo-image-container {
     height: 180px;
-  }
-  
-  .fondo-detail-image-container {
-    width: 100%;
-    height: 500px; /* Altura aumentada para móviles también */
   }
 }

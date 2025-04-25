@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CheMiniLogo from '../components/CheMiniLogo.js';
 import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
 import FondosSvgCollection from '../components/FondosSvgCollection';
+import ListImageViewer from './components/ListImageViewer';
 import './components/fondos.css';
 
 // Componente para un Fondo Rotatorio individual
@@ -19,16 +20,12 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
         </h3>
       </div>
       
-      {/* Segundo contenedor: Imagen (placeholder) */}
-      <div className="fondo-image-container">
-        <FondosSvgCollection 
-          id={id} 
-          title={imagenDesc} 
-          aria-label={`Imagen representativa de ${titulo}`}
-          className="fondo-image" 
-          style={{ objectPosition: 'center 40%' }}
-        />
-      </div>
+      {/* Segundo contenedor: Imagen usando ListImageViewer */}
+      <ListImageViewer 
+        imageId={id}
+        alt={`Imagen representativa de ${titulo}`}
+        className="fondo-image-container"
+      />
       
       {/* Tercer contenedor: Objetivos */}
       <div style={{ padding: '15px', backgroundColor: 'white', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
