@@ -1,8 +1,8 @@
 import React from 'react';
-import FondoInversionEmpresarial from './svg/FondoInversionEmpresarial';
-import FondoEditorialMedios from './svg/FondoEditorialMedios';
-import FondoSistemasPlataformas from './svg/FondoSistemesPlataformas';
-import FondoProyectosIngenieria from './svg/FondoProyectosIngenieria';
+import FondoInversionEmpresarial from './svg/FondoInversionEmpresarial.js';
+import FondoEditorialMedios from './svg/FondoEditorialMedios.js';
+import FondoSistemasPlataformas from './svg/FondoSistemesPlataformas.js';
+import FondoProyectosIngenieria from './svg/FondoProyectosIngenieria.js';
 
 /**
  * Colección centralizada de SVGs para los fondos
