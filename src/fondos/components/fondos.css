@@ -28,9 +28,9 @@
   text-align: center;
   border-radius: 0;
   margin-bottom: 30px;
-  /* Aspect ratio cuadrado */
+  /* Ajustar para formato rectangular para mostrar la imagen completa */
   aspect-ratio: 1 / 1;
-  max-height: 600px;
+  max-height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@
   border: none;
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px; /* Anchura máxima para formato cuadrado */
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -71,6 +71,7 @@
   }
   
   .fondo-detail-image-container {
-    height: 250px;
+    aspect-ratio: 1 / 1;
+    max-height: 450px;
   }
 }
