@@ -15,7 +15,7 @@ const FondosSvgCollection = ({ id, title, style, ...props }) => {
     width: '100%', 
     height: '100%', 
     objectFit: 'cover',
-    objectPosition: 'center center', // Centrar la imagen
+    objectPosition: 'center 40%', // Ligeramente más arriba del centro para mostrar mejor el contenido
     display: 'block' // Asegura que no haya espacio adicional debajo de la imagen
   };
   

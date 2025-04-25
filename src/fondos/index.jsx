@@ -25,7 +25,8 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
           id={id} 
           title={imagenDesc} 
           aria-label={`Imagen representativa de ${titulo}`}
-          className="svg-object" 
+          className="fondo-image" 
+          style={{ objectPosition: 'center 40%' }}
         />
       </div>
       
