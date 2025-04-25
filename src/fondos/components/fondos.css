@@ -24,13 +24,14 @@
 
 .fondo-detail-image-container {
   background-color: #1a2a3a;
-  padding: 20px;
+  padding: 0; /* Eliminamos el padding para maximizar espacio */
   text-align: center;
   border-radius: 0;
   margin-bottom: 30px;
-  /* Contenedor cuadrado con dimensiones fijas */
-  width: 600px;
-  height: 600px;
+  /* Hacemos el contenedor rectangular para respetar proporción de imagen */
+  width: 100%;
+  max-width: 1200px;
+  height: 550px; /* Altura fija suficiente */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,15 +39,15 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
   transition: all 0.3s ease;
-  max-width: 100%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
 }
 
 .fondo-detail-image {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
@@ -71,8 +72,6 @@
   
   .fondo-detail-image-container {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    max-width: 400px;
+    height: 350px; /* Altura reducida para móviles pero suficiente */
   }
 }

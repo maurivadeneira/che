@@ -16,8 +16,9 @@ const FondosSvgCollection = ({ id, title, style, className, ...props }) => {
   if (className === 'fondo-detail-image') {
     // Estilo para la vista detallada (mostrar imagen completa)
     defaultStyle = { 
-      maxWidth: '90%', 
-      maxHeight: '90%', 
+      width: '100%', 
+      height: 'auto',
+      maxHeight: '100%',
       objectFit: 'contain',
       display: 'block'
     };

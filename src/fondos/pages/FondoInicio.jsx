@@ -175,7 +175,7 @@ const FondoInicio = () => {
           id={fondo.id} 
           className="fondo-detail-image" 
           aria-label={`Imagen representativa de ${fondo.titulo}`}
-          style={{ objectFit: 'contain', maxWidth: '90%', maxHeight: '90%' }}
+          style={{ width: '100%', height: 'auto', maxHeight: '100%', objectFit: 'contain' }}
         />
       </div>
       
