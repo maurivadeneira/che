@@ -1,9 +1,32 @@
-<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="200" fill="#e6f0ff"/>
-  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#00569e">
-    CHE - Fondos Rotatorios
-  </text>
-  <text x="200" y="125" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#00569e">
-    Imagen en desarrollo
-  </text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800"
+   height="450"
+   viewBox="0 0 800 450"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <rect
+     width="800"
+     height="450"
+     fill="#E6F0FF"
+     id="rect1" />
+  <text
+     x="400"
+     y="225"
+     font-family="Arial, sans-serif"
+     font-size="24"
+     text-anchor="middle"
+     fill="#888888"
+     id="text1">Imagen en desarrollo</text>
+  <text
+     x="400"
+     y="260"
+     font-family="Arial, sans-serif"
+     font-size="18"
+     text-anchor="middle"
+     fill="#999999"
+     id="text2">CHE - Corporación Herejía Económica</text>
 </svg>

@@ -164,21 +164,36 @@ const FondoInicio = () => {
         </div>
       </div>
       
-      {/* Banner azul con "Imagen en desarrollo" */}
+      {/* Banner con imagen del fondo */}
       <div style={{ 
         backgroundColor: '#e6f0ff',
-        padding: '30px',
+        padding: '10px',
         textAlign: 'center',
         borderRadius: '8px',
-        marginBottom: '30px'
+        marginBottom: '30px',
+        height: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden'
       }}>
-        <h2 style={{ 
-          fontSize: '28px',
-          color: '#888',
-          fontWeight: 'normal'
-        }}>
-          Imagen en desarrollo
-        </h2>
+        <img 
+          src={`/images/fondos/fondo-${fondo.id}.svg`} 
+          alt={`Imagen representativa de ${fondo.titulo}`} 
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.innerHTML = 'Imagen en desarrollo';
+            e.target.style.fontSize = '28px';
+            e.target.style.color = '#888';
+            e.target.style.fontWeight = 'normal';
+          }}
+          style={{ 
+            maxWidth: '100%', 
+            maxHeight: '100%', 
+            objectFit: 'contain'
+          }}
+          loading="lazy"
+        />
       </div>
       
       {/* Secciones de contenido */}

@@ -18,7 +18,7 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       </div>
       
       {/* Segundo contenedor: Imagen (placeholder) */}
-      <div className="img-container" style={{ height: '180px', borderBottom: '1px solid #e0e0e0' }}>
+      <div className="img-container" style={{ height: '230px', borderBottom: '1px solid #e0e0e0' }}>
         <img 
           src={`/images/fondos/fondo-${id}.svg`} 
           alt={`Imagen representativa de ${titulo}`} 
@@ -27,7 +27,7 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
             e.target.onerror = null;
             e.target.src = "/images/placeholder-400x200.svg";
           }}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '10px' }}
           loading="lazy"
         />
       </div>
@@ -132,7 +132,7 @@ const FondosRotatoriosCHE = () => {
           <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle' }} />
         </div>
       </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '25px', overflow: 'visible' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(450px, 1fr))', gap: '30px', overflow: 'visible' }}>
         {fondos.map(fondo => (
           <FondoRotatorio 
             key={fondo.id}
