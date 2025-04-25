@@ -170,12 +170,13 @@ const FondoInicio = () => {
       </div>
       
       {/* Banner con imagen del fondo - Ahora a ancho completo */}
+      {/* Banner con imagen del fondo - ahora con espacio vertical suficiente */}
       <div className="fondo-detail-image-container">
         <FondosSvgCollection 
           id={fondo.id} 
           className="fondo-detail-image" 
           aria-label={`Imagen representativa de ${fondo.titulo}`}
-          style={{ width: '100%', height: 'auto', maxHeight: '100%', objectFit: 'contain' }}
+          style={{ width: '95%', height: 'auto', maxHeight: '95%', objectFit: 'contain' }}
         />
       </div>
       
