@@ -6,18 +6,31 @@ import React from 'react';
  * @param {object} props - Propiedades adicionales para la imagen
  * @returns {JSX.Element} Componente de imagen correspondiente al ID
  */
-const FondosSvgCollection = ({ id, title, style, ...props }) => {
+const FondosSvgCollection = ({ id, title, style, className, ...props }) => {
   // Convertir a número si es string
   const fondoId = parseInt(id);
   
-  // Estilos predeterminados para la imagen
-  const defaultStyle = { 
-    width: '100%', 
-    height: '100%', 
-    objectFit: 'cover',
-    objectPosition: 'center 40%', // Ligeramente más arriba del centro para mostrar mejor el contenido
-    display: 'block' // Asegura que no haya espacio adicional debajo de la imagen
-  };
+  // Determinar qué estilo aplicar basado en la clase
+  let defaultStyle = {};
+  
+  if (className === 'fondo-detail-image') {
+    // Estilo para la vista detallada (mostrar imagen completa)
+    defaultStyle = { 
+      width: '90%', 
+      height: '90%', 
+      objectFit: 'contain',
+      display: 'block'
+    };
+  } else {
+    // Estilo para el listado 
+    defaultStyle = { 
+      width: '100%', 
+      height: '100%', 
+      objectFit: 'cover',
+      objectPosition: 'center 40%',
+      display: 'block'
+    };
+  }
   
   // Combinar estilos predeterminados con los proporcionados
   const combinedStyle = { ...defaultStyle, ...style };
@@ -28,6 +41,7 @@ const FondosSvgCollection = ({ id, title, style, ...props }) => {
       src={`/images/fondos/fondo-${fondoId}.png`}
       alt={title || `Fondo #${fondoId}`}
       style={combinedStyle}
+      className={className}
       onError={(e) => {
         // Si falla la carga de PNG, usar placeholder
         e.target.onerror = null;
