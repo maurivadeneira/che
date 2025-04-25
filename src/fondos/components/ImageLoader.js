@@ -18,8 +18,8 @@ export const getFondoImageUrl = (id) => {
     return "/images/fondos/fondo-placeholder.svg";
   }
 
-  // Devolver la ruta correcta
-  return `/images/fondos/fondo-${id}.svg`;
+  // Devolver la ruta correcta a la imagen PNG
+  return `/images/fondos/fondo-${id}.png`;
 };
 
 /**
@@ -51,6 +51,6 @@ export const handleImageError = (event, useElement = false) => {
     }
   } else {
     // Simplemente cambiar la src al placeholder
-    event.target.src = "/images/fondos/fondo-placeholder.svg";
+    event.target.src = "/images/placeholder-400x200.svg";
   }
 };

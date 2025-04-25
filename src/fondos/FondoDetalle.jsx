@@ -279,13 +279,9 @@ const FondoDetalle = () => {
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
           loading="lazy"
           onError={(e) => {
-            // Si falla la carga de PNG, intenta con SVG
-            e.target.src = `/images/fondos/fondo-${fondo.id}.svg`;
-            e.target.onerror = (e2) => {
-              // Si también falla SVG, carga el placeholder
-              e2.target.onerror = null;
-              e2.target.src = "/images/placeholder-400x200.svg";
-            };
+            // Si falla la carga de PNG, carga el placeholder directamente
+            e.target.onerror = null;
+            e.target.src = "/images/placeholder-400x200.svg";
           }}
         />
       </div>
