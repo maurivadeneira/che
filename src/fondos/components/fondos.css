@@ -24,25 +24,29 @@
 }
 
 .fondo-detail-image-container {
-  background-color: #f5f9ff;
+  background-color: #1a2a3a; /* Fondo oscuro que combine mejor con las imágenes */
   padding: 0;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 30px;
-  height: 300px;
+  height: 450px; /* Contenedor más alto para proporción más cuadrada */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  position: relative; /* Para posicionamiento absoluto de la imagen */
 }
 
 .fondo-detail-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center; /* Centrar la imagen */
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
 }
@@ -66,6 +70,6 @@
   }
   
   .fondo-detail-image-container {
-    height: 200px;
+    height: 300px; /* Reducida pero manteniendo proporción más cuadrada */
   }
 }
