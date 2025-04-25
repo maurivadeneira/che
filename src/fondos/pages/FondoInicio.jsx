@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CheMiniLogo from '../../components/CheMiniLogo.js';
 import CheMediumLogo from '../../components/CheMediumLogo.js';
-import { getFondoImageUrl, handleImageError } from '../components/ImageLoader';
+import FondosSvgCollection from '../../components/FondosSvgCollection';
 import '../components/fondos.css';
 
 // Datos de los fondos (esto podría venir de un contexto o API)
@@ -168,19 +168,11 @@ const FondoInicio = () => {
       
       {/* Banner con imagen del fondo */}
       <div className="fondo-detail-image-container">
-        <object 
-          type="image/svg+xml"
-          data={getFondoImageUrl(fondo.id)}
+        <FondosSvgCollection 
+          id={fondo.id} 
+          className="fondo-detail-image" 
           aria-label={`Imagen representativa de ${fondo.titulo}`}
-          className="fondo-detail-image"
-          style={{ width: '100%', height: '100%', maxWidth: '90%', maxHeight: '90%' }}
-        >
-          <img 
-            src="/images/fondos/fondo-placeholder.svg" 
-            alt={`Imagen representativa de ${fondo.titulo}`}
-            style={{ maxWidth: '90%', maxHeight: '90%' }}
-          />
-        </object>
+        />
       </div>
       
       {/* Secciones de contenido */}

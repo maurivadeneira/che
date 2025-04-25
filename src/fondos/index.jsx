@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CheMiniLogo from '../components/CheMiniLogo.js';
 import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
-import { getFondoImageUrl, handleImageError } from './components/ImageLoader';
+import FondosSvgCollection from '../components/FondosSvgCollection';
 import './components/fondos.css';
 
 // Componente para un Fondo Rotatorio individual
@@ -21,21 +21,12 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       
       {/* Segundo contenedor: Imagen (placeholder) */}
       <div className="fondo-image-container">
-        <object 
-          type="image/svg+xml"
-          data={getFondoImageUrl(id)}
+        <FondosSvgCollection 
+          id={id} 
+          title={imagenDesc} 
           aria-label={`Imagen representativa de ${titulo}`}
-          className="svg-object"
-          title={imagenDesc}
-          style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%' }}
-        >
-          <img 
-            src="/images/fondos/fondo-placeholder.svg" 
-            alt={`Imagen representativa de ${titulo}`} 
-            title={imagenDesc}
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-          />
-        </object>
+          className="svg-object" 
+        />
       </div>
       
       {/* Tercer contenedor: Objetivos */}
