@@ -168,13 +168,19 @@ const FondoInicio = () => {
       
       {/* Banner con imagen del fondo */}
       <div className="fondo-detail-image-container">
-        <img 
+        <object 
+          type="image/svg+xml"
+          data={getFondoImageUrl(fondo.id)}
+          aria-label={`Imagen representativa de ${fondo.titulo}`}
           className="fondo-detail-image"
-          src={getFondoImageUrl(fondo.id)} 
-          alt={`Imagen representativa de ${fondo.titulo}`} 
-          onError={(e) => handleImageError(e, true)}
-          loading="lazy"
-        />
+          style={{ width: '100%', height: '100%', maxWidth: '90%', maxHeight: '90%' }}
+        >
+          <img 
+            src="/images/fondos/fondo-placeholder.svg" 
+            alt={`Imagen representativa de ${fondo.titulo}`}
+            style={{ maxWidth: '90%', maxHeight: '90%' }}
+          />
+        </object>
       </div>
       
       {/* Secciones de contenido */}

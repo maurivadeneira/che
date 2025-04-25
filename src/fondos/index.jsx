@@ -21,13 +21,21 @@ const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
       
       {/* Segundo contenedor: Imagen (placeholder) */}
       <div className="fondo-image-container">
-        <img 
-          src={getFondoImageUrl(id)} 
-          alt={`Imagen representativa de ${titulo}`} 
+        <object 
+          type="image/svg+xml"
+          data={getFondoImageUrl(id)}
+          aria-label={`Imagen representativa de ${titulo}`}
+          className="svg-object"
           title={imagenDesc}
-          onError={(e) => handleImageError(e)}
-          loading="lazy"
-        />
+          style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%' }}
+        >
+          <img 
+            src="/images/fondos/fondo-placeholder.svg" 
+            alt={`Imagen representativa de ${titulo}`} 
+            title={imagenDesc}
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+          />
+        </object>
       </div>
       
       {/* Tercer contenedor: Objetivos */}

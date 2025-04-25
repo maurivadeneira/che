@@ -7,6 +7,17 @@ export const getFondoImageUrl = (id) => {
     return "/images/fondos/fondo-placeholder.svg";
   }
 
+  // Verificar si la imagen existe con su ID exacto
+  const idNum = parseInt(id);
+  
+  // Lista de IDs disponibles
+  const availableIds = [1, 2, 6, 8];
+  
+  // Si el ID no está en la lista de disponibles, usar el placeholder
+  if (!availableIds.includes(idNum)) {
+    return "/images/fondos/fondo-placeholder.svg";
+  }
+
   // Devolver la ruta correcta
   return `/images/fondos/fondo-${id}.svg`;
 };
