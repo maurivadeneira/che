@@ -1,7 +1,7 @@
 import React from 'react';
 import FondoInversionEmpresarial from './svg/FondoInversionEmpresarial.js';
 import FondoEditorialMedios from './svg/FondoEditorialMedios.js';
-import FondoSistemasPlataformas from './svg/FondoSistemesPlataformas.js';
+import FondoSistemasPlataformas from './svg/FondoSistemasPlataformas.js';
 import FondoProyectosIngenieria from './svg/FondoProyectosIngenieria.js';
 
 /**
