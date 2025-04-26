@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <!-- Fondo gradiente azul/morado para medios audiovisuales -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2066;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6a1b9a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo principal -->
+  <rect width="800" height="500" fill="url(#bgGradient)" />
+  
+  <!-- Elementos tecnológicos -->
+  <g opacity="0.3" fill="#82b1ff">
+    <!-- Iconos de micrófonos -->
+    <path d="M150,100 Q155,80 160,100 L160,130 Q155,135 150,130 Z" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <circle cx="155" cy="80" r="15" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    
+    <!-- Icono de cámara -->
+    <rect x="240" y="80" width="40" height="30" rx="5" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <circle cx="260" cy="95" r="10" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    
+    <!-- Icono de reproductor de video -->
+    <rect x="350" y="150" width="150" height="100" rx="10" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <polygon points="400,175 400,225 440,200" fill="#82b1ff" opacity="0.5"/>
+    
+    <!-- Líneas de onda de audio -->
+    <path d="M100,350 Q120,320 140,350 Q160,380 180,350" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <path d="M500,350 Q520,320 540,350 Q560,380 580,350" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    
+    <!-- Iconos de botones de reproducción -->
+    <rect x="630" y="150" width="40" height="40" rx="5" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <polygon points="640,160 640,180 660,170" fill="#82b1ff" opacity="0.5"/>
+    
+    <rect x="680" y="150" width="40" height="40" rx="5" stroke="#82b1ff" stroke-width="2" fill="none"/>
+    <polygon points="690,160 690,180 700,170" fill="#82b1ff" opacity="0.5"/>
+    <polygon points="705,160 705,180 715,170" fill="#82b1ff" opacity="0.5"/>
+  </g>
+  
+  <!-- Silueta de persona interactuando -->
+  <path d="M350,350 C360,320 370,310 390,300 L400,250 L410,300 C430,310 440,320 450,350 L430,380 L370,380 Z" fill="#1a237e" opacity="0.7"/>
+  <path d="M400,280 L420,350" stroke="#82b1ff" stroke-width="1" fill="none"/>
+  
+  <!-- Siluetas de audiencia -->
+  <g fill="#1a237e" opacity="0.5">
+    <ellipse cx="200" cy="450" rx="15" ry="10"/>
+    <rect x="195" y="430" width="10" height="20" rx="5"/>
+    <ellipse cx="300" cy="460" rx="15" ry="10"/>
+    <rect x="295" y="440" width="10" height="20" rx="5"/>
+    <ellipse cx="500" cy="455" rx="15" ry="10"/>
+    <rect x="495" y="435" width="10" height="20" rx="5"/>
+    <ellipse cx="600" cy="465" rx="15" ry="10"/>
+    <rect x="595" y="445" width="10" height="20" rx="5"/>
+  </g>
+  
+  <!-- Manos levantadas -->
+  <g stroke="#1a237e" stroke-width="3" opacity="0.5">
+    <line x1="200" y1="420" x2="210" y2="400"/>
+    <line x1="300" y1="430" x2="290" y2="405"/>
+    <line x1="500" y1="425" x2="510" y2="400"/>
+    <line x1="600" y1="435" x2="590" y2="410"/>
+  </g>
+</svg>
