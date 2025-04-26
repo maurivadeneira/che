@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 const ListImageViewer = ({ imageId, alt, className }) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [loading, setLoading] = useState(true);
+  const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
     // Función para calcular las dimensiones óptimas
@@ -47,8 +48,48 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         setLoading(false);
       };
       
-      // Establecer la fuente de la imagen
-      img.src = `/images/fondos/fondo-${imageId}.png`;
+      // Probar con múltiples formatos de archivo y patrones de nombre
+      const tryLoadImage = (index = 0) => {
+        const imagePaths = [
+          `/images/fondos/fondo-${imageId}.png`,
+          `/images/fondos/${imageId}-Sanacion.png`,
+          `/images/fondos/${imageId}-Vivienda.png`,
+          `/images/fondos/${imageId}-recreacion.png`,
+          `/images/fondos/${imageId}-sistemas.png`,
+          `/images/fondos/${imageId}-Bancario.png`,
+          `/images/fondos/${imageId}-ProyectosIngenieria.png`,
+          `/images/fondos/${imageId}-Comercial.png`,
+          `/images/fondos/${imageId}-InvestigacionCiencia.png`,
+          `/images/fondos/${imageId}-ArteCultura.png`,
+          `/images/fondos/fondo-${imageId}.svg`,
+          `/images/${imageId}-Sanacion.png`,
+          `/images/${imageId}-Vivienda.png`,
+          `/images/${imageId}-recreacion.png`,
+          `/images/${imageId}-sistemas.png`,
+          `/images/${imageId}-Bancario.png`,
+          `/images/${imageId}-ProyectosIngenieria.png`,
+          `/images/${imageId}-Comercial.png`,
+          `/images/${imageId}-InvestigacionCiencia.png`,
+          `/images/${imageId}-ArteCultura.png`
+        ];
+        
+        if (index >= imagePaths.length) {
+          // Si no se encuentra ninguna imagen, usar placeholder
+          img.src = "/images/placeholder-400x200.svg";
+          setImageSrc("/images/placeholder-400x200.svg");
+          return;
+        }
+        
+        img.onerror = () => {
+          // Si esta ruta falla, intentar con la siguiente
+          tryLoadImage(index + 1);
+        };
+        
+        img.src = imagePaths[index];
+        setImageSrc(imagePaths[index]);
+      };
+      
+      tryLoadImage();
     };
     
     // Calcular dimensiones iniciales
@@ -77,6 +118,34 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     );
   }
   
+  // Determinar la ruta de la imagen basada en el ID y diferentes formatos posibles
+  const getImageSrc = () => {
+    if (imageSrc) return imageSrc;
+    
+    // Estos son los nombres alternativos según el ID
+    const nameMap = {
+      '1': 'Inversion',
+      '2': 'Editorial',
+      '3': 'Sanacion',
+      '4': 'Vivienda',
+      '5': 'recreacion',
+      '6': 'sistemas',
+      '7': 'Bancario',
+      '8': 'ProyectosIngenieria',
+      '9': 'Comercial',
+      '10': 'InvestigacionCiencia',
+      '11': 'ArteCultura'
+    };
+    
+    // Si existe un nombre para este ID, usar el formato alternativo
+    if (nameMap[imageId]) {
+      return `/images/fondos/${imageId}-${nameMap[imageId]}.png`;
+    }
+    
+    // Caso por defecto
+    return `/images/fondos/fondo-${imageId}.png`;
+  };
+  
   return (
     <div className={className} style={{ 
       backgroundColor: '#1a2a3a',
@@ -87,7 +156,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       overflow: 'hidden'
     }}>
       <img 
-        src={`/images/fondos/fondo-${imageId}.png`} 
+        src={getImageSrc()} 
         alt={alt || `Imagen ${imageId}`}
         style={{ 
           width: dimensions.width,
@@ -98,8 +167,39 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         }}
         className="list-viewer-image"
         onError={(e) => {
+          // Intentar diferentes rutas en caso de error
           e.target.onerror = null;
-          e.target.src = "/images/placeholder-400x200.svg";
+          
+          // Probar con formato SVG
+          e.target.src = `/images/fondos/fondo-${imageId}.svg`;
+          
+          // Si SVG falla, intentar con ruta directa a images
+          e.target.onerror = () => {
+            e.target.onerror = null;
+            const nameMap = {
+              '3': 'Sanacion',
+              '4': 'Vivienda',
+              '5': 'recreacion',
+              '6': 'sistemas',
+              '7': 'Bancario',
+              '8': 'ProyectosIngenieria',
+              '10': 'InvestigacionCiencia',
+              '11': 'ArteCultura'
+            };
+            
+            if (nameMap[imageId]) {
+              e.target.src = `/images/${imageId}-${nameMap[imageId]}.png`;
+              
+              // Si eso también falla, usar placeholder
+              e.target.onerror = () => {
+                e.target.onerror = null;
+                e.target.src = "/images/placeholder-400x200.svg";
+              };
+            } else {
+              // Si no hay mapeo, usar placeholder
+              e.target.src = "/images/placeholder-400x200.svg";
+            }
+          };
         }}
       />
     </div>
