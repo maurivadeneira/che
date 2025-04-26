@@ -2,77 +2,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
   <!-- Fondo gradiente -->
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e6f0ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d9e6ff;stop-opacity:1" />
+    <linearGradient id="gradientFondo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f7fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b2ebf2;stop-opacity:1" />
     </linearGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#4dd0e1;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#b2ebf2;stop-opacity:0" />
+    </radialGradient>
   </defs>
   
   <!-- Fondo principal -->
-  <rect width="800" height="500" fill="url(#grad1)" />
+  <rect width="800" height="500" fill="url(#gradientFondo)" />
   
-  <!-- Patrón de puntos decorativos -->
-  <g fill="#b3c9ff" opacity="0.3">
-    <circle cx="50" cy="50" r="3" />
-    <circle cx="150" cy="80" r="2" />
-    <circle cx="250" cy="40" r="4" />
-    <circle cx="350" cy="70" r="2" />
-    <circle cx="450" cy="30" r="3" />
-    <circle cx="550" cy="60" r="2" />
-    <circle cx="650" cy="50" r="4" />
-    <circle cx="750" cy="40" r="2" />
-    
-    <circle cx="100" cy="150" r="3" />
-    <circle cx="200" cy="180" r="2" />
-    <circle cx="300" cy="140" r="4" />
-    <circle cx="400" cy="170" r="2" />
-    <circle cx="500" cy="130" r="3" />
-    <circle cx="600" cy="160" r="2" />
-    <circle cx="700" cy="150" r="4" />
-    
-    <circle cx="80" cy="250" r="3" />
-    <circle cx="180" cy="280" r="2" />
-    <circle cx="280" cy="240" r="4" />
-    <circle cx="380" cy="270" r="2" />
-    <circle cx="480" cy="230" r="3" />
-    <circle cx="580" cy="260" r="2" />
-    <circle cx="680" cy="250" r="4" />
-    <circle cx="750" cy="300" r="2" />
-    
-    <circle cx="100" cy="350" r="3" />
-    <circle cx="200" cy="380" r="2" />
-    <circle cx="300" cy="340" r="4" />
-    <circle cx="400" cy="370" r="2" />
-    <circle cx="500" cy="330" r="3" />
-    <circle cx="600" cy="360" r="2" />
-    <circle cx="700" cy="350" r="4" />
-    
-    <circle cx="50" cy="450" r="3" />
-    <circle cx="150" cy="480" r="2" />
-    <circle cx="250" cy="440" r="4" />
-    <circle cx="350" cy="470" r="2" />
-    <circle cx="450" cy="430" r="3" />
-    <circle cx="550" cy="460" r="2" />
-    <circle cx="650" cy="450" r="4" />
-    <circle cx="750" cy="440" r="2" />
+  <!-- Resplandor central suave -->
+  <circle cx="400" cy="250" r="200" fill="url(#glowCenter)" />
+  
+  <!-- Ondas de sanación concéntricas -->
+  <g fill="none" stroke="#4dd0e1" opacity="0.3">
+    <circle cx="400" cy="250" r="50" stroke-width="2" />
+    <circle cx="400" cy="250" r="80" stroke-width="1.8" />
+    <circle cx="400" cy="250" r="110" stroke-width="1.6" />
+    <circle cx="400" cy="250" r="140" stroke-width="1.4" />
+    <circle cx="400" cy="250" r="170" stroke-width="1.2" />
+    <circle cx="400" cy="250" r="200" stroke-width="1" />
   </g>
   
-  <!-- Texto "Imagen en desarrollo" -->
-  <text x="400" y="220" font-family="Arial, sans-serif" font-size="28" font-weight="600" text-anchor="middle" fill="#7a94d1">
-    Fondo de Sanación Emocional
+  <!-- Elementos decorativos -->
+  <g fill="#26c6da" opacity="0.4">
+    <!-- Flores y símbolos de sanación -->
+    <path d="M200,150 Q210,130 220,150 Q240,160 220,170 Q210,190 200,170 Q180,160 200,150 Z" />
+    <path d="M600,150 Q610,130 620,150 Q640,160 620,170 Q610,190 600,170 Q580,160 600,150 Z" />
+    <path d="M300,350 Q310,330 320,350 Q340,360 320,370 Q310,390 300,370 Q280,360 300,350 Z" />
+    <path d="M500,350 Q510,330 520,350 Q540,360 520,370 Q510,390 500,370 Q480,360 500,350 Z" />
+    
+    <!-- Hojas y elementos naturales -->
+    <path d="M150,200 Q180,220 150,240 Q120,220 150,200 Z" />
+    <path d="M650,200 Q680,220 650,240 Q620,220 650,200 Z" />
+    <path d="M150,300 Q180,320 150,340 Q120,320 150,300 Z" />
+    <path d="M650,300 Q680,320 650,340 Q620,320 650,300 Z" />
+  </g>
+  
+  <!-- Símbolo central de sanación -->
+  <g transform="translate(400, 250)">
+    <circle cx="0" cy="0" r="40" fill="#00acc1" opacity="0.7" />
+    <path d="M0,-30 L0,30 M-30,0 L30,0" stroke="white" stroke-width="6" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="15" fill="#e0f7fa" />
+  </g>
+  
+  <!-- Título -->
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="32" font-weight="600" text-anchor="middle" fill="#00838f">
+    Sanación Emocional
   </text>
   
-  <!-- Texto corporativo -->
-  <text x="400" y="270" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#8a9ccc">
+  <!-- Logo corporativo -->
+  <g transform="translate(400, 420)">
+    <circle cx="0" cy="0" r="40" fill="#9b57c2" opacity="0.8" />
+    <text x="0" y="6" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+      MUNDO LIBRE
+    </text>
+  </g>
+  
+  <!-- Texto descriptivo -->
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#00838f">
     C.H.E. - Corporación Herejía Económica
-  </text>
-  
-  <!-- Líneas decorativas -->
-  <line x1="250" y1="310" x2="550" y2="310" stroke="#8a9ccc" stroke-width="2" stroke-dasharray="5,5" />
-  
-  <!-- Logo simplificado -->
-  <circle cx="400" cy="350" r="50" fill="#9b57c2" opacity="0.8" />
-  <text x="400" y="356" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
-    MUNDO LIBRE
   </text>
 </svg>
