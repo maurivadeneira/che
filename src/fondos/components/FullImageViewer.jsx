@@ -13,13 +13,13 @@ const FullImageViewer = ({ imageId, alt }) => {
     const calculateDimensions = () => {
       setLoading(true);
       
+      // Obtener las dimensiones de la ventana disponible (con márgenes)
+      const maxWidth = Math.min(window.innerWidth - 40, 1200);
+      const maxHeight = 650; // Altura máxima para que quede bien en la página
+      
       // Crear un objeto de imagen para obtener las dimensiones reales
       const img = new Image();
       img.onload = () => {
-        // Obtener las dimensiones de la ventana disponible (con márgenes)
-        const maxWidth = Math.min(window.innerWidth - 40, 1200);
-        const maxHeight = 650; // Altura máxima para que quede bien en la página
-        
         // Calcular el ratio de aspecto de la imagen
         const imageRatio = img.width / img.height;
         
@@ -46,7 +46,7 @@ const FullImageViewer = ({ imageId, alt }) => {
         setLoading(false);
       };
       
-      // Establecer la fuente de la imagen
+      // Intentar cargar primero PNG, y si falla, intentar SVG
       img.src = `/images/fondos/fondo-${imageId}.png`;
     };
     
@@ -97,8 +97,14 @@ const FullImageViewer = ({ imageId, alt }) => {
           margin: '0 auto'
         }}
         onError={(e) => {
+          // Si falla la carga de PNG, intentar con SVG
           e.target.onerror = null;
-          e.target.src = "/images/placeholder-400x200.svg";
+          e.target.src = `/images/fondos/fondo-${imageId}.svg`;
+          // Si también falla SVG, usar placeholder
+          e.target.onerror = () => {
+            e.target.onerror = null;
+            e.target.src = "/images/placeholder-400x200.svg";
+          };
         }}
       />
     </div>
