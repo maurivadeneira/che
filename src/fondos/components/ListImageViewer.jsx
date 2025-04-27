@@ -50,33 +50,34 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       
       // Probar con múltiples formatos de archivo y patrones de nombre
       const tryLoadImage = (index = 0) => {
+        // Asegurarse de que las rutas sean absolutas
         const imagePaths = [
-          `/images/fondos/fondo-${imageId}.png`,
-          `/images/fondos/${imageId}-Sanacion.png`,
-          `/images/fondos/${imageId}-Vivienda.png`,
-          `/images/fondos/${imageId}-recreacion.png`,
-          `/images/fondos/${imageId}-sistemas.png`,
-          `/images/fondos/${imageId}-Bancario.png`,
-          `/images/fondos/${imageId}-ProyectosIngenieria.png`,
-          `/images/fondos/${imageId}-Comercial.png`,
-          `/images/fondos/${imageId}-InvestigacionCiencia.png`,
-          `/images/fondos/${imageId}-ArteCultura.png`,
-          `/images/fondos/fondo-${imageId}.svg`,
-          `/images/${imageId}-Sanacion.png`,
-          `/images/${imageId}-Vivienda.png`,
-          `/images/${imageId}-recreacion.png`,
-          `/images/${imageId}-sistemas.png`,
-          `/images/${imageId}-Bancario.png`,
-          `/images/${imageId}-ProyectosIngenieria.png`,
-          `/images/${imageId}-Comercial.png`,
-          `/images/${imageId}-InvestigacionCiencia.png`,
-          `/images/${imageId}-ArteCultura.png`
+          `${window.location.origin}/images/fondos/fondo-${imageId}.png`,
+          `${window.location.origin}/images/fondos/${imageId}-Sanacion.png`,
+          `${window.location.origin}/images/fondos/${imageId}-Vivienda.png`,
+          `${window.location.origin}/images/fondos/${imageId}-recreacion.png`,
+          `${window.location.origin}/images/fondos/${imageId}-sistemas.png`,
+          `${window.location.origin}/images/fondos/${imageId}-Bancario.png`,
+          `${window.location.origin}/images/fondos/${imageId}-ProyectosIngenieria.png`,
+          `${window.location.origin}/images/fondos/${imageId}-Comercial.png`,
+          `${window.location.origin}/images/fondos/${imageId}-InvestigacionCiencia.png`,
+          `${window.location.origin}/images/fondos/${imageId}-ArteCultura.png`,
+          `${window.location.origin}/images/fondos/fondo-${imageId}.svg`,
+          `${window.location.origin}/images/${imageId}-Sanacion.png`,
+          `${window.location.origin}/images/${imageId}-Vivienda.png`,
+          `${window.location.origin}/images/${imageId}-recreacion.png`,
+          `${window.location.origin}/images/${imageId}-sistemas.png`,
+          `${window.location.origin}/images/${imageId}-Bancario.png`,
+          `${window.location.origin}/images/${imageId}-ProyectosIngenieria.png`,
+          `${window.location.origin}/images/${imageId}-Comercial.png`,
+          `${window.location.origin}/images/${imageId}-InvestigacionCiencia.png`,
+          `${window.location.origin}/images/${imageId}-ArteCultura.png`
         ];
         
         if (index >= imagePaths.length) {
           // Si no se encuentra ninguna imagen, usar placeholder
-          img.src = "/images/placeholder-400x200.svg";
-          setImageSrc("/images/placeholder-400x200.svg");
+          img.src = `${window.location.origin}/images/placeholder-400x200.svg`;
+          setImageSrc(`${window.location.origin}/images/placeholder-400x200.svg`);
           return;
         }
         
@@ -139,11 +140,11 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     
     // Si existe un nombre para este ID, usar el formato alternativo
     if (nameMap[imageId]) {
-      return `/images/fondos/${imageId}-${nameMap[imageId]}.png`;
+      return `${window.location.origin}/images/fondos/${imageId}-${nameMap[imageId]}.png`;
     }
     
     // Caso por defecto
-    return `/images/fondos/fondo-${imageId}.png`;
+    return `${window.location.origin}/images/fondos/fondo-${imageId}.png`;
   };
   
   return (
@@ -171,7 +172,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           e.target.onerror = null;
           
           // Probar con formato SVG
-          e.target.src = `/images/fondos/fondo-${imageId}.svg`;
+          e.target.src = `${window.location.origin}/images/fondos/fondo-${imageId}.svg`;
           
           // Si SVG falla, intentar con ruta directa a images
           e.target.onerror = () => {
@@ -188,16 +189,16 @@ const ListImageViewer = ({ imageId, alt, className }) => {
             };
             
             if (nameMap[imageId]) {
-              e.target.src = `/images/${imageId}-${nameMap[imageId]}.png`;
+              e.target.src = `${window.location.origin}/images/${imageId}-${nameMap[imageId]}.png`;
               
               // Si eso también falla, usar placeholder
               e.target.onerror = () => {
                 e.target.onerror = null;
-                e.target.src = "/images/placeholder-400x200.svg";
+                e.target.src = `${window.location.origin}/images/placeholder-400x200.svg`;
               };
             } else {
               // Si no hay mapeo, usar placeholder
-              e.target.src = "/images/placeholder-400x200.svg";
+              e.target.src = `${window.location.origin}/images/placeholder-400x200.svg`;
             }
           };
         }}

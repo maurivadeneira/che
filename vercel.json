@@ -4,12 +4,24 @@
   "outputDirectory": "dist",
   "routes": [
     {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/images/fondos/(.*)",
+      "dest": "/images/fondos/$1"
+    },
+    {
+      "src": "/fondos/(.*)",
+      "dest": "/fondos/$1"
+    },
+    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "/documentos/(.*)",
+      "dest": "/documentos/$1"
     },
     {
       "src": "/favicon.ico",
@@ -20,10 +32,6 @@
       "dest": "/manifest.json"
     },
     {
-      "src": "/logo(.*).png",
-      "dest": "/logo$1.png"
-    },
-    {
       "src": "/(.*)\\.js",
       "dest": "/$1.js"
     },
@@ -32,12 +40,12 @@
       "dest": "/$1.css"
     },
     {
-      "src": "/(.*)\\.svg",
-      "dest": "/$1.svg"
-    },
-    {
       "src": "/(.*)\\.png",
       "dest": "/$1.png"
+    },
+    {
+      "src": "/(.*)\\.svg",
+      "dest": "/$1.svg"
     },
     {
       "src": "/(.*)\\.jpg",

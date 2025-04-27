@@ -5,13 +5,13 @@
   "main": "index.js",
 
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "lint": "eslint .",
-  "dev": "webpack serve",
-  "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
-  "build": "webpack --mode production && npm run copy-assets",
-  "start": "webpack serve"
-},
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "dev": "webpack serve",
+    "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
+    "build": "webpack --mode production && npm run copy-assets",
+    "start": "webpack serve"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
