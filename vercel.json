@@ -11,15 +11,15 @@
     }
   ],
   "routes": [
-    { "src": "^/images/(.*)", "dest": "/images/$1" },
-    { "src": "^/imagenFondos/(.*)", "dest": "/imagenFondos/$1" },
-    { "src": "^/fondos/(.*)", "dest": "/fondos/$1" },
-    { "src": "^/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "^/documentos/(.*)", "dest": "/documentos/$1" },
-    { "src": "^/public/(.*)", "dest": "/public/$1" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "^/(.*)\\.(.+)$", "dest": "/$1.$2" },
-    { "src": "^/(.*)", "dest": "/index.html" }
+    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/imagenFondos/(.*)", "dest": "/imagenFondos/$1" },
+    { "src": "/fondos/(.*)", "dest": "/fondos/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/documentos/(.*)", "dest": "/documentos/$1" },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/(.*)\\.(.+)$", "dest": "/$1.$2" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
