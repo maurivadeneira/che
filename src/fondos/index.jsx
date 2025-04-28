@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CheMiniLogo from '../components/CheMiniLogo.js';
 import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
-import FondosSvgCollection from '../components/FondosSvgCollection';
 import ListImageViewer from './components/ListImageViewer';
 import './components/fondos.css';
+import './components/fondos-layout.css'; // Importar el nuevo CSS para layout consistente
 
 // Componente para un Fondo Rotatorio individual
 const FondoRotatorio = ({ titulo, descripcion, imagenDesc, id }) => {
@@ -119,7 +119,7 @@ const FondosRotatoriosCHE = () => {
   ];
 
   return (
-    <div className="fade-in" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+    <div className="fade-in fondos-container">
       <DevelopmentBanner />
       <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--secondary-color)', fontSize: '1.8rem' }}>
         <div>Fondos Rotatorios C.H.E. MUNDO LIBRE</div>
@@ -127,7 +127,9 @@ const FondosRotatoriosCHE = () => {
           <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle' }} />
         </div>
       </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))', gap: '30px', overflow: 'visible' }}>
+      
+      {/* Aplicar la clase fondos-grid para forzar 2 columnas */}
+      <div className="fondos-grid">
         {fondos.map(fondo => (
           <FondoRotatorio 
             key={fondo.id}
