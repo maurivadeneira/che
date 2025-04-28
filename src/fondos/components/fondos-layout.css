@@ -1,6 +1,11 @@
 /* CSS para asegurar consistencia en el layout de los fondos */
 
-/* Forzar dos columnas y limitar el ancho máximo */
+/* Reset y configuración básica */
+* {
+  box-sizing: border-box;
+}
+
+/* Forzar dos columnas y limitar el ancho máximo - con !important para prioridad máxima */
 .fondos-grid {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
@@ -47,4 +52,42 @@ div[style*="display: grid"] {
 .fund-card {
   width: 100% !important;
   max-width: 100% !important;
+}
+
+/* Reglas adicionales de fuerza para asegurar 2 columnas */
+.fondos-grid > * {
+  min-width: 0 !important; /* Evita que el contenido fuerce un ancho mayor */
+}
+
+/* Forzar Grid para cualquier contenedor que tenga elementos de fondos */
+div:has(.fund-card) {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  gap: 30px !important;
+}
+
+/* Asegurar que el contenedor utilice el espacio disponible correctamente */
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Regla extrema para asegurar nunca más de 2 columnas */
+@media (min-width: 769px) {
+  [class*="grid"],
+  [style*="grid"],
+  [class*="fondos"],
+  [id*="fondos"],
+  div[style*="grid-template"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 1000px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

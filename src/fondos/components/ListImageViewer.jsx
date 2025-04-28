@@ -51,7 +51,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         setLoading(false);
       };
       
-      // Mapeo de nombres para los fondos basado en la estructura actual de archivos
+      // Mapeo exacto basado en los nombres de archivo vistos en la estructura del proyecto
       const nameMap = {
         '1': 'Proyectos',
         '2': 'Mediosaudiovisuales',
@@ -74,33 +74,36 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       const tryLoadImage = (index = 0) => {
         setLoadingAttempts(prev => prev + 1);
         
-        // PRIMERA PRIORIDAD: Rutas que sabemos existen en el despliegue local
+        // PRIMERA PRIORIDAD: Rutas exactas basadas en la estructura de archivos vista
         const imagePaths = [
-          // Rutas específicas para Vercel que sabemos funcionan
-          `${origin}/images/${imageId}-fondo.png`,  // Formato para fondos 1, 2, 3, 9
-          `${origin}/images/${imageId}-${nameMap[imageId] || ''}.png`, // Formato para otros fondos en raíz
-          `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`, // Formato en subcarpeta fondos
+          // EXACTAMENTE los archivos que vimos en la imagen 3
+          `/fondos/${imageId}-${nameMap[imageId]}.png`,  // Ruta exacta como se ve en VSCode
+          `/fondos/${imageId}-fondo.png`,  // Archivos como "1-fondo.png" vistos en VSCode
           
-          // Rutas relativas para entorno local
+          // Rutas absolutas con las mismas estructuras
+          `${origin}/fondos/${imageId}-${nameMap[imageId]}.png`,
+          `${origin}/fondos/${imageId}-fondo.png`,
+          
+          // Rutas alternativas previamente usadas
+          `/images/fondos/${imageId}-${nameMap[imageId]}.png`,
           `/images/${imageId}-fondo.png`,
-          `/images/${imageId}-${nameMap[imageId] || ''}.png`,
-          `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+          `/images/${imageId}-${nameMap[imageId]}.png`,
+          `${origin}/images/fondos/${imageId}-${nameMap[imageId]}.png`,
+          `${origin}/images/${imageId}-fondo.png`,
+          `${origin}/images/${imageId}-${nameMap[imageId]}.png`,
           
-          // Formatos alternativos y fallbacks
+          // Formatos antiguos como fallback
           `/imagenFondos/fondo-${imageId}.png`,
           `/imagenFondos/fondo-${imageId}.svg`,
-          `/fondos/fondo-${imageId}.png`,
-          `/fondos/fondo-${imageId}.svg`,
-          `/images/fondos/fondo-${imageId}.png`,
-          `/images/fondos/fondo-${imageId}.svg`,
           
-          // Fallback final a placeholder
+          // Placeholder como último recurso
+          "/images/placeholder-400x200.jpg",  // Vimos que existe este archivo en la imagen 3
           "/images/placeholder-400x200.svg"
         ];
         
         if (index >= imagePaths.length) {
           // Si no se encuentra ninguna imagen, usar placeholder absoluto
-          const placeholderPath = `${origin}/images/placeholder-400x200.svg`;
+          const placeholderPath = `${origin}/images/placeholder-400x200.jpg`;
           console.log(`⚠️ Usando placeholder después de ${loadingAttempts} intentos: ${placeholderPath}`);
           img.src = placeholderPath;
           setImageSrc(placeholderPath);
@@ -156,7 +159,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     // Obtener el origen para rutas absolutas
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     
-    // Nombres de fondos basados en la nueva nomenclatura
+    // Nombres exactos basados en lo visto en la estructura de archivos
     const nameMap = {
       '1': 'Proyectos',
       '2': 'Mediosaudiovisuales',
@@ -171,15 +174,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       '11': 'ArteCultura'
     };
 
-    // Intentar con el nuevo formato primero (con ruta absoluta)
-    if (['1', '2', '3', '9'].includes(imageId)) {
-      return `${origin}/images/${imageId}-fondo.png`;
-    } else if (nameMap[imageId]) {
-      return `${origin}/images/${imageId}-${nameMap[imageId]}.png`;
-    }
-    
-    // Fallback a formato anterior
-    return `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`;
+    // Intentar con el formato exacto visto en VSCode primero
+    return `/fondos/${imageId}-${nameMap[imageId]}.png`;
   };
   
   return (
@@ -207,7 +203,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           
           // Cadena de intentos de fallback para cargar imágenes
           const tryFallbacks = (fallbackIndex = 0) => {
-            // Mapeo de nombres para los fondos
+            // Mapeo exacto según lo visto en la estructura de archivos
             const nameMap = {
               '1': 'Proyectos',
               '2': 'Mediosaudiovisuales',
@@ -225,30 +221,30 @@ const ListImageViewer = ({ imageId, alt, className }) => {
             // Obtener el origen para rutas absolutas
             const origin = typeof window !== 'undefined' ? window.location.origin : '';
             
-            // Combinamos rutas absolutas y relativas para máxima compatibilidad
+            // Combinamos rutas exactas basadas en la estructura vista en VS Code
             const fallbacks = [
-              // Rutas absolutas (más confiables en producción)
-              `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
-              `${origin}/images/${imageId}-fondo.png`,
-              `${origin}/images/${imageId}-${nameMap[imageId] || ''}.png`,
+              // Rutas exactas como se ven en el explorador de archivos
+              `/fondos/${imageId}-fondo.png`,
+              `/fondos/${imageId}-${nameMap[imageId]}.png`,
               
-              // Rutas relativas (pueden funcionar en entorno local)
-              `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+              // Rutas absolutas
+              `${origin}/fondos/${imageId}-fondo.png`,
+              `${origin}/fondos/${imageId}-${nameMap[imageId]}.png`,
+              
+              // Otras rutas alternativas
+              `/images/fondos/${imageId}-${nameMap[imageId]}.png`,
               `/images/${imageId}-fondo.png`,
-              `/images/${imageId}-${nameMap[imageId] || ''}.png`,
+              `${origin}/images/fondos/${imageId}-${nameMap[imageId]}.png`,
+              `${origin}/images/${imageId}-fondo.png`,
               
-              // Formatos antiguos
-              `/imagenFondos/fondo-${imageId}.png`,
-              `/imagenFondos/fondo-${imageId}.svg`,
-              
-              // Placeholder como último recurso
-              `${origin}/images/placeholder-400x200.svg`,
+              // Placeholder como último recurso - nombres exactos vistos en VSCode
+              "/images/placeholder-400x200.jpg",
               "/images/placeholder-400x200.svg"
             ];
             
             if (fallbackIndex >= fallbacks.length) {
               console.log(`⚠️ No se pudo cargar ninguna imagen para el fondo ${imageId} después de ${fallbacks.length} intentos`);
-              e.target.src = `${origin}/images/placeholder-400x200.svg`;
+              e.target.src = `/images/placeholder-400x200.jpg`;
               return;
             }
             
