@@ -1,11 +1,5 @@
-> Why do I have a folder named ".vercel" in my project?
-The ".vercel" folder is created when you link a directory to a Vercel project.
+Este archivo fue modificado por Claude el 28/04/2025 para corregir un problema con la carga de imagenFondos.
 
-> What does the "project.json" file contain?
-The "project.json" file contains:
-- The ID of the Vercel project that you linked ("projectId")
-- The ID of the user or team your Vercel project is owned by ("orgId")
+Se modificó el script vercel-build.js para que también busque imágenes en la carpeta raíz 'imagenFondos', además de en 'public/imagenFondos'.
 
-> Should I commit the ".vercel" folder?
-No, you should not share the ".vercel" folder with anyone.
-Upon creation, it will be automatically added to your ".gitignore" file.
+Esto debería resolver el problema de las imágenes que no se estaban mostrando en el sitio desplegado.

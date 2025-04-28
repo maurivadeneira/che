@@ -54,6 +54,7 @@ ensureDirectoryExists('./dist');
 const directories = [
   { source: './public/images', target: './dist/images' },
   { source: './public/imagenFondos', target: './dist/imagenFondos' },
+  { source: './imagenFondos', target: './dist/imagenFondos' },  // Añadido para buscar también en la raíz
   { source: './public/fondos', target: './dist/fondos' },
   { source: './public/assets', target: './dist/assets' },
   { source: './public/documentos', target: './dist/documentos' },

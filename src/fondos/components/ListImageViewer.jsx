@@ -51,7 +51,12 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       // Probar con múltiples formatos de archivo y patrones de nombre
       const tryLoadImage = (index = 0) => {
         const imagePaths = [
+          `/imagenFondos/fondo-${imageId}.svg`, // Agregar la ruta a imagenFondos primero
+          `/imagenFondos/fondo-${imageId}.png`,
+          `/fondos/fondo-${imageId}.svg`, // Otra ruta posible
+          `/fondos/fondo-${imageId}.png`,
           `/images/fondos/fondo-${imageId}.png`,
+          `/images/fondos/fondo-${imageId}.svg`,
           `/images/fondos/${imageId}-Sanacion.png`,
           `/images/fondos/${imageId}-Vivienda.png`,
           `/images/fondos/${imageId}-recreacion.png`,
@@ -61,7 +66,6 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           `/images/fondos/${imageId}-Comercial.png`,
           `/images/fondos/${imageId}-InvestigacionCiencia.png`,
           `/images/fondos/${imageId}-ArteCultura.png`,
-          `/images/fondos/fondo-${imageId}.svg`,
           `/images/${imageId}-Sanacion.png`,
           `/images/${imageId}-Vivienda.png`,
           `/images/${imageId}-recreacion.png`,
@@ -122,28 +126,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   const getImageSrc = () => {
     if (imageSrc) return imageSrc;
     
-    // Estos son los nombres alternativos según el ID
-    const nameMap = {
-      '1': 'Inversion',
-      '2': 'Editorial',
-      '3': 'Sanacion',
-      '4': 'Vivienda',
-      '5': 'recreacion',
-      '6': 'sistemas',
-      '7': 'Bancario',
-      '8': 'ProyectosIngenieria',
-      '9': 'Comercial',
-      '10': 'InvestigacionCiencia',
-      '11': 'ArteCultura'
-    };
-    
-    // Si existe un nombre para este ID, usar el formato alternativo
-    if (nameMap[imageId]) {
-      return `/images/fondos/${imageId}-${nameMap[imageId]}.png`;
-    }
-    
-    // Caso por defecto
-    return `/images/fondos/fondo-${imageId}.png`;
+    // Intentar primero con la carpeta imagenFondos
+    return `/imagenFondos/fondo-${imageId}.svg`;
   };
   
   return (
@@ -167,39 +151,29 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         }}
         className="list-viewer-image"
         onError={(e) => {
-          // Intentar diferentes rutas en caso de error
-          e.target.onerror = null;
-          
-          // Probar con formato SVG
-          e.target.src = `/images/fondos/fondo-${imageId}.svg`;
-          
-          // Si SVG falla, intentar con ruta directa a images
-          e.target.onerror = () => {
-            e.target.onerror = null;
-            const nameMap = {
-              '3': 'Sanacion',
-              '4': 'Vivienda',
-              '5': 'recreacion',
-              '6': 'sistemas',
-              '7': 'Bancario',
-              '8': 'ProyectosIngenieria',
-              '10': 'InvestigacionCiencia',
-              '11': 'ArteCultura'
-            };
+          // Cadena de intentos de fallback para cargar imágenes
+          const tryFallbacks = (fallbackIndex = 0) => {
+            const fallbacks = [
+              `/imagenFondos/fondo-${imageId}.png`,
+              `/fondos/fondo-${imageId}.svg`,
+              `/fondos/fondo-${imageId}.png`,
+              `/images/fondos/fondo-${imageId}.png`,
+              `/images/fondos/fondo-${imageId}.svg`,
+              "/images/placeholder-400x200.svg"
+            ];
             
-            if (nameMap[imageId]) {
-              e.target.src = `/images/${imageId}-${nameMap[imageId]}.png`;
-              
-              // Si eso también falla, usar placeholder
-              e.target.onerror = () => {
-                e.target.onerror = null;
-                e.target.src = "/images/placeholder-400x200.svg";
-              };
-            } else {
-              // Si no hay mapeo, usar placeholder
+            if (fallbackIndex >= fallbacks.length) {
               e.target.src = "/images/placeholder-400x200.svg";
+              return;
             }
+            
+            e.target.onerror = () => tryFallbacks(fallbackIndex + 1);
+            e.target.src = fallbacks[fallbackIndex];
           };
+          
+          // Iniciar la cadena de fallbacks
+          e.target.onerror = null;
+          tryFallbacks(0);
         }}
       />
     </div>
