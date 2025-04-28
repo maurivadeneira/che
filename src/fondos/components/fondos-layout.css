@@ -1,93 +1,40 @@
 /* CSS para asegurar consistencia en el layout de los fondos */
 
-/* Reset y configuración básica */
-* {
-  box-sizing: border-box;
-}
-
-/* Forzar dos columnas y limitar el ancho máximo - con !important para prioridad máxima */
+/* Forzar dos columnas y limitar el ancho máximo */
 .fondos-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 30px !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Estilos responsivos para móviles */
 @media (max-width: 768px) {
   .fondos-grid {
-    grid-template-columns: 1fr !important; /* Una columna en móviles */
+    grid-template-columns: 1fr; /* Una columna en móviles */
   }
 }
 
 /* Asegurar que las imágenes tengan un tamaño coherente */
 .fondo-image-container {
-  height: 250px !important;
-  background-color: #1a2a3a !important;
+  height: 250px;
+  background-color: #1a2a3a;
 }
 
 /* Asegurar que el contenedor principal tenga un ancho máximo consistente */
 .fondos-container {
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  padding: 20px !important;
-  width: 100% !important;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
 }
 
-/* Reemplazar cualquier grid-template-columns que pudiera estar sobreescribiendo */
-[style*="grid-template-columns"] {
-  grid-template-columns: repeat(2, 1fr) !important;
-}
-
-/* Sobrescribir cualquier estilo en línea que pudiera estar afectando */
-div[style*="display: grid"] {
-  grid-template-columns: repeat(2, 1fr) !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-}
-
-/* Asegurar que las tarjetas de fondos tengan el ancho correcto */
-.fund-card {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Reglas adicionales de fuerza para asegurar 2 columnas */
-.fondos-grid > * {
-  min-width: 0 !important; /* Evita que el contenido fuerce un ancho mayor */
-}
-
-/* Forzar Grid para cualquier contenedor que tenga elementos de fondos */
-div:has(.fund-card) {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  gap: 30px !important;
-}
-
-/* Asegurar que el contenedor utilice el espacio disponible correctamente */
-html, body {
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Regla extrema para asegurar nunca más de 2 columnas */
+/* Solo mantenemos estas reglas con !important para Vercel pero reducimos su agresividad */
 @media (min-width: 769px) {
-  [class*="grid"],
-  [style*="grid"],
-  [class*="fondos"],
-  [id*="fondos"],
-  div[style*="grid-template"] {
+  /* Solo para pantallas más grandes, aseguramos 2 columnas en Vercel */
+  .fondos-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    max-width: 1000px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
