@@ -1,0 +1,50 @@
+/* CSS para asegurar consistencia en el layout de los fondos */
+
+/* Forzar dos columnas y limitar el ancho máximo */
+.fondos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 30px !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 768px) {
+  .fondos-grid {
+    grid-template-columns: 1fr !important; /* Una columna en móviles */
+  }
+}
+
+/* Asegurar que las imágenes tengan un tamaño coherente */
+.fondo-image-container {
+  height: 250px !important;
+  background-color: #1a2a3a !important;
+}
+
+/* Asegurar que el contenedor principal tenga un ancho máximo consistente */
+.fondos-container {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  width: 100% !important;
+}
+
+/* Reemplazar cualquier grid-template-columns que pudiera estar sobreescribiendo */
+[style*="grid-template-columns"] {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+/* Sobrescribir cualquier estilo en línea que pudiera estar afectando */
+div[style*="display: grid"] {
+  grid-template-columns: repeat(2, 1fr) !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+/* Asegurar que las tarjetas de fondos tengan el ancho correcto */
+.fund-card {
+  width: 100% !important;
+  max-width: 100% !important;
+}

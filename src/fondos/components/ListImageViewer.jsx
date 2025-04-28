@@ -8,11 +8,13 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [loading, setLoading] = useState(true);
   const [imageSrc, setImageSrc] = useState(null);
+  const [loadingAttempts, setLoadingAttempts] = useState(0);
 
   useEffect(() => {
     // Función para calcular las dimensiones óptimas
     const calculateDimensions = () => {
       setLoading(true);
+      setLoadingAttempts(0);
       
       // Crear un objeto de imagen para obtener las dimensiones reales
       const img = new Image();
@@ -40,10 +42,11 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         
         setDimensions({ width, height });
         setLoading(false);
+        console.log(`✅ Imagen ${imageId} cargada exitosamente desde: ${img.src}`);
       };
       
       img.onerror = () => {
-        console.error('Error al cargar la imagen');
+        console.error(`Error al cargar la imagen ${imageId}`);
         setDimensions({ width: 400, height: 250 });
         setLoading(false);
       };
@@ -63,19 +66,31 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         '11': 'ArteCultura'
       };
       
+      // Obtener el origen para rutas absolutas
+      const origin = typeof window !== 'undefined' ? window.location.origin : '';
+      console.log(`🔍 Origen para imágenes absolutas: ${origin}`);
+      
       // Probar con múltiples formatos de archivo y patrones de nombre
       const tryLoadImage = (index = 0) => {
+        setLoadingAttempts(prev => prev + 1);
+        
+        // PRIMERA PRIORIDAD: Rutas que sabemos existen en el despliegue local
         const imagePaths = [
-          // Nuevos patrones de nombre (formato actual)
-          `/images/${imageId}-fondo.png`,
-          `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
-          `/images/${imageId}-${nameMap[imageId] || ''}.png`,
+          // Rutas específicas para Vercel que sabemos funcionan
+          `${origin}/images/${imageId}-fondo.png`,  // Formato para fondos 1, 2, 3, 9
+          `${origin}/images/${imageId}-${nameMap[imageId] || ''}.png`, // Formato para otros fondos en raíz
+          `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`, // Formato en subcarpeta fondos
           
-          // Patrones anteriores y alternativas de fallback
-          `/imagenFondos/fondo-${imageId}.svg`,
+          // Rutas relativas para entorno local
+          `/images/${imageId}-fondo.png`,
+          `/images/${imageId}-${nameMap[imageId] || ''}.png`,
+          `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+          
+          // Formatos alternativos y fallbacks
           `/imagenFondos/fondo-${imageId}.png`,
-          `/fondos/fondo-${imageId}.svg`,
+          `/imagenFondos/fondo-${imageId}.svg`,
           `/fondos/fondo-${imageId}.png`,
+          `/fondos/fondo-${imageId}.svg`,
           `/images/fondos/fondo-${imageId}.png`,
           `/images/fondos/fondo-${imageId}.svg`,
           
@@ -84,17 +99,21 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         ];
         
         if (index >= imagePaths.length) {
-          // Si no se encuentra ninguna imagen, usar placeholder
-          img.src = "/images/placeholder-400x200.svg";
-          setImageSrc("/images/placeholder-400x200.svg");
+          // Si no se encuentra ninguna imagen, usar placeholder absoluto
+          const placeholderPath = `${origin}/images/placeholder-400x200.svg`;
+          console.log(`⚠️ Usando placeholder después de ${loadingAttempts} intentos: ${placeholderPath}`);
+          img.src = placeholderPath;
+          setImageSrc(placeholderPath);
           return;
         }
         
         img.onerror = () => {
           // Si esta ruta falla, intentar con la siguiente
+          console.log(`❌ Error cargando imagen: ${imagePaths[index]}, intento ${index + 1}/${imagePaths.length}`);
           tryLoadImage(index + 1);
         };
         
+        console.log(`🔄 Intentando cargar imagen ${imageId} desde: ${imagePaths[index]}`);
         img.src = imagePaths[index];
         setImageSrc(imagePaths[index]);
       };
@@ -121,9 +140,11 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '250px'
+        height: '250px',
+        flexDirection: 'column'
       }}>
-        <div style={{ color: '#fff' }}>Cargando imagen...</div>
+        <div style={{ color: '#fff', marginBottom: '10px' }}>Cargando imagen...</div>
+        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Intento {loadingAttempts}</div>
       </div>
     );
   }
@@ -131,6 +152,9 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   // Determinar la ruta de la imagen basada en el ID y diferentes formatos posibles
   const getImageSrc = () => {
     if (imageSrc) return imageSrc;
+    
+    // Obtener el origen para rutas absolutas
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
     
     // Nombres de fondos basados en la nueva nomenclatura
     const nameMap = {
@@ -147,15 +171,15 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       '11': 'ArteCultura'
     };
 
-    // Intentar con el nuevo formato primero
+    // Intentar con el nuevo formato primero (con ruta absoluta)
     if (['1', '2', '3', '9'].includes(imageId)) {
-      return `/images/${imageId}-fondo.png`;
+      return `${origin}/images/${imageId}-fondo.png`;
     } else if (nameMap[imageId]) {
-      return `/images/${imageId}-${nameMap[imageId]}.png`;
+      return `${origin}/images/${imageId}-${nameMap[imageId]}.png`;
     }
     
     // Fallback a formato anterior
-    return `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`;
+    return `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`;
   };
   
   return (
@@ -179,6 +203,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         }}
         className="list-viewer-image"
         onError={(e) => {
+          console.log(`❌ Error inicial con imagen ${imageId}, iniciando cadena de fallbacks`);
+          
           // Cadena de intentos de fallback para cargar imágenes
           const tryFallbacks = (fallbackIndex = 0) => {
             // Mapeo de nombres para los fondos
@@ -196,30 +222,42 @@ const ListImageViewer = ({ imageId, alt, className }) => {
               '11': 'ArteCultura'
             };
             
+            // Obtener el origen para rutas absolutas
+            const origin = typeof window !== 'undefined' ? window.location.origin : '';
+            
+            // Combinamos rutas absolutas y relativas para máxima compatibilidad
             const fallbacks = [
-              // Intentar primera con fondos individuales en /images/fondos/
-              `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+              // Rutas absolutas (más confiables en producción)
+              `${origin}/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+              `${origin}/images/${imageId}-fondo.png`,
+              `${origin}/images/${imageId}-${nameMap[imageId] || ''}.png`,
               
-              // Luego intentar en /images/
+              // Rutas relativas (pueden funcionar en entorno local)
+              `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
               `/images/${imageId}-fondo.png`,
               `/images/${imageId}-${nameMap[imageId] || ''}.png`,
               
-              // Intentar con formatos antiguos
+              // Formatos antiguos
               `/imagenFondos/fondo-${imageId}.png`,
               `/imagenFondos/fondo-${imageId}.svg`,
-              `/fondos/fondo-${imageId}.png`,
-              `/fondos/fondo-${imageId}.svg`,
               
               // Placeholder como último recurso
+              `${origin}/images/placeholder-400x200.svg`,
               "/images/placeholder-400x200.svg"
             ];
             
             if (fallbackIndex >= fallbacks.length) {
-              e.target.src = "/images/placeholder-400x200.svg";
+              console.log(`⚠️ No se pudo cargar ninguna imagen para el fondo ${imageId} después de ${fallbacks.length} intentos`);
+              e.target.src = `${origin}/images/placeholder-400x200.svg`;
               return;
             }
             
-            e.target.onerror = () => tryFallbacks(fallbackIndex + 1);
+            e.target.onerror = () => {
+              console.log(`❌ Fallback ${fallbackIndex + 1}/${fallbacks.length} falló: ${fallbacks[fallbackIndex]}`);
+              tryFallbacks(fallbackIndex + 1);
+            };
+            
+            console.log(`🔄 Probando fallback ${fallbackIndex + 1}/${fallbacks.length}: ${fallbacks[fallbackIndex]}`);
             e.target.src = fallbacks[fallbackIndex];
           };
           
