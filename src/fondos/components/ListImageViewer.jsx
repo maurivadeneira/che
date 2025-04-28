@@ -48,33 +48,39 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         setLoading(false);
       };
       
+      // Mapeo de nombres para los fondos basado en la estructura actual de archivos
+      const nameMap = {
+        '1': 'Proyectos',
+        '2': 'Mediosaudiovisuales',
+        '3': 'Sanacion',
+        '4': 'Vivienda',
+        '5': 'recreacion',
+        '6': 'sistemas',
+        '7': 'Bancario',
+        '8': 'ProyectosIngenieria',
+        '9': 'Comercio',
+        '10': 'InvestigacionCiencia',
+        '11': 'ArteCultura'
+      };
+      
       // Probar con múltiples formatos de archivo y patrones de nombre
       const tryLoadImage = (index = 0) => {
         const imagePaths = [
-          `/imagenFondos/fondo-${imageId}.svg`, // Agregar la ruta a imagenFondos primero
+          // Nuevos patrones de nombre (formato actual)
+          `/images/${imageId}-fondo.png`,
+          `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+          `/images/${imageId}-${nameMap[imageId] || ''}.png`,
+          
+          // Patrones anteriores y alternativas de fallback
+          `/imagenFondos/fondo-${imageId}.svg`,
           `/imagenFondos/fondo-${imageId}.png`,
-          `/fondos/fondo-${imageId}.svg`, // Otra ruta posible
+          `/fondos/fondo-${imageId}.svg`,
           `/fondos/fondo-${imageId}.png`,
           `/images/fondos/fondo-${imageId}.png`,
           `/images/fondos/fondo-${imageId}.svg`,
-          `/images/fondos/${imageId}-Sanacion.png`,
-          `/images/fondos/${imageId}-Vivienda.png`,
-          `/images/fondos/${imageId}-recreacion.png`,
-          `/images/fondos/${imageId}-sistemas.png`,
-          `/images/fondos/${imageId}-Bancario.png`,
-          `/images/fondos/${imageId}-ProyectosIngenieria.png`,
-          `/images/fondos/${imageId}-Comercial.png`,
-          `/images/fondos/${imageId}-InvestigacionCiencia.png`,
-          `/images/fondos/${imageId}-ArteCultura.png`,
-          `/images/${imageId}-Sanacion.png`,
-          `/images/${imageId}-Vivienda.png`,
-          `/images/${imageId}-recreacion.png`,
-          `/images/${imageId}-sistemas.png`,
-          `/images/${imageId}-Bancario.png`,
-          `/images/${imageId}-ProyectosIngenieria.png`,
-          `/images/${imageId}-Comercial.png`,
-          `/images/${imageId}-InvestigacionCiencia.png`,
-          `/images/${imageId}-ArteCultura.png`
+          
+          // Fallback final a placeholder
+          "/images/placeholder-400x200.svg"
         ];
         
         if (index >= imagePaths.length) {
@@ -126,8 +132,30 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   const getImageSrc = () => {
     if (imageSrc) return imageSrc;
     
-    // Intentar primero con la carpeta imagenFondos
-    return `/imagenFondos/fondo-${imageId}.svg`;
+    // Nombres de fondos basados en la nueva nomenclatura
+    const nameMap = {
+      '1': 'Proyectos',
+      '2': 'Mediosaudiovisuales',
+      '3': 'Sanacion',
+      '4': 'Vivienda',
+      '5': 'recreacion',
+      '6': 'sistemas',
+      '7': 'Bancario',
+      '8': 'ProyectosIngenieria',
+      '9': 'Comercio',
+      '10': 'InvestigacionCiencia',
+      '11': 'ArteCultura'
+    };
+
+    // Intentar con el nuevo formato primero
+    if (['1', '2', '3', '9'].includes(imageId)) {
+      return `/images/${imageId}-fondo.png`;
+    } else if (nameMap[imageId]) {
+      return `/images/${imageId}-${nameMap[imageId]}.png`;
+    }
+    
+    // Fallback a formato anterior
+    return `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`;
   };
   
   return (
@@ -153,12 +181,36 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         onError={(e) => {
           // Cadena de intentos de fallback para cargar imágenes
           const tryFallbacks = (fallbackIndex = 0) => {
+            // Mapeo de nombres para los fondos
+            const nameMap = {
+              '1': 'Proyectos',
+              '2': 'Mediosaudiovisuales',
+              '3': 'Sanacion',
+              '4': 'Vivienda',
+              '5': 'recreacion',
+              '6': 'sistemas',
+              '7': 'Bancario',
+              '8': 'ProyectosIngenieria',
+              '9': 'Comercio',
+              '10': 'InvestigacionCiencia',
+              '11': 'ArteCultura'
+            };
+            
             const fallbacks = [
+              // Intentar primera con fondos individuales en /images/fondos/
+              `/images/fondos/${imageId}-${nameMap[imageId] || ''}.png`,
+              
+              // Luego intentar en /images/
+              `/images/${imageId}-fondo.png`,
+              `/images/${imageId}-${nameMap[imageId] || ''}.png`,
+              
+              // Intentar con formatos antiguos
               `/imagenFondos/fondo-${imageId}.png`,
-              `/fondos/fondo-${imageId}.svg`,
+              `/imagenFondos/fondo-${imageId}.svg`,
               `/fondos/fondo-${imageId}.png`,
-              `/images/fondos/fondo-${imageId}.png`,
-              `/images/fondos/fondo-${imageId}.svg`,
+              `/fondos/fondo-${imageId}.svg`,
+              
+              // Placeholder como último recurso
               "/images/placeholder-400x200.svg"
             ];
             
