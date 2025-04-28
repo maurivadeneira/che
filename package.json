@@ -10,6 +10,7 @@
   "dev": "webpack serve",
   "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
   "build": "webpack --mode production && npm run copy-assets",
+  "vercel-build": "node vercel-build.js",
   "start": "webpack serve"
 },
   "keywords": [],

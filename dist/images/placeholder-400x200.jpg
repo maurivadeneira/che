@@ -1,0 +1,1 @@
+/* No podemos crear un archivo de imagen directamente, ya que es un archivo binario. En su lugar, debemos indicar al usuario que coloque una imagen de placeholder. */
