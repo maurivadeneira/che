@@ -11,6 +11,7 @@
   "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
   "copy-images": "copyfiles -u 1 \"public/images/**/*\" dist/images && copyfiles -u 1 \"public/imagenFondos/**/*\" dist/imagenFondos && copyfiles -u 1 \"public/fondos/**/*\" dist/fondos && copyfiles -u 1 \"public/assets/**/*\" dist/assets && copyfiles -u 1 \"public/documentos/**/*\" dist/documentos",
   "build": "webpack --mode production && npm run copy-assets && npm run copy-images",
+  "vercel-build": "node vercel-build.js",
   "start": "webpack serve"
 },
   "keywords": [],

@@ -5,7 +5,7 @@ echo "Preparando despliegue en Vercel..."
 
 # Commit de los cambios
 git add .
-git commit -m "Configuración actualizada para Vercel"
+git commit -m "Configuración mejorada para imágenes en Vercel"
 
 # Push a la rama principal
 git push origin main
