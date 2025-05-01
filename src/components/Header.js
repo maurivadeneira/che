@@ -144,6 +144,7 @@ const Header = () => {
         }}>
           <li><a href="/" style={{color: 'white', textDecoration: 'none'}}>Inicio</a></li>
           <li><a href="/herejias-ia" style={{color: '#f59e0b', textDecoration: 'none', fontWeight: 'bold'}}>Herejías con IA</a></li>
+          <li><a href="/kit-heresy" style={{color: 'white', textDecoration: 'none'}}>Kit Heresy</a></li>
           <li><a href="/conferencias" style={{color: 'white', textDecoration: 'none'}}>Conferencias</a></li>
           <li><a href="/biblioteca" style={{color: 'white', textDecoration: 'none'}}>Biblioteca</a></li>
           <li><a href="/fondos" style={{color: 'white', textDecoration: 'none'}}>Fondos Rotatorios</a></li>

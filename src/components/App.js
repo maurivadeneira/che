@@ -5,6 +5,7 @@ import Home from '../pages/Home.js';
 import FondosRoutes from '../fondos/routes.jsx';
 import AboutPage from '../pages/AboutPage.js';
 import ContactPage from '../pages/ContactPage.js';
+import KitHeresyPage from '../pages/KitHeresyPage';
 
 // Importar páginas provisionales para las nuevas secciones
 const HerejiaIAPage = () => (
@@ -108,6 +109,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="herejias-ia" element={<HerejiaIAPage />} />
+        <Route path="kit-heresy" element={<KitHeresyPage />} />
         <Route path="conferencias" element={<ConferenciasPage />} />
         <Route path="biblioteca" element={<BibliotecaPage />} />
         <Route path="fondos/*" element={<FondosRoutes />} />
