@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "che Corporación Herejía Económica. Un proyecto social global, para desarrollarlo en el mundo entero, en cada país que sea permitido.",
   "main": "index.js",
-
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "lint": "eslint .",
-  "dev": "webpack serve",
-  "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
-  "copy-images": "copyfiles -u 1 \"public/images/**/*\" dist/images && copyfiles -u 1 \"public/imagenFondos/**/*\" dist/imagenFondos && copyfiles -u 1 \"public/fondos/**/*\" dist/fondos && copyfiles -u 1 \"public/assets/**/*\" dist/assets && copyfiles -u 1 \"public/documentos/**/*\" dist/documentos",
-  "build": "webpack --mode production && npm run copy-assets && npm run copy-images",
-  "vercel-build": "node vercel-build.js",
-  "start": "webpack serve"
-},
+  "engines": {
+    "node": "16.x || 17.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "dev": "node fixDoubleExtension.js && node correctionAfterExtensions.js && node fix-images.js && webpack serve",
+    "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
+    "copy-images": "copyfiles -u 1 \"public/images/**/*\" dist/images && copyfiles -u 1 \"public/assets/**/*\" dist/assets && copyfiles -u 1 \"public/documentos/**/*\" dist/documentos",
+    "build": "webpack --mode production && npm run copy-assets && npm run copy-images",
+    "vercel-build": "npm run build",
+    "start": "webpack serve"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
