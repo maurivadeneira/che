@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "dev": "node fixDoubleExtension.js && node correctionAfterExtensions.js && node fix-images.js && webpack serve",
+    "dev": "webpack serve",
     "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
     "copy-images": "copyfiles -u 1 \"public/images/**/*\" dist/images && copyfiles -u 1 \"public/assets/**/*\" dist/assets && copyfiles -u 1 \"public/documentos/**/*\" dist/documentos",
     "build": "webpack --mode production && npm run copy-assets && npm run copy-images",
