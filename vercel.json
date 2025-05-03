@@ -3,16 +3,17 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist",
-        "nodeVersion": "22.x"
+        "distDir": "dist",
+        "buildCommand": "npm run build && node fix-image-paths.js"
       }
     }
   ],
   "routes": [
-    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/fondos/(.*)", "dest": "/fondos/$1" },
+    { "src": "/imagenFondos/(.*)", "dest": "/imagenFondos/$1" },
+    { "src": "/ContenidoProyChe/(.*)", "dest": "/ContenidoProyChe/$1" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]

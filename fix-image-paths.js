@@ -72,24 +72,42 @@ function fixPaths() {
   const imagenFondosDir = path.join(distDir, 'imagenFondos');
   ensureDirectoryExists(imagenFondosDir);
   
-  // Copiar imágenes de dist/images/fondos a dist/fondos
-  copyDirectoryRecursive(path.join(distDir, 'images', 'fondos'), fondosDir);
+  // Nueva ruta desde ContenidoProyChe
+  const contenidoProyChePath = path.join(__dirname, 'ContenidoProyChe');
   
-  // Copiar imágenes de dist/images a dist/imagenFondos
-  copyDirectoryRecursive(path.join(distDir, 'images'), imagenFondosDir);
-  
-  // Copiar imágenes con nombres nuevos (01_Inversion_Empresarial.png) si existen
-  const sourceDir = path.join(__dirname, 'contenido-herejiaecon', 'imagenesfondos');
-  if (fs.existsSync(sourceDir)) {
-    copyDirectoryRecursive(sourceDir, imagenFondosDir);
-    copyDirectoryRecursive(sourceDir, path.join(distDir, 'images'));
-  }
+  // Primero, intentar copiar desde la nueva estructura organizada
+  if (fs.existsSync(contenidoProyChePath)) {
+    const contenidoHerejiaPath = path.join(contenidoProyChePath, 'contenido-herejiaecon');
+    if (fs.existsSync(contenidoHerejiaPath)) {
+      // Copiar imágenes de fondos
+      const imagenesFondosPath = path.join(contenidoHerejiaPath, 'imagenesfondos');
+      if (fs.existsSync(imagenesFondosPath)) {
+        console.log('✅ Copiando desde nueva estructura organizada...');
+        copyDirectoryRecursive(imagenesFondosPath, imagenFondosDir);
+        copyDirectoryRecursive(imagenesFondosPath, fondosDir);
+        copyDirectoryRecursive(imagenesFondosPath, path.join(distDir, 'images'));
+      }
+    }
+  } else {
+    // Copiar imágenes de dist/images/fondos a dist/fondos (estructura antigua)
+    copyDirectoryRecursive(path.join(distDir, 'images', 'fondos'), fondosDir);
+    
+    // Copiar imágenes de dist/images a dist/imagenFondos (estructura antigua)
+    copyDirectoryRecursive(path.join(distDir, 'images'), imagenFondosDir);
+    
+    // Copiar imágenes con nombres nuevos (01_Inversion_Empresarial.png) si existen
+    const sourceDir = path.join(__dirname, 'contenido-herejiaecon', 'imagenesfondos');
+    if (fs.existsSync(sourceDir)) {
+      copyDirectoryRecursive(sourceDir, imagenFondosDir);
+      copyDirectoryRecursive(sourceDir, path.join(distDir, 'images'));
+    }
 
-  // También copiar desde public/assets/imagenesfondos si existe
-  const publicAssetsDir = path.join(__dirname, 'public', 'assets', 'imagenesfondos');
-  if (fs.existsSync(publicAssetsDir)) {
-    copyDirectoryRecursive(publicAssetsDir, imagenFondosDir);
-    copyDirectoryRecursive(publicAssetsDir, path.join(distDir, 'images'));
+    // También copiar desde public/assets/imagenesfondos si existe
+    const publicAssetsDir = path.join(__dirname, 'public', 'assets', 'imagenesfondos');
+    if (fs.existsSync(publicAssetsDir)) {
+      copyDirectoryRecursive(publicAssetsDir, imagenFondosDir);
+      copyDirectoryRecursive(publicAssetsDir, path.join(distDir, 'images'));
+    }
   }
   
   console.log('✅ Corrección de rutas de imágenes completada');

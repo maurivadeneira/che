@@ -10,9 +10,9 @@
   "dev": "webpack serve",
   "copy-assets": "copyfiles -u 1 \"public/**/*\" dist",
   "copy-images": "copyfiles -u 1 \"public/images/**/*\" dist/images && copyfiles -u 1 \"public/imagenFondos/**/*\" dist/imagenFondos && copyfiles -u 1 \"public/fondos/**/*\" dist/fondos && copyfiles -u 1 \"public/assets/**/*\" dist/assets && copyfiles -u 1 \"public/documentos/**/*\" dist/documentos",
+  "copy-contenido": "copyfiles -u 0 \"ContenidoProyChe/**/*\" dist/ContenidoProyChe",
   "fix-paths": "node fix-image-paths.js",
-  "build": "webpack --mode production && npm run copy-assets && npm run copy-images && npm run fix-paths",
-  "vercel-build": "node vercel-build.js",
+  "build": "webpack --mode production && npm run copy-assets && npm run copy-images && npm run copy-contenido && npm run fix-paths",
   "start": "webpack serve"
 },
   "keywords": [],
