@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './KitHeresy.css';
 import './KitActivation.css';
 import './OwnerSetup.css';
-import KitActivation from './KitActivation.js';
-import OwnerSetup from './OwnerSetup.js';
+import KitActivation from './KitActivation.jsx';
+import OwnerSetup from './OwnerSetup.jsx';
 
 const KitHeresy = () => {
   // Estados
