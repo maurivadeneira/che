@@ -23,7 +23,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   };
   
   // Construir ruta de imagen - usando la nueva ruta
-  const imagePath = `/images/fondos/${imageNames[imageId]}`;
+  // Construir ruta de imagen - usando la nueva ruta
+    const imagePath = `/contenido-herejiaecon/imagenesfondos/${imageNames[imageId]}`;
   
   useEffect(() => {
     console.log('=== DEBUG ListImageViewer ===');
