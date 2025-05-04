@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 /**
  * Componente para mostrar una imagen en la vista de listado
- * Version con consola de debug para entender qué está pasando
  */
 const ListImageViewer = ({ imageId, alt, className }) => {
   const [loading, setLoading] = useState(true);
@@ -23,8 +22,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     11: '11_Arte_y_Cultura.png'
   };
   
-  // Construir ruta de imagen - usando la estructura correcta
-  const imagePath = `/contenido-herejiaecon/imagenesfondos/${imageNames[imageId]}`;
+  // Construir ruta de imagen - usando la nueva ruta
+  const imagePath = `/images/fondos/${imageNames[imageId]}`;
   
   useEffect(() => {
     console.log('=== DEBUG ListImageViewer ===');
