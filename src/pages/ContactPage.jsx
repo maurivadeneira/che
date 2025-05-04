@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CheMiniLogo from '../components/CheMiniLogo.js';
+import CheMiniLogo from '../components/CheMiniLogo.jsx';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
