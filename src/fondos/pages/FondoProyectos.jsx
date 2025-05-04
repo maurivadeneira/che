@@ -17,7 +17,7 @@ const getProyectosExtendidos = (fondoId) => {
   return proyectosBase.map(proyecto => {
     let nombreAdaptado = proyecto.nombre;
     let descripcion = "Proyecto en desarrollo bajo los principios de la Herejía Económica.";
-    let imagenUrl = `/images/placeholder-400x200.svg`;
+    let imagenUrl = `/contenido-herejiaecon/imagenesfondos/placeholder.svg`;
     
     // Personalizar según el fondo
     switch(parseInt(fondoId)) {
@@ -102,7 +102,7 @@ const FondoProyectos = () => {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x200.svg";
+            e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
           }}
         />
         <div style={{

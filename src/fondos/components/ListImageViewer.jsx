@@ -78,7 +78,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           // Local - Estas rutas funcionaban antes
           `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
           `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-          `/images/${imageId}-fondo.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
           
           // Rutas alternativas basadas en la estructura vista en VS Code
           `/fondos/${imageId}-${nameMap[imageId]}.png`,
@@ -87,7 +87,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           // Rutas absolutas para Vercel
           `${origin}/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
           `${origin}/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-          `${origin}/images/${imageId}-fondo.png`,
+          `${origin}/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
           `${origin}/fondos/${imageId}-${nameMap[imageId]}.png`,
           
           // Fallbacks
@@ -95,13 +95,13 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           `/imagenFondos/fondo-${imageId}.png`,
           
           // Placeholder como último recurso
-          "/images/placeholder-400x200.jpg",
-          "/images/placeholder-400x200.svg"
+          "/contenido-herejiaecon/imagenesfondos/placeholder-400x200.jpg",
+          "/contenido-herejiaecon/imagenesfondos/placeholder.svg"
         ];
         
         if (index >= imagePaths.length) {
           // Si no se encuentra ninguna imagen, usar placeholder
-          const placeholderPath = "/images/placeholder-400x200.svg";
+          const placeholderPath = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
           console.log(`⚠️ Usando placeholder después de ${loadingAttempts} intentos`);
           img.src = placeholderPath;
           setImageSrc(placeholderPath);
@@ -199,19 +199,19 @@ const ListImageViewer = ({ imageId, alt, className }) => {
               // Local
               `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
               `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-              `/images/${imageId}-fondo.png`,
+              `/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
               
               // VS Code estructura
               `/fondos/${imageId}-${nameMap[imageId]}.png`,
               `/fondos/${imageId}-fondo.png`,
               
               // Placeholder como último recurso
-              "/images/placeholder-400x200.jpg",
-              "/images/placeholder-400x200.svg"
+              "/contenido-herejiaecon/imagenesfondos/placeholder-400x200.jpg",
+              "/contenido-herejiaecon/imagenesfondos/placeholder.svg"
             ];
             
             if (fallbackIndex >= fallbacks.length) {
-              e.target.src = "/images/placeholder-400x200.svg";
+              e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
               return;
             }
             

@@ -51,6 +51,6 @@ export const handleImageError = (event, useElement = false) => {
     }
   } else {
     // Simplemente cambiar la src al placeholder
-    event.target.src = "/images/placeholder-400x200.svg";
+    event.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
   }
 };

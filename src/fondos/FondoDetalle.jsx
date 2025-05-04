@@ -281,7 +281,7 @@ const FondoDetalle = () => {
           onError={(e) => {
             // Si falla la carga de PNG, carga el placeholder directamente
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x200.svg";
+            e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
           }}
         />
       </div>

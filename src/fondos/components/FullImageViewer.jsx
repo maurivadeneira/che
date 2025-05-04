@@ -63,23 +63,23 @@ const FullImageViewer = ({ imageId, alt }) => {
           `/contenido-herejiaecon/imagenesfondos/${imageId}-InvestigacionCiencia.png`,
           `/contenido-herejiaecon/imagenesfondos/${imageId}-ArteCultura.png`,
           `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.svg`,
-          `/images/${imageId}-Inversion.png`,
-          `/images/${imageId}-Editorial.png`,
-          `/images/${imageId}-Sanacion.png`,
-          `/images/${imageId}-Vivienda.png`,
-          `/images/${imageId}-recreacion.png`,
-          `/images/${imageId}-sistemas.png`,
-          `/images/${imageId}-Bancario.png`,
-          `/images/${imageId}-ProyectosIngenieria.png`,
-          `/images/${imageId}-Comercial.png`,
-          `/images/${imageId}-InvestigacionCiencia.png`,
-          `/images/${imageId}-ArteCultura.png`
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Inversion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Editorial.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Sanacion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Vivienda.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-recreacion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-sistemas.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Bancario.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-ProyectosIngenieria.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Comercial.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-InvestigacionCiencia.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-ArteCultura.png`
         ];
         
         if (index >= imagePaths.length) {
           // Si no se encuentra ninguna imagen, usar placeholder
-          img.src = "/images/placeholder-400x200.svg";
-          setImageSrc("/images/placeholder-400x200.svg");
+          img.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
+          setImageSrc("/contenido-herejiaecon/imagenesfondos/placeholder.svg");
           return;
         }
         
@@ -194,16 +194,16 @@ const FullImageViewer = ({ imageId, alt }) => {
             };
             
             if (nameMap[imageId]) {
-              e.target.src = `/images/${imageId}-${nameMap[imageId]}.png`;
+              e.target.src = `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`;
               
               // Si eso también falla, usar placeholder
               e.target.onerror = () => {
                 e.target.onerror = null;
-                e.target.src = "/images/placeholder-400x200.svg";
+                e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
               };
             } else {
               // Si no hay mapeo, usar placeholder
-              e.target.src = "/images/placeholder-400x200.svg";
+              e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
             }
           };
         }}

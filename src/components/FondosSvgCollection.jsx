@@ -46,7 +46,7 @@ const FondosSvgCollection = ({ id, title, style, className, ...props }) => {
       onError={(e) => {
         // Si falla la carga de PNG, usar placeholder
         e.target.onerror = null;
-        e.target.src = "/images/placeholder-400x200.svg";
+        e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
       }}
       {...props}
     />

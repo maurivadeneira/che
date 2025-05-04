@@ -70,7 +70,7 @@ const getEquipoMiembros = (fondoId) => {
     return {
       ...miembro,
       cargo: cargoAdaptado,
-      imagenUrl: `/images/placeholder-400x400.svg`, // Imagen placeholder para cada miembro
+      imagenUrl: `/contenido-herejiaecon/imagenesfondos/placeholder-400x400.svg`, // Imagen placeholder para cada miembro
     };
   });
 };
@@ -114,7 +114,7 @@ const FondoEquipo = () => {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/images/placeholder-400x400.svg";
+            e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder-400x400.svg";
           }}
         />
       </div>
