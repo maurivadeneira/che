@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CheMiniLogo from '../../components/CheMiniLogo.js';
-import CheMediumLogo from '../../components/CheMediumLogo.js';
+import CheMiniLogo from '../../components/CheMiniLogo.jsx';
+import CheMediumLogo from '../../components/CheMediumLogo.jsx';
 
 /**
  * Barra de navegación específica para cada fondo

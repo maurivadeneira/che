@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import FondoNavbar from './FondoNavbar';
-import CheMiniLogo from '../../components/CheMiniLogo.js';
+import CheMiniLogo from '../../components/CheMiniLogo.jsx';
 import { useParams } from 'react-router-dom';
 import './layout.css';
 

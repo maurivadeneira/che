@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CheMediumLogo from '../../components/CheMediumLogo.js';
+import CheMediumLogo from '../../components/CheMediumLogo.jsx';
 
 // Datos ficticios para proyectos extendidos
 const getProyectosExtendidos = (fondoId) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CheMiniLogo from '../../components/CheMiniLogo.js';
-import CheMediumLogo from '../../components/CheMediumLogo.js';
+import CheMiniLogo from '../../components/CheMiniLogo.jsx';
+import CheMediumLogo from '../../components/CheMediumLogo.jsx';
 import FondosSvgCollection from '../../components/FondosSvgCollection';
 import FullImageViewer from '../components/FullImageViewer';
 import '../components/fondos.css';

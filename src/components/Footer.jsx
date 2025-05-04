@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CheMiniLogo from './CheMiniLogo.js';
+import CheMiniLogo from './CheMiniLogo.jsx';
 
 const Footer = () => {
   const year = new Date().getFullYear();

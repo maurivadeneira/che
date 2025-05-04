@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import CheMiniLogo from '../components/CheMiniLogo.js';
-import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
+import CheMiniLogo from '../components/CheMiniLogo.jsx';
+import DevelopmentBanner from '../components/common/DevelopmentBanner.jsx';
 
 // Datos de todos los fondos (estos datos podrían venir de una API en el futuro)
 const fondosData = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CheMiniLogo from '../components/CheMiniLogo.js';
-import DevelopmentBanner from '../components/common/DevelopmentBanner.js';
+import CheMiniLogo from '../components/CheMiniLogo.jsx';
+import DevelopmentBanner from '../components/common/DevelopmentBanner.jsx';
 import ListImageViewer from './components/ListImageViewer';
 import './components/fondos.css';
 import './components/fondos-layout.css'; // Importar el nuevo CSS para layout consistente
