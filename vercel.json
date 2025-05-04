@@ -1,20 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist",
-        "buildCommand": "npm run build && node fix-image-paths.js"
-      }
-    }
-  ],
-  "routes": [
-    { "src": "/fondos/(.*)", "dest": "/fondos/$1" },
-    { "src": "/imagenFondos/(.*)", "dest": "/imagenFondos/$1" },
-    { "src": "/ContenidoProyChe/(.*)", "dest": "/ContenidoProyChe/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "devCommand": "npm run dev"
 }
