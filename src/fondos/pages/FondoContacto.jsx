@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import CheMediumLogo from '../../components/CheMediumLogo.js';
+import CheMediumLogo from '../../components/CheMediumLogo.jsx';
 
 // Datos ficticios para información de contacto según el fondo
 const getInfoContacto = (fondoId) => {
