@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-/**
- * Componente para mostrar una imagen en la vista de listado
- */
 const ListImageViewer = ({ imageId, alt, className }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   
-  // Mapeo de IDs a nombres de archivos REALES
   const imageNames = {
     1: '01_Inversion_Empresarial.png',
     2: '02_Editorial_y_Medios.png',
@@ -22,29 +18,30 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     11: '11_Arte_y_Cultura.png'
   };
   
-  // Construir ruta de imagen - usando la nueva ruta
-  // Construir ruta de imagen - usando la nueva ruta
   const imagePath = `/${imageNames[imageId]}`;
   
   useEffect(() => {
-    console.log('=== DEBUG ListImageViewer ===');
-    console.log('imageId:', imageId);
-    console.log('imagePath:', imagePath);
-    console.log('imageNames[imageId]:', imageNames[imageId]);
-  }, [imageId, imagePath]);
-  
-  const handleImageLoad = () => {
-    console.log('✅ Imagen cargada correctamente:', imagePath);
-    setLoading(false);
+    setLoading(true);
     setError(false);
-  };
-  
-  const handleImageError = () => {
-    console.error('❌ Error al cargar imagen:', imagePath);
-    console.log('Intentando rutas alternativas...');
-    setLoading(false);
-    setError(true);
-  };
+    
+    const img = new Image();
+    img.src = imagePath;
+    
+    img.onload = () => {
+      setLoading(false);
+      setError(false);
+    };
+    
+    img.onerror = () => {
+      setLoading(false);
+      setError(true);
+    };
+    
+    return () => {
+      img.onload = null;
+      img.onerror = null;
+    };
+  }, [imagePath]);
   
   if (loading) {
     return (
@@ -86,7 +83,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       justifyContent: 'center',
       alignItems: 'center',
       height: '250px',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      padding: '10px'
     }}>
       <img 
         src={imagePath} 
@@ -94,16 +92,16 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         style={{ 
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
+          objectFit: 'contain',
           display: 'block',
-          transition: 'transform 0.3s ease'
+          transition: 'transform 0.3s ease',
+          maxWidth: '100%',
+          maxHeight: '100%'
         }}
         className="list-viewer-image"
-        onLoad={handleImageLoad}
-        onError={handleImageError}
       />
     </div>
   );
-};
+};  // <-- Faltaba este cierre
 
-export default ListImageViewer;
+export default ListImageViewer;  // <-- Faltaba esta línea

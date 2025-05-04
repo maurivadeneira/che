@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "sync-content": "node sync-content.js",
-    "dev": "npm run sync-content && vite",
+    "dev": "npm run sync-content && vite --open",
     "build": "npm run sync-content && vite build",
     "preview": "vite preview"
   },

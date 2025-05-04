@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-/**
- * Componente para mostrar imágenes con los nombres originales
- */
 const FullImageViewer = ({ imageId, alt }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   
-  // Mapeo de IDs a nombres de archivos
   const imageNames = {
     1: '01_Inversion_Empresarial.png',
-    2: '02_Editorial_y_Medios.png', 
+    2: '02_Editorial_y_Medios.png',
     3: '03_Sanacion_Emocional.png',
     4: '04_Vivienda.png',
     5: '05_Recreacion_Social.png',
@@ -22,8 +18,8 @@ const FullImageViewer = ({ imageId, alt }) => {
     11: '11_Arte_y_Cultura.png'
   };
   
-  // Construir ruta de imagen - nota la ruta actualizada
-  const imagePath = `/contenido-herejiaecon/imagenesfondos/${imageNames[imageId]}`;
+  // Usa la misma ruta que funciona en ListImageViewer
+  const imagePath = `/${imageNames[imageId]}`;
   
   const handleImageLoad = () => {
     setLoading(false);
@@ -36,13 +32,14 @@ const FullImageViewer = ({ imageId, alt }) => {
   };
   
   return (
-    <div style={{ 
-      width: '100%', 
-      height: '400px', 
+    <div style={{
+      width: '100%',
+      height: '400px',
       position: 'relative',
       backgroundColor: loading ? '#f0f0f0' : 'transparent',
       borderRadius: '8px',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      padding: '10px' // Agrega padding
     }}>
       {loading && (
         <div style={{
@@ -82,9 +79,11 @@ const FullImageViewer = ({ imageId, alt }) => {
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
+          objectFit: 'contain', // Cambia de 'cover' a 'contain'
           borderRadius: '8px',
-          display: loading || error ? 'none' : 'block'
+          display: loading || error ? 'none' : 'block',
+          maxWidth: '100%',
+          maxHeight: '100%'
         }}
       />
     </div>

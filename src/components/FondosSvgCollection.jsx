@@ -1,52 +1,59 @@
 import React from 'react';
 
-/**
- * Colección centralizada para mostrar imágenes PNG de los fondos
- * @param {number} id - ID del fondo
- * @param {object} props - Propiedades adicionales para la imagen
- * @returns {JSX.Element} Componente de imagen correspondiente al ID
- */
 const FondosSvgCollection = ({ id, title, style, className, ...props }) => {
-  // Convertir a número si es string
   const fondoId = parseInt(id);
   
-  // Determinar qué estilo aplicar basado en la clase
+  // Usa los nombres correctos de archivos
+  const imageNames = {
+    1: '01_Inversion_Empresarial.png',
+    2: '02_Editorial_y_Medios.png',
+    3: '03_Sanacion_Emocional.png',
+    4: '04_Vivienda.png',
+    5: '05_Recreacion_Social.png',
+    6: '06_Sistemas_y_Plataformas.png',
+    7: '07_Bancario.png',
+    8: '08_Ingenieria.png',
+    9: '09_Comercial.png',
+    10: '10_Investigacion_Cientifica.png',
+    11: '11_Arte_y_Cultura.png'
+  };
+  
   let defaultStyle = {};
   
   if (className === 'fondo-detail-image') {
-    // Estilo para la vista detallada (mostrar imagen completa)
     defaultStyle = { 
       width: '100%', 
       height: 'auto',
       maxHeight: '100%',
       objectFit: 'contain',
-      display: 'block'
+      display: 'block',
+      padding: '10px'
     };
   } else {
-    // Estilo para el listado 
     defaultStyle = { 
       width: '100%', 
       height: '100%', 
-      objectFit: 'cover',
+      objectFit: 'contain', // Cambia de 'cover' a 'contain'
       objectPosition: 'center 40%',
-      display: 'block'
+      display: 'block',
+      padding: '10px'
     };
   }
   
-  // Combinar estilos predeterminados con los proporcionados
   const combinedStyle = { ...defaultStyle, ...style };
   
-  // Usar imagen PNG en lugar de SVG interno
+  // Usa la misma ruta que funciona
+  const imagePath = `/${imageNames[fondoId]}`;
+  
   return (
     <img 
-      src={`/contenido-herejiaecon/imagenesfondos/fondo-${fondoId}.png`}
+      src={imagePath}
       alt={title || `Fondo #${fondoId}`}
       style={combinedStyle}
       className={className}
       onError={(e) => {
-        // Si falla la carga de PNG, usar placeholder
         e.target.onerror = null;
-        e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
+        e.target.src = `/imagenes/fondos/placeholder.svg`;
       }}
       {...props}
     />
