@@ -1,5 +1,5 @@
 import React from 'react';
-import CheMiniLogo from '../components/CheMiniLogo.js';
+import CheMiniLogo from '../components/CheMiniLogo.jsx';
 
 const AboutPage = () => {
   return (
