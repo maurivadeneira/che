@@ -5,132 +5,36 @@ import React, { useState, useEffect } from 'react';
  * Ajusta la imagen para mostrarla completa manteniendo proporciones
  */
 const ListImageViewer = ({ imageId, alt, className }) => {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [loading, setLoading] = useState(true);
-  const [imageSrc, setImageSrc] = useState(null);
-  const [loadingAttempts, setLoadingAttempts] = useState(0);
-
-  useEffect(() => {
-    // Función para calcular las dimensiones óptimas
-    const calculateDimensions = () => {
-      setLoading(true);
-      setLoadingAttempts(0);
-      
-      // Crear un objeto de imagen para obtener las dimensiones reales
-      const img = new Image();
-      img.onload = () => {
-        // Calcular el ratio de aspecto de la imagen
-        const imageRatio = img.width / img.height;
-        
-        // Para la vista de listado, usamos un contenedor fijo
-        // pero calculamos proporciones correctas
-        const containerWidth = 400; // Ancho aproximado de las tarjetas
-        const containerHeight = 250; // Altura máxima del contenedor de imagen
-        
-        // Determinar las dimensiones óptimas manteniendo la proporción
-        let width, height;
-        
-        if (containerWidth / containerHeight > imageRatio) {
-          // Contenedor más ancho que la imagen
-          height = Math.min(containerHeight, img.height);
-          width = height * imageRatio;
-        } else {
-          // Contenedor más alto que la imagen
-          width = Math.min(containerWidth, img.width);
-          height = width / imageRatio;
-        }
-        
-        setDimensions({ width, height });
-        setLoading(false);
-        console.log(`✅ Imagen ${imageId} cargada exitosamente desde: ${img.src}`);
-      };
-      
-      img.onerror = () => {
-        console.error(`Error al cargar la imagen ${imageId}`);
-        setDimensions({ width: 400, height: 250 });
-        setLoading(false);
-      };
-      
-      // Mapeo de nombres para los fondos basado en la estructura actual de archivos
-      const nameMap = {
-        '1': 'Proyectos',
-        '2': 'Mediosaudiovisuales',
-        '3': 'Sanacion',
-        '4': 'Vivienda',
-        '5': 'recreacion',
-        '6': 'sistemas',
-        '7': 'Bancario',
-        '8': 'ProyectosIngenieria',
-        '9': 'Comercio',
-        '10': 'InvestigacionCiencia',
-        '11': 'ArteCultura'
-      };
-      
-      // Obtener el origen para rutas absolutas
-      const origin = typeof window !== 'undefined' ? window.location.origin : '';
-      
-      // Probar con múltiples formatos de archivo y patrones de nombre
-      const tryLoadImage = (index = 0) => {
-        setLoadingAttempts(prev => prev + 1);
-        
-        // Rutas para probar, balanceadas para funcionar en local y en producción
-        const imagePaths = [
-          // Local - Estas rutas funcionaban antes
-          `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
-          `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-          `/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
-          
-          // Rutas alternativas basadas en la estructura vista en VS Code
-          `/fondos/${imageId}-${nameMap[imageId]}.png`,
-          `/fondos/${imageId}-fondo.png`,
-          
-          // Rutas absolutas para Vercel
-          `${origin}/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
-          `${origin}/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-          `${origin}/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
-          `${origin}/fondos/${imageId}-${nameMap[imageId]}.png`,
-          
-          // Fallbacks
-          `/imagenFondos/fondo-${imageId}.svg`,
-          `/imagenFondos/fondo-${imageId}.png`,
-          
-          // Placeholder como último recurso
-          "/contenido-herejiaecon/imagenesfondos/placeholder-400x200.jpg",
-          "/contenido-herejiaecon/imagenesfondos/placeholder.svg"
-        ];
-        
-        if (index >= imagePaths.length) {
-          // Si no se encuentra ninguna imagen, usar placeholder
-          const placeholderPath = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
-          console.log(`⚠️ Usando placeholder después de ${loadingAttempts} intentos`);
-          img.src = placeholderPath;
-          setImageSrc(placeholderPath);
-          return;
-        }
-        
-        img.onerror = () => {
-          // Si esta ruta falla, intentar con la siguiente
-          tryLoadImage(index + 1);
-        };
-        
-        img.src = imagePaths[index];
-        setImageSrc(imagePaths[index]);
-      };
-      
-      tryLoadImage();
-    };
-    
-    // Calcular dimensiones iniciales
-    calculateDimensions();
-    
-    // Recalcular cuando cambie el tamaño de la ventana
-    window.addEventListener('resize', calculateDimensions);
-    
-    // Limpieza
-    return () => {
-      window.removeEventListener('resize', calculateDimensions);
-    };
-  }, [imageId]);
+  const [error, setError] = useState(false);
+  
+  // Mapeo de IDs a nombres de archivos REALES
+  const imageNames = {
+    1: '01_Inversion_Empresarial.png',
+    2: '02_Editorial_y_Medios.png',
+    3: '03_Sanacion_Emocional.png',
+    4: '04_Vivienda.png',
+    5: '05_Recreacion_Social.png',
+    6: '06_Sistemas_y_Plataformas.png',
+    7: '07_Bancario.png',
+    8: '08_Ingenieria.png',
+    9: '09_Comercial.png',
+    10: '10_Investigacion_Cientifica.png',
+    11: '11_Arte_y_Cultura.png'
+  };
+  
+  // Construir ruta de imagen - usando la estructura correcta
+  const imagePath = `/contenido-herejiaecon/imagenesfondos/${imageNames[imageId]}`;
+  
+  const handleImageLoad = () => {
+    setLoading(false);
+    setError(false);
+  };
+  
+  const handleImageError = () => {
+    setLoading(false);
+    setError(true);
+  };
   
   if (loading) {
     return (
@@ -143,18 +47,25 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         flexDirection: 'column'
       }}>
         <div style={{ color: '#fff', marginBottom: '10px' }}>Cargando imagen...</div>
-        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Intento {loadingAttempts}</div>
       </div>
     );
   }
   
-  // Determinar la ruta de la imagen basada en el ID y diferentes formatos posibles
-  const getImageSrc = () => {
-    if (imageSrc) return imageSrc;
-    
-    // Ruta que funcionaba anteriormente en local
-    return `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`;
-  };
+  if (error) {
+    return (
+      <div className={className} style={{ 
+        backgroundColor: '#1a2a3a',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '250px',
+        flexDirection: 'column'
+      }}>
+        <div style={{ color: '#fff', marginBottom: '10px' }}>Error al cargar imagen</div>
+        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Archivo: {imagePath}</div>
+      </div>
+    );
+  }
   
   return (
     <div className={className} style={{ 
@@ -166,63 +77,18 @@ const ListImageViewer = ({ imageId, alt, className }) => {
       overflow: 'hidden'
     }}>
       <img 
-        src={getImageSrc()} 
+        src={imagePath} 
         alt={alt || `Imagen ${imageId}`}
         style={{ 
-          width: dimensions.width,
-          height: dimensions.height,
-          objectFit: 'contain',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
           display: 'block',
           transition: 'transform 0.3s ease'
         }}
         className="list-viewer-image"
-        onError={(e) => {
-          // Cadena de intentos de fallback para cargar imágenes
-          const tryFallbacks = (fallbackIndex = 0) => {
-            // Mapeo de nombres para los fondos
-            const nameMap = {
-              '1': 'Proyectos',
-              '2': 'Mediosaudiovisuales',
-              '3': 'Sanacion',
-              '4': 'Vivienda',
-              '5': 'recreacion',
-              '6': 'sistemas',
-              '7': 'Bancario',
-              '8': 'ProyectosIngenieria',
-              '9': 'Comercio',
-              '10': 'InvestigacionCiencia',
-              '11': 'ArteCultura'
-            };
-            
-            // Rutas que funcionan en local y en producción
-            const fallbacks = [
-              // Local
-              `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
-              `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
-              `/contenido-herejiaecon/imagenesfondos/${imageId}-fondo.png`,
-              
-              // VS Code estructura
-              `/fondos/${imageId}-${nameMap[imageId]}.png`,
-              `/fondos/${imageId}-fondo.png`,
-              
-              // Placeholder como último recurso
-              "/contenido-herejiaecon/imagenesfondos/placeholder-400x200.jpg",
-              "/contenido-herejiaecon/imagenesfondos/placeholder.svg"
-            ];
-            
-            if (fallbackIndex >= fallbacks.length) {
-              e.target.src = "/contenido-herejiaecon/imagenesfondos/placeholder.svg";
-              return;
-            }
-            
-            e.target.onerror = () => tryFallbacks(fallbackIndex + 1);
-            e.target.src = fallbacks[fallbackIndex];
-          };
-          
-          // Iniciar la cadena de fallbacks
-          e.target.onerror = null;
-          tryFallbacks(0);
-        }}
+        onLoad={handleImageLoad}
+        onError={handleImageError}
       />
     </div>
   );
