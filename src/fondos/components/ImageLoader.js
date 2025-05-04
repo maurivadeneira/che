@@ -4,7 +4,7 @@
 export const getFondoImageUrl = (id) => {
   // Si no hay ID o es inválido, usar el placeholder
   if (!id || isNaN(parseInt(id))) {
-    return "/images/fondos/fondo-placeholder.svg";
+    return "/contenido-herejiaecon/imagenesfondos/fondo-placeholder.svg";
   }
 
   // Verificar si la imagen existe con su ID exacto
@@ -15,11 +15,11 @@ export const getFondoImageUrl = (id) => {
   
   // Si el ID no está en la lista de disponibles, usar el placeholder
   if (!availableIds.includes(idNum)) {
-    return "/images/fondos/fondo-placeholder.svg";
+    return "/contenido-herejiaecon/imagenesfondos/fondo-placeholder.svg";
   }
 
   // Devolver la ruta correcta a la imagen PNG
-  return `/images/fondos/fondo-${id}.png`;
+  return `/contenido-herejiaecon/imagenesfondos/fondo-${id}.png`;
 };
 
 /**

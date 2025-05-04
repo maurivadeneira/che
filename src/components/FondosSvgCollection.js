@@ -39,7 +39,7 @@ const FondosSvgCollection = ({ id, title, style, className, ...props }) => {
   // Usar imagen PNG en lugar de SVG interno
   return (
     <img 
-      src={`/images/fondos/fondo-${fondoId}.png`}
+      src={`/contenido-herejiaecon/imagenesfondos/fondo-${fondoId}.png`}
       alt={title || `Fondo #${fondoId}`}
       style={combinedStyle}
       className={className}
