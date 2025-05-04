@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 /**
  * Componente para mostrar una imagen en la vista de listado
- * Ajusta la imagen para mostrarla completa manteniendo proporciones
+ * Version con consola de debug para entender qué está pasando
  */
 const ListImageViewer = ({ imageId, alt, className }) => {
   const [loading, setLoading] = useState(true);
@@ -26,12 +26,22 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   // Construir ruta de imagen - usando la estructura correcta
   const imagePath = `/contenido-herejiaecon/imagenesfondos/${imageNames[imageId]}`;
   
+  useEffect(() => {
+    console.log('=== DEBUG ListImageViewer ===');
+    console.log('imageId:', imageId);
+    console.log('imagePath:', imagePath);
+    console.log('imageNames[imageId]:', imageNames[imageId]);
+  }, [imageId, imagePath]);
+  
   const handleImageLoad = () => {
+    console.log('✅ Imagen cargada correctamente:', imagePath);
     setLoading(false);
     setError(false);
   };
   
   const handleImageError = () => {
+    console.error('❌ Error al cargar imagen:', imagePath);
+    console.log('Intentando rutas alternativas...');
     setLoading(false);
     setError(true);
   };
@@ -47,6 +57,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         flexDirection: 'column'
       }}>
         <div style={{ color: '#fff', marginBottom: '10px' }}>Cargando imagen...</div>
+        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>ID: {imageId}</div>
       </div>
     );
   }
@@ -54,7 +65,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
   if (error) {
     return (
       <div className={className} style={{ 
-        backgroundColor: '#1a2a3a',
+        backgroundColor: '#ff4444',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -62,7 +73,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         flexDirection: 'column'
       }}>
         <div style={{ color: '#fff', marginBottom: '10px' }}>Error al cargar imagen</div>
-        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Archivo: {imagePath}</div>
+        <div style={{ color: '#ffeeee', fontSize: '0.8rem' }}>Archivo: {imagePath}</div>
+        <div style={{ color: '#ffcccc', fontSize: '0.8rem', marginTop: '10px' }}>ID: {imageId}</div>
       </div>
     );
   }
