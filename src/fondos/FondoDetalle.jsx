@@ -274,7 +274,7 @@ const FondoDetalle = () => {
       {/* Imagen principal */}
       <div className="img-container" style={{ marginBottom: '25px', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--box-shadow)' }}>
         <img 
-          src={`/images/fondos/fondo-${fondo.id}.png`} 
+          src={`/contenido-herejiaecon/imagenesfondos/fondo-${fondo.id}.png`} 
           alt={`Imagen representativa de ${fondo.titulo}`}
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
           loading="lazy"

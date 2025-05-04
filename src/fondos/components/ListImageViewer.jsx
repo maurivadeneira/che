@@ -76,8 +76,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
         // Rutas para probar, balanceadas para funcionar en local y en producción
         const imagePaths = [
           // Local - Estas rutas funcionaban antes
-          `/images/fondos/fondo-${imageId}.png`,
-          `/images/fondos/${imageId}-${nameMap[imageId]}.png`,
+          `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
           `/images/${imageId}-fondo.png`,
           
           // Rutas alternativas basadas en la estructura vista en VS Code
@@ -85,8 +85,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
           `/fondos/${imageId}-fondo.png`,
           
           // Rutas absolutas para Vercel
-          `${origin}/images/fondos/fondo-${imageId}.png`,
-          `${origin}/images/fondos/${imageId}-${nameMap[imageId]}.png`,
+          `${origin}/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
+          `${origin}/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
           `${origin}/images/${imageId}-fondo.png`,
           `${origin}/fondos/${imageId}-${nameMap[imageId]}.png`,
           
@@ -153,7 +153,7 @@ const ListImageViewer = ({ imageId, alt, className }) => {
     if (imageSrc) return imageSrc;
     
     // Ruta que funcionaba anteriormente en local
-    return `/images/fondos/fondo-${imageId}.png`;
+    return `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`;
   };
   
   return (
@@ -197,8 +197,8 @@ const ListImageViewer = ({ imageId, alt, className }) => {
             // Rutas que funcionan en local y en producción
             const fallbacks = [
               // Local
-              `/images/fondos/fondo-${imageId}.png`,
-              `/images/fondos/${imageId}-${nameMap[imageId]}.png`,
+              `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
+              `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`,
               `/images/${imageId}-fondo.png`,
               
               // VS Code estructura

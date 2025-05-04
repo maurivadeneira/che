@@ -50,19 +50,19 @@ const FullImageViewer = ({ imageId, alt }) => {
       // Probar con múltiples formatos de archivo y patrones de nombre
       const tryLoadImage = (index = 0) => {
         const imagePaths = [
-          `/images/fondos/fondo-${imageId}.png`,
-          `/images/fondos/${imageId}-Inversion.png`,
-          `/images/fondos/${imageId}-Editorial.png`,
-          `/images/fondos/${imageId}-Sanacion.png`,
-          `/images/fondos/${imageId}-Vivienda.png`,
-          `/images/fondos/${imageId}-recreacion.png`,
-          `/images/fondos/${imageId}-sistemas.png`,
-          `/images/fondos/${imageId}-Bancario.png`,
-          `/images/fondos/${imageId}-ProyectosIngenieria.png`,
-          `/images/fondos/${imageId}-Comercial.png`,
-          `/images/fondos/${imageId}-InvestigacionCiencia.png`,
-          `/images/fondos/${imageId}-ArteCultura.png`,
-          `/images/fondos/fondo-${imageId}.svg`,
+          `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Inversion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Editorial.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Sanacion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Vivienda.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-recreacion.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-sistemas.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Bancario.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-ProyectosIngenieria.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-Comercial.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-InvestigacionCiencia.png`,
+          `/contenido-herejiaecon/imagenesfondos/${imageId}-ArteCultura.png`,
+          `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.svg`,
           `/images/${imageId}-Inversion.png`,
           `/images/${imageId}-Editorial.png`,
           `/images/${imageId}-Sanacion.png`,
@@ -143,11 +143,11 @@ const FullImageViewer = ({ imageId, alt }) => {
     
     // Si existe un nombre para este ID, usar el formato alternativo
     if (nameMap[imageId]) {
-      return `/images/fondos/${imageId}-${nameMap[imageId]}.png`;
+      return `/contenido-herejiaecon/imagenesfondos/${imageId}-${nameMap[imageId]}.png`;
     }
     
     // Caso por defecto
-    return `/images/fondos/fondo-${imageId}.png`;
+    return `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.png`;
   };
   
   return (
@@ -174,7 +174,7 @@ const FullImageViewer = ({ imageId, alt }) => {
           e.target.onerror = null;
           
           // Probar con formato SVG
-          e.target.src = `/images/fondos/fondo-${imageId}.svg`;
+          e.target.src = `/contenido-herejiaecon/imagenesfondos/fondo-${imageId}.svg`;
           
           // Si SVG falla, intentar con ruta directa a images
           e.target.onerror = () => {
