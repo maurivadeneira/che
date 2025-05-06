@@ -466,8 +466,8 @@ Pedro3 dona a Usted`}
                 <p className="invitation-note">
                   Cuando alguien haga clic en este enlace, será dirigido directamente 
                   al formulario de registro.
-                  {ownerInfo && ' Las donaciones secundarias se dirigirán a la cuenta 
-                  que has proporcionado.'}
+                  {ownerInfo && ` Las donaciones secundarias se dirigirán a la cuenta 
+                  que has proporcionado.`}
                 </p>
               </div>
 
