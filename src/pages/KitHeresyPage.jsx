@@ -10,5 +10,3 @@ const KitHeresyPage = () => {
 };
 
 export default KitHeresyPage;
-
-export default KitHeresyPage;
