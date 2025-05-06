@@ -1,109 +1,98 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import CheMiniLogo from '../components/CheMiniLogo.jsx';
-import DevelopmentBanner from '../components/common/DevelopmentBanner.jsx';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="home-page fade-in">
-      <DevelopmentBanner />
-      <section className="hero">
-        <div className="hero-content">
-          <h1 style={{ textAlign: 'center' }}>
-            <div>CHE - Corporación Herejía Económica</div>
-            <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
-              <CheMiniLogo style={{ height: '30px', width: '60px', verticalAlign: 'middle' }} />
-            </div>
-          </h1>
-          <p>Un proyecto social global para desarrollarlo en el mundo entero</p>
-          <Link to="/fondos" className="cta-button">Conoce nuestros Fondos Rotatorios</Link>
-        </div>
-      </section>
-      
-      <section className="about-section">
-        <h2 style={{ textAlign: 'center' }}>
-          <div>Sobre Nosotros</div>
-          <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
-            <CheMiniLogo style={{ height: '25px', width: '50px', verticalAlign: 'middle' }} />
-          </div>
-        </h2>
-        <p>
-          La Corporación Herejía Económica es un proyecto social global que busca promover 
-          actividades culturales, cívicas y sociales a favor de la institución, sus integrantes 
-          y comunidades asociadas.
+    <div className="home-container">
+      <div className="hero-section">
+        <h1>Kit2 de la Herejía Económica</h1>
+        <p className="hero-subtitle">
+          Una nueva forma de entender la economía y generar oportunidades
         </p>
-      </section>
-      
-      <section className="funds-overview">
-        <h2 style={{ textAlign: 'center' }}>
-          <div>Nuestros Fondos Rotatorios</div>
-          <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
-            <CheMiniLogo style={{ height: '25px', width: '50px', verticalAlign: 'middle' }} />
-          </div>
-        </h2>
-        <div className="funds-grid">
-          <div className="fund-card">
-            <h3 style={{ textAlign: 'center' }}>
-              <div>Inversión Empresarial</div>
-              <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
-                <CheMiniLogo style={{ height: '20px', width: '40px', verticalAlign: 'middle' }} />
-              </div>
-            </h3>
-            <p>Fondo para análisis, estudios, proyectos e inversiones empresariales.</p>
-            <Link to="/fondos/1">Más información</Link>
-          </div>
-          
-          <div className="fund-card">
-            <h3 style={{ textAlign: 'center' }}>
-              <div>Editorial y Medios</div>
-              <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
-                <CheMiniLogo style={{ height: '20px', width: '40px', verticalAlign: 'middle' }} />
-              </div>
-            </h3>
-            <p>Para la generación de medios, videos, películas, publicaciones y divulgación.</p>
-            <Link to="/fondos/2">Más información</Link>
-          </div>
-          
-          <div className="fund-card">
-            <h3 style={{ textAlign: 'center' }}>
-              <div>Sanación Emocional</div>
-              <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
-                <CheMiniLogo style={{ height: '20px', width: '40px', verticalAlign: 'middle' }} />
-              </div>
-            </h3>
-            <p>Asistencia social-emocional enmarcada en la medicina alternativa no invasiva.</p>
-            <Link to="/fondos/3">Más información</Link>
-          </div>
-          
-          <div className="fund-card">
-            <h3 style={{ textAlign: 'center' }}>
-              <div>Vivienda</div>
-              <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
-                <CheMiniLogo style={{ height: '20px', width: '40px', verticalAlign: 'middle' }} />
-              </div>
-            </h3>
-            <p>Destinado a la construcción de vivienda.</p>
-            <Link to="/fondos/4">Más información</Link>
-          </div>
-
-          <div className="fund-card">
-            <h3 style={{ textAlign: 'center' }}>
-              <div>Recreación Social y Hotelera</div>
-              <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
-                <CheMiniLogo style={{ height: '20px', width: '40px', verticalAlign: 'middle' }} />
-              </div>
-            </h3>
-            <p>Enfocado en la creación y construcción de proyectos de recreación y hotelería.</p>
-            <Link to="/fondos/5">Más información</Link>
-          </div>
-        </div>
-        
-        <div style={{ textAlign: 'center', marginTop: '30px' }}>
-          <Link to="/fondos" style={{ display: 'inline-block', padding: '10px 20px', backgroundColor: 'var(--secondary-color)', color: 'white', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', transition: 'background-color 0.3s ease' }}>
-            Ver todos los fondos rotatorios
+        <div className="hero-buttons">
+          <Link to="/activate" className="btn-primary">
+            Activar mi Kit
+          </Link>
+          <Link to="/learn-more" className="btn-secondary">
+            Conocer más
           </Link>
         </div>
-      </section>
+      </div>
+
+      <div className="info-section">
+        <div className="info-card">
+          <div className="info-icon">���</div>
+          <h2>Sistema Rotatorio</h2>
+          <p>
+            El Kit2 funciona como un sistema rotatorio de donaciones que permite
+            a los participantes generar oportunidades económicas.
+          </p>
+        </div>
+
+        <div className="info-card">
+          <div className="info-icon">���</div>
+          <h2>Contenido Valioso</h2>
+          <p>
+            Al activar tu Kit2, obtienes acceso a contenido exclusivo que te
+            ayudará a entender y aplicar los principios de la Herejía Económica.
+          </p>
+        </div>
+
+        <div className="info-card">
+          <div className="info-icon">���</div>
+          <h2>Red Global</h2>
+          <p>
+            Forma parte de una comunidad global de personas interesadas en
+            transformar su relación con la economía y el dinero.
+          </p>
+        </div>
+      </div>
+
+      <div className="cta-section">
+        <h2>¿Cómo funciona?</h2>
+        <div className="steps-container">
+          <div className="step-item">
+            <div className="step-number">1</div>
+            <h3>Recibe una invitación</h3>
+            <p>
+              Para activar tu Kit2 necesitas recibir una invitación de alguien
+              que ya sea parte del sistema.
+            </p>
+          </div>
+
+          <div className="step-item">
+            <div className="step-number">2</div>
+            <h3>Realiza donaciones</h3>
+            <p>
+              Haz donaciones tanto a la Corporación Herejía Económica como a la
+              persona que te invitó.
+            </p>
+          </div>
+
+          <div className="step-item">
+            <div className="step-number">3</div>
+            <h3>Activa tu Kit</h3>
+            <p>
+              Una vez realizadas las donaciones, tu Kit2 se activa y puedes
+              comenzar a invitar a otros.
+            </p>
+          </div>
+
+          <div className="step-item">
+            <div className="step-number">4</div>
+            <h3>Invita y recibe</h3>
+            <p>
+              Invita a más personas al sistema y recibe donaciones cuando ellos
+              activen sus Kits.
+            </p>
+          </div>
+        </div>
+
+        <Link to="/activate" className="btn-primary cta-button">
+          Activar mi Kit ahora
+        </Link>
+      </div>
     </div>
   );
 };
