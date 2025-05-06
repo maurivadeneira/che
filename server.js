@@ -22,6 +22,8 @@ app.use(express.json());
 
 // Definir rutas
 app.use("/api/users", require("./routes/users"));
+app.use("/api/kits", require("./routes/kits"));
+app.use("/api/invitations", require("./routes/invitations"));
 
 // Ruta básica
 app.get("/", (req, res) => {
