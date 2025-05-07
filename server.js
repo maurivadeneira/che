@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 
 // Importar la configuración de la base de datos
 const connectDB = require("./db");
@@ -20,14 +21,24 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+// Servir archivos estáticos y temporales
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/temp', express.static(path.join(__dirname, 'temp')));
+
 // Definir rutas
 app.use("/api/users", require("./routes/users"));
 app.use("/api/kits", require("./routes/kits"));
 app.use("/api/invitations", require("./routes/invitations"));
+app.use("/api/admin", require("./routes/adminRoutes")); // Rutas de admin
 
-// Ruta básica
-app.get("/", (req, res) => {
+// Ruta básica para API
+app.get("/api", (req, res) => {
   res.send("API del Sistema Kit2 de Herejía Económica funcionando");
+});
+
+// Manejar todas las rutas no API con React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Puerto de escucha

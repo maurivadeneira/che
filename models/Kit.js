@@ -1,15 +1,63 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const kitSchema = new Schema({
-  owner: { type: Schema.Types.ObjectId, ref: "User", required: true },
-  type: { type: String, required: true, default: "HerejiaEconomica" },
-  level: { type: Number, required: true },
-  parentKit: { type: Schema.Types.ObjectId, ref: "Kit" },
-  invitationCode: { type: String, unique: true },
-  maxInvitations: { type: Number, default: 6 },
-  active: { type: Boolean, default: false },
-  createdAt: { type: Date, default: Date.now }
+const kitSchema = new mongoose.Schema({
+  clientName: {
+    type: String,
+    required: true
+  },
+  clientEmail: {
+    type: String,
+    required: true
+  },
+  clientPhone: {
+    type: String,
+    required: true
+  },
+  paymentInfo: {
+    bankName: String,
+    accountNumber: String,
+    accountType: {
+      type: String,
+      enum: ['Ahorros', 'Corriente'],
+      default: 'Ahorros'
+    },
+    paypalEmail: String
+  },
+  corporationDonation: {
+    type: Number,
+    default: 20
+  },
+  referrerDonation: {
+    type: Number,
+    default: 7
+  },
+  kitValidityDays: {
+    type: Number,
+    default: 365
+  },
+  isTestVersion: {
+    type: Boolean,
+    default: false
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'active', 'expired'],
+    default: 'pending'
+  },
+  invitationId: {
+    type: String,
+    unique: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  activationDate: Date,
+  expirationDate: Date,
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
-module.exports = mongoose.model("Kit", kitSchema);
+module.exports = mongoose.model('Kit', kitSchema);

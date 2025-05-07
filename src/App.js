@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./components/kit/Dashboard";
 import ActivateKit from "./pages/ActivateKit";
+import AdminPanel from "./components/admin/AdminPanel";
+import DownloadPDF from "./pages/DownloadPDF";
 import "./App.css";
 
 const App = () => {
@@ -21,6 +23,8 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/activate/:code" element={<ActivateKit />} />
             <Route path="/activate" element={<ActivateKit />} />
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/download/:filename" element={<DownloadPDF />} />
           </Routes>
         </div>
       </div>
