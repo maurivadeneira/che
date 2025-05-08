@@ -1,4 +1,5 @@
 import React from "react";
+import { KitProvider } from './context/KitContext';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Home from "./pages/Home";
@@ -12,23 +13,25 @@ import "./App.css";
 
 const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/activate/:code" element={<ActivateKit />} />
-            <Route path="/activate" element={<ActivateKit />} />
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/download/:filename" element={<DownloadPDF />} />
-          </Routes>
+    <KitProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/activate/:code" element={<ActivateKit />} />
+              <Route path="/activate" element={<ActivateKit />} />
+              <Route path="/admin" element={<AdminPanel />} />
+              <Route path="/download/:filename" element={<DownloadPDF />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </KitProvider>
   );
 };
 
