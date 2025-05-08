@@ -18,6 +18,16 @@ const AdminPanel = () => {
       accountType: 'Ahorros',
       paypalEmail: ''
     },
+    // Información de a quién se le debe donar (solo para el Kit inicial)
+    donationRecipient: {
+      name: '',
+      bankName: '',
+      accountNumber: '',
+      accountType: 'Ahorros',
+      paypalEmail: ''
+    },
+    // Indicador si este es el Kit inicial (del propietario original)
+    isInitialKit: true,
     corporationDonation: 20,
     referrerDonation: 7,
     kitValidityDays: 365,
@@ -242,6 +252,115 @@ const AdminPanel = () => {
               </div>
             </div>
             
+            {kitData.isInitialKit && (
+              <div className="form-section">
+                <h3>Información del Beneficiario de Donaciones</h3>
+                <p className="info-text">
+                  Como Kit inicial, debe indicar a quién se le harán las donaciones cuando otras personas
+                  adquieran Kits a través de su invitación.
+                </p>
+
+                <div className="form-group">
+                  <label htmlFor="donationRecipient.name">Nombre del Beneficiario</label>
+                  <input
+                    type="text"
+                    id="donationRecipient.name"
+                    name="donationRecipient.name"
+                    value={kitData.donationRecipient.name}
+                    onChange={handleKitChange}
+                    placeholder="Nombre del beneficiario de las donaciones"
+                    required={kitData.isInitialKit}
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="donationRecipient.bankName">Banco del Beneficiario</label>
+                  <input
+                    type="text"
+                    id="donationRecipient.bankName"
+                    name="donationRecipient.bankName"
+                    value={kitData.donationRecipient.bankName}
+                    onChange={handleKitChange}
+                    placeholder="Nombre del banco del beneficiario"
+                    required={kitData.isInitialKit}
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="donationRecipient.accountNumber">Número de Cuenta</label>
+                  <input
+                    type="text"
+                    id="donationRecipient.accountNumber"
+                    name="donationRecipient.accountNumber"
+                    value={kitData.donationRecipient.accountNumber}
+                    onChange={handleKitChange}
+                    placeholder="Número de cuenta del beneficiario"
+                    required={kitData.isInitialKit}
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="donationRecipient.accountType">Tipo de Cuenta</label>
+                  <select
+                    id="donationRecipient.accountType"
+                    name="donationRecipient.accountType"
+                    value={kitData.donationRecipient.accountType}
+                    onChange={handleKitChange}
+                    disabled={loading}
+                  >
+                    <option value="Ahorros">Cuenta de Ahorros</option>
+                    <option value="Corriente">Cuenta Corriente</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="donationRecipient.paypalEmail">
+                    Correo de PayPal del Beneficiario (opcional)
+                  </label>
+                  <input
+                    type="email"
+                    id="donationRecipient.paypalEmail"
+                    name="donationRecipient.paypalEmail"
+                    value={kitData.donationRecipient.paypalEmail}
+                    onChange={handleKitChange}
+                    placeholder="Correo de PayPal del beneficiario"
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="form-group checkbox-group">
+                  <input
+                    type="checkbox"
+                    id="sameBeneficiary"
+                    name="sameBeneficiary"
+                    checked={kitData.donationRecipient.name === kitData.clientName}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        // Si está marcado, copiar los datos del cliente
+                        setKitData(prev => ({
+                          ...prev,
+                          donationRecipient: {
+                            name: prev.clientName,
+                            bankName: prev.paymentInfo.bankName,
+                            accountNumber: prev.paymentInfo.accountNumber,
+                            accountType: prev.paymentInfo.accountType,
+                            paypalEmail: prev.paymentInfo.paypalEmail
+                          }
+                        }));
+                      }
+                    }}
+                    disabled={loading}
+                  />
+                  <label htmlFor="sameBeneficiary">
+                    El beneficiario es el mismo que el propietario del Kit
+                  </label>
+                </div>
+              </div>
+            )}
+            
             <div className="form-section">
               <h3>Configuración del Kit2</h3>
               
@@ -287,6 +406,20 @@ const AdminPanel = () => {
                     disabled={loading}
                   />
                 </div>
+              </div>
+              
+              <div className="form-group checkbox-group">
+                <input
+                  type="checkbox"
+                  id="isInitialKit"
+                  name="isInitialKit"
+                  checked={kitData.isInitialKit}
+                  onChange={handleKitChange}
+                  disabled={loading}
+                />
+                <label htmlFor="isInitialKit">
+                  Este es un Kit Inicial (del propietario original)
+                </label>
               </div>
               
               <div className="form-group checkbox-group">
