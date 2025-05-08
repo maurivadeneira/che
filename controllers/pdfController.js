@@ -218,6 +218,30 @@ Pedro3 dona a Usted`, 60, doc.y + 10);
         doc.text(`PayPal: ${kitData.paymentInfo.paypalEmail}`);
       }
       
+      // Información del Beneficiario (si corresponde)
+      if (kitData.isInitialKit && kitData.donationRecipient) {
+        doc.moveDown();
+        doc.fontSize(16).font('Helvetica-Bold').text('4. INFORMACIÓN DEL BENEFICIARIO DE DONACIONES');
+        doc.fontSize(12).font('Helvetica').text('Para adquirir este Kit2, debe realizar una donación a:');
+
+        doc.moveDown(0.5);
+        doc.fontSize(14).font('Helvetica-Bold').text('Información del Beneficiario:');
+        doc.fontSize(12).font('Helvetica').text(`Nombre: ${kitData.donationRecipient.name}`);
+        doc.text(`Banco: ${kitData.donationRecipient.bankName}`);
+        doc.text(`Cuenta: ${kitData.donationRecipient.accountNumber}`);
+        doc.text(`Tipo: ${kitData.donationRecipient.accountType}`);
+
+        if (kitData.donationRecipient.paypalEmail) {
+          doc.text(`PayPal: ${kitData.donationRecipient.paypalEmail}`);
+        }
+      } else {
+        doc.moveDown();
+        doc.fontSize(16).font('Helvetica-Bold').text('4. INFORMACIÓN DEL BENEFICIARIO DE DONACIONES');
+        doc.fontSize(12).font('Helvetica').text(
+          'La información del beneficiario a quien debe realizar la donación se mostrará al momento de registrarse con este Kit2.'
+        );
+      }
+      
       // Sección 3: Botón de Activación Final
       doc.moveDown(2);
       doc.rect(50, doc.y, 500, 40).fill('#4CAF50');

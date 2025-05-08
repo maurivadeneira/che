@@ -26,6 +26,12 @@ app.use(express.json());
 // Servir archivos estáticos desde la carpeta temp
 app.use('/temp', express.static(path.join(__dirname, 'temp')));
 
+// Configurar tipo MIME específico para PDFs
+app.get('/temp/*.pdf', (req, res, next) => {
+  res.set('Content-Type', 'application/pdf');
+  next();
+});
+
 // Definir rutas
 app.use("/api/users", require("./routes/users"));
 app.use("/api/kits", require("./routes/kits"));

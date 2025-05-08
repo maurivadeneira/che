@@ -87,22 +87,7 @@ const AdminPanel = () => {
     setPdfUrl('');
     
     try {
-      // Primero, crear el kit en la base de datos
-      const kitResponse = await fetch('/api/admin/kits', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(kitData)
-      });
-      
-      if (!kitResponse.ok) {
-        throw new Error('Error al crear el kit');
-      }
-      
-      const kitResult = await kitResponse.json();
-      
-      // Luego, generar el PDF
+      // Primero, generar el PDF
       const pdfResponse = await fetch('/api/admin/generate-pdf', {
         method: 'POST',
         headers: {
@@ -117,10 +102,29 @@ const AdminPanel = () => {
       
       const pdfResult = await pdfResponse.json();
       
-      // Mostrar mensaje de éxito y la URL del PDF
-      setMessage('Kit2 creado y PDF generado correctamente');
-      setPdfUrl(pdfResult.pdfUrl);
-      
+      // Si el PDF se generó correctamente, crear el kit en la base de datos
+      if (pdfResult.success) {
+        const kitResponse = await fetch('/api/admin/kits', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            ...kitData,
+            pdfUrl: pdfResult.pdfUrl
+          })
+        });
+        
+        if (!kitResponse.ok) {
+          throw new Error('Error al crear el kit');
+        }
+        
+        const kitResult = await kitResponse.json();
+        
+        // Mostrar mensaje de éxito y la URL del PDF
+        setMessage('Kit2 creado y PDF generado correctamente');
+        setPdfUrl(pdfResult.pdfUrl);
+      }
     } catch (err) {
       console.error('Error:', err);
       setError(err.message || 'Error al procesar la solicitud');
@@ -336,7 +340,11 @@ const AdminPanel = () => {
                     type="checkbox"
                     id="sameBeneficiary"
                     name="sameBeneficiary"
-                    checked={kitData.donationRecipient.name === kitData.clientName}
+                    checked={
+                      kitData.donationRecipient.name === kitData.clientName &&
+                      kitData.donationRecipient.bankName === kitData.paymentInfo.bankName &&
+                      kitData.donationRecipient.accountNumber === kitData.paymentInfo.accountNumber
+                    }
                     onChange={(e) => {
                       if (e.target.checked) {
                         // Si está marcado, copiar los datos del cliente
@@ -348,6 +356,18 @@ const AdminPanel = () => {
                             accountNumber: prev.paymentInfo.accountNumber,
                             accountType: prev.paymentInfo.accountType,
                             paypalEmail: prev.paymentInfo.paypalEmail
+                          }
+                        }));
+                      } else {
+                        // Si se desmarca, limpiar los datos del beneficiario
+                        setKitData(prev => ({
+                          ...prev,
+                          donationRecipient: {
+                            name: '',
+                            bankName: '',
+                            accountNumber: '',
+                            accountType: 'Ahorros',
+                            paypalEmail: ''
                           }
                         }));
                       }
@@ -449,15 +469,36 @@ const AdminPanel = () => {
           {pdfUrl && (
             <div className="pdf-preview">
               <h3>PDF Generado</h3>
-              <p>Haga clic en el enlace para ver o descargar el PDF:</p>
-              <a 
-                href={pdfUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="pdf-link"
-              >
-                Ver PDF
-              </a>
+              <p>Haga clic en los enlaces para ver o descargar el PDF:</p>
+              <div className="pdf-links">
+                <a 
+                  href={pdfUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="pdf-link"
+                >
+                  Ver PDF
+                </a>
+                {' '}
+                <a 
+                  href={pdfUrl} 
+                  download
+                  className="pdf-link"
+                >
+                  Descargar PDF
+                </a>
+              </div>
+              
+              {/* Agregar un iframe para mostrar una vista previa del PDF */}
+              <div className="pdf-iframe-container">
+                <iframe
+                  src={`${pdfUrl}#toolbar=0&navpanes=0`}
+                  title="Vista previa del PDF"
+                  width="100%"
+                  height="500px"
+                  style={{ border: '1px solid #ccc', marginTop: '15px' }}
+                />
+              </div>
             </div>
           )}
         </div>
