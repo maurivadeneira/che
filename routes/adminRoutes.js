@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pdfController = require('../controllers/pdfController');
+const Kit = require('../models/Kit'); // Asegúrate de importar el modelo Kit
 
 // Ruta para verificar credenciales (simulada por ahora)
 router.post('/login', (req, res) => {
@@ -21,7 +22,7 @@ router.post('/login', (req, res) => {
   }
 });
 
-// Ruta para crear un nuevo Kit (simulada)
+// Ruta para crear un nuevo Kit
 router.post('/kits', (req, res) => {
   // En una implementación real, guardaríamos en la base de datos
   console.log('Datos recibidos para crear kit:', req.body);
@@ -30,6 +31,56 @@ router.post('/kits', (req, res) => {
     success: true,
     message: 'Kit creado exitosamente',
     kitId: `kit_${Date.now()}`
+  });
+});
+
+// Ruta para guardar borrador - NUEVA
+router.post('/kits/draft', async (req, res) => {
+  try {
+    const kitData = req.body;
+    
+    console.log('Guardando borrador:', kitData);
+    
+    // Simulación de guardado (puedes implementar la lógica real con MongoDB)
+    // En una implementación real, usaríamos Kit.findByIdAndUpdate o Kit.create
+    
+    // Simular respuesta exitosa
+    res.json({
+      success: true,
+      message: 'Borrador guardado correctamente',
+      kit: {
+        ...kitData,
+        _id: kitData._id || `kit_draft_${Date.now()}`,
+        status: 'draft',
+        updatedAt: new Date()
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al guardar borrador:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al guardar borrador',
+      error: error.message
+    });
+  }
+});
+
+// Ruta para activar un kit - MEJORADA
+router.put('/kits/:id/activate', (req, res) => {
+  const { id } = req.params;
+  
+  // Simulación de activación
+  console.log(`Activando kit: ${id}`);
+  
+  res.json({
+    success: true,
+    message: `Kit ${id} activado exitosamente`,
+    kit: {
+      _id: id,
+      status: 'active',
+      activatedAt: new Date()
+    }
   });
 });
 
@@ -49,17 +100,6 @@ router.get('/kits/active', (req, res) => {
   res.json({
     success: true,
     kits: [] // Lista vacía por ahora
-  });
-});
-
-// Ruta para activar un kit (simulada)
-router.post('/kits/:id/activate', (req, res) => {
-  const { id } = req.params;
-  
-  res.json({
-    success: true,
-    message: `Kit ${id} activado exitosamente`,
-    activationDate: new Date()
   });
 });
 
