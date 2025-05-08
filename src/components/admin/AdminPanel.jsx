@@ -799,52 +799,75 @@ const AdminPanel = () => {
           </form>
           
           {pdfUrl && (
-            <div className="pdf-preview">
-              <h3>PDF Generado</h3>
-              <p>Haga clic en los enlaces para ver o descargar el PDF:</p>
-              <div className="pdf-links">
-                <a 
-                  href="#"
-                  className="pdf-link"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // Abrir en nueva ventana con URL completa
-                    window.open(`${window.location.origin}${pdfUrl}`, '_blank');
-                  }}
-                >
-                  Ver PDF
-                </a>
-                {' '}
-                <a 
-                  href="#"
-                  className="pdf-link"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // Iniciar descarga en otra pestaña
-                    const link = document.createElement('a');
-                    link.href = `${window.location.origin}${pdfUrl}`;
-                    link.download = pdfUrl.split('/').pop();
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
-                >
-                  Descargar PDF
-                </a>
-              </div>
-              
-              {/* Agregar un iframe para mostrar una vista previa del PDF */}
-              <div className="pdf-iframe-container">
-                <iframe
-                  src={`${pdfUrl}#toolbar=1&navpanes=1`}
-                  title="Vista previa del PDF"
-                  width="100%"
-                  height="500px"
-                  style={{ border: '1px solid #ccc', marginTop: '15px' }}
-                />
-              </div>
-            </div>
-          )}
+  <div className="pdf-preview">
+    <h3>PDF Generado</h3>
+    <p>Haga clic en los enlaces para ver o descargar el PDF:</p>
+    <div className="pdf-links">
+      <a 
+        href="#"
+        className="pdf-link"
+        onClick={(e) => {
+          e.preventDefault();
+          // Abrir en nueva ventana con URL absoluta
+          const absoluteUrl = `${window.location.origin}${pdfUrl}`;
+          console.log('Abriendo PDF en nueva ventana:', absoluteUrl);
+          window.open(absoluteUrl, '_blank');
+        }}
+      >
+        Ver PDF
+      </a>
+      {' '}
+      <a 
+        href="#"
+        className="pdf-link"
+        onClick={(e) => {
+          e.preventDefault();
+          // Iniciar descarga con URL absoluta
+          const absoluteUrl = `${window.location.origin}${pdfUrl}`;
+          console.log('Descargando PDF:', absoluteUrl);
+          
+          // Método alternativo de descarga
+          fetch(absoluteUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+              }
+              return response.blob();
+            })
+            .then(blob => {
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = pdfUrl.split('/').pop();
+              document.body.appendChild(a);
+              a.click();
+              setTimeout(() => {
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+              }, 0);
+            })
+            .catch(error => {
+              console.error('Error descargando PDF:', error);
+              alert('Error al descargar el PDF: ' + error.message);
+            });
+        }}
+      >
+        Descargar PDF
+      </a>
+    </div>
+    
+    {/* Agregar un iframe para mostrar una vista previa del PDF */}
+    <div className="pdf-iframe-container">
+      <iframe
+        src={`${window.location.origin}${pdfUrl}#toolbar=1&navpanes=1`}
+        title="Vista previa del PDF"
+        width="100%"
+        height="500px"
+        style={{ border: '1px solid #ccc', marginTop: '15px' }}
+      />
+    </div>
+  </div>
+)}
         </div>
         
         <button 

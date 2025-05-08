@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path"); // Añadido para manejar rutas
+const fs = require("fs"); // Añadido para verificar archivos
 
 // Importar la configuración de la base de datos
 const connectDB = require("./db");
@@ -23,13 +24,32 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-// Servir archivos estáticos desde la carpeta temp
-app.use('/temp', express.static(path.join(__dirname, 'temp')));
+// Servir archivos estáticos desde la carpeta temp con configuración explícita para PDF
+app.use('/temp', express.static(path.join(__dirname, 'temp'), {
+  setHeaders: (res, filePath) => {
+    if (path.extname(filePath) === '.pdf') {
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'inline');
+    }
+  }
+}));
 
-// Configurar tipo MIME específico para PDFs
-app.get('/temp/*.pdf', (req, res, next) => {
-  res.set('Content-Type', 'application/pdf');
-  next();
+// Añadir un manejador específico para archivos PDF
+app.get('/temp/:filename', (req, res, next) => {
+  if (!req.params.filename.endsWith('.pdf')) {
+    return next(); // No es un PDF, continuar con la siguiente ruta
+  }
+  
+  const filePath = path.join(__dirname, 'temp', req.params.filename);
+  console.log(`Solicitando archivo PDF: ${filePath}`);
+  
+  if (fs.existsSync(filePath)) {
+    console.log('El archivo PDF existe, sirviendo...');
+    return res.sendFile(filePath);
+  } else {
+    console.error(`ERROR: Archivo PDF no encontrado en ${filePath}`);
+    return res.status(404).send('Archivo PDF no encontrado');
+  }
 });
 
 // Definir rutas

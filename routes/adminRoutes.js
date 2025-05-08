@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const pdfController = require('../controllers/pdfController');
-const Kit = require('../models/Kit'); // Asegúrate de importar el modelo Kit
+const fs = require('fs');
+const path = require('path');
 
 // Ruta para verificar credenciales (simulada por ahora)
 router.post('/login', (req, res) => {
@@ -35,7 +36,7 @@ router.post('/kits', (req, res) => {
 });
 
 // Ruta para guardar borrador - NUEVA
-router.post('/kits/draft', async (req, res) => {
+router.post('/kits/draft', (req, res) => {
   try {
     const kitData = req.body;
     
@@ -66,7 +67,7 @@ router.post('/kits/draft', async (req, res) => {
   }
 });
 
-// Ruta para activar un kit - MEJORADA
+// Ruta para activar un kit
 router.put('/kits/:id/activate', (req, res) => {
   const { id } = req.params;
   
@@ -86,6 +87,23 @@ router.put('/kits/:id/activate', (req, res) => {
 
 // Ruta para generar PDF
 router.post('/generate-pdf', pdfController.generatePDF);
+
+// Verificar si un archivo PDF existe
+router.get('/check-pdf/:filename', (req, res) => {
+  const filePath = path.join(__dirname, '../temp', req.params.filename);
+  
+  if (fs.existsSync(filePath)) {
+    res.json({
+      exists: true,
+      filePath
+    });
+  } else {
+    res.json({
+      exists: false,
+      error: 'El archivo no existe'
+    });
+  }
+});
 
 // Ruta para obtener kits pendientes (simulada)
 router.get('/kits/pending', (req, res) => {
