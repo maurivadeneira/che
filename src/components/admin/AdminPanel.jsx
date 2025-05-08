@@ -12,26 +12,33 @@ const AdminPanel = () => {
     clientName: '',
     clientEmail: '',
     clientPhone: '',
-    paymentInfo: {
-      bankName: '',
-      accountNumber: '',
-      accountType: 'Ahorros',
-      paypalEmail: ''
-    },
-    // Información de a quién se le debe donar (solo para el Kit inicial)
+    bankAccounts: [
+      {
+        bankName: '',
+        accountNumber: '',
+        accountType: 'Ahorros',
+        primary: true
+      }
+    ],
+    paypalEmail: '',
     donationRecipient: {
       name: '',
-      bankName: '',
-      accountNumber: '',
-      accountType: 'Ahorros',
+      bankAccounts: [
+        {
+          bankName: '',
+          accountNumber: '',
+          accountType: 'Ahorros',
+          primary: true
+        }
+      ],
       paypalEmail: ''
     },
-    // Indicador si este es el Kit inicial (del propietario original)
     isInitialKit: true,
     corporationDonation: 20,
     referrerDonation: 7,
     kitValidityDays: 365,
-    isTestVersion: true
+    isTestVersion: true,
+    status: 'draft'
   });
 
   // Manejar cambios en el formulario de login
@@ -64,6 +71,118 @@ const AdminPanel = () => {
     }
   };
 
+  // Manejar cambios en las cuentas bancarias
+  const handleBankAccountChange = (index, field, value) => {
+    setKitData(prev => {
+      const newBankAccounts = [...prev.bankAccounts];
+      newBankAccounts[index] = {
+        ...newBankAccounts[index],
+        [field]: value
+      };
+      return {
+        ...prev,
+        bankAccounts: newBankAccounts
+      };
+    });
+  };
+
+  // Función para añadir nueva cuenta bancaria
+  const addBankAccount = () => {
+    setKitData(prev => ({
+      ...prev,
+      bankAccounts: [
+        ...prev.bankAccounts,
+        {
+          bankName: '',
+          accountNumber: '',
+          accountType: 'Ahorros',
+          primary: false
+        }
+      ]
+    }));
+  };
+
+  // Función para eliminar cuenta bancaria
+  const removeBankAccount = (index) => {
+    if (kitData.bankAccounts.length <= 1) {
+      setError('Debe tener al menos una cuenta bancaria');
+      return;
+    }
+    
+    setKitData(prev => {
+      const newBankAccounts = prev.bankAccounts.filter((_, i) => i !== index);
+      // Si eliminamos la cuenta principal, marcar la primera como principal
+      if (prev.bankAccounts[index].primary && newBankAccounts.length > 0) {
+        newBankAccounts[0].primary = true;
+      }
+      return {
+        ...prev,
+        bankAccounts: newBankAccounts
+      };
+    });
+  };
+
+  // Funciones para las cuentas del beneficiario
+  const handleDonationRecipientBankAccountChange = (index, field, value) => {
+    setKitData(prev => {
+      const newDonationRecipient = { ...prev.donationRecipient };
+      const newBankAccounts = [...newDonationRecipient.bankAccounts];
+      newBankAccounts[index] = {
+        ...newBankAccounts[index],
+        [field]: value
+      };
+      newDonationRecipient.bankAccounts = newBankAccounts;
+      return {
+        ...prev,
+        donationRecipient: newDonationRecipient
+      };
+    });
+  };
+
+  // Añadir cuenta bancaria al beneficiario
+  const addDonationRecipientBankAccount = () => {
+    setKitData(prev => {
+      const newDonationRecipient = { ...prev.donationRecipient };
+      newDonationRecipient.bankAccounts = [
+        ...newDonationRecipient.bankAccounts,
+        {
+          bankName: '',
+          accountNumber: '',
+          accountType: 'Ahorros',
+          primary: false
+        }
+      ];
+      return {
+        ...prev,
+        donationRecipient: newDonationRecipient
+      };
+    });
+  };
+
+  // Eliminar cuenta bancaria del beneficiario
+  const removeDonationRecipientBankAccount = (index) => {
+    if (kitData.donationRecipient.bankAccounts.length <= 1) {
+      setError('El beneficiario debe tener al menos una cuenta bancaria');
+      return;
+    }
+    
+    setKitData(prev => {
+      const newDonationRecipient = { ...prev.donationRecipient };
+      const newBankAccounts = newDonationRecipient.bankAccounts.filter((_, i) => i !== index);
+      
+      // Si eliminamos la cuenta principal, marcar la primera como principal
+      if (newDonationRecipient.bankAccounts[index].primary && newBankAccounts.length > 0) {
+        newBankAccounts[0].primary = true;
+      }
+      
+      newDonationRecipient.bankAccounts = newBankAccounts;
+      return {
+        ...prev,
+        donationRecipient: newDonationRecipient
+      };
+    });
+  };
+
   // Manejar envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,6 +197,80 @@ const AdminPanel = () => {
     }
   };
 
+  // Guardar el progreso del kit
+  const saveProgress = async () => {
+    setLoading(true);
+    setError('');
+    setMessage('');
+    
+    try {
+      const response = await fetch('/api/admin/kits/draft', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(kitData)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error al guardar el progreso');
+      }
+      
+      const result = await response.json();
+      setMessage('Progreso guardado correctamente');
+      
+      // Actualizar ID si es un nuevo borrador
+      if (result.kit._id && !kitData._id) {
+        setKitData(prev => ({
+          ...prev,
+          _id: result.kit._id
+        }));
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setError(err.message || 'Error al guardar el progreso');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Activar el kit
+  const activateKit = async () => {
+    if (!pdfUrl) {
+      setError('Debe generar el PDF antes de activar el kit');
+      return;
+    }
+    
+    setLoading(true);
+    setError('');
+    setMessage('');
+    
+    try {
+      const response = await fetch(`/api/admin/kits/${kitData._id}/activate`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error al activar el kit');
+      }
+      
+      const result = await response.json();
+      setMessage('Kit activado correctamente');
+      setKitData(prev => ({
+        ...prev,
+        status: 'active'
+      }));
+    } catch (err) {
+      console.error('Error:', err);
+      setError(err.message || 'Error al activar el kit');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Manejar creación de kit y generación de PDF
   const handleCreateKit = async (e) => {
     e.preventDefault();
@@ -87,13 +280,29 @@ const AdminPanel = () => {
     setPdfUrl('');
     
     try {
+      // Validar que haya al menos una cuenta bancaria
+      if (kitData.bankAccounts.length === 0) {
+        throw new Error('Debe agregar al menos una cuenta bancaria');
+      }
+      
+      // Validar que el beneficiario tenga al menos una cuenta si es un kit inicial
+      if (kitData.isInitialKit && kitData.donationRecipient.bankAccounts.length === 0) {
+        throw new Error('El beneficiario debe tener al menos una cuenta bancaria');
+      }
+      
       // Primero, generar el PDF
+      const dataToSend = {
+        ...kitData,
+        // Compatibilidad con la estructura anterior para no romper el PDF
+        paymentInfo: kitData.bankAccounts.find(acc => acc.primary) || kitData.bankAccounts[0]
+      };
+      
       const pdfResponse = await fetch('/api/admin/generate-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ kitData })
+        body: JSON.stringify({ kitData: dataToSend })
       });
       
       if (!pdfResponse.ok) {
@@ -102,29 +311,20 @@ const AdminPanel = () => {
       
       const pdfResult = await pdfResponse.json();
       
-      // Si el PDF se generó correctamente, crear el kit en la base de datos
-      if (pdfResult.success) {
-        const kitResponse = await fetch('/api/admin/kits', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            ...kitData,
-            pdfUrl: pdfResult.pdfUrl
-          })
-        });
-        
-        if (!kitResponse.ok) {
-          throw new Error('Error al crear el kit');
-        }
-        
-        const kitResult = await kitResponse.json();
-        
-        // Mostrar mensaje de éxito y la URL del PDF
-        setMessage('Kit2 creado y PDF generado correctamente');
-        setPdfUrl(pdfResult.pdfUrl);
-      }
+      // Mostrar mensaje de éxito y la URL del PDF
+      setMessage('Kit2 creado y PDF generado correctamente');
+      setPdfUrl(pdfResult.pdfUrl);
+      
+      // Guardar también el progreso con la URL del PDF
+      setKitData(prev => ({
+        ...prev,
+        pdfUrl: pdfResult.pdfUrl,
+        status: 'pending' // Cambiar a pendiente hasta que se active
+      }));
+      
+      // Guardar el kit en la base de datos
+      saveProgress();
+      
     } catch (err) {
       console.error('Error:', err);
       setError(err.message || 'Error al procesar la solicitud');
@@ -199,56 +399,110 @@ const AdminPanel = () => {
             
             <div className="form-section">
               <h3>Información Bancaria</h3>
+              <p className="info-text">
+                Puede agregar múltiples cuentas bancarias para facilitar las donaciones.
+              </p>
+              
+              {kitData.bankAccounts.map((account, index) => (
+                <div key={index} className="bank-account-container">
+                  <div className="bank-account-header">
+                    <h4>Cuenta Bancaria {index + 1}</h4>
+                    {kitData.bankAccounts.length > 1 && (
+                      <button
+                        type="button"
+                        className="remove-account-button"
+                        onClick={() => removeBankAccount(index)}
+                        disabled={loading}
+                      >
+                        Eliminar
+                      </button>
+                    )}
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor={`bankAccounts-${index}-bankName`}>Nombre del Banco</label>
+                    <input
+                      type="text"
+                      id={`bankAccounts-${index}-bankName`}
+                      value={account.bankName}
+                      onChange={(e) => handleBankAccountChange(index, 'bankName', e.target.value)}
+                      placeholder="Nombre del banco"
+                      required
+                      disabled={loading}
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor={`bankAccounts-${index}-accountNumber`}>Número de Cuenta</label>
+                    <input
+                      type="text"
+                      id={`bankAccounts-${index}-accountNumber`}
+                      value={account.accountNumber}
+                      onChange={(e) => handleBankAccountChange(index, 'accountNumber', e.target.value)}
+                      placeholder="Número de cuenta"
+                      required
+                      disabled={loading}
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor={`bankAccounts-${index}-accountType`}>Tipo de Cuenta</label>
+                    <select
+                      id={`bankAccounts-${index}-accountType`}
+                      value={account.accountType}
+                      onChange={(e) => handleBankAccountChange(index, 'accountType', e.target.value)}
+                      disabled={loading}
+                    >
+                      <option value="Ahorros">Cuenta de Ahorros</option>
+                      <option value="Corriente">Cuenta Corriente</option>
+                    </select>
+                  </div>
+                  
+                  <div className="form-group checkbox-group">
+                    <input
+                      type="checkbox"
+                      id={`bankAccounts-${index}-primary`}
+                      checked={account.primary}
+                      onChange={(e) => {
+                        // Si marcamos esta cuenta como principal, desmarcamos las demás
+                        if (e.target.checked) {
+                          setKitData(prev => {
+                            const newBankAccounts = prev.bankAccounts.map((acc, i) => ({
+                              ...acc,
+                              primary: i === index
+                            }));
+                            return {
+                              ...prev,
+                              bankAccounts: newBankAccounts
+                            };
+                          });
+                        }
+                      }}
+                      disabled={account.primary || loading}
+                    />
+                    <label htmlFor={`bankAccounts-${index}-primary`}>
+                      Cuenta Principal
+                    </label>
+                  </div>
+                </div>
+              ))}
+              
+              <button
+                type="button"
+                className="add-account-button"
+                onClick={addBankAccount}
+                disabled={loading}
+              >
+                + Agregar Otra Cuenta Bancaria
+              </button>
               
               <div className="form-group">
-                <label htmlFor="paymentInfo.bankName">Nombre del Banco</label>
-                <input
-                  type="text"
-                  id="paymentInfo.bankName"
-                  name="paymentInfo.bankName"
-                  value={kitData.paymentInfo.bankName}
-                  onChange={handleKitChange}
-                  placeholder="Nombre del banco"
-                  required
-                  disabled={loading}
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="paymentInfo.accountNumber">Número de Cuenta</label>
-                <input
-                  type="text"
-                  id="paymentInfo.accountNumber"
-                  name="paymentInfo.accountNumber"
-                  value={kitData.paymentInfo.accountNumber}
-                  onChange={handleKitChange}
-                  placeholder="Número de cuenta"
-                  required
-                  disabled={loading}
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="paymentInfo.accountType">Tipo de Cuenta</label>
-                <select
-                  id="paymentInfo.accountType"
-                  name="paymentInfo.accountType"
-                  value={kitData.paymentInfo.accountType}
-                  onChange={handleKitChange}
-                  disabled={loading}
-                >
-                  <option value="Ahorros">Cuenta de Ahorros</option>
-                  <option value="Corriente">Cuenta Corriente</option>
-                </select>
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="paymentInfo.paypalEmail">Correo de PayPal (opcional)</label>
+                <label htmlFor="paypalEmail">Correo de PayPal (opcional)</label>
                 <input
                   type="email"
-                  id="paymentInfo.paypalEmail"
-                  name="paymentInfo.paypalEmail"
-                  value={kitData.paymentInfo.paypalEmail}
+                  id="paypalEmail"
+                  name="paypalEmail"
+                  value={kitData.paypalEmail}
                   onChange={handleKitChange}
                   placeholder="Correo de PayPal"
                   disabled={loading}
@@ -278,47 +532,100 @@ const AdminPanel = () => {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="donationRecipient.bankName">Banco del Beneficiario</label>
-                  <input
-                    type="text"
-                    id="donationRecipient.bankName"
-                    name="donationRecipient.bankName"
-                    value={kitData.donationRecipient.bankName}
-                    onChange={handleKitChange}
-                    placeholder="Nombre del banco del beneficiario"
-                    required={kitData.isInitialKit}
-                    disabled={loading}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="donationRecipient.accountNumber">Número de Cuenta</label>
-                  <input
-                    type="text"
-                    id="donationRecipient.accountNumber"
-                    name="donationRecipient.accountNumber"
-                    value={kitData.donationRecipient.accountNumber}
-                    onChange={handleKitChange}
-                    placeholder="Número de cuenta del beneficiario"
-                    required={kitData.isInitialKit}
-                    disabled={loading}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="donationRecipient.accountType">Tipo de Cuenta</label>
-                  <select
-                    id="donationRecipient.accountType"
-                    name="donationRecipient.accountType"
-                    value={kitData.donationRecipient.accountType}
-                    onChange={handleKitChange}
-                    disabled={loading}
-                  >
-                    <option value="Ahorros">Cuenta de Ahorros</option>
-                    <option value="Corriente">Cuenta Corriente</option>
-                  </select>
-                </div>
+                {/* Cuentas bancarias del beneficiario */}
+                {kitData.donationRecipient.bankAccounts.map((account, index) => (
+                  <div key={index} className="bank-account-container">
+                    <div className="bank-account-header">
+                      <h4>Cuenta Bancaria del Beneficiario {index + 1}</h4>
+                      {kitData.donationRecipient.bankAccounts.length > 1 && (
+                        <button
+                          type="button"
+                          className="remove-account-button"
+                          onClick={() => removeDonationRecipientBankAccount(index)}
+                          disabled={loading}
+                        >
+                          Eliminar
+                        </button>
+                      )}
+                    </div>
+                    
+                    <div className="form-group">
+                      <label htmlFor={`donationBankAccounts-${index}-bankName`}>Nombre del Banco</label>
+                      <input
+                        type="text"
+                        id={`donationBankAccounts-${index}-bankName`}
+                        value={account.bankName}
+                        onChange={(e) => handleDonationRecipientBankAccountChange(index, 'bankName', e.target.value)}
+                        placeholder="Nombre del banco del beneficiario"
+                        required={kitData.isInitialKit}
+                        disabled={loading}
+                      />
+                    </div>
+                    
+                    <div className="form-group">
+                      <label htmlFor={`donationBankAccounts-${index}-accountNumber`}>Número de Cuenta</label>
+                      <input
+                        type="text"
+                        id={`donationBankAccounts-${index}-accountNumber`}
+                        value={account.accountNumber}
+                        onChange={(e) => handleDonationRecipientBankAccountChange(index, 'accountNumber', e.target.value)}
+                        placeholder="Número de cuenta del beneficiario"
+                        required={kitData.isInitialKit}
+                        disabled={loading}
+                      />
+                    </div>
+                    
+                    <div className="form-group">
+                      <label htmlFor={`donationBankAccounts-${index}-accountType`}>Tipo de Cuenta</label>
+                      <select
+                        id={`donationBankAccounts-${index}-accountType`}
+                        value={account.accountType}
+                        onChange={(e) => handleDonationRecipientBankAccountChange(index, 'accountType', e.target.value)}
+                        disabled={loading}
+                      >
+                        <option value="Ahorros">Cuenta de Ahorros</option>
+                        <option value="Corriente">Cuenta Corriente</option>
+                      </select>
+                    </div>
+                    
+                    <div className="form-group checkbox-group">
+                      <input
+                        type="checkbox"
+                        id={`donationBankAccounts-${index}-primary`}
+                        checked={account.primary}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setKitData(prev => {
+                              const newDonationRecipient = { ...prev.donationRecipient };
+                              const newBankAccounts = newDonationRecipient.bankAccounts.map((acc, i) => ({
+                                ...acc,
+                                primary: i === index
+                              }));
+                              newDonationRecipient.bankAccounts = newBankAccounts;
+                              return {
+                                ...prev,
+                                donationRecipient: newDonationRecipient
+                              };
+                            });
+                          }
+                        }}
+                        disabled={account.primary || loading}
+                      />
+                      <label htmlFor={`donationBankAccounts-${index}-primary`}>
+                        Cuenta Principal
+                      </label>
+                    </div>
+                  </div>
+                ))}
+                
+                <button
+                  type="button"
+                  className="add-account-button"
+                  onClick={addDonationRecipientBankAccount}
+                  disabled={loading}
+                >
+                  + Agregar Otra Cuenta Bancaria para el Beneficiario
+                </button>
 
                 <div className="form-group">
                   <label htmlFor="donationRecipient.paypalEmail">
@@ -342,8 +649,8 @@ const AdminPanel = () => {
                     name="sameBeneficiary"
                     checked={
                       kitData.donationRecipient.name === kitData.clientName &&
-                      kitData.donationRecipient.bankName === kitData.paymentInfo.bankName &&
-                      kitData.donationRecipient.accountNumber === kitData.paymentInfo.accountNumber
+                      kitData.donationRecipient.bankAccounts[0].bankName === kitData.bankAccounts[0].bankName &&
+                      kitData.donationRecipient.bankAccounts[0].accountNumber === kitData.bankAccounts[0].accountNumber
                     }
                     onChange={(e) => {
                       if (e.target.checked) {
@@ -352,10 +659,8 @@ const AdminPanel = () => {
                           ...prev,
                           donationRecipient: {
                             name: prev.clientName,
-                            bankName: prev.paymentInfo.bankName,
-                            accountNumber: prev.paymentInfo.accountNumber,
-                            accountType: prev.paymentInfo.accountType,
-                            paypalEmail: prev.paymentInfo.paypalEmail
+                            bankAccounts: JSON.parse(JSON.stringify(prev.bankAccounts)), // Deep copy
+                            paypalEmail: prev.paypalEmail
                           }
                         }));
                       } else {
@@ -364,9 +669,14 @@ const AdminPanel = () => {
                           ...prev,
                           donationRecipient: {
                             name: '',
-                            bankName: '',
-                            accountNumber: '',
-                            accountType: 'Ahorros',
+                            bankAccounts: [
+                              {
+                                bankName: '',
+                                accountNumber: '',
+                                accountType: 'Ahorros',
+                                primary: true
+                              }
+                            ],
                             paypalEmail: ''
                           }
                         }));
@@ -457,13 +767,35 @@ const AdminPanel = () => {
               </div>
             </div>
             
-            <button
-              type="submit"
-              className="admin-button"
-              disabled={loading}
-            >
-              {loading ? 'Procesando...' : 'Generar Kit2'}
-            </button>
+            <div className="button-group">
+              <button
+                type="button"
+                className="save-button"
+                onClick={saveProgress}
+                disabled={loading}
+              >
+                {loading ? 'Guardando...' : 'Guardar Progreso'}
+              </button>
+              
+              <button
+                type="submit"
+                className="admin-button"
+                disabled={loading}
+              >
+                {loading ? 'Procesando...' : 'Generar Kit2'}
+              </button>
+              
+              {pdfUrl && (
+                <button
+                  type="button"
+                  className="activate-button"
+                  onClick={activateKit}
+                  disabled={loading || kitData.status === 'active'}
+                >
+                  {kitData.status === 'active' ? 'Kit Activado' : 'Activar Kit'}
+                </button>
+              )}
+            </div>
           </form>
           
           {pdfUrl && (
@@ -472,18 +804,30 @@ const AdminPanel = () => {
               <p>Haga clic en los enlaces para ver o descargar el PDF:</p>
               <div className="pdf-links">
                 <a 
-                  href={pdfUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href="#"
                   className="pdf-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Abrir en nueva ventana con URL completa
+                    window.open(`${window.location.origin}${pdfUrl}`, '_blank');
+                  }}
                 >
                   Ver PDF
                 </a>
                 {' '}
                 <a 
-                  href={pdfUrl} 
-                  download
+                  href="#"
                   className="pdf-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Iniciar descarga en otra pestaña
+                    const link = document.createElement('a');
+                    link.href = `${window.location.origin}${pdfUrl}`;
+                    link.download = pdfUrl.split('/').pop();
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
                 >
                   Descargar PDF
                 </a>
@@ -492,7 +836,7 @@ const AdminPanel = () => {
               {/* Agregar un iframe para mostrar una vista previa del PDF */}
               <div className="pdf-iframe-container">
                 <iframe
-                  src={`${pdfUrl}#toolbar=0&navpanes=0`}
+                  src={`${pdfUrl}#toolbar=1&navpanes=1`}
                   title="Vista previa del PDF"
                   width="100%"
                   height="500px"
