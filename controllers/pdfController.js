@@ -110,4 +110,4 @@ const createPDF = (kitData, filePath) => {
         // Agregar encabezado de prueba
         doc.rect(50, 30, doc.page.width - 100, 30)
           .fillAndStroke('#f44336', '#f44336');
-        doc.fillColor('white')
+        doc.fillColor('white');
