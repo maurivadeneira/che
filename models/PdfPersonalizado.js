@@ -2,45 +2,42 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pdfPersonalizadoSchema = new Schema({
-  usuario: { 
-    type: Schema.Types.ObjectId, 
-    ref: 'User', 
-    required: true 
+  usuarioId: {
+    type: String,
+    required: true
   },
-  kit: { 
-    type: Schema.Types.ObjectId, 
-    ref: 'Kit', 
-    required: true 
+  kitId: {
+    type: String,
+    required: true
   },
   beneficiarioId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    type: String
   },
-  urlArchivo: { 
-    type: String, 
-    required: true 
+  urlArchivo: {
+    type: String,
+    required: true
   },
-  nombreArchivo: { 
-    type: String, 
-    required: true 
+  nombreArchivo: {
+    type: String,
+    required: true
   },
-  fechaCreacion: { 
-    type: Date, 
-    default: Date.now 
+  fechaCreacion: {
+    type: Date,
+    default: Date.now
   },
-  versionDocumento: { 
-    type: String 
+  versionDocumento: {
+    type: String
   },
-  activo: { 
-    type: Boolean, 
-    default: true 
+  activo: {
+    type: Boolean,
+    default: true
   },
-  descargas: { 
-    type: Number, 
-    default: 0 
+  descargas: {
+    type: Number,
+    default: 0
   },
-  ultimaDescarga: { 
-    type: Date 
+  ultimaDescarga: {
+    type: Date
   },
   esKitOriginal: {
     type: Boolean,

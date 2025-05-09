@@ -166,16 +166,22 @@ router.get('/test-pdf', async (req, res) => {
   }
 });
 
-// Ruta para generar el Kit2 del Autor
+// Ruta para generar el Kit2 del Autor (con logs mejorados)
 router.post('/generate-autor-kit', async (req, res) => {
   try {
+    console.log('Recibida solicitud para generar Kit2 del Autor');
+    console.log('Datos recibidos:', JSON.stringify(req.body, null, 2));
+    
     await pdfController.generarKitAutor(req, res);
   } catch (error) {
-    console.error('Error al generar Kit2 del Autor:', error);
+    console.error('Error detallado al generar Kit2 del Autor:', error);
+    console.error('Stack trace:', error.stack);
+    
     res.status(500).json({
       success: false,
       message: 'Error al generar Kit2 del Autor',
-      error: error.message
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
 });

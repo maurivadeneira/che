@@ -87,11 +87,11 @@ const createPDFFromTemplate = async (kitData, filePath) => {
     
     // Reemplazar placeholders
     htmlTemplate = htmlTemplate
-      .replace(/{{NOMBRE_REFERENTE}}/g, kitData.referentName || 'Administrador del Sistema')
-      .replace(/{{URL_ACTIVACION}}/g, activationUrl)
-      .replace(/{{NOMBRE_CLIENTE}}/g, kitData.clientName)
-      .replace(/{{EMAIL_CLIENTE}}/g, kitData.clientEmail)
-      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+      .replace(/\[NOMBRE_REFERENTE\]/g, kitData.referentName || 'Administrador del Sistema')
+      .replace(/\[URL_ACTIVACION\]/g, activationUrl)
+      .replace(/\[NOMBRE_CLIENTE\]/g, kitData.clientName)
+      .replace(/\[EMAIL_CLIENTE\]/g, kitData.clientEmail)
+      .replace(/\[FECHA_ACTUAL\]/g, fechaActual);
     
     // Si es versión de prueba, agregar marca de agua
     if (kitData.isTestVersion) {
@@ -138,7 +138,10 @@ const createPDFFromTemplate = async (kitData, filePath) => {
     }
     
     // Generar PDF con Puppeteer
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ 
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     await page.setContent(htmlTemplate);
     
@@ -241,14 +244,17 @@ exports.generarPDFPersonalizado = async (req, res) => {
     // Reemplazar placeholders
     const fechaActual = new Date().toLocaleDateString('es-ES');
     htmlTemplate = htmlTemplate
-      .replace(/{{NOMBRE_REFERENTE}}/g, referente.nombre)
-      .replace(/{{URL_ACTIVACION}}/g, urlActivacion)
-      .replace(/{{NOMBRE_CLIENTE}}/g, nombreCliente)
-      .replace(/{{EMAIL_CLIENTE}}/g, emailCliente)
-      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+      .replace(/\[NOMBRE_REFERENTE\]/g, referente.nombre)
+      .replace(/\[URL_ACTIVACION\]/g, urlActivacion)
+      .replace(/\[NOMBRE_CLIENTE\]/g, nombreCliente)
+      .replace(/\[EMAIL_CLIENTE\]/g, emailCliente)
+      .replace(/\[FECHA_ACTUAL\]/g, fechaActual);
     
     // Generar PDF con puppeteer
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ 
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     await page.setContent(htmlTemplate);
     
@@ -279,9 +285,13 @@ exports.generarPDFPersonalizado = async (req, res) => {
       usuarioId,
       kitId: `KIT2-${usuarioId}`,
       urlArchivo,
+      nombreArchivo: fileName,
       fechaCreacion: new Date(),
       versionDocumento: '1.0',
-      activo: true
+      activo: true,
+      esKitOriginal: false,
+      observaciones: 'Kit2 personalizado',
+      estadoVerificacion: 'verificado'
     });
     
     await pdfDoc.save();
@@ -360,6 +370,8 @@ exports.listarPDFsUsuario = async (req, res) => {
 // Función para generar el Kit2 del Autor con un beneficiario designado
 exports.generarKitAutor = async (req, res) => {
   try {
+    console.log('Datos recibidos en generarKitAutor:', JSON.stringify(req.body, null, 2));
+    
     const { 
       autorId,
       nombreAutor,
@@ -409,25 +421,40 @@ exports.generarKitAutor = async (req, res) => {
     
     // Leer la plantilla HTML
     const templatePath = path.join(__dirname, '../templates/kit2_template.html');
+    
+    console.log('Verificando si existe la plantilla:', templatePath);
+    if (!fs.existsSync(templatePath)) {
+      throw new Error(`Plantilla no encontrada en: ${templatePath}`);
+    }
+    
     let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
+    console.log('Plantilla leída correctamente');
     
     // Reemplazar placeholders - El autor es el cliente, el beneficiario es el referente
     const fechaActual = new Date().toLocaleDateString('es-ES');
     htmlTemplate = htmlTemplate
-      .replace(/{{NOMBRE_REFERENTE}}/g, nombreBeneficiario)
-      .replace(/{{URL_ACTIVACION}}/g, urlActivacion)
-      .replace(/{{NOMBRE_CLIENTE}}/g, nombreAutor)
-      .replace(/{{EMAIL_CLIENTE}}/g, emailAutor)
-      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+      .replace(/\[NOMBRE_REFERENTE\]/g, nombreBeneficiario)
+      .replace(/\[URL_ACTIVACION\]/g, urlActivacion)
+      .replace(/\[NOMBRE_CLIENTE\]/g, nombreAutor)
+      .replace(/\[EMAIL_CLIENTE\]/g, emailAutor)
+      .replace(/\[FECHA_ACTUAL\]/g, fechaActual);
+    
+    console.log('Placeholders reemplazados correctamente');
     
     // Generar PDF con puppeteer
-    const browser = await puppeteer.launch({ headless: true });
+    console.log('Iniciando navegador Puppeteer...');
+    const browser = await puppeteer.launch({ 
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     await page.setContent(htmlTemplate);
     
     // Definir nombre de archivo único
-    const fileName = `kit2_autor_${Date.now()}.pdf`;
+    const fileName = `kit2_autor_${autorId}_${Date.now()}.pdf`;
     const filePath = path.join(__dirname, '../temp', fileName);
+    
+    console.log(`Generando PDF en: ${filePath}`);
     
     // Generar PDF
     await page.pdf({
@@ -443,15 +470,28 @@ exports.generarKitAutor = async (req, res) => {
     });
     
     await browser.close();
+    console.log('Navegador cerrado');
+    
+    // Verificar que el archivo se haya creado
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`El archivo PDF no se creó correctamente en: ${filePath}`);
+    }
+    
+    console.log('PDF generado correctamente');
     
     // URL pública para acceder al PDF
     const urlArchivo = `${req.protocol}://${req.get('host')}/temp/${fileName}`;
     
+    // ID único para el kit
+    const kitId = `KIT2-AUTOR-${Date.now()}`;
+    
+    console.log('Creando documento en la base de datos...');
+    
     // Guardar registro en la base de datos
     const pdfDoc = new PdfPersonalizado({
       usuarioId: autorId,
+      kitId: kitId,
       beneficiarioId: beneficiarioId,
-      kitId: `KIT2-AUTOR-${Date.now()}`,
       urlArchivo,
       nombreArchivo: fileName,
       fechaCreacion: new Date(),
@@ -459,7 +499,7 @@ exports.generarKitAutor = async (req, res) => {
       activo: true,
       esKitOriginal: true,
       observaciones: observaciones || 'Kit2 original creado por el autor',
-      estadoVerificacion: 'verificado',  // Ya está verificado automáticamente
+      estadoVerificacion: 'verificado',
       metadatos: {
         // Datos del autor
         nombreAutor,
@@ -477,24 +517,9 @@ exports.generarKitAutor = async (req, res) => {
       }
     });
     
-    await pdfDoc.save();
-    
-    // También habría que actualizar/crear los perfiles de usuario con los métodos de pago
-    // Idealmente, esto debería hacerse en modelos separados: User, PerfilKit, MetodoPago, etc.
-    // Para una implementación completa, crearíamos o actualizaríamos estos registros aquí
-    
-    try {
-      // Aquí iría el código para actualizar los perfiles de usuarios
-      // Este es un placeholder para la implementación futura
-      console.log(`Procesando información completa para autor ID ${autorId}`);
-      console.log(`Procesando información completa para beneficiario ID ${beneficiarioId}`);
-      
-      // En una implementación real, guardaríamos estos datos en los modelos correspondientes
-      
-    } catch (error) {
-      console.error('Error al actualizar perfiles de usuario:', error);
-      // No fallamos la operación principal si esto falla, solo lo registramos
-    }
+    console.log('Guardando documento en la base de datos...');
+    const savedPdf = await pdfDoc.save();
+    console.log('PDF guardado en la base de datos:', savedPdf._id);
     
     // Responder con la URL
     res.status(201).json({
@@ -503,16 +528,17 @@ exports.generarKitAutor = async (req, res) => {
       data: {
         urlArchivo,
         pdfId: pdfDoc._id,
-        kitId: pdfDoc.kitId
+        kitId: kitId
       }
     });
     
   } catch (error) {
-    console.error('Error al generar Kit2 del Autor:', error);
+    console.error('Error detallado al generar Kit2 del Autor:', error);
     res.status(500).json({
       success: false,
       message: 'Error al generar Kit2 del Autor',
-      error: error.message
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
 };
