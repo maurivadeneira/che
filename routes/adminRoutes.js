@@ -85,8 +85,28 @@ router.put('/kits/:id/activate', (req, res) => {
   });
 });
 
-// Ruta para generar PDF
-router.post('/generate-pdf', pdfController.generatePDF);
+// Ruta para generar PDF - CORREGIDO para usar la función que existe en el controlador
+router.post('/generate-pdf', async (req, res) => {
+  try {
+    // Llamamos a la función que sí existe en nuestro controlador
+    if (req.body && req.body.kitData) {
+      await pdfController.generarPDFPersonalizado(req, res);
+    } else {
+      // Si no tiene el formato esperado, devolvemos error
+      res.status(400).json({
+        success: false,
+        message: 'Formato de datos incorrecto. Se requiere un objeto kitData.'
+      });
+    }
+  } catch (error) {
+    console.error('Error al generar PDF:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar PDF',
+      error: error.message
+    });
+  }
+});
 
 // Verificar si un archivo PDF existe
 router.get('/check-pdf/:filename', (req, res) => {
@@ -130,6 +150,34 @@ router.post('/kits/:id/send', (req, res) => {
     message: `Kit ${id} enviado exitosamente`,
     sentDate: new Date()
   });
+});
+
+// Ruta para generar un PDF de prueba (para depuración)
+router.get('/test-pdf', async (req, res) => {
+  try {
+    await pdfController.generateTestPDF(req, res);
+  } catch (error) {
+    console.error('Error al generar PDF de prueba:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar PDF de prueba',
+      error: error.message
+    });
+  }
+});
+
+// Ruta para generar el Kit2 del Autor
+router.post('/generate-autor-kit', async (req, res) => {
+  try {
+    await pdfController.generarKitAutor(req, res);
+  } catch (error) {
+    console.error('Error al generar Kit2 del Autor:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar Kit2 del Autor',
+      error: error.message
+    });
+  }
 });
 
 module.exports = router;

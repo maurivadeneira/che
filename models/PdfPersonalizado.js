@@ -12,6 +12,10 @@ const pdfPersonalizadoSchema = new Schema({
     ref: 'Kit', 
     required: true 
   },
+  beneficiarioId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   urlArchivo: { 
     type: String, 
     required: true 
@@ -37,6 +41,22 @@ const pdfPersonalizadoSchema = new Schema({
   },
   ultimaDescarga: { 
     type: Date 
+  },
+  esKitOriginal: {
+    type: Boolean,
+    default: false
+  },
+  observaciones: {
+    type: String
+  },
+  estadoVerificacion: {
+    type: String,
+    enum: ['pendiente', 'verificado', 'rechazado'],
+    default: 'pendiente'
+  },
+  metadatos: {
+    type: Object,
+    default: {}
   }
 });
 

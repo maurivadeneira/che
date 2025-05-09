@@ -6,6 +6,15 @@ const path = require('path');
 // Importar el modelo
 const PdfPersonalizado = require('../models/PdfPersonalizado');
 
+// Importar el controlador de generación de PDFs
+const pdfController = require('../controllers/pdfController');
+
+// Ruta para generar un PDF a partir de la plantilla HTML
+router.post('/generar', pdfController.generatePDF);
+
+// Ruta para generar un PDF de prueba (útil para testing)
+router.get('/test', pdfController.generateTestPDF);
+
 // Ruta para registrar un nuevo PDF personalizado
 router.post('/', async (req, res) => {
   try {
@@ -91,6 +100,58 @@ router.put('/desactivar/:pdfId', async (req, res) => {
   } catch (err) {
     console.error('Error al desactivar PDF:', err.message);
     res.status(500).send('Error del servidor');
+  }
+});
+
+// Ruta combinada para generar y registrar un PDF en un solo paso
+router.post('/generar-y-registrar', async (req, res) => {
+  try {
+    const { kitData } = req.body;
+    
+    // Verificar datos mínimos requeridos
+    if (!kitData || !kitData.clientName || !kitData.clientEmail || !kitData.usuario) {
+      return res.status(400).json({
+        success: false,
+        message: 'Datos del cliente o usuario incompletos'
+      });
+    }
+    
+    // Crear nombre de archivo único
+    const fileName = `kit2_${kitData.clientName.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}.pdf`;
+    const filePath = path.join(__dirname, '../temp', fileName);
+    
+    // Generar el PDF usando el controlador
+    await pdfController.createPDFFromTemplate(kitData, filePath);
+    
+    console.log(`PDF generado: ${filePath}`);
+    
+    // Registrar en la base de datos
+    const nuevoPdf = new PdfPersonalizado({
+      usuario: kitData.usuario,
+      kit: kitData.kitId,
+      urlArchivo: `/temp/${fileName}`,
+      nombreArchivo: fileName,
+      versionDocumento: kitData.versionDocumento || '1.0',
+      activo: true,
+      fechaCreacion: new Date()
+    });
+    
+    await nuevoPdf.save();
+    
+    // Responder con éxito y la información del PDF
+    res.json({
+      success: true,
+      message: 'PDF generado y registrado correctamente',
+      pdfData: nuevoPdf
+    });
+    
+  } catch (error) {
+    console.error('Error al generar y registrar PDF:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar y registrar PDF',
+      error: error.message
+    });
   }
 });
 

@@ -75,6 +75,11 @@ app.use("/api/invitations", require("./routes/invitations"));
 app.use("/api/admin", require("./routes/adminRoutes")); // Añadido para rutas de admin
 app.use("/api/pdfs", require("./routes/pdfs")); // Nueva ruta para PDFs personalizados
 
+// Ruta para la interfaz de generación de Kit del Autor
+app.get('/admin/generar-kit-autor', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'autor-kit.html'));
+});
+
 // Ruta básica
 app.get("/api", (req, res) => {
   res.send("API del Sistema Kit2 de Herejía Económica funcionando");

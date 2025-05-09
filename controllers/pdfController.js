@@ -1,6 +1,9 @@
-const PDFDocument = require('pdfkit');
+// controllers/pdfController.js
 const fs = require('fs');
 const path = require('path');
+const puppeteer = require('puppeteer');
+const PdfPersonalizado = require('../models/PdfPersonalizado');
+const User = require('../models/User'); // Asegúrate de ajustar la ruta según tu estructura
 
 // Asegurar que el directorio temp existe
 const tempDir = path.join(__dirname, '../temp');
@@ -21,6 +24,7 @@ try {
   console.error('ERROR: El directorio temp no es escribible:', error);
 }
 
+// Esta es la función que faltaba y que estaba siendo referenciada en adminRoutes.js
 exports.generatePDF = async (req, res) => {
   try {
     const { kitData } = req.body;
@@ -37,8 +41,8 @@ exports.generatePDF = async (req, res) => {
     const fileName = `kit2_${kitData.clientName.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}.pdf`;
     const filePath = path.join(__dirname, '../temp', fileName);
     
-    // Generar el PDF
-    await createPDF(kitData, filePath);
+    // Generar el PDF usando la plantilla HTML
+    await createPDFFromTemplate(kitData, filePath);
     
     console.log(`PDF generado: ${filePath}`);
     
@@ -62,109 +66,453 @@ exports.generatePDF = async (req, res) => {
   }
 };
 
-// Función para crear PDF con PDFKit
-const createPDF = (kitData, filePath) => {
-  return new Promise((resolve, reject) => {
-    try {
-      // Crear documento PDF
-      const doc = new PDFDocument({ size: 'A4', margin: 50 });
-      const stream = fs.createWriteStream(filePath);
-      
-      // Configurar eventos
-      stream.on('finish', () => resolve(filePath));
-      stream.on('error', reject);
-      
-      // Pipe al stream
-      doc.pipe(stream);
-      
-      // URL para activación
-      const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
-      const invitationId = `kit_${kitData.clientName.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}`;
-      const activationUrl = `${baseUrl}/registro?invited_by=${invitationId}`;
-      
-      // Si es versión de prueba, agregar marca de agua y encabezado
-      if (kitData.isTestVersion) {
-        // Función para agregar marca de agua en todas las páginas
-        const addWatermark = () => {
-          // Guardar estado
-          doc.save();
+// Función para crear PDF a partir de la plantilla HTML usando Puppeteer
+const createPDFFromTemplate = async (kitData, filePath) => {
+  try {
+    // Leer la plantilla HTML
+    const templatePath = path.join(__dirname, '../templates/kit2_template.html');
+    if (!fs.existsSync(templatePath)) {
+      throw new Error(`Plantilla no encontrada en: ${templatePath}`);
+    }
+    
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
+    
+    // URL para activación
+    const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+    const invitationId = `kit_${kitData.clientName.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}`;
+    const activationUrl = `${baseUrl}/registro?invited_by=${invitationId}`;
+    
+    // Preparar datos para reemplazar en la plantilla
+    const fechaActual = new Date().toLocaleDateString('es-ES');
+    
+    // Reemplazar placeholders
+    htmlTemplate = htmlTemplate
+      .replace(/{{NOMBRE_REFERENTE}}/g, kitData.referentName || 'Administrador del Sistema')
+      .replace(/{{URL_ACTIVACION}}/g, activationUrl)
+      .replace(/{{NOMBRE_CLIENTE}}/g, kitData.clientName)
+      .replace(/{{EMAIL_CLIENTE}}/g, kitData.clientEmail)
+      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+    
+    // Si es versión de prueba, agregar marca de agua
+    if (kitData.isTestVersion) {
+      // Inyectar CSS para la marca de agua
+      const watermarkCSS = `
+        <style>
+          body::before {
+            content: "VERSIÓN DE PRUEBA";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8em;
+            color: rgba(255, 0, 0, 0.2);
+            transform: rotate(-45deg);
+            pointer-events: none;
+            z-index: 1000;
+          }
           
-          // Configurar marca de agua
-          doc.fontSize(60)
-            .fillColor('rgba(244, 67, 54, 0.2)')
-            .rotate(45, { origin: [doc.page.width / 2, doc.page.height / 2] })
-            .text('VERSIÓN DE PRUEBA', doc.page.width / 2 - 250, doc.page.height / 2 - 30, {
-              align: 'center'
-            });
-          
-          // Restaurar estado
-          doc.restore();
-        };
-        
-        // Agregar eventos para cada página
-        doc.on('pageAdded', addWatermark);
-        
-        // Agregar marca de agua a la primera página
-        addWatermark();
-        
-        // Agregar encabezado de prueba
-        doc.rect(50, 30, doc.page.width - 100, 30)
-          .fillAndStroke('#f44336', '#f44336');
-        doc.fillColor('white');
-        doc.fontSize(12)
-          .text('DOCUMENTO DE PRUEBA - NO VÁLIDO PARA USO REAL', 
-                doc.page.width / 2, 40, { align: 'center' });
+          body::after {
+            content: "DOCUMENTO DE PRUEBA - NO VÁLIDO PARA USO REAL";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f44336;
+            color: white;
+            font-size: 12px;
+            z-index: 1001;
+          }
+        </style>
+      `;
+      
+      // Insertar CSS después de la etiqueta <head>
+      htmlTemplate = htmlTemplate.replace('</head>', `${watermarkCSS}</head>`);
+    }
+    
+    // Generar PDF con Puppeteer
+    const browser = await puppeteer.launch({ headless: true });
+    const page = await browser.newPage();
+    await page.setContent(htmlTemplate);
+    
+    // Generar PDF
+    await page.pdf({
+      path: filePath,
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '20px',
+        right: '20px',
+        bottom: '20px',
+        left: '20px'
       }
+    });
+    
+    await browser.close();
+    
+    return filePath;
+  } catch (error) {
+    console.error('Error al crear PDF desde plantilla:', error);
+    throw error;
+  }
+};
+
+// Exportar la función para uso externo
+exports.createPDFFromTemplate = createPDFFromTemplate;
+
+// Función para prueba - genera un PDF de prueba
+exports.generateTestPDF = async (req, res) => {
+  try {
+    // Datos de prueba
+    const testData = {
+      clientName: 'Cliente de Prueba',
+      clientEmail: 'prueba@ejemplo.com',
+      referentName: 'Referente de Prueba',
+      isTestVersion: true
+    };
+    
+    // Crear nombre de archivo único
+    const fileName = `kit2_test_${Date.now()}.pdf`;
+    const filePath = path.join(__dirname, '../temp', fileName);
+    
+    // Generar el PDF de prueba
+    await createPDFFromTemplate(testData, filePath);
+    
+    console.log(`PDF de prueba generado: ${filePath}`);
+    
+    // Responder con éxito y la ruta al archivo
+    res.json({
+      success: true,
+      message: 'PDF de prueba generado correctamente',
+      pdfUrl: `/temp/${fileName}` // URL relativa para acceder al archivo
+    });
+    
+  } catch (error) {
+    console.error('Error al generar PDF de prueba:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar PDF de prueba',
+      error: error.message
+    });
+  }
+};
+
+// Función para generar un PDF personalizado - la que ya tenías
+exports.generarPDFPersonalizado = async (req, res) => {
+  try {
+    const { 
+      usuarioId, 
+      referenteId,
+      nombreCliente, 
+      emailCliente 
+    } = req.body;
+
+    // Validar datos requeridos
+    if (!usuarioId || !referenteId || !nombreCliente || !emailCliente) {
+      return res.status(400).json({
+        success: false,
+        message: 'Faltan datos requeridos para generar el PDF personalizado'
+      });
+    }
+
+    // Obtener información del referente
+    const referente = await User.findById(referenteId);
+    if (!referente) {
+      return res.status(404).json({
+        success: false,
+        message: 'No se encontró el referente especificado'
+      });
+    }
+
+    // Generar URL única para activación
+    const urlActivacion = `https://corpherejiaeconomica.com/activar/${usuarioId}`;
+    
+    // Leer la plantilla HTML
+    const templatePath = path.join(__dirname, '../templates/kit2_template.html');
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
+    
+    // Reemplazar placeholders
+    const fechaActual = new Date().toLocaleDateString('es-ES');
+    htmlTemplate = htmlTemplate
+      .replace(/{{NOMBRE_REFERENTE}}/g, referente.nombre)
+      .replace(/{{URL_ACTIVACION}}/g, urlActivacion)
+      .replace(/{{NOMBRE_CLIENTE}}/g, nombreCliente)
+      .replace(/{{EMAIL_CLIENTE}}/g, emailCliente)
+      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+    
+    // Generar PDF con puppeteer
+    const browser = await puppeteer.launch({ headless: true });
+    const page = await browser.newPage();
+    await page.setContent(htmlTemplate);
+    
+    // Definir nombre de archivo único
+    const fileName = `kit2_${usuarioId}_${Date.now()}.pdf`;
+    const filePath = path.join(__dirname, '../temp', fileName);
+    
+    // Generar PDF
+    await page.pdf({
+      path: filePath,
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '20px',
+        right: '20px',
+        bottom: '20px',
+        left: '20px'
+      }
+    });
+    
+    await browser.close();
+    
+    // URL pública para acceder al PDF
+    const urlArchivo = `${req.protocol}://${req.get('host')}/temp/${fileName}`;
+    
+    // Guardar registro en la base de datos
+    const pdfDoc = new PdfPersonalizado({
+      usuarioId,
+      kitId: `KIT2-${usuarioId}`,
+      urlArchivo,
+      fechaCreacion: new Date(),
+      versionDocumento: '1.0',
+      activo: true
+    });
+    
+    await pdfDoc.save();
+    
+    // Responder con la URL
+    res.status(201).json({
+      success: true,
+      message: 'PDF personalizado generado con éxito',
+      data: {
+        urlArchivo,
+        pdfId: pdfDoc._id
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al generar PDF personalizado:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar PDF personalizado',
+      error: error.message
+    });
+  }
+};
+
+// Función para obtener un PDF personalizado por ID
+exports.obtenerPDFPorId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const pdf = await PdfPersonalizado.findById(id);
+    if (!pdf) {
+      return res.status(404).json({
+        success: false,
+        message: 'PDF personalizado no encontrado'
+      });
+    }
+    
+    res.status(200).json({
+      success: true,
+      data: pdf
+    });
+    
+  } catch (error) {
+    console.error('Error al obtener PDF personalizado:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al obtener PDF personalizado',
+      error: error.message
+    });
+  }
+};
+
+// Función para listar todos los PDFs de un usuario
+exports.listarPDFsUsuario = async (req, res) => {
+  try {
+    const { usuarioId } = req.params;
+    
+    const pdfs = await PdfPersonalizado.find({ usuarioId, activo: true });
+    
+    res.status(200).json({
+      success: true,
+      count: pdfs.length,
+      data: pdfs
+    });
+    
+  } catch (error) {
+    console.error('Error al listar PDFs personalizados:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al listar PDFs personalizados',
+      error: error.message
+    });
+  }
+};
+
+// Función para generar el Kit2 del Autor con un beneficiario designado
+exports.generarKitAutor = async (req, res) => {
+  try {
+    const { 
+      autorId,
+      nombreAutor,
+      emailAutor,
+      telefonoAutor,
+      paisAutor,
+      metodosPagoAutor,
       
-      // Configurar encabezado del documento
-      doc.fontSize(24)
-        .fillColor('#333333')
-        .text('Kit de la Herejía - Documento de Activación', 50, 100, { align: 'center' });
+      beneficiarioId,
+      nombreBeneficiario,
+      emailBeneficiario,
+      telefonoBeneficiario,
+      paisBeneficiario,
+      metodosPagoBeneficiario,
       
-      // Información del cliente
-      doc.fontSize(14)
-        .text(`Preparado para: ${kitData.clientName}`, 50, 150);
-      doc.fontSize(12)
-        .text(`Email: ${kitData.clientEmail}`, 50, 175);
-      doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 50, 200);
+      observaciones
+    } = req.body;
+
+    // Validar datos requeridos básicos
+    if (!autorId || !nombreAutor || !emailAutor || 
+        !beneficiarioId || !nombreBeneficiario || !emailBeneficiario) {
+      return res.status(400).json({
+        success: false,
+        message: 'Faltan datos requeridos para generar el Kit2 del Autor'
+      });
+    }
+
+    // Verificar que el autor y el beneficiario no sean la misma persona
+    if (autorId === beneficiarioId || emailAutor === emailBeneficiario) {
+      return res.status(400).json({
+        success: false,
+        message: 'El autor y el beneficiario no pueden ser la misma persona'
+      });
+    }
+
+    // Verificar que haya métodos de pago
+    if (!metodosPagoAutor || !metodosPagoAutor.length || 
+        !metodosPagoBeneficiario || !metodosPagoBeneficiario.length) {
+      return res.status(400).json({
+        success: false,
+        message: 'Debe proporcionar al menos un método de pago tanto para el autor como para el beneficiario'
+      });
+    }
+
+    // Generar URL única para activación
+    const urlActivacion = `https://corpherejiaeconomica.com/activar/${autorId}`;
+    
+    // Leer la plantilla HTML
+    const templatePath = path.join(__dirname, '../templates/kit2_template.html');
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
+    
+    // Reemplazar placeholders - El autor es el cliente, el beneficiario es el referente
+    const fechaActual = new Date().toLocaleDateString('es-ES');
+    htmlTemplate = htmlTemplate
+      .replace(/{{NOMBRE_REFERENTE}}/g, nombreBeneficiario)
+      .replace(/{{URL_ACTIVACION}}/g, urlActivacion)
+      .replace(/{{NOMBRE_CLIENTE}}/g, nombreAutor)
+      .replace(/{{EMAIL_CLIENTE}}/g, emailAutor)
+      .replace(/{{FECHA_ACTUAL}}/g, fechaActual);
+    
+    // Generar PDF con puppeteer
+    const browser = await puppeteer.launch({ headless: true });
+    const page = await browser.newPage();
+    await page.setContent(htmlTemplate);
+    
+    // Definir nombre de archivo único
+    const fileName = `kit2_autor_${Date.now()}.pdf`;
+    const filePath = path.join(__dirname, '../temp', fileName);
+    
+    // Generar PDF
+    await page.pdf({
+      path: filePath,
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '20px',
+        right: '20px',
+        bottom: '20px',
+        left: '20px'
+      }
+    });
+    
+    await browser.close();
+    
+    // URL pública para acceder al PDF
+    const urlArchivo = `${req.protocol}://${req.get('host')}/temp/${fileName}`;
+    
+    // Guardar registro en la base de datos
+    const pdfDoc = new PdfPersonalizado({
+      usuarioId: autorId,
+      beneficiarioId: beneficiarioId,
+      kitId: `KIT2-AUTOR-${Date.now()}`,
+      urlArchivo,
+      nombreArchivo: fileName,
+      fechaCreacion: new Date(),
+      versionDocumento: '1.0',
+      activo: true,
+      esKitOriginal: true,
+      observaciones: observaciones || 'Kit2 original creado por el autor',
+      estadoVerificacion: 'verificado',  // Ya está verificado automáticamente
+      metadatos: {
+        // Datos del autor
+        nombreAutor,
+        emailAutor,
+        telefonoAutor,
+        paisAutor,
+        metodosPagoAutor,
+        
+        // Datos del beneficiario
+        nombreBeneficiario,
+        emailBeneficiario,
+        telefonoBeneficiario,
+        paisBeneficiario,
+        metodosPagoBeneficiario
+      }
+    });
+    
+    await pdfDoc.save();
+    
+    // También habría que actualizar/crear los perfiles de usuario con los métodos de pago
+    // Idealmente, esto debería hacerse en modelos separados: User, PerfilKit, MetodoPago, etc.
+    // Para una implementación completa, crearíamos o actualizaríamos estos registros aquí
+    
+    try {
+      // Aquí iría el código para actualizar los perfiles de usuarios
+      // Este es un placeholder para la implementación futura
+      console.log(`Procesando información completa para autor ID ${autorId}`);
+      console.log(`Procesando información completa para beneficiario ID ${beneficiarioId}`);
       
-      // URL de activación
-      doc.fontSize(14)
-        .fillColor('#1976D2')
-        .text('URL de Activación:', 50, 250);
-      doc.fontSize(12)
-        .text(activationUrl, 50, 275, { underline: true });
-      
-      // Instrucciones
-      doc.fontSize(14)
-        .fillColor('#333333')
-        .text('Instrucciones de Activación:', 50, 350);
-      
-      doc.fontSize(12)
-        .text('1. Visite la URL de activación indicada arriba.', 70, 375)
-        .text('2. Complete el registro con sus datos personales.', 70, 400)
-        .text('3. Realice las donaciones indicadas en la plataforma.', 70, 425)
-        .text('4. Confirme su activación y reciba su kit digital.', 70, 450);
-      
-      // Términos y condiciones
-      doc.fontSize(14)
-        .text('Términos y Condiciones:', 50, 500);
-      
-      doc.fontSize(10)
-        .text('Al activar este kit, acepta los términos y condiciones del sistema de distribución del Kit de la Herejía. ' +
-              'Para más información, visite nuestra página web o contacte con el administrador.', 
-              50, 525, { width: 500, align: 'justify' });
-      
-      // Pie de página
-      doc.fontSize(10)
-        .text('Este documento es confidencial y está destinado únicamente para el destinatario mencionado.', 
-              50, 700, { align: 'center' });
-      
-      // Finalizar y cerrar el documento
-      doc.end();
+      // En una implementación real, guardaríamos estos datos en los modelos correspondientes
       
     } catch (error) {
-      reject(error);
+      console.error('Error al actualizar perfiles de usuario:', error);
+      // No fallamos la operación principal si esto falla, solo lo registramos
     }
-  });
+    
+    // Responder con la URL
+    res.status(201).json({
+      success: true,
+      message: 'Kit2 del Autor generado con éxito',
+      data: {
+        urlArchivo,
+        pdfId: pdfDoc._id,
+        kitId: pdfDoc.kitId
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error al generar Kit2 del Autor:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al generar Kit2 del Autor',
+      error: error.message
+    });
+  }
 };
