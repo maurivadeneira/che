@@ -71,6 +71,50 @@
             background: #f5f5f5;
             border-radius: 5px;
         }
+        .owner-intro {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.8;
+            color: #333;
+        }
+        .get-kit-button {
+            background-color: #f1c40f;
+            color: #333;
+            border: none;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .get-kit-button:hover {
+            background-color: #f39c12;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .float-box {
+            float: right;
+            width: 250px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            margin: 0 0 15px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 600px) {
+            .float-box {
+                float: none;
+                width: 100%;
+                margin: 15px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -85,9 +129,14 @@
         Web: <a href="http://www.corpherejiaeconomica.com">www.corpherejiaeconomica.com</a></p>
     </div>
 
-    <div class="section highlight-box">
-        <h2>QUIERO MI KIT2, PROMOCIÓN PERSONALIZADA</h2>
-        <p><strong>NOMBRE DEL REFERENTE X1:</strong> <span class="referent-name">[NOMBRE_REFERENTE]</span></p>
+    <div class="owner-intro">
+        <p><strong>Hola, soy {{NOMBRE_CLIENTE}}.</strong> Este es mi Kit2 personalizado que es mi herramienta de trabajo, y quiero invitarte a que tú también tengas esta misma herramienta con tu propio nombre.</p>
+    </div>
+    
+    <div class="float-box">
+        <h3 style="margin-top: 0; text-align: center;">¿QUIERES TU PROPIO KIT2?</h3>
+        <p style="text-align: center;">Obtén tu Kit2 personalizado y comienza a generar ingresos adicionales</p>
+        <a href="{{URL_ACTIVACION}}" class="get-kit-button">¡QUIERO MI KIT2!</a>
     </div>
 
     <div class="section">
@@ -98,14 +147,20 @@
             <li><strong>Si X2 invita a X3:</strong> X3 dona a X1 y a la Corporación</li>
             <li><strong>El ciclo continúa:</strong> Cada persona recibe donaciones del segundo nivel después de ella</li>
         </ol>
+        
+        <p>En este caso:</p>
+        <ul>
+            <li><strong>X1 (Propietario de este Kit):</strong> {{NOMBRE_CLIENTE}}</li>
+            <li><strong>X0 (Mi referente):</strong> <span class="referent-name">{{NOMBRE_REFERENTE}}</span></li>
+        </ul>
     </div>
 
     <div class="section">
         <h3>EJEMPLO DE MULTIPLICACIÓN</h3>
-        <p>Si usted (X1) invita a 5 personas (X2) y cada una de esas personas invita a otras 5 (X3), usted recibirá 25 donaciones de US$7 cada una (US$175 en total).</p>
-        <p>Nivel X1: Usted<br>
-        └── Nivel X2: 5 personas que usted invita<br>
-        └── Nivel X3: 25 personas (5 por cada X2) → 25 donaciones para usted</p>
+        <p>Si yo (X1) invito a 5 personas (X2) y cada una de esas personas invita a otras 5 (X3), recibiré 25 donaciones de US$7 cada una (US$175 en total).</p>
+        <p>Nivel X1: Yo ({{NOMBRE_CLIENTE}})<br>
+        └── Nivel X2: 5 personas que yo invito<br>
+        └── Nivel X3: 25 personas (5 por cada X2) → 25 donaciones para mí</p>
     </div>
 
     <div class="section">
@@ -235,14 +290,14 @@
 
     <div class="activation-url">
         <h3>URL DE ACTIVACIÓN:</h3>
-        <p><a href="[URL_ACTIVACION]">[URL_ACTIVACION]</a></p>
+        <p><a href="{{URL_ACTIVACION}}">{{URL_ACTIVACION}}</a></p>
     </div>
 
     <div class="client-info">
         <h3>INFORMACIÓN DEL DESTINATARIO:</h3>
-        <p><strong>Preparado para:</strong> [NOMBRE_CLIENTE]<br>
-        <strong>Email:</strong> [EMAIL_CLIENTE]<br>
-        <strong>Fecha:</strong> [FECHA_ACTUAL]</p>
+        <p><strong>Preparado para:</strong> {{NOMBRE_CLIENTE}}<br>
+        <strong>Email:</strong> {{EMAIL_CLIENTE}}<br>
+        <strong>Fecha:</strong> {{FECHA_ACTUAL}}</p>
     </div>
 
     <div class="footer">
