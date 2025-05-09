@@ -24,6 +24,22 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+// Verificar si existe el directorio temp
+const tempDir = path.join(__dirname, 'temp');
+if (fs.existsSync(tempDir)) {
+  console.log(`Directorio temp existe: ${tempDir}`);
+  // Verificar si es escribible
+  try {
+    fs.accessSync(tempDir, fs.constants.W_OK);
+    console.log('El directorio temp es escribible');
+  } catch (err) {
+    console.error('El directorio temp NO es escribible');
+  }
+} else {
+  console.log(`Creando directorio temp: ${tempDir}`);
+  fs.mkdirSync(tempDir, { recursive: true });
+}
+
 // Servir archivos estáticos desde la carpeta temp con configuración explícita para PDF
 app.use('/temp', express.static(path.join(__dirname, 'temp'), {
   setHeaders: (res, filePath) => {
@@ -57,6 +73,7 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/kits", require("./routes/kits"));
 app.use("/api/invitations", require("./routes/invitations"));
 app.use("/api/admin", require("./routes/adminRoutes")); // Añadido para rutas de admin
+app.use("/api/pdfs", require("./routes/pdfs")); // Nueva ruta para PDFs personalizados
 
 // Ruta básica
 app.get("/api", (req, res) => {
