@@ -1,0 +1,147 @@
+import axios from 'axios';
+
+// API URLs para obtener tasas de cambio
+const FIAT_EXCHANGE_API = 'https://api.exchangerate-api.com/v4/latest/USD';
+const CRYPTO_EXCHANGE_API = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,tether,usd-coin&vs_currencies=usd';
+
+// Cache para las tasas de cambio
+let exchangeRatesCache = {
+  fiat: null,
+  crypto: null,
+  lastUpdated: null
+};
+
+// Tiempo de expiración del cache en milisegundos (15 minutos)
+const CACHE_EXPIRATION = 15 * 60 * 1000;
+
+/**
+ * Obtiene las tasas de cambio actualizadas (fiduciarias y criptomonedas)
+ */
+export const getExchangeRates = async () => {
+  const now = new Date().getTime();
+  
+  // Si el cache es válido, devolverlo
+  if (
+    exchangeRatesCache.fiat && 
+    exchangeRatesCache.crypto && 
+    exchangeRatesCache.lastUpdated && 
+    (now - exchangeRatesCache.lastUpdated) < CACHE_EXPIRATION
+  ) {
+    return {
+      fiat: exchangeRatesCache.fiat,
+      crypto: exchangeRatesCache.crypto
+    };
+  }
+  
+  try {
+    // Obtener tasas de monedas fiduciarias
+    const fiatResponse = await axios.get(FIAT_EXCHANGE_API);
+    const fiatRates = fiatResponse.data.rates;
+    
+    // Obtener tasas de criptomonedas
+    const cryptoResponse = await axios.get(CRYPTO_EXCHANGE_API);
+    const cryptoRates = {
+      BTC: cryptoResponse.data.bitcoin.usd,
+      USDT: cryptoResponse.data.tether.usd,
+      USDC: cryptoResponse.data['usd-coin'].usd
+    };
+    
+    // Actualizar cache
+    exchangeRatesCache = {
+      fiat: fiatRates,
+      crypto: cryptoRates,
+      lastUpdated: now
+    };
+    
+    return {
+      fiat: fiatRates,
+      crypto: cryptoRates
+    };
+  } catch (error) {
+    console.error('Error al obtener tasas de cambio:', error);
+    
+    // En caso de error, devolver tasas por defecto
+    return {
+      fiat: exchangeRatesCache.fiat || { USD: 1, EUR: 0.85, COP: 3800 },
+      crypto: exchangeRatesCache.crypto || { BTC: 60000, USDT: 1, USDC: 1 }
+    };
+  }
+};
+
+/**
+ * Convierte un monto entre diferentes monedas
+ * @param {number} amount - Cantidad a convertir
+ * @param {string} fromCurrency - Moneda de origen
+ * @param {string} toCurrency - Moneda de destino
+ * @returns {Promise<number>} - Monto convertido
+ */
+export const convertCurrency = async (amount, fromCurrency, toCurrency) => {
+  if (fromCurrency === toCurrency) {
+    return amount;
+  }
+  
+  const rates = await getExchangeRates();
+  
+  // Convertir a USD primero
+  let amountInUSD;
+  
+  if (fromCurrency === 'USD') {
+    amountInUSD = amount;
+  } else if (['BTC', 'USDT', 'USDC'].includes(fromCurrency)) {
+    // Conversión de cripto a USD
+    amountInUSD = amount * rates.crypto[fromCurrency];
+  } else {
+    // Conversión de fiduciaria a USD
+    amountInUSD = amount / rates.fiat[fromCurrency];
+  }
+  
+  // Convertir de USD a la moneda de destino
+  if (toCurrency === 'USD') {
+    return amountInUSD;
+  } else if (['BTC', 'USDT', 'USDC'].includes(toCurrency)) {
+    // Conversión de USD a cripto
+    return amountInUSD / rates.crypto[toCurrency];
+  } else {
+    // Conversión de USD a fiduciaria
+    return amountInUSD * rates.fiat[toCurrency];
+  }
+};
+
+/**
+ * Formatea un monto en la moneda especificada
+ * @param {number} amount - Cantidad a formatear
+ * @param {string} currency - Código de la moneda
+ * @returns {string} - Monto formateado
+ */
+export const formatCurrency = (amount, currency) => {
+  if (!amount && amount !== 0) return '';
+  
+  // Configuraciones específicas por moneda
+  const currencyFormats = {
+    BTC: { decimals: 8, symbol: '₿' },
+    USDT: { decimals: 2, symbol: 'USDT' },
+    USDC: { decimals: 2, symbol: 'USDC' },
+    USD: { decimals: 2, symbol: '$' },
+    EUR: { decimals: 2, symbol: '€' },
+    // Añadir más monedas según sea necesario
+  };
+  
+  // Formato por defecto
+  const format = currencyFormats[currency] || { decimals: 2, symbol: currency };
+  
+  // Formatear número
+  const formattedNumber = Number(amount).toFixed(format.decimals);
+  
+  // Devolver con símbolo
+  if (['BTC', 'USDT', 'USDC'].includes(currency)) {
+    return `${formattedNumber} ${format.symbol}`;
+  } else {
+    return `${format.symbol} ${formattedNumber}`;
+  }
+};
+
+export default {
+  getExchangeRates,
+  convertCurrency,
+  formatCurrency
+};
