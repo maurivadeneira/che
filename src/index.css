@@ -1,4 +1,16 @@
 /* Importar estilos para componentes de pago */
-@import './payment.css';
+@import './styles/payment.css';
 
-/* Otros estilos... */
+/* Otros estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
