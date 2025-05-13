@@ -1,0 +1,262 @@
+<!-- Archivo: src/templates/kitAutor.handlebars -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kit2 de La Herejía Económica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo {
+      max-width: 200px;
+      margin-bottom: 10px;
+    }
+    h1, h2, h3 {
+      color: #0055a4;
+    }
+    .section {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .info-block {
+      margin-bottom: 15px;
+    }
+    .info-label {
+      font-weight: bold;
+    }
+    .info-value {
+      margin-left: 10px;
+    }
+    .info-row {
+      display: flex;
+      margin-bottom: 8px;
+    }
+    .payment-method {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+    .equivalencia {
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+    }
+    .activation-button {
+      display: block;
+      margin: 30px auto;
+      padding: 15px 25px;
+      background-color: #0055a4;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      width: 200px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.8em;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="data:image/png;base64,{{logoBase64}}" alt="Logo Herejía Económica" class="logo">
+    <h1>Kit2 de La Herejía Económica</h1>
+    <p>ID: {{kitId}} | Fecha: {{fechaCreacion}}</p>
+  </div>
+  
+  <div class="section">
+    <h2>Información del Propietario</h2>
+    <div class="info-block">
+      <div class="info-row">
+        <span class="info-label">Nombre:</span>
+        <span class="info-value">{{autor.nombre}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{autor.email}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Teléfono:</span>
+        <span class="info-value">{{autor.telefono}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">País:</span>
+        <span class="info-value">{{autor.pais}}</span>
+      </div>
+    </div>
+    
+    <h3>Métodos de Pago del Propietario</h3>
+    {{#each autor.metodosPago}}
+      <div class="payment-method">
+        <div class="info-row">
+          <span class="info-label">Tipo:</span>
+          <span class="info-value">{{tipo}}</span>
+        </div>
+        {{#if banco}}
+        <div class="info-row">
+          <span class="info-label">Banco:</span>
+          <span class="info-value">{{banco}}</span>
+        </div>
+        {{/if}}
+        {{#if numeroCuenta}}
+        <div class="info-row">
+          <span class="info-label">Número de Cuenta:</span>
+          <span class="info-value">{{numeroCuenta}}</span>
+        </div>
+        {{/if}}
+        {{#if tipoCuenta}}
+        <div class="info-row">
+          <span class="info-label">Tipo de Cuenta:</span>
+          <span class="info-value">{{tipoCuenta}}</span>
+        </div>
+        {{/if}}
+        {{#if email}}
+        <div class="info-row">
+          <span class="info-label">Email:</span>
+          <span class="info-value">{{email}}</span>
+        </div>
+        {{/if}}
+        {{#if direccionCripto}}
+        <div class="info-row">
+          <span class="info-label">Dirección:</span>
+          <span class="info-value">{{direccionCripto}}</span>
+        </div>
+        {{/if}}
+        {{#if red}}
+        <div class="info-row">
+          <span class="info-label">Red:</span>
+          <span class="info-value">{{red}}</span>
+        </div>
+        {{/if}}
+        {{#if monedaPreferida}}
+        <div class="info-row">
+          <span class="info-label">Moneda Preferida:</span>
+          <span class="info-value">{{monedaPreferida}}</span>
+        </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+  
+  <div class="section">
+    <h2>Información del Beneficiario</h2>
+    <div class="info-block">
+      <div class="info-row">
+        <span class="info-label">Nombre:</span>
+        <span class="info-value">{{beneficiario.nombre}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{beneficiario.email}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Teléfono:</span>
+        <span class="info-value">{{beneficiario.telefono}}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">País:</span>
+        <span class="info-value">{{beneficiario.pais}}</span>
+      </div>
+    </div>
+    
+    <h3>Métodos de Pago del Beneficiario</h3>
+    {{#each beneficiario.metodosPago}}
+      <div class="payment-method">
+        <div class="info-row">
+          <span class="info-label">Tipo:</span>
+          <span class="info-value">{{tipo}}</span>
+        </div>
+        {{#if banco}}
+        <div class="info-row">
+          <span class="info-label">Banco:</span>
+          <span class="info-value">{{banco}}</span>
+        </div>
+        {{/if}}
+        {{#if numeroCuenta}}
+        <div class="info-row">
+          <span class="info-label">Número de Cuenta:</span>
+          <span class="info-value">{{numeroCuenta}}</span>
+        </div>
+        {{/if}}
+        {{#if tipoCuenta}}
+        <div class="info-row">
+          <span class="info-label">Tipo de Cuenta:</span>
+          <span class="info-value">{{tipoCuenta}}</span>
+        </div>
+        {{/if}}
+        {{#if email}}
+        <div class="info-row">
+          <span class="info-label">Email:</span>
+          <span class="info-value">{{email}}</span>
+        </div>
+        {{/if}}
+        {{#if direccionCripto}}
+        <div class="info-row">
+          <span class="info-label">Dirección:</span>
+          <span class="info-value">{{direccionCripto}}</span>
+        </div>
+        {{/if}}
+        {{#if red}}
+        <div class="info-row">
+          <span class="info-label">Red:</span>
+          <span class="info-value">{{red}}</span>
+        </div>
+        {{/if}}
+        {{#if monedaPreferida}}
+        <div class="info-row">
+          <span class="info-label">Moneda Preferida:</span>
+          <span class="info-value">{{monedaPreferida}}</span>
+        </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+  
+  <div class="section">
+    <h2>DONACIONES REQUERIDAS</h2>
+    <p>Para adquirir el Kit2, debe realizar dos donaciones:</p>
+    <ul>
+      <li>
+        {{donacionesRequeridas.beneficiario.monto}} a {{donacionesRequeridas.beneficiario.nombre}}
+        {{#if donacionesRequeridas.beneficiario.montoUSD}}
+          <span class="equivalencia">(equivalente a {{donacionesRequeridas.beneficiario.montoUSD}})</span>
+        {{/if}}
+      </li>
+      <li>
+        {{donacionesRequeridas.corporacion.monto}} a la Corporación Herejía Económica
+        {{#if donacionesRequeridas.corporacion.montoUSD}}
+          <span class="equivalencia">(equivalente a {{donacionesRequeridas.corporacion.montoUSD}})</span>
+        {{/if}}
+      </li>
+    </ul>
+
+    {{#if observaciones}}
+    <h3>Observaciones</h3>
+    <p>{{observaciones}}</p>
+    {{/if}}
+  </div>
+  
+  <a href="{{activationUrl}}/activate-kit?id={{kitId}}" class="activation-button">
+    QUIERO MI KIT2
+  </a>
+  
+  <div class="footer">
+    <p>Este Kit2 es parte de La Herejía Económica. Todos los derechos reservados.</p>
+    <p>Para más información visita <a href="https://corpherejiaeconomica.com">corpherejiaeconomica.com</a></p>
+  </div>
+</body>
+</html>

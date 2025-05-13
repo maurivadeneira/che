@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const PdfPersonalizado = require('../models/PdfPersonalizado');
-const User = require('../models/User'); // Asegúrate de ajustar la ruta según tu estructura
+const User = require('../models/User'); 
+const { createPdf } = require('../utils/pdfGenerator');
+const currencyService = require('../services/currencyService');
 
 // Asegurar que el directorio temp existe
 const tempDir = path.join(__dirname, '../temp');
@@ -368,31 +370,32 @@ exports.listarPDFsUsuario = async (req, res) => {
 };
 
 // Función para generar el Kit2 del Autor con un beneficiario designado
+// VERSIÓN ACTUALIZADA con soporte multimoneda
 exports.generarKitAutor = async (req, res) => {
   try {
     console.log('Datos recibidos en generarKitAutor:', JSON.stringify(req.body, null, 2));
     
     const { 
       autorId,
-      nombreAutor,
-      emailAutor,
-      telefonoAutor,
-      paisAutor,
-      metodosPagoAutor,
+      autorNombre,
+      autorEmail,
+      autorTelefono,
+      autorPais,
+      autorMetodosPago,
       
       beneficiarioId,
-      nombreBeneficiario,
-      emailBeneficiario,
-      telefonoBeneficiario,
-      paisBeneficiario,
-      metodosPagoBeneficiario,
+      beneficiarioNombre,
+      beneficiarioEmail,
+      beneficiarioTelefono,
+      beneficiarioPais,
+      beneficiarioMetodosPago,
       
       observaciones
     } = req.body;
 
     // Validar datos requeridos básicos
-    if (!autorId || !nombreAutor || !emailAutor || 
-        !beneficiarioId || !nombreBeneficiario || !emailBeneficiario) {
+    if (!autorId || !autorNombre || !autorEmail || 
+        !beneficiarioId || !beneficiarioNombre || !beneficiarioEmail) {
       return res.status(400).json({
         success: false,
         message: 'Faltan datos requeridos para generar el Kit2 del Autor'
@@ -400,7 +403,7 @@ exports.generarKitAutor = async (req, res) => {
     }
 
     // Verificar que el autor y el beneficiario no sean la misma persona
-    if (autorId === beneficiarioId || emailAutor === emailBeneficiario) {
+    if (autorId === beneficiarioId || autorEmail === beneficiarioEmail) {
       return res.status(400).json({
         success: false,
         message: 'El autor y el beneficiario no pueden ser la misma persona'
@@ -408,14 +411,161 @@ exports.generarKitAutor = async (req, res) => {
     }
 
     // Verificar que haya métodos de pago
-    if (!metodosPagoAutor || !metodosPagoAutor.length || 
-        !metodosPagoBeneficiario || !metodosPagoBeneficiario.length) {
+    if (!autorMetodosPago || !autorMetodosPago.length || 
+        !beneficiarioMetodosPago || !beneficiarioMetodosPago.length) {
       return res.status(400).json({
         success: false,
         message: 'Debe proporcionar al menos un método de pago tanto para el autor como para el beneficiario'
       });
     }
 
+    // Obtener monedas preferidas
+    const autorMonedaPreferida = autorMetodosPago[0]?.monedaPreferida || 'USD';
+    const beneficiarioMonedaPreferida = beneficiarioMetodosPago[0]?.monedaPreferida || 'USD';
+    
+    // Montos base en USD
+    const montoCorporacionUSD = 20;
+    const montoBeneficiarioUSD = 7;
+    
+    // Convertir a monedas preferidas
+    const montoCorporacion = await currencyService.convertCurrency(
+      montoCorporacionUSD, 
+      'USD', 
+      autorMonedaPreferida
+    );
+    
+    const montoBeneficiario = await currencyService.convertCurrency(
+      montoBeneficiarioUSD, 
+      'USD', 
+      beneficiarioMonedaPreferida
+    );
+    
+    // Formatear montos
+    const montoCorporacionFormateado = currencyService.formatCurrency(
+      montoCorporacion, 
+      autorMonedaPreferida
+    );
+    
+    const montoBeneficiarioFormateado = currencyService.formatCurrency(
+      montoBeneficiario, 
+      beneficiarioMonedaPreferida
+    );
+
+    // Generar ID único para el kit
+    const kitId = `KIT-${Date.now().toString(36).toUpperCase()}`;
+    
+    // Intentar usar el nuevo generador de PDF primero
+    try {
+      // Preparar contenido del PDF
+      const contenidoPDF = {
+        kitId: kitId,
+        fechaCreacion: new Date().toLocaleDateString('es-CO'),
+        autor: {
+          nombre: autorNombre,
+          email: autorEmail,
+          telefono: autorTelefono,
+          pais: autorPais,
+          metodosPago: autorMetodosPago
+        },
+        beneficiario: {
+          nombre: beneficiarioNombre,
+          email: beneficiarioEmail,
+          telefono: beneficiarioTelefono,
+          pais: beneficiarioPais,
+          metodosPago: beneficiarioMetodosPago
+        },
+        donacionesRequeridas: {
+          corporacion: {
+            monto: montoCorporacionFormateado,
+            moneda: autorMonedaPreferida,
+            montoUSD: montoCorporacionUSD !== montoCorporacion ? `US$${montoCorporacionUSD}` : null
+          },
+          beneficiario: {
+            monto: montoBeneficiarioFormateado,
+            moneda: beneficiarioMonedaPreferida,
+            nombre: beneficiarioNombre,
+            montoUSD: montoBeneficiarioUSD !== montoBeneficiario ? `US$${montoBeneficiarioUSD}` : null
+          }
+        },
+        observaciones: observaciones || '',
+        activationUrl: process.env.FRONTEND_URL || 'https://corpherejiaeconomica.com'
+      };
+
+      console.log('Generando PDF con nuevo generador...');
+      // Generar PDF con el nuevo método
+      const pdfBuffer = await createPdf('kitAutor', contenidoPDF);
+      
+      // Definir nombre de archivo único
+      const fileName = `kit2_autor_${autorId}_${Date.now()}.pdf`;
+      const filePath = path.join(__dirname, '../temp', fileName);
+      
+      // Guardar el buffer en un archivo
+      fs.writeFileSync(filePath, pdfBuffer);
+      
+      console.log(`PDF guardado en: ${filePath}`);
+      
+      // URL pública para acceder al PDF
+      const urlArchivo = `${req.protocol}://${req.get('host')}/temp/${fileName}`;
+      
+      // Guardar registro en la base de datos
+      const pdfDoc = new PdfPersonalizado({
+        usuarioId: autorId,
+        kitId: kitId,
+        beneficiarioId: beneficiarioId,
+        urlArchivo,
+        nombreArchivo: fileName,
+        fechaCreacion: new Date(),
+        versionDocumento: '1.0',
+        activo: true,
+        esKitOriginal: true,
+        observaciones: observaciones || 'Kit2 original creado por el autor',
+        estadoVerificacion: 'verificado',
+        metadatos: {
+          // Datos del autor
+          nombreAutor: autorNombre,
+          emailAutor: autorEmail,
+          telefonoAutor: autorTelefono,
+          paisAutor: autorPais,
+          metodosPagoAutor: autorMetodosPago,
+          
+          // Datos del beneficiario
+          nombreBeneficiario: beneficiarioNombre,
+          emailBeneficiario: beneficiarioEmail,
+          telefonoBeneficiario: beneficiarioTelefono,
+          paisBeneficiario: beneficiarioPais,
+          metodosPagoBeneficiario: beneficiarioMetodosPago,
+          
+          // Información de las donaciones
+          montoCorporacionUSD,
+          montoCorporacion,
+          montoCorporacionFormateado,
+          autorMonedaPreferida,
+          
+          montoBeneficiarioUSD,
+          montoBeneficiario,
+          montoBeneficiarioFormateado,
+          beneficiarioMonedaPreferida
+        }
+      });
+      
+      console.log('Guardando documento en la base de datos...');
+      const savedPdf = await pdfDoc.save();
+      console.log('PDF guardado en la base de datos:', savedPdf._id);
+      
+      // Responder enviando el PDF directamente
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="Kit2_${autorNombre.replace(/\s+/g, '_')}.pdf"`);
+      res.send(pdfBuffer);
+      
+      return;
+    } catch (e) {
+      console.error('Error con el nuevo generador de PDF, usando método antiguo:', e);
+      // Si falla, continuamos con el método antiguo
+    }
+
+    // MÉTODO ANTIGUO (FALLBACK) - Usar solo si el nuevo método falla
+    console.log('Usando método antiguo de generación de PDF...');
+    
     // Generar URL única para activación
     const urlActivacion = `https://corpherejiaeconomica.com/activar/${autorId}`;
     
@@ -433,11 +583,32 @@ exports.generarKitAutor = async (req, res) => {
     // Reemplazar placeholders - El autor es el cliente, el beneficiario es el referente
     const fechaActual = new Date().toLocaleDateString('es-ES');
     htmlTemplate = htmlTemplate
-      .replace(/\[NOMBRE_REFERENTE\]/g, nombreBeneficiario)
+      .replace(/\[NOMBRE_REFERENTE\]/g, beneficiarioNombre)
       .replace(/\[URL_ACTIVACION\]/g, urlActivacion)
-      .replace(/\[NOMBRE_CLIENTE\]/g, nombreAutor)
-      .replace(/\[EMAIL_CLIENTE\]/g, emailAutor)
+      .replace(/\[NOMBRE_CLIENTE\]/g, autorNombre)
+      .replace(/\[EMAIL_CLIENTE\]/g, autorEmail)
       .replace(/\[FECHA_ACTUAL\]/g, fechaActual);
+    
+    // Agregar información de donaciones con montos en múltiples monedas
+    const donacionesHTML = `
+      <div class="donaciones-section">
+        <h3>DONACIONES REQUERIDAS</h3>
+        <p>Para adquirir el Kit2, debe realizar dos donaciones:</p>
+        <ul>
+          <li>${montoBeneficiarioFormateado} a ${beneficiarioNombre}
+            ${montoBeneficiarioUSD !== montoBeneficiario ? 
+              `<span style="font-size: 0.9em; color: #666; font-style: italic;">(equivalente a US$${montoBeneficiarioUSD})</span>` : ''}
+          </li>
+          <li>${montoCorporacionFormateado} a la Corporación Herejía Económica
+            ${montoCorporacionUSD !== montoCorporacion ? 
+              `<span style="font-size: 0.9em; color: #666; font-style: italic;">(equivalente a US$${montoCorporacionUSD})</span>` : ''}
+          </li>
+        </ul>
+      </div>
+    `;
+    
+    // Añadir sección de donaciones al HTML
+    htmlTemplate = htmlTemplate.replace('</body>', `${donacionesHTML}</body>`);
     
     console.log('Placeholders reemplazados correctamente');
     
@@ -482,9 +653,6 @@ exports.generarKitAutor = async (req, res) => {
     // URL pública para acceder al PDF
     const urlArchivo = `${req.protocol}://${req.get('host')}/temp/${fileName}`;
     
-    // ID único para el kit
-    const kitId = `KIT2-AUTOR-${Date.now()}`;
-    
     console.log('Creando documento en la base de datos...');
     
     // Guardar registro en la base de datos
@@ -502,18 +670,29 @@ exports.generarKitAutor = async (req, res) => {
       estadoVerificacion: 'verificado',
       metadatos: {
         // Datos del autor
-        nombreAutor,
-        emailAutor,
-        telefonoAutor,
-        paisAutor,
-        metodosPagoAutor,
+        nombreAutor: autorNombre,
+        emailAutor: autorEmail,
+        telefonoAutor: autorTelefono,
+        paisAutor: autorPais,
+        metodosPagoAutor: autorMetodosPago,
         
         // Datos del beneficiario
-        nombreBeneficiario,
-        emailBeneficiario,
-        telefonoBeneficiario,
-        paisBeneficiario,
-        metodosPagoBeneficiario
+        nombreBeneficiario: beneficiarioNombre,
+        emailBeneficiario: beneficiarioEmail,
+        telefonoBeneficiario: beneficiarioTelefono,
+        paisBeneficiario: beneficiarioPais,
+        metodosPagoBeneficiario: beneficiarioMetodosPago,
+        
+        // Información de las donaciones
+        montoCorporacionUSD,
+        montoCorporacion,
+        montoCorporacionFormateado,
+        autorMonedaPreferida,
+        
+        montoBeneficiarioUSD,
+        montoBeneficiario,
+        montoBeneficiarioFormateado,
+        beneficiarioMonedaPreferida
       }
     });
     
@@ -521,16 +700,13 @@ exports.generarKitAutor = async (req, res) => {
     const savedPdf = await pdfDoc.save();
     console.log('PDF guardado en la base de datos:', savedPdf._id);
     
-    // Responder con la URL
-    res.status(201).json({
-      success: true,
-      message: 'Kit2 del Autor generado con éxito',
-      data: {
-        urlArchivo,
-        pdfId: pdfDoc._id,
-        kitId: kitId
-      }
-    });
+    // Leer el archivo para enviarlo como respuesta
+    const pdfBuffer = fs.readFileSync(filePath);
+    
+    // Responder con el PDF
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="Kit2_${autorNombre.replace(/\s+/g, '_')}.pdf"`);
+    res.send(pdfBuffer);
     
   } catch (error) {
     console.error('Error detallado al generar Kit2 del Autor:', error);

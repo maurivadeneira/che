@@ -1,23 +1,25 @@
-import axios from 'axios';
+// Archivo: src/services/currencyService.js
 
-// API URLs para obtener tasas de cambio
+const axios = require('axios');
+
+// API URLs para tasas de cambio
 const FIAT_EXCHANGE_API = 'https://api.exchangerate-api.com/v4/latest/USD';
 const CRYPTO_EXCHANGE_API = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,tether,usd-coin&vs_currencies=usd';
 
-// Cache para las tasas de cambio
+// Cache para tasas de cambio
 let exchangeRatesCache = {
   fiat: null,
   crypto: null,
   lastUpdated: null
 };
 
-// Tiempo de expiración del cache en milisegundos (15 minutos)
+// Tiempo de expiración del cache (15 minutos)
 const CACHE_EXPIRATION = 15 * 60 * 1000;
 
 /**
- * Obtiene las tasas de cambio actualizadas (fiduciarias y criptomonedas)
+ * Obtiene tasas de cambio actualizadas
  */
-export const getExchangeRates = async () => {
+const getExchangeRates = async () => {
   const now = new Date().getTime();
   
   // Si el cache es válido, devolverlo
@@ -27,10 +29,7 @@ export const getExchangeRates = async () => {
     exchangeRatesCache.lastUpdated && 
     (now - exchangeRatesCache.lastUpdated) < CACHE_EXPIRATION
   ) {
-    return {
-      fiat: exchangeRatesCache.fiat,
-      crypto: exchangeRatesCache.crypto
-    };
+    return exchangeRatesCache;
   }
   
   try {
@@ -41,9 +40,9 @@ export const getExchangeRates = async () => {
     // Obtener tasas de criptomonedas
     const cryptoResponse = await axios.get(CRYPTO_EXCHANGE_API);
     const cryptoRates = {
-      BTC: cryptoResponse.data.bitcoin.usd,
-      USDT: cryptoResponse.data.tether.usd,
-      USDC: cryptoResponse.data['usd-coin'].usd
+      BTC: 1 / cryptoResponse.data.bitcoin.usd,
+      USDT: 1 / cryptoResponse.data.tether.usd,
+      USDC: 1 / cryptoResponse.data['usd-coin'].usd
     };
     
     // Actualizar cache
@@ -53,32 +52,29 @@ export const getExchangeRates = async () => {
       lastUpdated: now
     };
     
-    return {
-      fiat: fiatRates,
-      crypto: cryptoRates
-    };
+    return exchangeRatesCache;
   } catch (error) {
     console.error('Error al obtener tasas de cambio:', error);
     
-    // En caso de error, devolver tasas por defecto
+    // En caso de error, devolver tasas por defecto o las últimas conocidas
     return {
-      fiat: exchangeRatesCache.fiat || { USD: 1, EUR: 0.85, COP: 3800 },
-      crypto: exchangeRatesCache.crypto || { BTC: 60000, USDT: 1, USDC: 1 }
+      fiat: exchangeRatesCache.fiat || { USD: 1, EUR: 0.85, COP: 3800, MXN: 17.5 },
+      crypto: exchangeRatesCache.crypto || { BTC: 0.000017, USDT: 1, USDC: 1 }
     };
   }
 };
 
 /**
- * Convierte un monto entre diferentes monedas
- * @param {number} amount - Cantidad a convertir
- * @param {string} fromCurrency - Moneda de origen
- * @param {string} toCurrency - Moneda de destino
- * @returns {Promise<number>} - Monto convertido
+ * Convierte monto entre diferentes monedas
  */
-export const convertCurrency = async (amount, fromCurrency, toCurrency) => {
-  if (fromCurrency === toCurrency) {
+const convertCurrency = async (amount, fromCurrency, toCurrency) => {
+  if (!amount || fromCurrency === toCurrency) {
     return amount;
   }
+  
+  // Manejar caso especial de $Col
+  if (fromCurrency === '$Col') fromCurrency = 'COP';
+  if (toCurrency === '$Col') toCurrency = 'COP';
   
   const rates = await getExchangeRates();
   
@@ -89,18 +85,18 @@ export const convertCurrency = async (amount, fromCurrency, toCurrency) => {
     amountInUSD = amount;
   } else if (['BTC', 'USDT', 'USDC'].includes(fromCurrency)) {
     // Conversión de cripto a USD
-    amountInUSD = amount * rates.crypto[fromCurrency];
+    amountInUSD = amount / rates.crypto[fromCurrency];
   } else {
     // Conversión de fiduciaria a USD
     amountInUSD = amount / rates.fiat[fromCurrency];
   }
   
-  // Convertir de USD a la moneda de destino
+  // Convertir de USD a moneda destino
   if (toCurrency === 'USD') {
     return amountInUSD;
   } else if (['BTC', 'USDT', 'USDC'].includes(toCurrency)) {
     // Conversión de USD a cripto
-    return amountInUSD / rates.crypto[toCurrency];
+    return amountInUSD * rates.crypto[toCurrency];
   } else {
     // Conversión de USD a fiduciaria
     return amountInUSD * rates.fiat[toCurrency];
@@ -108,22 +104,25 @@ export const convertCurrency = async (amount, fromCurrency, toCurrency) => {
 };
 
 /**
- * Formatea un monto en la moneda especificada
- * @param {number} amount - Cantidad a formatear
- * @param {string} currency - Código de la moneda
- * @returns {string} - Monto formateado
+ * Formatea monto en la moneda especificada
  */
-export const formatCurrency = (amount, currency) => {
+const formatCurrency = (amount, currency) => {
   if (!amount && amount !== 0) return '';
   
-  // Configuraciones específicas por moneda
+  // Manejar caso especial de $Col (Peso Colombiano)
+  if (currency === '$Col') {
+    return `$${Math.round(amount).toLocaleString('es-CO')} COP`;
+  }
+  
+  // Configuraciones por moneda
   const currencyFormats = {
     BTC: { decimals: 8, symbol: '₿' },
     USDT: { decimals: 2, symbol: 'USDT' },
     USDC: { decimals: 2, symbol: 'USDC' },
     USD: { decimals: 2, symbol: '$' },
     EUR: { decimals: 2, symbol: '€' },
-    // Añadir más monedas según sea necesario
+    COP: { decimals: 0, symbol: '$' },
+    MXN: { decimals: 2, symbol: '$' },
   };
   
   // Formato por defecto
@@ -136,12 +135,34 @@ export const formatCurrency = (amount, currency) => {
   if (['BTC', 'USDT', 'USDC'].includes(currency)) {
     return `${formattedNumber} ${format.symbol}`;
   } else {
-    return `${format.symbol} ${formattedNumber}`;
+    return `${format.symbol}${formattedNumber}`;
   }
 };
 
-export default {
+// Obtener lista de monedas disponibles
+const getAvailableCurrencies = () => {
+  return {
+    fiat: [
+      { code: 'USD', name: 'Dólar estadounidense' },
+      { code: 'EUR', name: 'Euro' },
+      { code: 'COP', name: 'Peso colombiano' },
+      { code: '$Col', name: 'Peso colombiano' },
+      { code: 'MXN', name: 'Peso mexicano' },
+      { code: 'ARS', name: 'Peso argentino' },
+      { code: 'PEN', name: 'Sol peruano' },
+      { code: 'CLP', name: 'Peso chileno' }
+    ],
+    crypto: [
+      { code: 'BTC', name: 'Bitcoin' },
+      { code: 'USDT', name: 'Tether (USDT)' },
+      { code: 'USDC', name: 'USD Coin (USDC)' }
+    ]
+  };
+};
+
+module.exports = {
   getExchangeRates,
   convertCurrency,
-  formatCurrency
+  formatCurrency,
+  getAvailableCurrencies
 };

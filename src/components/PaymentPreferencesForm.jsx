@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+// Archivo: src/components/PaymentPreferencesForm.jsx
 
-const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
-  // Estado para manejar los datos del formulario
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './PaymentPreferencesForm.css';
+
+const PaymentPreferencesForm = ({ userId, kitId, onSubmit, initialData = {} }) => {
+  // Estados para datos del formulario
+  const [currencies, setCurrencies] = useState({ fiat: [], crypto: [] });
   const [formData, setFormData] = useState({
-    paymentMethod: initialData.paymentMethod || '',
-    preferredCurrency: initialData.preferredCurrency || '',
+    currency: initialData.currency || 'USD',
+    paymentMethod: initialData.paymentMethod || 'bank_transfer',
     bankName: initialData.bankName || '',
     accountNumber: initialData.accountNumber || '',
     accountType: initialData.accountType || 'savings',
@@ -14,7 +19,31 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
     otherMethod: initialData.otherMethod || '',
     otherDetails: initialData.otherDetails || ''
   });
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  // Obtener monedas disponibles
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('/api/payment/currencies');
+        if (response.data.success) {
+          setCurrencies(response.data.data);
+        } else {
+          setError('Error al cargar monedas');
+        }
+      } catch (err) {
+        setError('Error de conexión');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchCurrencies();
+  }, []);
+  
   // Manejar cambios en los campos del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +58,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
     }
     
     // Lógica específica para cuando cambia la moneda
-    if (name === 'preferredCurrency') {
+    if (name === 'currency') {
       handleCurrencyChange(value);
     }
   };
@@ -37,10 +66,10 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
   // Manejar cambios en el método de pago
   const handlePaymentMethodChange = (method) => {
     // Si se selecciona crypto, preseleccionar una criptomoneda
-    if (method === 'crypto' && !['BTC', 'USDT', 'USDC'].includes(formData.preferredCurrency)) {
+    if (method === 'crypto_wallet' && !['BTC', 'USDT', 'USDC'].includes(formData.currency)) {
       setFormData(prev => ({
         ...prev,
-        preferredCurrency: 'BTC'
+        currency: 'BTC'
       }));
     }
   };
@@ -48,86 +77,126 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
   // Manejar cambios en la moneda
   const handleCurrencyChange = (currency) => {
     // Si se selecciona una criptomoneda, cambiar el método a crypto
-    if (['BTC', 'USDT', 'USDC'].includes(currency) && formData.paymentMethod !== 'crypto') {
+    if (['BTC', 'USDT', 'USDC'].includes(currency) && formData.paymentMethod !== 'crypto_wallet') {
       setFormData(prev => ({
         ...prev,
-        paymentMethod: 'crypto'
+        paymentMethod: 'crypto_wallet'
       }));
     }
   };
-
-  // Manejar envío del formulario
-  const handleSubmit = (e) => {
+  
+  // Enviar formulario
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (onSave) {
-      onSave(formData);
+    
+    try {
+      setLoading(true);
+      const response = await axios.post('/api/payment/preferences', {
+        userId,
+        kitId,
+        currency: formData.currency,
+        paymentMethod: formData.paymentMethod,
+        paymentDetails: {
+          bankName: formData.bankName,
+          accountNumber: formData.accountNumber,
+          accountType: formData.accountType,
+          paypalEmail: formData.paypalEmail,
+          cryptoAddress: formData.cryptoAddress,
+          cryptoNetwork: formData.cryptoNetwork,
+          otherMethod: formData.otherMethod,
+          otherDetails: formData.otherDetails
+        }
+      });
+      
+      if (response.data.success) {
+        if (onSubmit) onSubmit(response.data.data);
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('Error al guardar preferencias');
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
-
+  
+  // Obtener métodos de pago según la moneda seleccionada
+  const getPaymentMethods = () => {
+    // Si es criptomoneda
+    if (['BTC', 'USDT', 'USDC'].includes(formData.currency)) {
+      return [
+        { id: 'crypto_wallet', name: 'Monedero de Criptomonedas' }
+      ];
+    }
+    
+    // Si es moneda fiduciaria
+    return [
+      { id: 'bank_transfer', name: 'Transferencia Bancaria' },
+      { id: 'paypal', name: 'PayPal' },
+      { id: 'credit_card', name: 'Tarjeta de Crédito' },
+      { id: 'cash', name: 'Efectivo' },
+      { id: 'other', name: 'Otro método' }
+    ];
+  };
+  
+  if (loading && currencies.fiat.length === 0) {
+    return <div className="loading">Cargando opciones de pago...</div>;
+  }
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="payment-preferences">
-        <h3>Preferencias de pago</h3>
-        
+    <div className="payment-preferences-form">
+      <h2>Preferencias de Pago</h2>
+      
+      {error && <div className="error-message">{error}</div>}
+      
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="paymentMethod">Método de pago preferido:</label>
+          <label htmlFor="currency">Moneda de Pago:</label>
           <select 
-            id="paymentMethod" 
-            name="paymentMethod" 
-            value={formData.paymentMethod}
+            id="currency" 
+            name="currency"
+            value={formData.currency} 
             onChange={handleChange}
             required
           >
-            <option value="">Seleccione un método</option>
-            <option value="bank">Transferencia Bancaria</option>
-            <option value="paypal">PayPal</option>
-            <option value="crypto">Criptomonedas</option>
-            <option value="other">Otro Método</option>
+            <optgroup label="Monedas Fiduciarias">
+              {currencies.fiat.map(currency => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.name} ({currency.code})
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Criptomonedas">
+              {currencies.crypto.map(currency => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.name} ({currency.code})
+                </option>
+              ))}
+            </optgroup>
           </select>
         </div>
         
-        <div className="form-group" id="currency-selection-container">
-          <label htmlFor="preferredCurrency">Moneda preferida para recibir donaciones:</label>
+        <div className="form-group">
+          <label htmlFor="paymentMethod">Método de Pago:</label>
           <select 
-            id="preferredCurrency" 
-            name="preferredCurrency"
-            value={formData.preferredCurrency}
+            id="paymentMethod" 
+            name="paymentMethod"
+            value={formData.paymentMethod} 
             onChange={handleChange}
             required
           >
-            <option value="">Seleccione una moneda</option>
-            <optgroup label="Monedas fiduciarias">
-              <option value="USD">Dólar estadounidense (USD)</option>
-              <option value="COP">Peso colombiano (COP)</option>
-              <option value="EUR">Euro (EUR)</option>
-              <option value="MXN">Peso mexicano (MXN)</option>
-              <option value="ARS">Peso argentino (ARS)</option>
-              <option value="CLP">Peso chileno (CLP)</option>
-              <option value="PEN">Sol peruano (PEN)</option>
-              <option value="BRL">Real brasileño (BRL)</option>
-              <option value="VES">Bolívar venezolano (VES)</option>
-              <option value="UYU">Peso uruguayo (UYU)</option>
-              <option value="PYG">Guaraní paraguayo (PYG)</option>
-              <option value="BOB">Boliviano (BOB)</option>
-              <option value="CRC">Colón costarricense (CRC)</option>
-              <option value="DOP">Peso dominicano (DOP)</option>
-              <option value="GTQ">Quetzal guatemalteco (GTQ)</option>
-              <option value="HNL">Lempira hondureño (HNL)</option>
-              <option value="NIO">Córdoba nicaragüense (NIO)</option>
-              <option value="PAB">Balboa panameño (PAB)</option>
-              <option value="SVC">Colón salvadoreño (SVC)</option>
-            </optgroup>
-            <optgroup label="Criptomonedas">
-              <option value="BTC">Bitcoin (BTC)</option>
-              <option value="USDT">Tether (USDT)</option>
-              <option value="USDC">USD Coin (USDC)</option>
-            </optgroup>
+            {getPaymentMethods().map(method => (
+              <option key={method.id} value={method.id}>
+                {method.name}
+              </option>
+            ))}
           </select>
         </div>
         
         {/* Campos específicos para transferencia bancaria */}
-        {formData.paymentMethod === 'bank' && (
-          <div id="bank-fields" className="payment-method-fields">
+        {formData.paymentMethod === 'bank_transfer' && (
+          <div className="payment-method-fields">
             <div className="form-group">
               <label htmlFor="bankName">Nombre del banco:</label>
               <input 
@@ -136,6 +205,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 name="bankName"
                 value={formData.bankName}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -146,6 +216,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 name="accountNumber"
                 value={formData.accountNumber}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -165,7 +236,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
         
         {/* Campos específicos para PayPal */}
         {formData.paymentMethod === 'paypal' && (
-          <div id="paypal-fields" className="payment-method-fields">
+          <div className="payment-method-fields">
             <div className="form-group">
               <label htmlFor="paypalEmail">Email de PayPal:</label>
               <input 
@@ -174,14 +245,15 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 name="paypalEmail"
                 value={formData.paypalEmail}
                 onChange={handleChange}
+                required
               />
             </div>
           </div>
         )}
         
         {/* Campos específicos para criptomonedas */}
-        {formData.paymentMethod === 'crypto' && (
-          <div id="crypto-fields" className="payment-method-fields">
+        {formData.paymentMethod === 'crypto_wallet' && (
+          <div className="payment-method-fields">
             <div className="form-group">
               <label htmlFor="cryptoAddress">Dirección de wallet:</label>
               <input 
@@ -190,11 +262,12 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 name="cryptoAddress"
                 value={formData.cryptoAddress}
                 onChange={handleChange}
+                required
               />
             </div>
-            {['USDT', 'USDC'].includes(formData.preferredCurrency) && (
+            {['USDT', 'USDC'].includes(formData.currency) && (
               <div className="form-group">
-                <label htmlFor="cryptoNetwork">Red preferida (para stablecoins):</label>
+                <label htmlFor="cryptoNetwork">Red:</label>
                 <select 
                   id="cryptoNetwork" 
                   name="cryptoNetwork"
@@ -203,8 +276,8 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 >
                   <option value="ethereum">Ethereum</option>
                   <option value="tron">Tron</option>
-                  <option value="solana">Solana</option>
                   <option value="binance">Binance Smart Chain</option>
+                  <option value="solana">Solana</option>
                 </select>
               </div>
             )}
@@ -213,7 +286,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
         
         {/* Campos específicos para otros métodos */}
         {formData.paymentMethod === 'other' && (
-          <div id="other-fields" className="payment-method-fields">
+          <div className="payment-method-fields">
             <div className="form-group">
               <label htmlFor="otherMethod">Especifique método:</label>
               <input 
@@ -222,6 +295,7 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 name="otherMethod"
                 value={formData.otherMethod}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -232,16 +306,17 @@ const PaymentPreferencesForm = ({ onSave, initialData = {} }) => {
                 rows="3"
                 value={formData.otherDetails}
                 onChange={handleChange}
+                required
               ></textarea>
             </div>
           </div>
         )}
         
-        <div className="form-actions">
-          <button type="submit" className="btn btn-primary">Guardar preferencias de pago</button>
-        </div>
-      </div>
-    </form>
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? 'Procesando...' : 'Continuar'}
+        </button>
+      </form>
+    </div>
   );
 };
 

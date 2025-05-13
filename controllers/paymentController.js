@@ -1,6 +1,9 @@
+// Archivo: src/controllers/paymentController.js
+
 const PaymentTransaction = require('../models/PaymentTransaction');
 const User = require('../models/User');
 const Kit = require('../models/Kit');
+const Payment = require('../models/Payment');
 const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
@@ -58,8 +61,110 @@ const getExchangeRates = async () => {
     return exchangeRatesCache;
   } catch (error) {
     console.error('Error al obtener tasas de cambio:', error);
-    throw new Error('No se pudieron obtener las tasas de cambio actualizadas');
+    
+    // En caso de error, devolver tasas por defecto o las últimas conocidas
+    return {
+      fiat: exchangeRatesCache.fiat || { USD: 1, EUR: 0.85, COP: 3800, MXN: 17.5 },
+      crypto: exchangeRatesCache.crypto || { BTC: 0.000017, USDT: 1, USDC: 1 }
+    };
   }
+};
+
+/**
+ * Convierte un monto entre diferentes monedas
+ */
+const convertCurrency = async (amount, fromCurrency, toCurrency) => {
+  if (!amount || fromCurrency === toCurrency) {
+    return amount;
+  }
+  
+  // Manejar caso especial de $Col
+  if (fromCurrency === '$Col') fromCurrency = 'COP';
+  if (toCurrency === '$Col') toCurrency = 'COP';
+  
+  const rates = await getExchangeRates();
+  
+  // Convertir a USD primero
+  let amountInUSD;
+  
+  if (fromCurrency === 'USD') {
+    amountInUSD = amount;
+  } else if (['BTC', 'USDT', 'USDC'].includes(fromCurrency)) {
+    // Conversión de cripto a USD
+    amountInUSD = amount / rates.crypto[fromCurrency];
+  } else {
+    // Conversión de fiduciaria a USD
+    amountInUSD = amount / rates.fiat[fromCurrency];
+  }
+  
+  // Convertir de USD a moneda destino
+  if (toCurrency === 'USD') {
+    return amountInUSD;
+  } else if (['BTC', 'USDT', 'USDC'].includes(toCurrency)) {
+    // Conversión de USD a cripto
+    return amountInUSD * rates.crypto[toCurrency];
+  } else {
+    // Conversión de USD a fiduciaria
+    return amountInUSD * rates.fiat[toCurrency];
+  }
+};
+
+/**
+ * Formatea un valor según la moneda especificada
+ */
+const formatCurrency = (amount, currency) => {
+  if (!amount && amount !== 0) return '';
+  
+  // Manejar caso especial de $Col (Peso Colombiano)
+  if (currency === '$Col') {
+    return `$${Math.round(amount).toLocaleString('es-CO')} COP`;
+  }
+  
+  // Configuraciones específicas por moneda
+  const currencyFormats = {
+    BTC: { decimals: 8, symbol: '₿' },
+    USDT: { decimals: 2, symbol: 'USDT' },
+    USDC: { decimals: 2, symbol: 'USDC' },
+    USD: { decimals: 2, symbol: '$' },
+    EUR: { decimals: 2, symbol: '€' },
+    COP: { decimals: 0, symbol: '$' },
+    MXN: { decimals: 2, symbol: '$' },
+    // Añadir más monedas según sea necesario
+  };
+  
+  // Formato por defecto
+  const format = currencyFormats[currency] || { decimals: 2, symbol: currency };
+  
+  // Formatear número
+  const formattedNumber = Number(amount).toFixed(format.decimals);
+  
+  // Devolver con símbolo
+  if (['BTC', 'USDT', 'USDC'].includes(currency)) {
+    return `${formattedNumber} ${format.symbol}`;
+  } else {
+    return `${format.symbol}${formattedNumber}`;
+  }
+};
+
+// Obtener lista de monedas disponibles
+const getAvailableCurrenciesList = () => {
+  return {
+    fiat: [
+      { code: 'USD', name: 'Dólar estadounidense' },
+      { code: 'EUR', name: 'Euro' },
+      { code: 'COP', name: 'Peso colombiano' },
+      { code: '$Col', name: 'Peso colombiano' },
+      { code: 'MXN', name: 'Peso mexicano' },
+      { code: 'ARS', name: 'Peso argentino' },
+      { code: 'PEN', name: 'Sol peruano' },
+      { code: 'CLP', name: 'Peso chileno' }
+    ],
+    crypto: [
+      { code: 'BTC', name: 'Bitcoin' },
+      { code: 'USDT', name: 'Tether (USDT)' },
+      { code: 'USDC', name: 'USD Coin (USDC)' }
+    ]
+  };
 };
 
 /**
@@ -338,7 +443,8 @@ exports.getExchangeRates = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: 'Error al obtener las tasas de cambio',
-      error: error});
+      error: error.message
+    });
   }
 };
 
@@ -594,35 +700,193 @@ const checkKitActivation = async (userId) => {
 };
 
 /**
- * Formatea un valor según la moneda especificada
+ * Obtener monedas disponibles (endpoint)
  */
-const formatCurrency = (amount, currency) => {
-  if (!amount && amount !== 0) return '';
-  
-  // Configuraciones específicas por moneda
-  const currencyFormats = {
-    BTC: { decimals: 8, symbol: '₿' },
-    USDT: { decimals: 2, symbol: 'USDT' },
-    USDC: { decimals: 2, symbol: 'USDC' },
-    USD: { decimals: 2, symbol: '$' },
-    EUR: { decimals: 2, symbol: '€' },
-    COP: { decimals: 0, symbol: '$' },
-    MXN: { decimals: 2, symbol: '$' },
-    // Añadir más monedas según sea necesario
-  };
-  
-  // Formato por defecto
-  const format = currencyFormats[currency] || { decimals: 2, symbol: currency };
-  
-  // Formatear número
-  const formattedNumber = Number(amount).toFixed(format.decimals);
-  
-  // Devolver con símbolo
-  if (['BTC', 'USDT', 'USDC'].includes(currency)) {
-    return `${formattedNumber} ${format.symbol}`;
-  } else {
-    return `${format.symbol} ${formattedNumber}`;
+exports.getAvailableCurrencies = (req, res) => {
+  try {
+    const currencies = getAvailableCurrenciesList();
+    res.json({
+      success: true,
+      data: currencies
+    });
+  } catch (error) {
+    console.error('Error al obtener monedas disponibles:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al obtener monedas disponibles',
+      error: error.message
+    });
   }
+};
+
+/**
+ * Guardar preferencias de pago para activación del Kit
+ */
+exports.saveKitPaymentPreferences = async (req, res) => {
+  try {
+    const { userId, kitId, currency, paymentMethod } = req.body;
+    
+    // Validar datos
+    if (!userId || !kitId || !currency || !paymentMethod) {
+      return res.status(400).json({
+        success: false,
+        message: 'Faltan datos requeridos'
+      });
+    }
+    
+    // Verificar que el usuario existe
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'Usuario no encontrado'
+      });
+    }
+    
+    // Verificar que el kit existe
+    const kit = await Kit.findById(kitId);
+    if (!kit) {
+      return res.status(404).json({
+        success: false,
+        message: 'Kit no encontrado'
+      });
+    }
+    
+    // Crear o actualizar preferencias de pago
+    let payment = await Payment.findOne({ userId, kitId });
+    
+    if (!payment) {
+      // Crear nuevo registro
+      payment = new Payment({
+        userId,
+        kitId,
+        currency,
+        paymentMethod,
+        status: 'pending',
+        createdAt: new Date()
+      });
+    } else {
+      // Actualizar registro existente
+      payment.currency = currency;
+      payment.paymentMethod = paymentMethod;
+      payment.updatedAt = new Date();
+    }
+    
+    await payment.save();
+    
+    // Convertir montos
+    const corporationDonationUSD = kit.corporationDonation || 20;
+    const referrerDonationUSD = kit.referrerDonation || 7;
+    
+    const corporationDonation = await convertCurrency(
+      corporationDonationUSD,
+      'USD',
+      currency
+    );
+    
+    const referrerDonation = await convertCurrency(
+      referrerDonationUSD,
+      'USD',
+      currency
+    );
+    
+    // Devolver datos
+    res.json({
+      success: true,
+      data: {
+        payment,
+        corporationDonation: formatCurrency(corporationDonation, currency),
+        referrerDonation: formatCurrency(referrerDonation, currency)
+      },
+      message: 'Preferencias de pago guardadas correctamente'
+    });
+    
+  } catch (error) {
+    console.error('Error al guardar preferencias de pago del kit:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al guardar preferencias de pago',
+      error: error.message
+    });
+  }
+};
+
+/**
+ * Verificar estado de pago del Kit
+ */
+exports.checkPaymentStatus = async (req, res) => {
+  try {
+    const { kitId, userId } = req.params;
+    
+    const payment = await Payment.findOne({ kitId, userId });
+    
+    if (!payment) {
+      return res.status(404).json({
+        success: false,
+        message: 'Pago no encontrado'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: payment
+    });
+    
+  } catch (error) {
+    console.error('Error al verificar estado de pago:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al verificar estado de pago',
+      error: error.message
+    });
+  }
+};
+
+/**
+ * Confirmar pago del Kit
+ */
+exports.confirmKitPayment = async (req, res) => {
+  try {
+    const { paymentId, proofOfPayment } = req.body;
+    
+    const payment = await Payment.findById(paymentId);
+    
+    if (!payment) {
+      return res.status(404).json({
+        success: false,
+        message: 'Pago no encontrado'
+      });
+    }
+    
+    // Actualizar estado del pago
+    payment.status = 'pending_verification';
+    payment.proofOfPayment = proofOfPayment;
+    payment.paymentDate = new Date();
+    
+    await payment.save();
+    
+    res.json({
+      success: true,
+      data: payment,
+      message: 'Comprobante de pago enviado correctamente'
+    });
+    
+  } catch (error) {
+    console.error('Error al confirmar pago del kit:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al confirmar pago',
+      error: error.message
+    });
+  }
+};
+
+// Exportar funciones de utilidad para uso en otros controladores
+exports.utils = {
+  getExchangeRates,
+  convertCurrency,
+  formatCurrency,
+  getAvailableCurrenciesList
 };
 
 module.exports = exports;
