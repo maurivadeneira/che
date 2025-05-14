@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 const PdfPersonalizado = require('../models/PdfPersonalizado');
 const User = require('../models/User'); 
 const { createPdf } = require('../utils/pdfGenerator');
-const currencyService = require('../services/currencyService');
+const currencyService = require('../src/services/currencyService');
 
 // Asegurar que el directorio temp existe
 const tempDir = path.join(__dirname, '../temp');
