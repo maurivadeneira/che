@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./components/kit/Dashboard";
 import ActivateKit from "./pages/ActivateKit";
+import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro componente Kit2
 import AdminPanel from "./components/admin/AdminPanel";
 import DownloadPDF from "./pages/DownloadPDF";
 import "./App.css";
@@ -23,8 +24,14 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              
+              {/* Rutas existentes de activación */}
               <Route path="/activate/:code" element={<ActivateKit />} />
               <Route path="/activate" element={<ActivateKit />} />
+              
+              {/* NUEVA RUTA para el sistema Kit2 */}
+              <Route path="/activar" element={<ActivarKit />} />
+              
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
             </Routes>
