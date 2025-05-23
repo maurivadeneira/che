@@ -131,7 +131,7 @@ exports.generarKit2Inicial = async (req, res) => {
     console.log('✅ Plantilla HTML leída correctamente');
 
     // URL de activación - Debe apuntar a corpherejiaeconomica.com
-    const urlActivacion = `https://corpherejiaeconomica.com/activar?kit=${kit._id}`;
+    const urlActivacion = `http://localhost:3000/activar?kit=${kit._id}`;
 
     // Fecha actual
     const fechaActual = new Date().toLocaleDateString('es-ES');
@@ -448,7 +448,7 @@ exports.generarPDFPersonalizado = async (req, res) => {
     }
 
     // Generar URL única para activación
-    const urlActivacion = `https://corpherejiaeconomica.com/activar/${usuarioId}`;
+    const urlActivacion = `http://localhost:3000/activar/${usuarioId}`;
 
     // Leer la plantilla HTML
     const templatePath = path.join(__dirname, '../templates/kit2_template.html');
@@ -699,7 +699,7 @@ exports.generarKitAutor = async (req, res) => {
           }
         },
         observaciones: observaciones || '',
-        activationUrl: process.env.FRONTEND_URL || 'https://corpherejiaeconomica.com'
+        activationUrl: process.env.FRONTEND_URL || 'http://localhost:3000'
       };
 
       console.log('Generando PDF con nuevo generador...');
@@ -778,7 +778,7 @@ exports.generarKitAutor = async (req, res) => {
     console.log('Usando método antiguo de generación de PDF...');
 
     // Generar URL única para activación
-    const urlActivacion = `https://corpherejiaeconomica.com/activar/${autorId}`;
+    const urlActivacion = `http://localhost:3000/activar/${autorId}`;
 
     // Leer la plantilla HTML
     const templatePath = path.join(__dirname, '../templates/kit2_template.html');

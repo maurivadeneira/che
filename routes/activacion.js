@@ -63,6 +63,7 @@ router.post('/registrar', async (req, res) => {
       name: nombre,
       email,
       phone: telefono,
+      password: "kit2temp" + Date.now().toString().slice(-6), // ✅ PASSWORD TEMPORAL AGREGADO
       bankAccount: {
         bank: banco,
         accountType: tipoCuenta,
