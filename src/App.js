@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./components/kit/Dashboard";
+import UserDashboard from "./pages/UserDashboard"; // ✅ NUEVO DASHBOARD PROFESIONAL
 import ActivateKit from "./pages/ActivateKit";
 import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro componente Kit2
 import AdminPanel from "./components/admin/AdminPanel";
@@ -23,7 +24,13 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              
+              {/* Dashboard existente (mantenemos compatibilidad) */}
               <Route path="/dashboard" element={<Dashboard />} />
+              
+              {/* ✅ NUEVO DASHBOARD PROFESIONAL */}
+              <Route path="/mi-cuenta" element={<UserDashboard />} />
+              <Route path="/perfil" element={<UserDashboard />} />
               
               {/* Rutas existentes de activación */}
               <Route path="/activate/:code" element={<ActivateKit />} />
