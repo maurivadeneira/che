@@ -29,8 +29,9 @@ const Login = () => {
       // Guardar el token en localStorage
       localStorage.setItem("token", res.data.token);
       
-      // Redireccionar al dashboard
-      navigate("/dashboard");
+      // ✅ CAMBIO: Redireccionar al dashboard PROFESIONAL
+      navigate("/mi-cuenta");
+      
     } catch (err) {
       setError(err.response?.data?.msg || "Error al iniciar sesión. Por favor, intenta nuevamente.");
     } finally {
@@ -43,7 +44,7 @@ const Login = () => {
       <div className="auth-card">
         <h2>Iniciar Sesión</h2>
         <p className="auth-subtitle">Accede a tu cuenta de Kit2 Herejía Económica</p>
-
+        
         {error && (
           <div className="auth-error">
             <p>{error}</p>
@@ -73,8 +74,8 @@ const Login = () => {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn-primary auth-button"
             disabled={loading}
           >
