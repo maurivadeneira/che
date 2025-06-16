@@ -17,7 +17,7 @@ const Kit2Heresy = () => {
   const [showOwnerSetup, setShowOwnerSetup] = useState(false);
   const [ownerInfo, setOwnerInfo] = useState(null);
 
-  // Efecto para cargar datos del kit y verificar si hay una invitación activa        
+  // Efecto para cargar datos del kit y verificar si hay una invitación activa
   useEffect(() => {
     // Verificar si hay un parámetro de invitación en la URL
     const checkInvitation = () => {
@@ -40,13 +40,13 @@ const Kit2Heresy = () => {
         setLoading(false);
       } catch (err) {
         console.error('Error:', err);
-        setError('No se pudo cargar la información del Kit. Usando datos locales.');  
+        setError('No se pudo cargar la información del Kit. Usando datos locales.');
         // Datos de respaldo en caso de error
         setKitInfo({
           name: "Kit2 de la Herejía",
           version: "1.0",
-          corporationDonation: 20,
-          referrerDonation: 7,
+          corporationPurchase: 20,
+          networkCommission: 7,
           kitValidityDays: 365,
           contents: [
             { id: 1, title: "Guía de iniciación a la Herejía Económica", type: "document" },
@@ -67,8 +67,8 @@ const Kit2Heresy = () => {
   // Generar enlace de invitación
   useEffect(() => {
     if (activationInfo) {
-      // Generar un ID único para esta invitación basado en el nombre del usuario     
-      // (simplificado para esta demo, en producción usaríamos un ID más seguro)      
+      // Generar un ID único para esta invitación basado en el nombre del usuario
+      // (simplificado para esta demo, en producción usaríamos un ID más seguro)
       const invitationId = activationInfo.name.replace(/\s+/g, '').toLowerCase() + '_' + Date.now();
       const baseUrl = window.location.origin + window.location.pathname;
       setInvitationLink(`${baseUrl}?invited_by=${invitationId}`);
@@ -86,7 +86,7 @@ const Kit2Heresy = () => {
     // Generar un enlace único para el propietario
     const ownerInvitationId = `owner_${data.name.replace(/\s+/g, '').toLowerCase()}_${Date.now()}`;
     const baseUrl = window.location.origin + window.location.pathname;
-    setInvitationLink(`${baseUrl}?invited_by=${ownerInvitationId}&owner=true`);       
+    setInvitationLink(`${baseUrl}?invited_by=${ownerInvitationId}&owner=true`);
     setShowOwnerSetup(false);
   };
 
@@ -114,7 +114,7 @@ const Kit2Heresy = () => {
         console.error('Error al copiar enlace:', err);
       });
   };
-  
+
   // Función para activar directamente el Kit2
   const handleDirectActivation = () => {
     setShowActivation(true);
@@ -122,7 +122,7 @@ const Kit2Heresy = () => {
 
   // Renderizar un estado de carga
   if (loading) {
-    return <div className="kit-loading">Cargando información del Kit...</div>;        
+    return <div className="kit-loading">Cargando información del Kit...</div>;
   }
 
   // Renderizar mensaje de error si hay problemas
@@ -141,9 +141,9 @@ const Kit2Heresy = () => {
         <>
           <h1 className="kit-title">KIT2 DE LA HEREJÍA ECONÓMICA</h1>
           <h2 className="kit-subtitle">PROMOCIÓN PERSONALIZADA</h2>
-          
+
           <div className="kit-direct-activation">
-            <button 
+            <button
               className="kit-activation-button-top"
               onClick={handleDirectActivation}
             >
@@ -158,30 +158,30 @@ const Kit2Heresy = () => {
               {kitInfo.remitente || "[NOMBRE DEL REMITENTE]"}
             </p>
             <p>
-              <strong>Si decide adquirir el Kit2, deberá realizar una donación a:</strong><br />
-              {kitInfo.beneficiario || "[NOMBRE DEL BENEFICIARIO DE LA DONACIÓN]"}
+              <strong>Si decide adquirir el Kit2, deberá realizar una comisión voluntaria a:</strong><br />
+              {kitInfo.receptorComision || "[NOMBRE DEL RECEPTOR DE COMISIÓN]"}
             </p>
 
             <div className="kit-flow-explanation">
-              <h3>Flujo de Donaciones Explicado:</h3>
+              <h3>Flujo de Compras y Comisiones Explicado:</h3>
               <pre className="kit-diagram">
 {`Cadena de Invitaciones:
 X1 -----> Juan -----> Usted -----> María -----> Pedro1, Pedro2, Pedro3
      invita      invita      invita       invita
 
-Flujo de Donaciones:
-Usted dona a X1
-María dona a Juan
-Pedro1 dona a Usted
-Pedro2 dona a Usted 
-Pedro3 dona a Usted`}
+Flujo de Comisiones Voluntarias:
+Usted comisiona a X1
+María comisiona a Juan
+Pedro1 comisiona a Usted
+Pedro2 comisiona a Usted
+Pedro3 comisiona a Usted`}
               </pre>
               <p>Este esquema muestra claramente que:</p>
               <ol>
-                <li>Usted dona a quien invitó a Juan (X1)</li>
-                <li>María dona a quien invitó a Usted (Juan)</li>
-                <li>Todos los "Pedros" (invitados por María) donan a quien invitó a María (Usted)</li>
-                <li>Así, Usted recibirá múltiples donaciones de los invitados de su invitado</li>
+                <li>Usted hace comisión voluntaria a quien invitó a Juan (X1)</li>
+                <li>María hace comisión voluntaria a quien invitó a Usted (Juan)</li>
+                <li>Todos los "Pedros" (invitados por María) hacen comisión a quien invitó a María (Usted)</li>
+                <li>Así, Usted recibirá múltiples comisiones de los invitados de su invitado</li>
               </ol>
             </div>
           </div>
@@ -204,24 +204,24 @@ Pedro3 dona a Usted`}
                 <div className="kit-section">
                   <h2>2. INTRODUCCIÓN AL KIT DE LA HEREJÍA</h2>
                   <p>
-                    Bienvenido al Kit de la Herejía, un sistema basado en donaciones
-                    que permite la distribución equitativa de conocimiento y valor en la sociedad.
+                    Bienvenido al Kit de la Herejía, un sistema basado en compras de productos digitales
+                    con comisiones voluntarias que permite la distribución equitativa de conocimiento y valor en la sociedad.
                   </p>
                   <p>
                     <strong>Importante:</strong> El Kit de la Herejía solo puede ser adquirido por invitación
-                    de alguien que ya lo haya obtenido anteriormente. No es posible adquirirlo directamente
-                    de la Corporación, excepto por el autor original de la obra.      
+                    de alguien que ya lo haya obtenido anteriormente. No es posible comprarlo directamente
+                    de la Corporación, excepto por el autor original de la obra.
                   </p>
                   <p>
                     Para obtener el kit completo, se requieren dos pagos:
                   </p>
                   <ul>
-                    <li>Donación a la Corporación: US${kitInfo?.corporationDonation}</li>
-                    <li>Donación al Referente: US${kitInfo?.referrerDonation} (a la persona indicada en este documento)</li>    
+                    <li>Compra del Kit2 a la Corporación: US${kitInfo?.corporationPurchase}</li>
+                    <li>Comisión voluntaria al Receptor: US${kitInfo?.networkCommission} (a la persona indicada en este documento)</li>
                   </ul>
                   <p>
-                    <strong>Nota sobre pagos:</strong> Las donaciones se realizan en dólares estadounidenses (US$). 
-                    Para residentes en Colombia, se aceptan pagos en pesos colombianos según la tasa de cambio 
+                    <strong>Nota sobre pagos:</strong> Las transacciones se realizan en dólares estadounidenses (US$).
+                    Para residentes en Colombia, se aceptan pagos en pesos colombianos según la tasa de cambio
                     del día de la transacción.
                   </p>
                 </div>
@@ -230,66 +230,65 @@ Pedro3 dona a Usted`}
               {step === 2 && (
                 <div className="kit-section">
                   <h2>3. CONTENIDO DEL KIT</h2>
-                  <p>Al activar tu Kit, obtendrás acceso a:</p>
+                  <p>Al comprar tu Kit, obtendrás acceso a:</p>
                   <ul className="kit-contents">
                     {kitInfo?.contents.map(item => (
-                      <li key={item.id} className={`content-type-${item.type}`}>      
+                      <li key={item.id} className={`content-type-${item.type}`}>
                         {item.title}
                         <span className="content-type">{item.type}</span>
                       </li>
                     ))}
                   </ul>
-                  <p>Estos contenidos estarán disponibles permanentemente tras su activación.</p>
+                  <p>Estos contenidos estarán disponibles permanentemente tras su compra.</p>
                 </div>
               )}
 
               {step === 3 && (
                 <div className="kit-section">
-                  <h2>4. PROCESO DE DONACIÓN Y ACTIVACIÓN</h2>
-                  
-                  <h3>Primera Donación (US${kitInfo?.referrerDonation})</h3>
+                  <h2>4. PROCESO DE COMPRA Y ACTIVACIÓN</h2>
+
+                  <h3>Primera Transacción - Comisión Voluntaria (US${kitInfo?.networkCommission})</h3>
                   <p>
-                    Esta donación se realiza a la persona indicada en este documento 
-                    (no a quien te invitó, sino según el sistema de referidos).
+                    Esta comisión voluntaria se realiza a la persona indicada en este documento
+                    (no a quien te invitó, sino según el sistema de segundo nivel).
                   </p>
-                  
+
                   <div className="donation-info">
-                    <h4>Información de Pago del Referente:</h4>
-                    <p><strong>Nombre:</strong> [NOMBRE DEL REFERENTE]</p>
-                    <p><strong>Banco Principal:</strong> [BANCO DEL REFERENTE]</p>
-                    <p><strong>Cuenta Principal:</strong> [NÚMERO DE CUENTA DEL REFERENTE]</p>
-                    
+                    <h4>Información de Pago del Receptor de Comisión:</h4>
+                    <p><strong>Nombre:</strong> [NOMBRE DEL RECEPTOR]</p>
+                    <p><strong>Banco Principal:</strong> [BANCO DEL RECEPTOR]</p>
+                    <p><strong>Cuenta Principal:</strong> [NÚMERO DE CUENTA DEL RECEPTOR]</p>
+
                     <h4>Métodos Alternativos de Pago (si no puede usar la cuenta principal):</h4>
-                    <p><strong>Banco Alternativo:</strong> [BANCO ALTERNATIVO DEL REFERENTE]</p>
+                    <p><strong>Banco Alternativo:</strong> [BANCO ALTERNATIVO DEL RECEPTOR]</p>
                     <p><strong>Cuenta Alternativa:</strong> [NÚMERO DE CUENTA ALTERNATIVA]</p>
-                    <p><strong>PayPal:</strong> [EMAIL PAYPAL DEL REFERENTE]</p>
+                    <p><strong>PayPal:</strong> [EMAIL PAYPAL DEL RECEPTOR]</p>
                     <p><strong>Otro método:</strong> [MÉTODO ADICIONAL SI EXISTE]</p>
-                    
-                    <p><strong>Valor:</strong> US${kitInfo?.referrerDonation} (o su equivalente en pesos colombianos según tasa del día)</p>
-                    
+
+                    <p><strong>Valor:</strong> US${kitInfo?.networkCommission} (o su equivalente en pesos colombianos según tasa del día)</p>
+
                     <div className="payment-issues">
                       <h4>¿Problemas para realizar el pago?</h4>
                       <p>
-                        Si no puede realizar la donación por ninguno de los métodos indicados, 
+                        Si no puede realizar la comisión por ninguno de los métodos indicados,
                         por favor contacte a la Corporación al correo [CORREO DE CONTACTO] para recibir asistencia.
                       </p>
                     </div>
                   </div>
-                  
-                  <h3>Segunda Donación (US${kitInfo?.corporationDonation})</h3>
+
+                  <h3>Segunda Transacción - Compra Kit2 (US${kitInfo?.corporationPurchase})</h3>
                   <p>
-                    La segunda donación se realiza a la Corporación Herejía Económica para mantener 
-                    la plataforma y financiar nuevos proyectos. Esta donación es de libre aplicación 
-                    por parte de la Corporación.
+                    La segunda transacción es la compra del Kit2 digital a la Corporación Herejía Económica 
+                    para mantener la plataforma y financiar nuevos proyectos.
                   </p>
-                  
+
                   <div className="donation-info">
                     <h4>Información de Pago:</h4>
                     <p><strong>Banco:</strong> [BANCO DE LA CORPORACIÓN]</p>
                     <p><strong>Cuenta:</strong> [NÚMERO DE CUENTA]</p>
                     <p><strong>Titular:</strong> Corporación Herejía Económica</p>
                     <p><strong>PayPal:</strong> [EMAIL PAYPAL]</p>
-                    <p><strong>Valor:</strong> US${kitInfo?.corporationDonation} (o su equivalente en pesos colombianos según tasa del día)</p>
+                    <p><strong>Valor:</strong> US${kitInfo?.corporationPurchase} (o su equivalente en pesos colombianos según tasa del día)</p>
                   </div>
                 </div>
               )}
@@ -297,40 +296,40 @@ Pedro3 dona a Usted`}
               {step === 4 && (
                 <div className="kit-section">
                   <h2>5. FUNCIONAMIENTO DEL SISTEMA</h2>
-                  
-                  <h3>Cómo Funciona el Ciclo de Donaciones</h3>
+
+                  <h3>Cómo Funciona el Ciclo de Compras y Comisiones</h3>
                   <p><strong>Ejemplo con nombres para mayor claridad:</strong></p>
                   <ol>
-                    <li><strong>X1 invita a Juan</strong>, y Juan adquiere el Kit2.</li>
-                    <li><strong>Juan le invita a Usted</strong>, y al adquirir el Kit2, Usted realiza una donación a X1.</li>
-                    <li><strong>Usted invita a María</strong>, y cuando María adquiere el Kit2, ella dona a Juan.</li>
-                    <li><strong>María invita a Pedro1, Pedro2 y Pedro3</strong>. Cuando ellos adquieren el Kit2, todos realizan sus donaciones a Usted.</li>
+                    <li><strong>X1 invita a Juan</strong>, y Juan compra el Kit2.</li>
+                    <li><strong>Juan le invita a Usted</strong>, y al comprar el Kit2, Usted realiza una comisión voluntaria a X1.</li>
+                    <li><strong>Usted invita a María</strong>, y cuando María compra el Kit2, ella comisiona a Juan.</li>
+                    <li><strong>María invita a Pedro1, Pedro2 y Pedro3</strong>. Cuando ellos compran el Kit2, todos realizan sus comisiones a Usted.</li>
                   </ol>
-                  
+
                   <div className="flow-summary">
-                    <h4>Resumen del flujo de donaciones:</h4>
+                    <h4>Resumen del flujo de comisiones:</h4>
                     <ul>
-                      <li>Usted no recibe donación de quien adquiere directamente su Kit2 (María)</li>
-                      <li>Usted recibe donaciones de todas las personas que adquieran Kit2 de María (Pedro1, Pedro2, Pedro3)</li>
-                      <li>Mientras más personas invite María, más donaciones recibirá Usted</li>
+                      <li>Usted no recibe comisión de quien compra directamente con su Kit2 (María)</li>
+                      <li>Usted recibe comisiones de todas las personas que compren Kit2 de María (Pedro1, Pedro2, Pedro3)</li>     
+                      <li>Mientras más personas invite María, más comisiones recibirá Usted</li>
                       <li>Este sistema garantiza la distribución equitativa y sostenible a largo plazo</li>
                     </ul>
                   </div>
-                  
+
                   <h3>Potencial de Ingresos</h3>
                   <p>
-                    Depende de cuántos contactos inviten y cuántos de sus contactos adquieran el Kit2:
+                    Depende de cuántos contactos inviten y cuántos de sus contactos compren el Kit2:
                   </p>
                   <ul>
-                    <li>Si invita a 2 personas y cada una invita a 2 más = 4 donaciones de US${kitInfo?.referrerDonation} cada una</li>
-                    <li>Si invita a 5 personas y cada una invita a 5 más = 25 donaciones de US${kitInfo?.referrerDonation} cada una</li>
+                    <li>Si invita a 2 personas y cada una invita a 2 más = 4 comisiones de US${kitInfo?.networkCommission} cada una</li>
+                    <li>Si invita a 5 personas y cada una invita a 5 más = 25 comisiones de US${kitInfo?.networkCommission} cada una</li>
                   </ul>
-                  
+
                   <h3>Vigencia y Renovación</h3>
                   <ul>
                     <li>El Kit2 tendrá una vigencia de 12 meses (1 año) para ser promocionado</li>
-                    <li>Si desea continuar promocionando después de ese tiempo, deberá adquirir nuevamente el Kit2</li>
-                    <li><strong>Nota importante:</strong> La Corporación se reserva el derecho de modificar los valores de las donaciones cuando lo considere necesario, pero su Kit mantendrá los valores originales durante toda su vigencia.</li>
+                    <li>Si desea continuar promocionando después de ese tiempo, deberá comprar nuevamente el Kit2</li>
+                    <li><strong>Nota importante:</strong> La Corporación se reserva el derecho de modificar los valores cuando lo considere necesario, pero su Kit mantendrá los valores originales durante toda su vigencia.</li>
                   </ul>
                 </div>
               )}
@@ -339,7 +338,7 @@ Pedro3 dona a Usted`}
                 <div>
                   <div className="kit-section">
                     <h2>6. FUNDAMENTOS ECONÓMICOS DEL SISTEMA</h2>
-                    
+
                     <h3>La Importancia de la Circulación del Dinero</h3>
                     <p>El sistema se basa en principios económicos fundamentales como:</p>
                     <ol>
@@ -348,42 +347,42 @@ Pedro3 dona a Usted`}
                       <li><strong>La distribución del ingreso:</strong> El sistema permite distribuir riqueza sin intermediarios bancarios tradicionales.</li>
                     </ol>
                   </div>
-                  
+
                   <div className="kit-section">
                     <h2>7. ACTIVACIÓN DEL KIT</h2>
                     <p>Para activar su Kit2 y comenzar a recibir beneficios:</p>
                     <ol>
                       <li><strong>Haga clic en el botón "QUIERO MI KIT2"</strong> al inicio o al final de este documento</li>
-                      <li><strong>Se le mostrará la información completa</strong> de la Corporación y la persona a quien debe realizar la donación</li>
+                      <li><strong>Se le mostrará la información completa</strong> de la Corporación y la persona a quien debe realizar la comisión</li>
                       <li><strong>Inscríbase en la página</strong> suministrando sus datos personales y bancarios</li>
-                      <li><strong>Realice la donación solidaria</strong> a la persona referida (US${kitInfo?.referrerDonation})</li>
+                      <li><strong>Realice la comisión voluntaria</strong> a la persona referida (US${kitInfo?.networkCommission})</li>  
                       <li><strong>Envíe comprobante</strong> a la Corporación</li>
-                      <li><strong>Realice la donación</strong> a la Corporación (US${kitInfo?.corporationDonation}) mediante el botón de pagos</li>
+                      <li><strong>Realice la compra</strong> a la Corporación (US${kitInfo?.corporationPurchase}) mediante el botón de pagos</li>
                       <li><strong>Reciba su Kit2 personalizado</strong> con los libros virtuales por correo</li>
                     </ol>
                   </div>
-                  
+
                   <div className="kit-section">
                     <h2>8. REQUISITOS PARA PARTICIPAR</h2>
                     <ul>
                       <li><strong>Afiliación:</strong> Inscribirse en la página de la Corporación</li>
                       <li><strong>Datos personales:</strong> Nombres, identificación, contacto</li>
-                      <li><strong>Cuentas bancarias:</strong> Principal y alternativa para recibir donaciones</li>
-                      <li><strong>Compromiso:</strong> Hacer las donaciones correspondientes y promover el sistema</li>
+                      <li><strong>Cuentas bancarias:</strong> Principal y alternativa para recibir comisiones</li>
+                      <li><strong>Compromiso:</strong> Hacer las compras correspondientes y promover el sistema</li>
                     </ul>
                   </div>
-                  
+
                   <div className="kit-section">
                     <h2>9. BENEFICIOS PARA TODOS</h2>
                     <ul>
                       <li><strong>Para usted:</strong> Ingreso extra mensual, conocimiento económico transformador</li>
-                      <li><strong>Para la Corporación:</strong> Recursos para desarrollar proyectos económicos y sociales</li>
+                      <li><strong>Para la Corporación:</strong> Recursos para desarrollar proyectos económicos y sociales</li>        
                       <li><strong>Para el gobierno:</strong> Impuestos y actividad económica legal</li>
                       <li><strong>Para la sociedad:</strong> Nuevo sistema de distribución equitativa del ingreso</li>
                     </ul>
                     <p>Este es un sistema GANA-GANA donde todos los participantes obtienen beneficios.</p>
                   </div>
-                  
+
                   <div className="kit-info-box">
                     <h3>¡QUIERO MI KIT2!</h3>
                     <p>Si está de acuerdo con este sistema y desea participar:</p>
@@ -407,7 +406,7 @@ Pedro3 dona a Usted`}
                     </div>
 
                     <p className="activation-note">
-                      Al hacer clic, se desplegará la información completa de pago tanto de la Corporación como de la persona a la que debe realizar la donación, junto con el formulario de registro.
+                      Al hacer clic, se desplegará la información completa de pago tanto de la Corporación como de la persona a la que debe realizar la comisión, junto con el formulario de registro.
                     </p>
                   </div>
                 </div>
@@ -427,7 +426,7 @@ Pedro3 dona a Usted`}
               )}
             </div>
           </div>
-          
+
           <div className="kit-footer">
             <p><strong>CORPORACIÓN HEREJÍA ECONÓMICA</strong><br/>
             <strong>C.H.E. MUNDO LIBRE</strong></p>
@@ -464,9 +463,9 @@ Pedro3 dona a Usted`}
                   </button>
                 </div>
                 <p className="invitation-note">
-                  Cuando alguien haga clic en este enlace, será dirigido directamente 
+                  Cuando alguien haga clic en este enlace, será dirigido directamente
                   al formulario de registro.
-                  {ownerInfo && ` Las donaciones secundarias se dirigirán a la cuenta 
+                  {ownerInfo && ` Las comisiones del segundo nivel se dirigirán a la cuenta
                   que has proporcionado.`}
                 </p>
               </div>
@@ -474,11 +473,11 @@ Pedro3 dona a Usted`}
               {ownerInfo && (
                 <div className="owner-payment-info">
                   <h3>Información de Pago Registrada</h3>
-                  <p>Esta información será utilizada para las donaciones secundarias:</p>
+                  <p>Esta información será utilizada para las comisiones del segundo nivel:</p>
                   <div className="payment-details">
                     <p><strong>Titular:</strong> {ownerInfo.paymentInfo.accountName}</p>
                     <p><strong>Cuenta:</strong> {ownerInfo.paymentInfo.accountNumber}</p>
-                    <p><strong>Banco:</strong> {ownerInfo.paymentInfo.bank}</p>       
+                    <p><strong>Banco:</strong> {ownerInfo.paymentInfo.bank}</p>
                     {ownerInfo.paymentInfo.paypalEmail && (
                       <p><strong>PayPal:</strong> {ownerInfo.paymentInfo.paypalEmail}</p>
                     )}

@@ -34,30 +34,30 @@ const kitSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // Cambiar a un array de cuentas bancarias
+  // Array de cuentas bancarias del cliente
   bankAccounts: [bankAccountSchema],
   paypalEmail: String,
-  
-  // Información del beneficiario de donaciones (para el kit inicial)
-  donationRecipient: {
+
+  // Información del receptor de comisiones de red (segundo nivel)
+  commissionRecipient: {
     name: String,
-    // También permitir múltiples cuentas bancarias para el beneficiario
+    // También permitir múltiples cuentas bancarias para el receptor
     bankAccounts: [bankAccountSchema],
     paypalEmail: String
   },
-  
+
   // Indicador si es el kit inicial
   isInitialKit: {
     type: Boolean,
     default: false
   },
-  
+
   // Configuración del kit
-  corporationDonation: {
+  corporationPurchase: {
     type: Number,
     default: 20
   },
-  referrerDonation: {
+  networkCommission: {
     type: Number,
     default: 7
   },
@@ -69,17 +69,17 @@ const kitSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  
+
   // Estado del kit
   status: {
     type: String,
     enum: ['draft', 'pending', 'active', 'inactive'],
     default: 'draft'
   },
-  
+
   // PDF URL
   pdfUrl: String,
-  
+
   // Fechas
   createdAt: {
     type: Date,

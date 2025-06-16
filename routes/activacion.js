@@ -1,4 +1,4 @@
-// routes/activacion.js
+// routes/activacion.js - REFORMADO: Compras Kit2 Herejía Económica
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -40,7 +40,7 @@ router.post('/registrar', async (req, res) => {
       });
     }
 
-    // Buscar el kit de referencia para obtener el beneficiario
+    // Buscar el kit de referencia para obtener el receptor de comisión
     const kitReferencia_doc = await Kit.findById(kitReferencia);
     if (!kitReferencia_doc) {
       return res.status(404).json({
@@ -79,20 +79,20 @@ router.post('/registrar', async (req, res) => {
     await nuevoUsuario.save();
     console.log('✅ Usuario creado:', nuevoUsuario._id);
 
-    // Preparar datos de donación
-    const donationData = {
+    // Preparar datos de compra
+    const purchaseData = {
       usuarioId: nuevoUsuario._id,
-      
-      // Donación al beneficiario (Daniel en el caso inicial)
-      beneficiario: {
-        nombre: kitReferencia_doc.donationRecipient.name,
-        banco: kitReferencia_doc.donationRecipient.bankAccounts[0].bankName,
-        tipoCuenta: kitReferencia_doc.donationRecipient.bankAccounts[0].accountType,
-        numeroCuenta: kitReferencia_doc.donationRecipient.bankAccounts[0].accountNumber
+
+      // Comisión voluntaria al receptor de la red (segundo nivel)
+      receptorComision: {
+        nombre: kitReferencia_doc.commissionRecipient.name,
+        banco: kitReferencia_doc.commissionRecipient.bankAccounts[0].bankName,
+        tipoCuenta: kitReferencia_doc.commissionRecipient.bankAccounts[0].accountType,
+        numeroCuenta: kitReferencia_doc.commissionRecipient.bankAccounts[0].accountNumber
       },
-      montoBeneficiario: 7, // USD $7
-      
-      // Donación a la corporación (cuenta temporal de Mauricio)
+      comisionRed: 7, // USD $7 - Comisión voluntaria
+
+      // Compra del Kit2 a la corporación
       corporacion: {
         nombre: 'Corporación Herejía Económica',
         titular: 'Mauricio Rivadeneira (Tesorero Temporal)',
@@ -100,9 +100,9 @@ router.post('/registrar', async (req, res) => {
         tipoCuenta: 'Ahorros', // Tu tipo de cuenta
         numeroCuenta: 'Por actualizar' // Aquí pondrás tu número de cuenta
       },
-      montoCorporacion: 20, // USD $20
-      
-      // Información del referente (quien recibirá donaciones cuando este usuario invite a otros)
+      compraKit2: 20, // USD $20 - Compra producto digital
+
+      // Información del referente (quien recibirá comisiones cuando este usuario invite a otros)
       referente: {
         nombre: referente.name,
         email: referente.email,
@@ -115,7 +115,7 @@ router.post('/registrar', async (req, res) => {
     res.status(201).json({
       success: true,
       message: 'Usuario registrado correctamente',
-      donationData
+      purchaseData
     });
 
   } catch (error) {
@@ -128,12 +128,12 @@ router.post('/registrar', async (req, res) => {
   }
 });
 
-// Ruta para confirmar donaciones y generar kit personalizado
-router.post('/confirmar-donaciones', async (req, res) => {
+// Ruta para confirmar compra y generar kit personalizado
+router.post('/confirmar-compra', async (req, res) => {
   try {
     const { usuarioId, kitReferencia } = req.body;
 
-    console.log('💰 Confirmando donaciones para usuario:', usuarioId);
+    console.log('💰 Confirmando compra para usuario:', usuarioId);
 
     // Buscar el usuario
     const usuario = await User.findById(usuarioId);
@@ -156,10 +156,10 @@ router.post('/confirmar-donaciones', async (req, res) => {
     // Buscar el referente (propietario del kit original)
     const referente = await User.findOne({ email: kitRef.clientEmail });
 
-    // En una implementación real, aquí verificarías las donaciones
-    // Por ahora, simulamos que las donaciones fueron confirmadas
+    // En una implementación real, aquí verificarías los pagos
+    // Por ahora, simulamos que la compra fue confirmada
 
-    console.log('✅ Simulando confirmación de donaciones...');
+    console.log('✅ Simulando confirmación de compra...');
 
     // Crear nuevo kit para el usuario
     const nuevoKit = new Kit({
@@ -172,8 +172,8 @@ router.post('/confirmar-donaciones', async (req, res) => {
         accountType: usuario.bankAccount.accountType,
         primary: true
       }],
-      // El beneficiario de este nuevo kit será el referente (Mauricio en el caso inicial)
-      donationRecipient: {
+      // El receptor de comisión de este nuevo kit será el referente (segundo nivel)
+      commissionRecipient: {
         name: referente.name,
         bankAccounts: [{
           bankName: referente.bankAccount.bank,
@@ -206,7 +206,7 @@ router.post('/confirmar-donaciones', async (req, res) => {
 
     res.json({
       success: true,
-      message: 'Donaciones confirmadas y Kit2 personalizado en proceso',
+      message: 'Compra confirmada y Kit2 personalizado en proceso',
       data: {
         usuarioId: usuario._id,
         kitId: nuevoKit._id,
@@ -215,7 +215,7 @@ router.post('/confirmar-donaciones', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Error al confirmar donaciones:', error);
+    console.error('❌ Error al confirmar compra:', error);
     res.status(500).json({
       success: false,
       message: 'Error interno del servidor',
@@ -228,7 +228,7 @@ router.post('/confirmar-donaciones', async (req, res) => {
 router.get('/kit-info/:kitId', async (req, res) => {
   try {
     const { kitId } = req.params;
-    
+
     const kit = await Kit.findById(kitId);
     if (!kit) {
       return res.status(404).json({
