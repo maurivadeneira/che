@@ -1,3 +1,13 @@
 node_modules/
 public/contenido-herejiaecon/
 Disco local (C) - Acceso directo.lnk
+# Variables de entorno - CREDENCIALES SENSIBLES
+.env
+env.txt
+*.env
+
+# Archivos de configuración local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
