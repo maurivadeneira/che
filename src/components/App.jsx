@@ -11,6 +11,7 @@ import AdminPanel from "./admin/AdminPanel";
 import DownloadPDF from "../pages/DownloadPDF";
 import PaymentPreferencesForm from "./PaymentPreferencesForm"; // Nueva importación
 import Kit2Activation from "./Kit2Activation"; // Nueva importación
+import ResetPassword from './kit-heresy/ResetPassword';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/activate" element={<ActivateKit />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               
               {/* Nuevas rutas para el sistema multimoneda */}
               <Route path="/payment-preferences" element={<PaymentPreferencesForm />} />

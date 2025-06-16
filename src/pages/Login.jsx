@@ -16,6 +16,8 @@ const Login = () => {
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Limpiar error al escribir
+    if (error) setError("");
   };
 
   const handleSubmit = async e => {
@@ -24,16 +26,33 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("/api/users/login", formData);
+      // ✅ CORREGIDO: Usar la ruta de auth que acabamos de crear
+      const res = await axios.post("/api/auth/login", formData);
       
-      // Guardar el token en localStorage
-      localStorage.setItem("token", res.data.token);
-      
-      // ✅ CAMBIO: Redireccionar al dashboard PROFESIONAL
-      navigate("/mi-cuenta");
+      if (res.data.success) {
+        // Guardar información del usuario (sin token por ahora)
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        
+        // ✅ REDIRIGIR: Al dashboard o página principal
+        navigate("/mi-cuenta");
+        
+        console.log("✅ Login exitoso:", res.data.user.name);
+      } else {
+        setError(res.data.message || "Error al iniciar sesión");
+      }
       
     } catch (err) {
-      setError(err.response?.data?.msg || "Error al iniciar sesión. Por favor, intenta nuevamente.");
+      console.error("❌ Error en login:", err);
+      
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (err.response?.status === 401) {
+        setError("Email o contraseña incorrectos");
+      } else if (err.response?.status === 500) {
+        setError("Error del servidor. Inténtalo más tarde.");
+      } else {
+        setError("Error de conexión. Verifica tu internet.");
+      }
     } finally {
       setLoading(false);
     }
@@ -53,23 +72,29 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
+              id="email"
               name="email"
               value={email}
               onChange={handleChange}
+              placeholder="tu@email.com"
+              disabled={loading}
               required
             />
           </div>
 
           <div className="form-group">
-            <label>Contraseña</label>
+            <label htmlFor="password">Contraseña</label>
             <input
               type="password"
+              id="password"
               name="password"
               value={password}
               onChange={handleChange}
+              placeholder="Tu contraseña"
+              disabled={loading}
               required
             />
           </div>
@@ -84,7 +109,10 @@ const Login = () => {
         </form>
 
         <div className="auth-links">
-          <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+          {/* ✅ CORREGIDO: Link al reset que acabamos de crear */}
+          <Link to="/reset-password" className="forgot-password-link">
+            ¿Olvidaste tu contraseña?
+          </Link>
           <p>
             ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
           </p>

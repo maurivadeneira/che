@@ -75,6 +75,7 @@ app.use("/api/invitations", require("./routes/invitations"));
 app.use("/api/admin", require("./routes/adminRoutes")); // Añadido para rutas de admin
 app.use("/api/pdfs", require("./routes/pdfs")); // Nueva ruta para PDFs personalizados
 app.use("/api/activacion", require("./routes/activacion")); // <- NUEVA LÍNEA para sistema Kit2
+app.use("/api/auth", require("./routes/auth")); // <- NUEVA LÍNEA
 
 // Ruta para la interfaz de generación de Kit del Autor
 app.get('/admin/generar-kit-autor', (req, res) => {
