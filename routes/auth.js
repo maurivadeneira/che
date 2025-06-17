@@ -1,10 +1,20 @@
-// routes/auth.js - Sistema de autenticación y reset de password
+// routes/auth.js - Sistema de autenticación con JWT
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); // AGREGADO
 
-// Ruta para login (si no existe ya)
+// Función para generar JWT
+const generateToken = (userId) => {
+  return jwt.sign(
+    { userId }, 
+    process.env.JWT_SECRET || 'tu_jwt_secret_aqui', 
+    { expiresIn: '30d' }
+  );
+};
+
+// Ruta para login CON JWT
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -28,14 +38,12 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    // Verificar contraseña (asumiendo que algunas pueden no estar hasheadas)
+    // Verificar contraseña
     let passwordMatch = false;
     
     if (user.password.startsWith('$2b$') || user.password.startsWith('$2a$')) {
-      // Contraseña hasheada con bcrypt
       passwordMatch = await bcrypt.compare(password, user.password);
     } else {
-      // Contraseña en texto plano (temporales)
       passwordMatch = password === user.password;
     }
 
@@ -46,11 +54,18 @@ router.post('/login', async (req, res) => {
       });
     }
 
+    // GENERAR TOKEN JWT
+    const token = generateToken(user._id);
+
     console.log('✅ Login exitoso para:', user.name);
+
+    // Actualizar último login
+    await User.findByIdAndUpdate(user._id, { lastLogin: new Date() });
 
     res.json({
       success: true,
       message: 'Login exitoso',
+      token, // AGREGAR TOKEN A LA RESPUESTA
       user: {
         id: user._id,
         name: user.name,
@@ -153,6 +168,7 @@ router.post('/reset-password', async (req, res) => {
     // Actualizar contraseña
     await User.findByIdAndUpdate(user._id, {
       password: hashedPassword,
+      'security.lastPasswordReset': new Date(),
       updatedAt: new Date()
     });
 
@@ -173,79 +189,77 @@ router.post('/reset-password', async (req, res) => {
   }
 });
 
-// Ruta para cambiar password (cuando el usuario está logueado)
-router.post('/change-password', async (req, res) => {
+// Ruta para registro de usuarios
+router.post('/register', async (req, res) => {
   try {
-    const { email, currentPassword, newPassword, confirmPassword } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
 
-    console.log('🔐 Cambio de password para:', email);
+    console.log('📝 Intento de registro:', { name, email });
 
     // Validaciones
-    if (!email || !currentPassword || !newPassword || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       return res.status(400).json({
         success: false,
         message: 'Todos los campos son obligatorios'
       });
     }
 
-    if (newPassword !== confirmPassword) {
+    if (password !== confirmPassword) {
       return res.status(400).json({
         success: false,
-        message: 'Las contraseñas nuevas no coinciden'
+        message: 'Las contraseñas no coinciden'
       });
     }
 
-    if (newPassword.length < 6) {
+    if (password.length < 6) {
       return res.status(400).json({
         success: false,
-        message: 'La nueva contraseña debe tener al menos 6 caracteres'
+        message: 'La contraseña debe tener al menos 6 caracteres'
       });
     }
 
-    // Buscar usuario
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({
+    // Verificar si el usuario ya existe
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({
         success: false,
-        message: 'Usuario no encontrado'
+        message: 'El usuario ya existe'
       });
     }
 
-    // Verificar contraseña actual
-    let currentPasswordMatch = false;
-    
-    if (user.password.startsWith('$2b$') || user.password.startsWith('$2a$')) {
-      currentPasswordMatch = await bcrypt.compare(currentPassword, user.password);
-    } else {
-      currentPasswordMatch = currentPassword === user.password;
-    }
-
-    if (!currentPasswordMatch) {
-      return res.status(401).json({
-        success: false,
-        message: 'La contraseña actual es incorrecta'
-      });
-    }
-
-    // Hashear nueva contraseña
+    // Hashear contraseña
     const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Actualizar contraseña
-    await User.findByIdAndUpdate(user._id, {
+    // Crear nuevo usuario
+    const newUser = new User({
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
       password: hashedPassword,
-      updatedAt: new Date()
+      role: 'user'
     });
 
-    console.log('✅ Password cambiado para:', user.name);
+    await newUser.save();
 
-    res.json({
+    // Generar token
+    const token = generateToken(newUser._id);
+
+    console.log('✅ Usuario registrado:', newUser.name);
+
+    res.status(201).json({
       success: true,
-      message: 'Contraseña cambiada exitosamente'
+      message: 'Usuario registrado exitosamente',
+      token,
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role
+      }
     });
 
   } catch (error) {
-    console.error('❌ Error al cambiar password:', error);
+    console.error('❌ Error en registro:', error);
     res.status(500).json({
       success: false,
       message: 'Error interno del servidor',
