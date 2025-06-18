@@ -96,5 +96,5 @@ app.get('*', (req, res) => {
 });
 
 // Puerto de escucha
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.BACKEND_PORT || 3001;
 app.listen(PORT, () => console.log(`Servidor iniciado en puerto ${PORT}`));

@@ -46,7 +46,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("/api/auth/login", formData);
+      const res = await axios.post("http://localhost:3001/api/auth/login", formData);
       
       console.log('📥 Respuesta del servidor:', res.data);
 
@@ -93,7 +93,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/check-email', {
+      const response = await fetch('http://localhost:3001/api/auth/check-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/reset-password', {
+      const response = await fetch('http://localhost:3001/api/auth/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

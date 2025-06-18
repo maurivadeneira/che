@@ -16,7 +16,7 @@ const UserDashboard = () => {
       const token = localStorage.getItem('token');
       console.log('🔑 Token encontrado:', token ? 'SÍ' : 'NO');
       
-      const response = await fetch('http://localhost:5000/api/users/dashboard', {
+      const response = await fetch('http://localhost:3001/api/users/dashboard', {
         headers: {
           'x-auth-token': token
         }
@@ -43,7 +43,7 @@ const UserDashboard = () => {
   const handleUpdateProfile = async (updatedData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch('http://localhost:3001/api/users/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const UserDashboard = () => {
   const handleUpdateBankAccount = async (bankData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/users/bank-account', {
+      const response = await fetch('http://localhost:3001/api/users/bank-account', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const UserDashboard = () => {
   const handleAddPayPal = async (paypalEmail) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/users/digital-payment', {
+      const response = await fetch('http://localhost:3001/api/users/digital-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
