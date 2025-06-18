@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CHE Corporación Herejía Económica - Un proyecto social global">
+  <title>CHE - Corporación Herejía Económica</title>
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    /* Estilos básicos para la página de redirección */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #7f8c8d;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      padding: 0 20px;
+    }
+    .redirect-button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .redirect-button:hover {
+      background-color: #2980b9;
+    }
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    // Script para redirigir automáticamente después de cargar la página
+    window.onload = function() {
+      // Esperar un momento y luego redirigir al usuario
+      setTimeout(function() {
+        window.location.href = "/fondos";
+      }, 2000); // Redirigir después de 2 segundos
+    };
+  </script>
+</head>
+<body>
+  <img src="/images/logo.png" alt="CHE Logo" class="logo" onerror="this.src='/favicon.ico'">
+  <h1>CHE - Corporación Herejía Económica</h1>
+  <p>Bienvenido a nuestro sitio web. Estamos redirigiendo automáticamente a la página principal...</p>
+  <div class="loader"></div>
+  <p>Si la redirección automática no funciona, haga clic en el botón de abajo:</p>
+  <a href="/fondos" class="redirect-button">Ir a la página principal</a>
+</body>
+</html>

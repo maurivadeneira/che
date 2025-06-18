@@ -1,0 +1,40 @@
+/* CSS para asegurar consistencia en el layout de los fondos */
+
+/* Forzar dos columnas y limitar el ancho máximo */
+.fondos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 768px) {
+  .fondos-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+}
+
+/* Asegurar que las imágenes tengan un tamaño coherente */
+.fondo-image-container {
+  height: 250px;
+  background-color: #1a2a3a;
+}
+
+/* Asegurar que el contenedor principal tenga un ancho máximo consistente */
+.fondos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Solo mantenemos estas reglas con !important para Vercel pero reducimos su agresividad */
+@media (min-width: 769px) {
+  /* Solo para pantallas más grandes, aseguramos 2 columnas en Vercel */
+  .fondos-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debug Images</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    img { max-width: 200px; border: 1px solid #ddd; margin: 10px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Debug Images</h1>
+  <div id="images-container"></div>
+
+  <script>
+    const imagePaths = [
+      "/images/logo.png",
+      "/images/3-Sanacion.png",
+      "/images/4-Vivienda.png",
+      "/images/5-recreacion.png",
+      "/images/6-sistemas.png",
+      "/images/7-Bancario.png",
+      "/images/8-ProyectosIngenieria.png",
+      "/images/10-InvestigacionCiencia.png",
+      "/images/11-ArteCultura.png",
+      "/assets/imagenesfondos/01_Inversion_Empresarial.png",
+      "/assets/imagenesfondos/02_Editorial_y_Medios.png",
+      "/assets/imagenesfondos/03_Sanacion_Emocional.png"
+    ];
+
+    const container = document.getElementById("images-container");
+
+    imagePaths.forEach(path => {
+      const div = document.createElement("div");
+      
+      const img = document.createElement("img");
+      img.src = path;
+      img.alt = path;
+      
+      img.onerror = function() {
+        div.innerHTML = `<p class="error">Error cargando: ${path}</p>`;
+      };
+      
+      img.onload = function() {
+        div.appendChild(img);
+        div.innerHTML += `<p>Cargada correctamente: ${path}</p>`;
+      };
+      
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
