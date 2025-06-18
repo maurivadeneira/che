@@ -14,20 +14,27 @@ const UserDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/users/dashboard', {
+      console.log('🔑 Token encontrado:', token ? 'SÍ' : 'NO');
+      
+      const response = await fetch('http://localhost:5000/api/users/dashboard', {
         headers: {
           'x-auth-token': token
         }
       });
       
+      console.log('📡 Respuesta del servidor:', response.status);
+      
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ Dashboard data recibida:', data);
         setDashboardData(data);
       } else {
-        console.error('Error fetching dashboard data');
+        console.error('❌ Error fetching dashboard data:', response.status);
+        const errorData = await response.json();
+        console.error('Error details:', errorData);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('❌ Network Error:', error);
     } finally {
       setLoading(false);
     }
@@ -36,7 +43,7 @@ const UserDashboard = () => {
   const handleUpdateProfile = async (updatedData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/users/profile', {
+      const response = await fetch('http://localhost:5000/api/users/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +65,7 @@ const UserDashboard = () => {
   const handleUpdateBankAccount = async (bankData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/users/bank-account', {
+      const response = await fetch('http://localhost:5000/api/users/bank-account', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +87,7 @@ const UserDashboard = () => {
   const handleAddPayPal = async (paypalEmail) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/users/digital-payment', {
+      const response = await fetch('http://localhost:5000/api/users/digital-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +119,20 @@ const UserDashboard = () => {
   }
 
   if (!dashboardData) {
-    return <div className="dashboard-error">Error al cargar los datos</div>;
+    return (
+      <div className="dashboard-error">
+        <h2>Error al cargar los datos</h2>
+        <p>No se pudieron cargar los datos del dashboard.</p>
+        <button onClick={fetchDashboardData} className="retry-button">
+          Reintentar
+        </button>
+        <p>
+          <strong>Debug Info:</strong>
+          <br />Token: {localStorage.getItem('token') ? 'Presente' : 'Ausente'}
+          <br />User: {localStorage.getItem('user') ? 'Presente' : 'Ausente'}
+        </p>
+      </div>
+    );
   }
 
   const { user, kits, donationsSent, donationsReceived, stats } = dashboardData;
@@ -207,7 +227,7 @@ const UserDashboard = () => {
             <div className="recent-activity">
               <h2>Actividad Reciente</h2>
               <div className="activity-list">
-                {donationsReceived.slice(0, 5).map((donation, index) => (
+                {donationsReceived && donationsReceived.slice(0, 5).map((donation, index) => (
                   <div key={index} className="activity-item">
                     <div className="activity-icon">💰</div>
                     <div className="activity-info">
@@ -218,6 +238,9 @@ const UserDashboard = () => {
                     </div>
                   </div>
                 ))}
+                {(!donationsReceived || donationsReceived.length === 0) && (
+                  <p>No hay actividad reciente</p>
+                )}
               </div>
             </div>
           </div>
@@ -347,10 +370,10 @@ const UserDashboard = () => {
         {/* PESTAÑA: KITS */}
         {activeTab === 'kits' && (
           <div className="kits-tab">
-            <h2>Mis Kits ({kits.length})</h2>
+            <h2>Mis Kits ({kits ? kits.length : 0})</h2>
             <div className="kits-grid">
-              {kits.map((kit, index) => (
-                <div key={kit._id} className="kit-card">
+              {kits && kits.map((kit, index) => (
+                <div key={kit._id || index} className="kit-card">
                   <div className="kit-header">
                     <h3>Kit #{index + 1}</h3>
                     <span className={`kit-status ${kit.status}`}>
@@ -373,7 +396,7 @@ const UserDashboard = () => {
                 </div>
               ))}
               
-              {kits.length === 0 && (
+              {(!kits || kits.length === 0) && (
                 <div className="no-kits">
                   <p>Aún no tienes kits activados.</p>
                 </div>
@@ -390,12 +413,12 @@ const UserDashboard = () => {
               <div className="summary-card received">
                 <h3>Donaciones Recibidas</h3>
                 <p className="amount">${stats.totalDonationsReceived}</p>
-                <p className="count">{donationsReceived.length} transacciones</p>
+                <p className="count">{donationsReceived ? donationsReceived.length : 0} transacciones</p>
               </div>
               <div className="summary-card sent">
                 <h3>Donaciones Enviadas</h3>
                 <p className="amount">${stats.totalDonationsSent}</p>
-                <p className="count">{donationsSent.length} transacciones</p>
+                <p className="count">{donationsSent ? donationsSent.length : 0} transacciones</p>
               </div>
             </div>
 
@@ -403,21 +426,26 @@ const UserDashboard = () => {
               <h2>Historial de Donaciones</h2>
               
               <div className="donations-list">
-                {[...donationsReceived, ...donationsSent]
-                  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                  .slice(0, 10)
-                  .map((donation, index) => (
-                    <div key={index} className="donation-item">
-                      <div className={`donation-type ${donationsReceived.includes(donation) ? 'received' : 'sent'}`}>
-                        {donationsReceived.includes(donation) ? '↓ Recibida' : '↑ Enviada'}
+                {donationsReceived && donationsSent && 
+                  [...donationsReceived, ...donationsSent]
+                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                    .slice(0, 10)
+                    .map((donation, index) => (
+                      <div key={index} className="donation-item">
+                        <div className={`donation-type ${donationsReceived.includes(donation) ? 'received' : 'sent'}`}>
+                          {donationsReceived.includes(donation) ? '↓ Recibida' : '↑ Enviada'}
+                        </div>
+                        <div className="donation-info">
+                          <p className="amount">${donation.amount}</p>
+                          <p className="date">{new Date(donation.createdAt).toLocaleDateString()}</p>
+                          <p className="status">{donation.status}</p>
+                        </div>
                       </div>
-                      <div className="donation-info">
-                        <p className="amount">${donation.amount}</p>
-                        <p className="date">{new Date(donation.createdAt).toLocaleDateString()}</p>
-                        <p className="status">{donation.status}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))
+                }
+                {(!donationsReceived || donationsReceived.length === 0) && (!donationsSent || donationsSent.length === 0) && (
+                  <p>No hay historial de donaciones</p>
+                )}
               </div>
             </div>
           </div>
