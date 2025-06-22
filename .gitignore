@@ -12,3 +12,13 @@ env.txt
 .env.test.local
 .env.production.local
 .env
+reset-password.js
+debug-jwt.js
+
+# Documentos legales sensibles
+legal/signed-contracts/
+legal/personal-data/
+legal/biometric-data/
+*.p12
+*.pfx
+# Permitir templates legales pero proteger datos reales
