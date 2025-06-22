@@ -118,15 +118,20 @@ exports.loginUser = async (req, res) => {
       });
     }
 
-    // Crear token JWT - MANTENER TU FORMATO EXACTO
+    // Crear token JWT - CORREGIDO: usar _id explícitamente
+    console.log('🔍 DEBUG - user.id:', user.id);
+    console.log('🔍 DEBUG - user._id:', user._id);
+    
     const payload = {
       user: {
-        id: user.id,
+        id: user._id.toString(), // EXPLÍCITO: convertir ObjectId a string
         role: user.role,
         name: user.name,
         email: user.email
       }
     };
+    
+    console.log('🔐 JWT Payload generado:', JSON.stringify(payload, null, 2));
 
     // Actualizar último login
     await User.findByIdAndUpdate(user._id, { lastLogin: new Date() });
