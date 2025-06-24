@@ -77,6 +77,9 @@ app.use("/api/pdfs", require("./routes/pdfs")); // Nueva ruta para PDFs personal
 app.use("/api/activacion", require("./routes/activacion")); // <- NUEVA LÍNEA para sistema Kit2
 app.use("/api/auth", require("./routes/auth")); // <- NUEVA LÍNEA
 
+// 🛡️ SISTEMA KIT2 TEMPORAL (sin dependencias complejas)
+app.use("/api/kit2", require("./routes/kit2Secure_temp")); // ← TEMPORAL hasta instalar dependencias
+
 // Ruta para la interfaz de generación de Kit del Autor
 app.get('/admin/generar-kit-autor', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'autor-kit.html'));
