@@ -32,7 +32,7 @@ const Navbar = () => {
           {isAuthenticated ? (
             <>
               <li className="nav-item">
-                <Link to="/dashboard" className="nav-link">
+                <Link to="/mi-cuenta" className="nav-link">
                   Mi Dashboard
                 </Link>
               </li>

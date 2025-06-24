@@ -1,38 +1,60 @@
-# Estructura de directorios legales para Kit2 Herejía Económica
+# Kit2 Herejía Económica - Documentación Legal
 
-## 📁 Organización:
+## 📁 Estructura de Archivos Legales
 
 ```
 legal/
-├── contracts/              # Contratos base
-│   ├── author-contract-v1.0.md
-│   ├── user-terms-v1.0.md (futuro)
-│   └── privacy-policy-v1.0.md (futuro)
-├── templates/              # Plantillas dinámicas
-│   ├── contract-generator.js
-│   └── digital-signature.js
-├── signed-contracts/       # Contratos firmados (NO en Git)
-│   ├── [autor-id]/
-│   └── [fecha]/
-└── load-contracts.js       # Script para cargar a MongoDB
+├── contrato-autor-kit2.md      # Contrato principal de autor
+└── README.md                   # Esta documentación
+
+models/
+├── Contract.js                 # Schema MongoDB para contratos
+└── User.js                     # Schema actualizado de usuarios
+
+scripts/
+└── init-contracts.js          # Script para inicializar contratos en DB
 ```
 
-## 🛡️ Seguridad:
+## 📋 Contratos Disponibles
 
-- **✅ En Git:** Contratos base (templates)
-- **❌ NO en Git:** Contratos firmados con datos reales
-- **🔐 MongoDB:** Todos los contratos para la aplicación
+### Contrato de Autor (v1.0)
+- **Archivo:** `legal/contrato-autor-kit2.md`
+- **Tipo:** Persona Natural / Persona Jurídica
+- **Características:**
+  - Sistema Kit2 autorreplicante
+  - Distribución 20% autor / 80% corporación
+  - Inmutabilidad post-lanzamiento
+  - Non-exclusividad
+  - Pagos trimestrales
 
-## 🚀 Uso:
+## 🔧 Uso del Sistema de Contratos
 
+### Inicializar Contratos en MongoDB
 ```bash
-# Cargar contratos a MongoDB
-node legal/load-contracts.js
-
-# En la aplicación
-const contract = await LegalDocument.findOne({
-  documentType: 'author_contract',
-  version: '1.0',
-  status: 'active'
-});
+node init-contracts.js
 ```
+
+### Verificar Contratos Activos
+Los contratos se almacenan en la colección `contracts` con:
+- Versionado automático
+- Registro de revisiones
+- Estados (draft/active/deprecated)
+- Aceptaciones de usuarios
+
+## ⚖️ Consideraciones Legales
+
+- **Revisión profesional requerida** antes de uso en producción
+- **Adaptación a jurisdicciones locales** necesaria
+- **Verificación de cumplimiento** con leyes de derechos de autor
+- **Consulta legal especializada** recomendada
+
+## 🔄 Proceso de Actualización
+
+1. Modificar archivo markdown
+2. Crear nueva versión en DB
+3. Deprecar versión anterior
+4. Notificar a usuarios activos
+
+---
+
+*Documentación generada automáticamente - Kit2 Herejía Económica*
