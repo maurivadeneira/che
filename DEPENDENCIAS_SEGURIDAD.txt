@@ -1,0 +1,52 @@
+# DEPENDENCIAS ADICIONALES PARA SISTEMA DE SEGURIDAD KIT2
+# Corporación Herejía Económica
+
+# Para instalar todas las dependencias necesarias para el sistema de seguridad, ejecute:
+# npm install --save
+
+# 🔒 LIBRERÍAS DE SEGURIDAD
+npm install --save express-rate-limit    # Rate limiting para proteger endpoints
+npm install --save crypto               # Criptografía nativa de Node.js (ya incluido)
+npm install --save qrcode               # Generación de códigos QR para verificación
+
+# 📄 GENERACIÓN DE PDF SEGURO
+npm install --save pdfkit               # Biblioteca para generar PDFs
+npm install --save @types/pdfkit        # Tipos TypeScript para PDFKit
+
+# 🔐 AUTENTICACIÓN Y TOKENS
+npm install --save jsonwebtoken         # JWT para tokens seguros (ya instalado)
+npm install --save bcryptjs             # Hashing de contraseñas (ya instalado)
+
+# 🗃️ BASE DE DATOS
+npm install --save mongoose             # MongoDB ODM (ya instalado)
+
+# 🌐 SERVIDOR WEB
+npm install --save express              # Framework web (ya instalado)
+npm install --save cors                 # CORS handling (ya instalado)
+npm install --save dotenv               # Variables de entorno (ya instalado)
+
+# 📁 MANEJO DE ARCHIVOS
+npm install --save fs-extra             # Utilidades adicionales para filesystem
+npm install --save path                 # Manejo de rutas (nativo)
+npm install --save mime-types           # Detección de tipos MIME
+
+# 🛡️ DEPENDENCIAS DE DESARROLLO
+npm install --save-dev nodemon          # Auto-restart durante desarrollo
+
+# COMANDOS DE INSTALACIÓN INDIVIDUAL (ejecutar solo si es necesario):
+
+# Para rate limiting:
+npm install --save express-rate-limit
+
+# Para generación de QR:
+npm install --save qrcode
+
+# Para PDFs seguros:
+npm install --save pdfkit
+
+# Para utilidades de archivos:
+npm install --save fs-extra mime-types
+
+# VERIFICAR INSTALACIÓN:
+# Ejecute: npm list para ver todas las dependencias instaladas
+# Ejecute: npm outdated para verificar actualizaciones disponibles
