@@ -31,7 +31,7 @@ const Kit2Heresy = () => {
     const fetchKitInfo = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/kit-info');
+        const response = await fetch('http://localhost:3001/api/kit-info');
         if (!response.ok) {
           throw new Error('Error al cargar información del Kit');
         }

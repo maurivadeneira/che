@@ -382,4 +382,291 @@ router.post('/generate-initial-kit', async (req, res) => {
   }
 });
 
+// ========== NUEVOS ENDPOINTS PARA EL DASHBOARD ADMIN ==========
+
+// Mock data temporal para el dashboard (puedes reemplazar con MongoDB después)
+const mockKits = [
+  {
+    _id: "668e5fecfcf2e3d6708bbb5c",
+    beneficiario: {
+      nombre: "Daniel Rivadeneira",
+      email: "daniel@example.com",
+      telefono: "+1234567890",
+      pais: "Ecuador",
+      userId: "user_daniel_123"
+    },
+    donaciones: {
+      beneficiario: { estado: "pendiente", monto: 7, tipo: "beneficiario" },
+      corporacion: { estado: "pendiente", monto: 20, tipo: "corporacion" }
+    },
+    estadoGeneral: "pendiente",
+    fechaCreacion: new Date("2024-07-09"),
+    montoTotal: 27,
+    estadisticas: {
+      descargas: 0,
+      ultimoAcceso: null
+    },
+    ipRegistro: "192.168.1.100"
+  },
+  {
+    _id: "668e5fecfcf2e3d6708bbb5d", 
+    beneficiario: {
+      nombre: "María González",
+      email: "maria@example.com",
+      telefono: "+1234567891",
+      pais: "Colombia",
+      userId: "user_maria_456"
+    },
+    donaciones: {
+      beneficiario: { estado: "confirmado", monto: 7, tipo: "beneficiario" },
+      corporacion: { estado: "confirmado", monto: 20, tipo: "corporacion" }
+    },
+    estadoGeneral: "aprobado",
+    fechaCreacion: new Date("2024-07-08"),
+    montoTotal: 27,
+    estadisticas: {
+      descargas: 5,
+      ultimoAcceso: new Date("2024-07-10")
+    },
+    ipRegistro: "192.168.1.101"
+  },
+  {
+    _id: "668e5fecfcf2e3d6708bbb5e",
+    beneficiario: {
+      nombre: "Carlos Mendoza", 
+      email: "carlos@example.com",
+      telefono: "+1234567892",
+      pais: "Perú",
+      userId: "user_carlos_789"
+    },
+    donaciones: {
+      beneficiario: { estado: "rechazado", monto: 7, tipo: "beneficiario" },
+      corporacion: { estado: "pendiente", monto: 20, tipo: "corporacion" }
+    },
+    estadoGeneral: "rechazado",
+    fechaCreacion: new Date("2024-07-07"),
+    montoTotal: 27,
+    estadisticas: {
+      descargas: 0,
+      ultimoAcceso: null
+    },
+    ipRegistro: "192.168.1.102"
+  }
+];
+
+// GET /api/admin/kits - Lista de todos los kits para el dashboard
+router.get('/kits', (req, res) => {
+  try {
+    console.log('📊 Dashboard: Solicitando lista de kits');
+    
+    // Calcular estadísticas en tiempo real
+    const stats = {
+      pendiente: mockKits.filter(k => k.estadoGeneral === 'pendiente').length,
+      aprobado: mockKits.filter(k => k.estadoGeneral === 'aprobado').length,
+      rechazado: mockKits.filter(k => k.estadoGeneral === 'rechazado').length,
+      ingresoTotal: mockKits
+        .filter(k => k.estadoGeneral === 'aprobado')
+        .reduce((total, k) => total + k.montoTotal, 0)
+    };
+    
+    console.log('📊 Estadísticas calculadas:', stats);
+    
+    res.json({
+      kits: mockKits,
+      stats
+    });
+    
+  } catch (error) {
+    console.error('❌ Error obteniendo kits:', error);
+    res.status(500).json({
+      error: 'Error interno',
+      message: 'Error al obtener la lista de kits'
+    });
+  }
+});
+
+// POST /api/admin/kits/:kitId/aprobar - Aprobar un kit
+router.post('/kits/:kitId/aprobar', (req, res) => {
+  try {
+    const { kitId } = req.params;
+    console.log(`✅ Aprobando kit: ${kitId}`);
+    
+    // Buscar el kit en los datos mock
+    const kitIndex = mockKits.findIndex(k => k._id === kitId);
+    
+    if (kitIndex === -1) {
+      return res.status(404).json({
+        error: 'Kit no encontrado'
+      });
+    }
+    
+    // Actualizar estado
+    mockKits[kitIndex].estadoGeneral = 'aprobado';
+    mockKits[kitIndex].donaciones.beneficiario.estado = 'confirmado';
+    mockKits[kitIndex].donaciones.corporacion.estado = 'confirmado';
+    mockKits[kitIndex].fechaActivacion = new Date();
+    
+    console.log(`✅ Kit ${kitId} aprobado exitosamente`);
+    
+    res.json({
+      message: 'Kit aprobado exitosamente',
+      kit: {
+        id: kitId,
+        estado: 'aprobado',
+        fechaActivacion: new Date()
+      }
+    });
+    
+  } catch (error) {
+    console.error('❌ Error aprobando kit:', error);
+    res.status(500).json({
+      error: 'Error interno',
+      message: 'Error al aprobar el kit'
+    });
+  }
+});
+
+// POST /api/admin/kits/:kitId/rechazar - Rechazar un kit
+router.post('/kits/:kitId/rechazar', (req, res) => {
+  try {
+    const { kitId } = req.params;
+    const { motivo } = req.body;
+    console.log(`❌ Rechazando kit: ${kitId}, motivo: ${motivo}`);
+    
+    // Buscar el kit en los datos mock
+    const kitIndex = mockKits.findIndex(k => k._id === kitId);
+    
+    if (kitIndex === -1) {
+      return res.status(404).json({
+        error: 'Kit no encontrado'
+      });
+    }
+    
+    // Actualizar estado
+    mockKits[kitIndex].estadoGeneral = 'rechazado';
+    mockKits[kitIndex].donaciones.beneficiario.estado = 'rechazado';
+    mockKits[kitIndex].donaciones.corporacion.estado = 'rechazado';
+    mockKits[kitIndex].motivoRechazo = motivo;
+    mockKits[kitIndex].fechaRechazo = new Date();
+    
+    console.log(`❌ Kit ${kitId} rechazado exitosamente`);
+    
+    res.json({
+      message: 'Kit rechazado',
+      kit: {
+        id: kitId,
+        estado: 'rechazado',
+        motivo
+      }
+    });
+    
+  } catch (error) {
+    console.error('❌ Error rechazando kit:', error);
+    res.status(500).json({
+      error: 'Error interno',
+      message: 'Error al rechazar el kit'
+    });
+  }
+});
+
+// GET /api/admin/stats - Estadísticas generales del sistema
+router.get('/stats', (req, res) => {
+  try {
+    console.log('📊 Generando estadísticas del sistema');
+    
+    const stats = {
+      kits: {
+        total: mockKits.length,
+        activos: mockKits.filter(k => k.estadoGeneral === 'aprobado').length,
+        ultimos30Dias: mockKits.length, // Simplificado para demo
+        tasaConversion: mockKits.length > 0 ? 
+          (mockKits.filter(k => k.estadoGeneral === 'aprobado').length / mockKits.length * 100).toFixed(1) : 0
+      },
+      descargas: {
+        total: mockKits.reduce((total, k) => total + k.estadisticas.descargas, 0),
+        ultimos7Dias: 2, // Simplificado para demo
+        promedioPorKit: mockKits.length > 0 ? 
+          (mockKits.reduce((total, k) => total + k.estadisticas.descargas, 0) / mockKits.length).toFixed(1) : 0
+      },
+      financiero: {
+        ingresosTotales: mockKits
+          .filter(k => k.estadoGeneral === 'aprobado')
+          .reduce((total, k) => total + k.montoTotal, 0),
+        ingresoPromedioPorKit: 27
+      },
+      geografico: [
+        { _id: "Ecuador", count: 1 },
+        { _id: "Colombia", count: 1 },
+        { _id: "Perú", count: 1 }
+      ]
+    };
+    
+    console.log('📊 Estadísticas generadas:', stats);
+    
+    res.json(stats);
+    
+  } catch (error) {
+    console.error('❌ Error generando estadísticas:', error);
+    res.status(500).json({
+      error: 'Error interno',
+      message: 'Error al obtener estadísticas'
+    });
+  }
+});
+
+// GET /api/admin/kits/:kitId - Detalles de un kit específico
+router.get('/kits/:kitId', (req, res) => {
+  try {
+    const { kitId } = req.params;
+    console.log(`🔍 Obteniendo detalles del kit: ${kitId}`);
+    
+    const kit = mockKits.find(k => k._id === kitId);
+    
+    if (!kit) {
+      return res.status(404).json({
+        error: 'Kit no encontrado'
+      });
+    }
+    
+    // Simular historial de descargas
+    const historialDescargas = [
+      {
+        obraKey: 'libro1',
+        fechaDescarga: new Date('2024-07-09T10:30:00'),
+        ip: kit.ipRegistro
+      },
+      {
+        obraKey: 'articulo_1',
+        fechaDescarga: new Date('2024-07-09T11:15:00'),
+        ip: kit.ipRegistro
+      }
+    ];
+    
+    const estadisticas = {
+      totalDescargas: historialDescargas.length,
+      descargasPorObra: {
+        'libro1': 1,
+        'articulo_1': 1
+      },
+      ultimoAcceso: historialDescargas[0]?.fechaDescarga,
+      ipsUnicas: 1
+    };
+    
+    res.json({
+      kit,
+      estadisticas,
+      historialDescargas
+    });
+    
+  } catch (error) {
+    console.error('❌ Error obteniendo detalles del kit:', error);
+    res.status(500).json({
+      error: 'Error interno',
+      message: 'Error al obtener detalles del kit'
+    });
+  }
+});
+
+// ========== FIN DE ENDPOINTS DASHBOARD ==========
+
 module.exports = router;

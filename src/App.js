@@ -11,6 +11,7 @@ import ActivateKit from "./pages/ActivateKit";
 import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro componente Kit2
 import AdminPanel from "./components/admin/AdminPanel";
 import DownloadPDF from "./pages/DownloadPDF";
+import KitHeresy from "./components/kit-heresy/KitHeresy"; // ✅ NUEVA: Sistema Kit2 informativo
 import "./App.css";
 
 const App = () => {
@@ -41,6 +42,9 @@ const App = () => {
               
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
+              
+              {/* ✅ NUEVAS RUTAS: Sistema Kit2 informativo */}
+              
             </Routes>
           </div>
         </div>

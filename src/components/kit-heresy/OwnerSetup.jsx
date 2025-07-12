@@ -158,3 +158,20 @@ const OwnerSetup = ({ onSetupComplete }) => {
           <input type="checkbox" id="consent" required />
           <label htmlFor="consent">
             Declaro que soy el propietario de los derechos de la obra y autorizo a la Corporación
+            Herejía Económica a distribuir mi Kit usando el sistema de donaciones establecido.
+          </label>
+        </div>
+        
+        <button 
+          type="submit" 
+          className="setup-submit-button"
+          disabled={isLoading}
+        >
+          {isLoading ? 'Configurando...' : 'Configurar Kit como Propietario'}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default OwnerSetup;

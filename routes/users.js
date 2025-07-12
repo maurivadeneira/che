@@ -3,6 +3,24 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const auth = require("../middleware/auth");
 
+// ===== RUTA GET PARA TESTING =====
+// @route   GET api/users
+// @desc    Verificar que las rutas de usuarios funcionan
+// @access  Public
+router.get("/", (req, res) => {
+  res.json({ 
+    message: "Rutas de usuarios funcionando correctamente", 
+    endpoints: [
+      "GET / - Esta ruta de testing",
+      "POST / - Registrar usuario", 
+      "POST /login - Login usuario",
+      "GET /me - Usuario actual (requiere auth)",
+      "GET /dashboard - Dashboard (requiere auth)"
+    ],
+    status: "success"
+  });
+});
+
 // ===== RUTAS PÚBLICAS =====
 
 // @route   POST api/users

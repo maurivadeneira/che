@@ -68,7 +68,7 @@ app.get('/temp/:filename', (req, res, next) => {
   }
 });
 
-// Definir rutas API
+// Definir rutas
 app.use("/api/users", require("./routes/users"));
 app.use("/api/kits", require("./routes/kits"));
 app.use("/api/invitations", require("./routes/invitations"));
@@ -77,32 +77,9 @@ app.use("/api/pdfs", require("./routes/pdfs")); // Nueva ruta para PDFs personal
 app.use("/api/activacion", require("./routes/activacion")); // <- NUEVA LÍNEA para sistema Kit2
 app.use("/api/auth", require("./routes/auth")); // <- NUEVA LÍNEA
 
-// 🛡️ RUTAS KIT2 TEMPORALES (AGREGADA)
-app.use("/api/kit2", require("./routes/kit2Secure_temp")); // ← LÍNEA FALTANTE AGREGADA
-
 // Ruta para la interfaz de generación de Kit del Autor
 app.get('/admin/generar-kit-autor', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'autor-kit.html'));
-});
-
-// ========== NUEVA RUTA PARA EL DASHBOARD ADMIN ==========
-// Ruta para el dashboard admin (DEBE IR ANTES del catch-all de React)
-app.get('/admin', (req, res) => {
-  try {
-    const adminPath = path.join(__dirname, 'views', 'admin-dashboard.html');
-    console.log('🎯 Sirviendo dashboard admin desde:', adminPath);
-    
-    // Verificar que el archivo existe
-    if (fs.existsSync(adminPath)) {
-      res.sendFile(adminPath);
-    } else {
-      console.error('❌ Archivo admin-dashboard.html no encontrado en:', adminPath);
-      res.status(404).send('Dashboard admin no encontrado. Verifica que existe views/admin-dashboard.html');
-    }
-  } catch (error) {
-    console.error('❌ Error sirviendo dashboard admin:', error);
-    res.status(500).send('Error interno del servidor');
-  }
 });
 
 // Ruta básica
@@ -113,15 +90,7 @@ app.get("/api", (req, res) => {
 // Servir archivos estáticos (para React)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ NUEVA: Ruta específica para mostrar el PDF del Kit2
-app.get('/kit-heresy', (req, res) => {
-  const pdfPath = path.join(__dirname, 'temp', 'Guia-Familiar-Sistema-Kit2.pdf');
-  res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', 'inline');
-  res.sendFile(pdfPath);
-});
-
-// Manejar todas las rutas no API con React (DEBE IR AL FINAL)
+// Manejar todas las rutas no API con React
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Configurar la URL base para las solicitudes de API
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "http://localhost:3001";
 
 // Interceptor para añadir token automáticamente
 axios.interceptors.request.use(

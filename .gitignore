@@ -22,3 +22,6 @@ legal/biometric-data/
 *.p12
 *.pfx
 # Permitir templates legales pero proteger datos reales
+# Archivos temporales y PDFs locales
+temp/*.pdf
+ContenidoProyChe/**/*.pdf

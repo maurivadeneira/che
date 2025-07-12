@@ -21,8 +21,8 @@
 
 ### **Variables de entorno (.env):**
 ```env
-MONGODB_URI=mongodb+srv://maurivadeneira:yYjl6uiQPDrkKKNR@cluster0.xs2ls7f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=kit2_heresia_economica_secreto_2024_mauricio
+MONGODB_URI=[CONFIGURADO EN ARCHIVO .env LOCAL - NO INCLUIR EN GIT]
+JWT_SECRET=[CONFIGURADO EN ARCHIVO .env LOCAL - NO INCLUIR EN GIT]
 BACKEND_PORT=3001
 ```
 
@@ -59,7 +59,7 @@ npm run dev
 
 ## 👤 **USUARIO DE PRUEBA FUNCIONANDO**
 - **Email:** `maurivadeneira@yahoo.es`
-- **Contraseña:** [Tu contraseña personal que configuraste]
+- **Contraseña:** [Configurada localmente]
 - **Rol:** `user`
 - **Estado:** Login y dashboard funcionando 100%
 
@@ -179,15 +179,9 @@ npm run dev
 
 ## 💾 **ESTADO GIT ACTUAL**
 - **Branch actual:** `main-copia-kit2`
-- **Commits realizados:** 3 commits ahead de origin
-- **Último commit:** `21967bd` - "Major: Sistema legal Kit2 + Correcciones críticas"
-- **Estado:** Working tree clean (solo archivo fondos pendiente)
+- **Commits realizados:** Múltiples commits seguros
+- **Estado:** Working tree clean 
 - **Archivos importantes:** TODO respaldado en Git
-
-### **Commits recientes:**
-1. Fix middleware auth + Navbar routing
-2. Sistema legal completo + contratos
-3. Schema Contract + documentación
 
 ---
 
@@ -201,8 +195,9 @@ npm run dev
 
 ### **Variables sensibles protegidas:**
 - `.env` en `.gitignore` ✅
+- **IMPORTANTE:** Variables de entorno nunca deben incluirse en Git
+- Credenciales MongoDB y JWT_SECRET solo en archivos locales
 - Scripts de reset password ignorados ✅
-- Credenciales MongoDB seguras ✅
 
 ---
 
@@ -230,8 +225,8 @@ node init-contracts.js
 
 ## ⚠️ **NOTAS IMPORTANTES PARA PRÓXIMA SESIÓN**
 - **NO cambiar puertos** - Configuración actual funciona perfectamente
-- **JWT_SECRET** configurado en .env
-- **MongoDB** conectado a cluster en la nube
+- **Variables de entorno** configuradas en .env local (nunca en Git)
+- **MongoDB** conectado a cluster en la nube con credenciales seguras
 - **UserDashboard.jsx** tiene todas las URLs correctas (puerto 3001)
 - **Middleware auth** maneja compatibilidad total de tokens
 - **Sistema legal** completo y profesional listo para implementar
