@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
 import './OwnerSetup.css';
+import { useKit } from '../../context/KitContext';
 
 const OwnerSetup = ({ onSetupComplete }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [accountName, setAccountName] = useState('');
-  const [accountNumber, setAccountNumber] = useState('');
-  const [bank, setBank] = useState('');
-  const [paypalEmail, setPaypalEmail] = useState('');
+  const { kitData, updateOwner } = useKit();
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    updateOwner({ [name]: value });
+  };
+
+  const handlePaymentInfoChange = (e) => {
+    const { name, value } = e.target;
+    updateOwner({
+      paymentInfo: {
+        ...kitData.owner.paymentInfo,
+        [name]: value
+      }
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     // Validación básica
-    if (!name || !email) {
+    if (!kitData.owner.name || !kitData.owner.email) {
       setError('Por favor, completa los campos obligatorios (nombre y email).');
       return;
     }
     
-    if (!email.includes('@') || !email.includes('.')) {
+    if (!kitData.owner.email.includes('@') || !kitData.owner.email.includes('.')) {
       setError('Por favor, ingresa un correo electrónico válido.');
       return;
     }
     
-    if (!accountName || !accountNumber || !bank) {
+    if (!kitData.owner.paymentInfo?.accountName || !kitData.owner.paymentInfo?.accountNumber || !kitData.owner.paymentInfo?.bank) {
       setError('Por favor, completa la información bancaria para recibir donaciones.');
       return;
     }
@@ -34,22 +45,14 @@ const OwnerSetup = ({ onSetupComplete }) => {
     
     // Simulamos el proceso de guardado
     setTimeout(() => {
-      // Datos del propietario para inicializar el ciclo de distribución
-      const ownerData = {
-        name,
-        email,
-        paymentInfo: {
-          accountName,
-          accountNumber,
-          bank,
-          paypalEmail: paypalEmail || null
-        },
+      // Actualizamos la información adicional del propietario
+      updateOwner({
         setupDate: new Date().toISOString(),
         isOwner: true
-      };
+      });
       
       setIsLoading(false);
-      onSetupComplete(ownerData);
+      onSetupComplete(kitData.owner);
     }, 1000);
   };
 
@@ -77,8 +80,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="text"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              value={kitData.owner.name || ''}
+              onChange={handleChange}
               required
             />
           </div>
@@ -88,8 +92,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={kitData.owner.email || ''}
+              onChange={handleChange}
               required
             />
           </div>
@@ -103,8 +108,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="text"
               id="accountName"
-              value={accountName}
-              onChange={(e) => setAccountName(e.target.value)}
+              name="accountName"
+              value={kitData.owner.paymentInfo?.accountName || ''}
+              onChange={handlePaymentInfoChange}
               required
             />
           </div>
@@ -114,8 +120,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="text"
               id="accountNumber"
-              value={accountNumber}
-              onChange={(e) => setAccountNumber(e.target.value)}
+              name="accountNumber"
+              value={kitData.owner.paymentInfo?.accountNumber || ''}
+              onChange={handlePaymentInfoChange}
               required
             />
           </div>
@@ -125,8 +132,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="text"
               id="bank"
-              value={bank}
-              onChange={(e) => setBank(e.target.value)}
+              name="bank"
+              value={kitData.owner.paymentInfo?.bank || ''}
+              onChange={handlePaymentInfoChange}
               required
             />
           </div>
@@ -136,8 +144,9 @@ const OwnerSetup = ({ onSetupComplete }) => {
             <input
               type="email"
               id="paypalEmail"
-              value={paypalEmail}
-              onChange={(e) => setPaypalEmail(e.target.value)}
+              name="paypalEmail"
+              value={kitData.owner.paymentInfo?.paypalEmail || ''}
+              onChange={handlePaymentInfoChange}
             />
             <p className="help-text">
               Para recibir donaciones internacionales, recomendamos proporcionar una cuenta de PayPal.
@@ -148,17 +157,17 @@ const OwnerSetup = ({ onSetupComplete }) => {
         <div className="consent-box">
           <input type="checkbox" id="consent" required />
           <label htmlFor="consent">
-            Declaro que soy el propietario de los derechos de la obra y autorizo a la Corporación Herejía Económica 
-            a distribuirla mediante el sistema de donaciones del Kit.
+            Declaro que soy el propietario de los derechos de la obra y autorizo a la Corporación
+            Herejía Económica a distribuir mi Kit usando el sistema de donaciones establecido.
           </label>
         </div>
         
         <button 
           type="submit" 
-          className="setup-action-button"
+          className="setup-submit-button"
           disabled={isLoading}
         >
-          {isLoading ? 'Procesando...' : 'Iniciar Distribución del Kit'}
+          {isLoading ? 'Configurando...' : 'Configurar Kit como Propietario'}
         </button>
       </form>
     </div>

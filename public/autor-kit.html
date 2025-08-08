@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Kit2 del Autor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        .payment-methods {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+        }
+        .payment-methods h3 {
+            margin-top: 0;
+            color: #444;
+        }
+        .add-method {
+            margin-top: 10px;
+            text-align: right;
+        }
+        .add-method button {
+            background-color: #007bff;
+        }
+        .add-method button:hover {
+            background-color: #0069d9;
+        }
+        .payment-method {
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .payment-method:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .remove-method {
+            color: #dc3545;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generar Kit2 del Autor</h1>
+        <p>Este formulario permite generar el Kit2 inicial para el autor Mauricio Rivadeneira, designando a un beneficiario diferente.</p>
+        
+        <div class="important-note">
+            <strong>Nota importante:</strong> El autor y el beneficiario NO pueden ser la misma persona. El sistema verificará esto automáticamente. Además, debe incluir al menos un método de pago para cada participante.
+        </div>
+        
+        <form id="autorKitForm">
+            <h2>Datos del Autor</h2>
+            <div class="form-group">
+                <label for="autorId">ID del Autor:</label>
+                <input type="text" id="autorId" name="autorId" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nombreAutor">Nombre del Autor:</label>
+                <input type="text" id="nombreAutor" name="nombreAutor" value="Mauricio Rivadeneira" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="emailAutor">Email del Autor:</label>
+                <input type="email" id="emailAutor" name="emailAutor" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefonoAutor">Teléfono del Autor:</label>
+                <input type="tel" id="telefonoAutor" name="telefonoAutor" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="paisAutor">País del Autor:</label>
+                <input type="text" id="paisAutor" name="paisAutor" required>
+            </div>
+            
+            <!-- Métodos de Pago del Autor -->
+            <div class="payment-methods">
+                <h3>Métodos de Pago del Autor</h3>
+                <p>Añada al menos un método de pago para recibir donaciones:</p>
+                
+                <div id="autorPaymentMethods">
+                    <div class="payment-method">
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Tipo">Tipo de Pago:</label>
+                            <select id="autorMetodoPago0Tipo" name="autorMetodoPago0Tipo" required>
+                                <option value="">Seleccione un método</option>
+                                <option value="banco">Transferencia Bancaria</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="crypto">Criptomonedas</option>
+                                <option value="otro">Otro Método</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Titular">Titular de la Cuenta:</label>
+                            <input type="text" id="autorMetodoPago0Titular" name="autorMetodoPago0Titular" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Cuenta">Número de Cuenta/Email/Dirección:</label>
+                            <input type="text" id="autorMetodoPago0Cuenta" name="autorMetodoPago0Cuenta" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Banco">Banco/Proveedor (si aplica):</label>
+                            <input type="text" id="autorMetodoPago0Banco" name="autorMetodoPago0Banco">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Moneda">Moneda Preferida:</label>
+                            <input type="text" id="autorMetodoPago0Moneda" name="autorMetodoPago0Moneda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="autorMetodoPago0Adicional">Información Adicional:</label>
+                            <textarea id="autorMetodoPago0Adicional" name="autorMetodoPago0Adicional" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="add-method">
+                    <button type="button" id="addAutorPaymentMethod">+ Añadir Otro Método de Pago</button>
+                </div>
+            </div>
+            
+            <h2>Datos del Beneficiario</h2>
+            <div class="form-group">
+                <label for="beneficiarioId">ID del Beneficiario:</label>
+                <input type="text" id="beneficiarioId" name="beneficiarioId" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nombreBeneficiario">Nombre del Beneficiario:</label>
+                <input type="text" id="nombreBeneficiario" name="nombreBeneficiario" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="emailBeneficiario">Email del Beneficiario:</label>
+                <input type="email" id="emailBeneficiario" name="emailBeneficiario" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefonoBeneficiario">Teléfono del Beneficiario:</label>
+                <input type="tel" id="telefonoBeneficiario" name="telefonoBeneficiario" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="paisBeneficiario">País del Beneficiario:</label>
+                <input type="text" id="paisBeneficiario" name="paisBeneficiario" required>
+            </div>
+            
+            <!-- Métodos de Pago del Beneficiario -->
+            <div class="payment-methods">
+                <h3>Métodos de Pago del Beneficiario</h3>
+                <p>Añada al menos un método de pago para recibir donaciones:</p>
+                
+                <div id="beneficiarioPaymentMethods">
+                    <div class="payment-method">
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Tipo">Tipo de Pago:</label>
+                            <select id="beneficiarioMetodoPago0Tipo" name="beneficiarioMetodoPago0Tipo" required>
+                                <option value="">Seleccione un método</option>
+                                <option value="banco">Transferencia Bancaria</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="crypto">Criptomonedas</option>
+                                <option value="otro">Otro Método</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Titular">Titular de la Cuenta:</label>
+                            <input type="text" id="beneficiarioMetodoPago0Titular" name="beneficiarioMetodoPago0Titular" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Cuenta">Número de Cuenta/Email/Dirección:</label>
+                            <input type="text" id="beneficiarioMetodoPago0Cuenta" name="beneficiarioMetodoPago0Cuenta" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Banco">Banco/Proveedor (si aplica):</label>
+                            <input type="text" id="beneficiarioMetodoPago0Banco" name="beneficiarioMetodoPago0Banco">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Moneda">Moneda Preferida:</label>
+                            <input type="text" id="beneficiarioMetodoPago0Moneda" name="beneficiarioMetodoPago0Moneda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="beneficiarioMetodoPago0Adicional">Información Adicional:</label>
+                            <textarea id="beneficiarioMetodoPago0Adicional" name="beneficiarioMetodoPago0Adicional" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="add-method">
+                    <button type="button" id="addBeneficiarioPaymentMethod">+ Añadir Otro Método de Pago</button>
+                </div>
+            </div>
+            
+            <h2>Información Adicional</h2>
+            <div class="form-group">
+                <label for="observaciones">Observaciones (opcional):</label>
+                <textarea id="observaciones" name="observaciones" rows="4" placeholder="Cualquier nota adicional sobre este Kit2 inicial"></textarea>
+            </div>
+            
+            <button type="submit">Generar Kit2 del Autor</button>
+        </form>
+        
+        <div id="result" class="result">
+            <h3>Resultado:</h3>
+            <p id="message"></p>
+            <div id="pdfLink"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Contador para los métodos de pago
+        let autorPaymentMethodCount = 1;
+        let beneficiarioPaymentMethodCount = 1;
+        
+        // Función para añadir método de pago del autor
+        document.getElementById('addAutorPaymentMethod').addEventListener('click', function() {
+            const container = document.getElementById('autorPaymentMethods');
+            const newMethod = document.createElement('div');
+            newMethod.className = 'payment-method';
+            newMethod.innerHTML = `
+                <button type="button" class="remove-method" onclick="this.parentElement.remove()">Eliminar</button>
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Tipo">Tipo de Pago:</label>
+                    <select id="autorMetodoPago${autorPaymentMethodCount}Tipo" name="autorMetodoPago${autorPaymentMethodCount}Tipo" required>
+                        <option value="">Seleccione un método</option>
+                        <option value="banco">Transferencia Bancaria</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="crypto">Criptomonedas</option>
+                        <option value="otro">Otro Método</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Titular">Titular de la Cuenta:</label>
+                    <input type="text" id="autorMetodoPago${autorPaymentMethodCount}Titular" name="autorMetodoPago${autorPaymentMethodCount}Titular" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Cuenta">Número de Cuenta/Email/Dirección:</label>
+                    <input type="text" id="autorMetodoPago${autorPaymentMethodCount}Cuenta" name="autorMetodoPago${autorPaymentMethodCount}Cuenta" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Banco">Banco/Proveedor (si aplica):</label>
+                    <input type="text" id="autorMetodoPago${autorPaymentMethodCount}Banco" name="autorMetodoPago${autorPaymentMethodCount}Banco">
+                </div>
+                
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Moneda">Moneda Preferida:</label>
+                    <input type="text" id="autorMetodoPago${autorPaymentMethodCount}Moneda" name="autorMetodoPago${autorPaymentMethodCount}Moneda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="autorMetodoPago${autorPaymentMethodCount}Adicional">Información Adicional:</label>
+                    <textarea id="autorMetodoPago${autorPaymentMethodCount}Adicional" name="autorMetodoPago${autorPaymentMethodCount}Adicional" rows="2"></textarea>
+                </div>
+            `;
+            container.appendChild(newMethod);
+            autorPaymentMethodCount++;
+        });
+        
+        // Función para añadir método de pago del beneficiario
+        document.getElementById('addBeneficiarioPaymentMethod').addEventListener('click', function() {
+            const container = document.getElementById('beneficiarioPaymentMethods');
+            const newMethod = document.createElement('div');
+            newMethod.className = 'payment-method';
+            newMethod.innerHTML = `
+                <button type="button" class="remove-method" onclick="this.parentElement.remove()">Eliminar</button>
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Tipo">Tipo de Pago:</label>
+                    <select id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Tipo" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Tipo" required>
+                        <option value="">Seleccione un método</option>
+                        <option value="banco">Transferencia Bancaria</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="crypto">Criptomonedas</option>
+                        <option value="otro">Otro Método</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Titular">Titular de la Cuenta:</label>
+                    <input type="text" id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Titular" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Titular" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Cuenta">Número de Cuenta/Email/Dirección:</label>
+                    <input type="text" id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Cuenta" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Cuenta" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Banco">Banco/Proveedor (si aplica):</label>
+                    <input type="text" id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Banco" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Banco">
+                </div>
+                
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Moneda">Moneda Preferida:</label>
+                    <input type="text" id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Moneda" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Moneda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Adicional">Información Adicional:</label>
+                    <textarea id="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Adicional" name="beneficiarioMetodoPago${beneficiarioPaymentMethodCount}Adicional" rows="2"></textarea>
+                </div>
+            `;
+            container.appendChild(newMethod);
+            beneficiarioPaymentMethodCount++;
+        });
+        
+        // Envío del formulario
+        document.getElementById('autorKitForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const autorId = document.getElementById('autorId').value;
+            const beneficiarioId = document.getElementById('beneficiarioId').value;
+            const emailAutor = document.getElementById('emailAutor').value;
+            const emailBeneficiario = document.getElementById('emailBeneficiario').value;
+            
+            // Verificar que autor y beneficiario no sean iguales
+            if (autorId === beneficiarioId || emailAutor === emailBeneficiario) {
+                const resultDiv = document.getElementById('result');
+                const messageP = document.getElementById('message');
+                
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                messageP.textContent = 'El autor y el beneficiario no pueden ser la misma persona.';
+                document.getElementById('pdfLink').innerHTML = '';
+                return;
+            }
+            
+            // Recopilar métodos de pago del autor
+            const metodosPagoAutor = [];
+            const autorPaymentMethods = document.querySelectorAll('#autorPaymentMethods .payment-method');
+            autorPaymentMethods.forEach((method, index) => {
+                const tipoSelect = document.getElementById(`autorMetodoPago${index}Tipo`);
+                if (tipoSelect && tipoSelect.value) {
+                    metodosPagoAutor.push({
+                        tipo: tipoSelect.value,
+                        titular: document.getElementById(`autorMetodoPago${index}Titular`).value,
+                        cuenta: document.getElementById(`autorMetodoPago${index}Cuenta`).value,
+                        banco: document.getElementById(`autorMetodoPago${index}Banco`).value,
+                        moneda: document.getElementById(`autorMetodoPago${index}Moneda`).value,
+                        adicional: document.getElementById(`autorMetodoPago${index}Adicional`).value,
+                        fechaCreacion: new Date(),
+                        activo: true
+                    });
+                }
+            });
+            
+            // Recopilar métodos de pago del beneficiario
+            const metodosPagoBeneficiario = [];
+            const beneficiarioPaymentMethods = document.querySelectorAll('#beneficiarioPaymentMethods .payment-method');
+            beneficiarioPaymentMethods.forEach((method, index) => {
+                const tipoSelect = document.getElementById(`beneficiarioMetodoPago${index}Tipo`);
+                if (tipoSelect && tipoSelect.value) {
+                    metodosPagoBeneficiario.push({
+                        tipo: tipoSelect.value,
+                        titular: document.getElementById(`beneficiarioMetodoPago${index}Titular`).value,
+                        cuenta: document.getElementById(`beneficiarioMetodoPago${index}Cuenta`).value,
+                        banco: document.getElementById(`beneficiarioMetodoPago${index}Banco`).value,
+                        moneda: document.getElementById(`beneficiarioMetodoPago${index}Moneda`).value,
+                        adicional: document.getElementById(`beneficiarioMetodoPago${index}Adicional`).value,
+                        fechaCreacion: new Date(),
+                        activo: true
+                    });
+                }
+            });
+            
+            // Verificar que haya al menos un método de pago por persona
+            if (metodosPagoAutor.length === 0 || metodosPagoBeneficiario.length === 0) {
+                const resultDiv = document.getElementById('result');
+                const messageP = document.getElementById('message');
+                
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                messageP.textContent = 'Debe proporcionar al menos un método de pago tanto para el autor como para el beneficiario.';
+                document.getElementById('pdfLink').innerHTML = '';
+                return;
+            }
+            
+            const formData = {
+                autorId: autorId,
+                nombreAutor: document.getElementById('nombreAutor').value,
+                emailAutor: emailAutor,
+                telefonoAutor: document.getElementById('telefonoAutor').value,
+                paisAutor: document.getElementById('paisAutor').value,
+                metodosPagoAutor: metodosPagoAutor,
+                
+                beneficiarioId: beneficiarioId,
+                nombreBeneficiario: document.getElementById('nombreBeneficiario').value,
+                emailBeneficiario: emailBeneficiario,
+                telefonoBeneficiario: document.getElementById('telefonoBeneficiario').value,
+                paisBeneficiario: document.getElementById('paisBeneficiario').value,
+                metodosPagoBeneficiario: metodosPagoBeneficiario,
+                
+                observaciones: document.getElementById('observaciones').value
+            };
+            
+            try {
+                const response = await fetch('/api/admin/generate-autor-kit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                const resultDiv = document.getElementById('result');
+                const messageP = document.getElementById('message');
+                const pdfLinkDiv = document.getElementById('pdfLink');
+                
+                resultDiv.style.display = 'block';
+                
+                if (data.success) {
+                    resultDiv.className = 'result success';
+                    messageP.textContent = data.message;
+                    pdfLinkDiv.innerHTML = `<p>El PDF se ha generado correctamente:</p>
+                        <p><a href="${data.data.urlArchivo}" target="_blank">Ver PDF</a></p>
+                        <p>ID del PDF: ${data.data.pdfId}</p>
+                        <p>ID del Kit: ${data.data.kitId}</p>`;
+                } else {
+                    resultDiv.className = 'result error';
+                    messageP.textContent = data.message || 'Error al generar el Kit2 del Autor';
+                    pdfLinkDiv.innerHTML = '';
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                const resultDiv = document.getElementById('result');
+                const messageP = document.getElementById('message');
+                
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                messageP.textContent = 'Error al procesar la solicitud';
+                document.getElementById('pdfLink').innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>

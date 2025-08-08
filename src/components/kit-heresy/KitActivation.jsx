@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useKit } from '../../context/KitContext';
 
 const KitActivation = ({ onActivationComplete }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const { kitData, updateBeneficiary } = useKit();
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState('personal'); // 'personal', 'donations', 'success'
@@ -14,17 +14,23 @@ const KitActivation = ({ onActivationComplete }) => {
     const invitedBy = urlParams.get('invited_by');
     if (invitedBy) {
       setReferrer(invitedBy);
+      updateBeneficiary({ referrer: invitedBy });
     }
-  }, []);
+  }, [updateBeneficiary]);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    updateBeneficiary({ [name]: value });
+  };
   
   const handlePersonalInfoSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email) {
+    if (!kitData.beneficiary.name || !kitData.beneficiary.email) {
       setError('Por favor, completa todos los campos.');
       return;
     }
     
-    if (!email.includes('@') || !email.includes('.')) {
+    if (!kitData.beneficiary.email.includes('@') || !kitData.beneficiary.email.includes('.')) {
       setError('Por favor, ingresa un correo electrónico válido.');
       return;
     }
@@ -42,14 +48,16 @@ const KitActivation = ({ onActivationComplete }) => {
       setStep('success');
       setIsLoading(false);
       
+      // Actualizamos la fecha de activación en el contexto
+      updateBeneficiary({
+        activationDate: new Date().toISOString(),
+        referrer: referrer || 'directo',
+        isBeneficiary: true
+      });
+      
       // Notificamos que la activación está completa
       if (onActivationComplete) {
-        onActivationComplete({
-          name,
-          email,
-          activationDate: new Date().toISOString(),
-          referrer: referrer || 'directo'
-        });
+        onActivationComplete(kitData.beneficiary);
       }
     }, 1500);
   };
@@ -71,8 +79,9 @@ const KitActivation = ({ onActivationComplete }) => {
             <input
               type="text"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              value={kitData.beneficiary.name || ''}
+              onChange={handleChange}
               required
             />
           </div>
@@ -82,8 +91,9 @@ const KitActivation = ({ onActivationComplete }) => {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={kitData.beneficiary.email || ''}
+              onChange={handleChange}
               required
             />
           </div>
