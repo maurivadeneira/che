@@ -1,503 +1,113 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './KitHeresy.css';
-import './KitActivation.css';
-import './OwnerSetup.css';
-import KitActivation from './KitActivation.jsx';
-import OwnerSetup from './OwnerSetup.jsx';
 
-const Kit2Heresy = () => {
-  // Estados
-  const [kitInfo, setKitInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [step, setStep] = useState(1);
-  const [showActivation, setShowActivation] = useState(false);
-  const [activationInfo, setActivationInfo] = useState(null);
-  const [invitationLink, setInvitationLink] = useState('');
-  const [showOwnerSetup, setShowOwnerSetup] = useState(false);
-  const [ownerInfo, setOwnerInfo] = useState(null);
+const KitHeresy = () => {
+  const [pdfLoaded, setPdfLoaded] = useState(false);
+  const [pdfError, setPdfError] = useState(false);
 
-  // Efecto para cargar datos del kit y verificar si hay una invitación activa
-  useEffect(() => {
-    // Verificar si hay un parámetro de invitación en la URL
-    const checkInvitation = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const invitedBy = urlParams.get('invited_by');
-      if (invitedBy) {
-        setShowActivation(true);
-      }
-    };
-
-    const fetchKitInfo = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch('http://localhost:3001/api/kit-info');
-        if (!response.ok) {
-          throw new Error('Error al cargar información del Kit');
-        }
-        const data = await response.json();
-        setKitInfo(data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error:', err);
-        setError('No se pudo cargar la información del Kit. Usando datos locales.');
-        // Datos de respaldo en caso de error
-        setKitInfo({
-          name: "Kit2 de la Herejía",
-          version: "1.0",
-          corporationPurchase: 20,
-          networkCommission: 7,
-          kitValidityDays: 365,
-          contents: [
-            { id: 1, title: "Guía de iniciación a la Herejía Económica", type: "document" },
-            { id: 2, title: "Vídeo explicativo del sistema económico", type: "video" },
-            { id: 3, title: "E-book: Fundamentos de la Herejía Económica", type: "ebook" },
-            { id: 4, title: "Curso introductorio a los fondos rotatorios", type: "document" },
-            { id: 5, title: "Documentos de implementación práctica", type: "document" }
-          ]
-        });
-        setLoading(false);
-      }
-    };
-
-    fetchKitInfo();
-    checkInvitation();
-  }, []);
-
-  // Generar enlace de invitación
-  useEffect(() => {
-    if (activationInfo) {
-      // Generar un ID único para esta invitación basado en el nombre del usuario
-      // (simplificado para esta demo, en producción usaríamos un ID más seguro)
-      const invitationId = activationInfo.name.replace(/\s+/g, '').toLowerCase() + '_' + Date.now();
-      const baseUrl = window.location.origin + window.location.pathname;
-      setInvitationLink(`${baseUrl}?invited_by=${invitationId}`);
-    }
-  }, [activationInfo]);
-
-  // Agregar botón para la configuración del propietario en el paso 5
-  const handleOwnerSetupClick = () => {
-    setShowOwnerSetup(true);
+  const handlePdfLoad = () => {
+    setPdfLoaded(true);
+    setPdfError(false);
   };
 
-  // Manejar la finalización de la configuración del propietario
-  const handleOwnerSetupComplete = (data) => {
-    setOwnerInfo(data);
-    // Generar un enlace único para el propietario
-    const ownerInvitationId = `owner_${data.name.replace(/\s+/g, '').toLowerCase()}_${Date.now()}`;
-    const baseUrl = window.location.origin + window.location.pathname;
-    setInvitationLink(`${baseUrl}?invited_by=${ownerInvitationId}&owner=true`);
-    setShowOwnerSetup(false);
+  const handlePdfError = () => {
+    setPdfLoaded(false);
+    setPdfError(true);
   };
-
-  // Función para avanzar en el wizard
-  const nextStep = () => {
-    if (step < 5) {
-      setStep(step + 1);
-    }
-  };
-
-  // Función para retroceder en el wizard
-  const prevStep = () => {
-    if (step > 1) {
-      setStep(step - 1);
-    }
-  };
-
-  // Función para copiar el enlace de invitación al portapapeles
-  const copyInvitationLink = () => {
-    navigator.clipboard.writeText(invitationLink)
-      .then(() => {
-        alert('Enlace copiado al portapapeles');
-      })
-      .catch(err => {
-        console.error('Error al copiar enlace:', err);
-      });
-  };
-
-  // Función para activar directamente el Kit2
-  const handleDirectActivation = () => {
-    setShowActivation(true);
-  };
-
-  // Renderizar un estado de carga
-  if (loading) {
-    return <div className="kit-loading">Cargando información del Kit...</div>;
-  }
-
-  // Renderizar mensaje de error si hay problemas
-  if (error) {
-    console.warn(error);
-  }
-
-  // Si estamos en la configuración del propietario
-  if (showOwnerSetup) {
-    return <OwnerSetup onSetupComplete={handleOwnerSetupComplete} />;
-  }
 
   return (
     <div className="kit-heresy-container">
-      {!showActivation ? (
-        <>
-          <h1 className="kit-title">KIT2 DE LA HEREJÍA ECONÓMICA</h1>
-          <h2 className="kit-subtitle">PROMOCIÓN PERSONALIZADA</h2>
+      {/* Header con título */}
+      <div className="kit-heresy-header">
+        <h1 className="kit-title">Kit de la Herejía</h1>
+        <h2 className="kit-subtitle">Guía Familiar Sistema Kit2</h2>
+        
+        {/* Botón de descarga como respaldo */}
+        <div className="pdf-actions">
+          <a 
+            href="/temp/Guia-Familiar-Sistema-Kit2.pdf" 
+            download="Guia-Familiar-Sistema-Kit2.pdf"
+            className="download-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📥 Descargar PDF
+          </a>
+        </div>
+      </div>
 
-          <div className="kit-direct-activation">
-            <button
-              className="kit-activation-button-top"
-              onClick={handleDirectActivation}
-            >
-              QUIERO MI KIT2 AHORA
-            </button>
-          </div>
-
-          <div className="kit-section">
-            <h2>1. INVITACIÓN PERSONAL</h2>
-            <p>
-              <strong>ESTA ES UNA INVITACIÓN PERSONAL QUE LE LLEGA DE:</strong><br />
-              {kitInfo.remitente || "[NOMBRE DEL REMITENTE]"}
-            </p>
-            <p>
-              <strong>Si decide adquirir el Kit2, deberá realizar una comisión voluntaria a:</strong><br />
-              {kitInfo.receptorComision || "[NOMBRE DEL RECEPTOR DE COMISIÓN]"}
-            </p>
-
-            <div className="kit-flow-explanation">
-              <h3>Flujo de Compras y Comisiones Explicado:</h3>
-              <pre className="kit-diagram">
-{`Cadena de Invitaciones:
-X1 -----> Juan -----> Usted -----> María -----> Pedro1, Pedro2, Pedro3
-     invita      invita      invita       invita
-
-Flujo de Comisiones Voluntarias:
-Usted comisiona a X1
-María comisiona a Juan
-Pedro1 comisiona a Usted
-Pedro2 comisiona a Usted
-Pedro3 comisiona a Usted`}
-              </pre>
-              <p>Este esquema muestra claramente que:</p>
-              <ol>
-                <li>Usted hace comisión voluntaria a quien invitó a Juan (X1)</li>
-                <li>María hace comisión voluntaria a quien invitó a Usted (Juan)</li>
-                <li>Todos los "Pedros" (invitados por María) hacen comisión a quien invitó a María (Usted)</li>
-                <li>Así, Usted recibirá múltiples comisiones de los invitados de su invitado</li>
-              </ol>
-            </div>
-          </div>
-
-          {/* Wizard de pasos */}
-          <div className="kit-wizard">
-            <div className="kit-steps">
-              {[1, 2, 3, 4, 5].map(s => (
-                <div
-                  key={s}
-                  className={`kit-step ${s === step ? 'active' : ''} ${s < step ? 'completed' : ''}`}
-                >
-                  {s}
-                </div>
-              ))}
-            </div>
-
-            <div className="kit-step-content">
-              {step === 1 && (
-                <div className="kit-section">
-                  <h2>2. INTRODUCCIÓN AL KIT DE LA HEREJÍA</h2>
-                  <p>
-                    Bienvenido al Kit de la Herejía, un sistema basado en compras de productos digitales
-                    con comisiones voluntarias que permite la distribución equitativa de conocimiento y valor en la sociedad.
-                  </p>
-                  <p>
-                    <strong>Importante:</strong> El Kit de la Herejía solo puede ser adquirido por invitación
-                    de alguien que ya lo haya obtenido anteriormente. No es posible comprarlo directamente
-                    de la Corporación, excepto por el autor original de la obra.
-                  </p>
-                  <p>
-                    Para obtener el kit completo, se requieren dos pagos:
-                  </p>
-                  <ul>
-                    <li>Compra del Kit2 a la Corporación: US${kitInfo?.corporationPurchase}</li>
-                    <li>Comisión voluntaria al Receptor: US${kitInfo?.networkCommission} (a la persona indicada en este documento)</li>
-                  </ul>
-                  <p>
-                    <strong>Nota sobre pagos:</strong> Las transacciones se realizan en dólares estadounidenses (US$).
-                    Para residentes en Colombia, se aceptan pagos en pesos colombianos según la tasa de cambio
-                    del día de la transacción.
-                  </p>
-                </div>
-              )}
-
-              {step === 2 && (
-                <div className="kit-section">
-                  <h2>3. CONTENIDO DEL KIT</h2>
-                  <p>Al comprar tu Kit, obtendrás acceso a:</p>
-                  <ul className="kit-contents">
-                    {kitInfo?.contents.map(item => (
-                      <li key={item.id} className={`content-type-${item.type}`}>
-                        {item.title}
-                        <span className="content-type">{item.type}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p>Estos contenidos estarán disponibles permanentemente tras su compra.</p>
-                </div>
-              )}
-
-              {step === 3 && (
-                <div className="kit-section">
-                  <h2>4. PROCESO DE COMPRA Y ACTIVACIÓN</h2>
-
-                  <h3>Primera Transacción - Comisión Voluntaria (US${kitInfo?.networkCommission})</h3>
-                  <p>
-                    Esta comisión voluntaria se realiza a la persona indicada en este documento
-                    (no a quien te invitó, sino según el sistema de segundo nivel).
-                  </p>
-
-                  <div className="donation-info">
-                    <h4>Información de Pago del Receptor de Comisión:</h4>
-                    <p><strong>Nombre:</strong> [NOMBRE DEL RECEPTOR]</p>
-                    <p><strong>Banco Principal:</strong> [BANCO DEL RECEPTOR]</p>
-                    <p><strong>Cuenta Principal:</strong> [NÚMERO DE CUENTA DEL RECEPTOR]</p>
-
-                    <h4>Métodos Alternativos de Pago (si no puede usar la cuenta principal):</h4>
-                    <p><strong>Banco Alternativo:</strong> [BANCO ALTERNATIVO DEL RECEPTOR]</p>
-                    <p><strong>Cuenta Alternativa:</strong> [NÚMERO DE CUENTA ALTERNATIVA]</p>
-                    <p><strong>PayPal:</strong> [EMAIL PAYPAL DEL RECEPTOR]</p>
-                    <p><strong>Otro método:</strong> [MÉTODO ADICIONAL SI EXISTE]</p>
-
-                    <p><strong>Valor:</strong> US${kitInfo?.networkCommission} (o su equivalente en pesos colombianos según tasa del día)</p>
-
-                    <div className="payment-issues">
-                      <h4>¿Problemas para realizar el pago?</h4>
-                      <p>
-                        Si no puede realizar la comisión por ninguno de los métodos indicados,
-                        por favor contacte a la Corporación al correo [CORREO DE CONTACTO] para recibir asistencia.
-                      </p>
-                    </div>
-                  </div>
-
-                  <h3>Segunda Transacción - Compra Kit2 (US${kitInfo?.corporationPurchase})</h3>
-                  <p>
-                    La segunda transacción es la compra del Kit2 digital a la Corporación Herejía Económica 
-                    para mantener la plataforma y financiar nuevos proyectos.
-                  </p>
-
-                  <div className="donation-info">
-                    <h4>Información de Pago:</h4>
-                    <p><strong>Banco:</strong> [BANCO DE LA CORPORACIÓN]</p>
-                    <p><strong>Cuenta:</strong> [NÚMERO DE CUENTA]</p>
-                    <p><strong>Titular:</strong> Corporación Herejía Económica</p>
-                    <p><strong>PayPal:</strong> [EMAIL PAYPAL]</p>
-                    <p><strong>Valor:</strong> US${kitInfo?.corporationPurchase} (o su equivalente en pesos colombianos según tasa del día)</p>
-                  </div>
-                </div>
-              )}
-
-              {step === 4 && (
-                <div className="kit-section">
-                  <h2>5. FUNCIONAMIENTO DEL SISTEMA</h2>
-
-                  <h3>Cómo Funciona el Ciclo de Compras y Comisiones</h3>
-                  <p><strong>Ejemplo con nombres para mayor claridad:</strong></p>
-                  <ol>
-                    <li><strong>X1 invita a Juan</strong>, y Juan compra el Kit2.</li>
-                    <li><strong>Juan le invita a Usted</strong>, y al comprar el Kit2, Usted realiza una comisión voluntaria a X1.</li>
-                    <li><strong>Usted invita a María</strong>, y cuando María compra el Kit2, ella comisiona a Juan.</li>
-                    <li><strong>María invita a Pedro1, Pedro2 y Pedro3</strong>. Cuando ellos compran el Kit2, todos realizan sus comisiones a Usted.</li>
-                  </ol>
-
-                  <div className="flow-summary">
-                    <h4>Resumen del flujo de comisiones:</h4>
-                    <ul>
-                      <li>Usted no recibe comisión de quien compra directamente con su Kit2 (María)</li>
-                      <li>Usted recibe comisiones de todas las personas que compren Kit2 de María (Pedro1, Pedro2, Pedro3)</li>     
-                      <li>Mientras más personas invite María, más comisiones recibirá Usted</li>
-                      <li>Este sistema garantiza la distribución equitativa y sostenible a largo plazo</li>
-                    </ul>
-                  </div>
-
-                  <h3>Potencial de Ingresos</h3>
-                  <p>
-                    Depende de cuántos contactos inviten y cuántos de sus contactos compren el Kit2:
-                  </p>
-                  <ul>
-                    <li>Si invita a 2 personas y cada una invita a 2 más = 4 comisiones de US${kitInfo?.networkCommission} cada una</li>
-                    <li>Si invita a 5 personas y cada una invita a 5 más = 25 comisiones de US${kitInfo?.networkCommission} cada una</li>
-                  </ul>
-
-                  <h3>Vigencia y Renovación</h3>
-                  <ul>
-                    <li>El Kit2 tendrá una vigencia de 12 meses (1 año) para ser promocionado</li>
-                    <li>Si desea continuar promocionando después de ese tiempo, deberá comprar nuevamente el Kit2</li>
-                    <li><strong>Nota importante:</strong> La Corporación se reserva el derecho de modificar los valores cuando lo considere necesario, pero su Kit mantendrá los valores originales durante toda su vigencia.</li>
-                  </ul>
-                </div>
-              )}
-
-              {step === 5 && (
-                <div>
-                  <div className="kit-section">
-                    <h2>6. FUNDAMENTOS ECONÓMICOS DEL SISTEMA</h2>
-
-                    <h3>La Importancia de la Circulación del Dinero</h3>
-                    <p>El sistema se basa en principios económicos fundamentales como:</p>
-                    <ol>
-                      <li><strong>La circulación de dinero:</strong> Como enseñó Keynes, el movimiento constante del dinero es vital para una economía saludable.</li>
-                      <li><strong>El ciclo económico:</strong> Igual que los ciclos naturales, la economía requiere flujos constantes y repetitivos.</li>
-                      <li><strong>La distribución del ingreso:</strong> El sistema permite distribuir riqueza sin intermediarios bancarios tradicionales.</li>
-                    </ol>
-                  </div>
-
-                  <div className="kit-section">
-                    <h2>7. ACTIVACIÓN DEL KIT</h2>
-                    <p>Para activar su Kit2 y comenzar a recibir beneficios:</p>
-                    <ol>
-                      <li><strong>Haga clic en el botón "QUIERO MI KIT2"</strong> al inicio o al final de este documento</li>
-                      <li><strong>Se le mostrará la información completa</strong> de la Corporación y la persona a quien debe realizar la comisión</li>
-                      <li><strong>Inscríbase en la página</strong> suministrando sus datos personales y bancarios</li>
-                      <li><strong>Realice la comisión voluntaria</strong> a la persona referida (US${kitInfo?.networkCommission})</li>  
-                      <li><strong>Envíe comprobante</strong> a la Corporación</li>
-                      <li><strong>Realice la compra</strong> a la Corporación (US${kitInfo?.corporationPurchase}) mediante el botón de pagos</li>
-                      <li><strong>Reciba su Kit2 personalizado</strong> con los libros virtuales por correo</li>
-                    </ol>
-                  </div>
-
-                  <div className="kit-section">
-                    <h2>8. REQUISITOS PARA PARTICIPAR</h2>
-                    <ul>
-                      <li><strong>Afiliación:</strong> Inscribirse en la página de la Corporación</li>
-                      <li><strong>Datos personales:</strong> Nombres, identificación, contacto</li>
-                      <li><strong>Cuentas bancarias:</strong> Principal y alternativa para recibir comisiones</li>
-                      <li><strong>Compromiso:</strong> Hacer las compras correspondientes y promover el sistema</li>
-                    </ul>
-                  </div>
-
-                  <div className="kit-section">
-                    <h2>9. BENEFICIOS PARA TODOS</h2>
-                    <ul>
-                      <li><strong>Para usted:</strong> Ingreso extra mensual, conocimiento económico transformador</li>
-                      <li><strong>Para la Corporación:</strong> Recursos para desarrollar proyectos económicos y sociales</li>        
-                      <li><strong>Para el gobierno:</strong> Impuestos y actividad económica legal</li>
-                      <li><strong>Para la sociedad:</strong> Nuevo sistema de distribución equitativa del ingreso</li>
-                    </ul>
-                    <p>Este es un sistema GANA-GANA donde todos los participantes obtienen beneficios.</p>
-                  </div>
-
-                  <div className="kit-info-box">
-                    <h3>¡QUIERO MI KIT2!</h3>
-                    <p>Si está de acuerdo con este sistema y desea participar:</p>
-
-                    <div className="action-buttons-container">
-                      <button
-                        className="kit-activation-button"
-                        onClick={() => setShowActivation(true)}
-                      >
-                        QUIERO MI KIT2, PROMOCIÓN PERSONALIZADA
-                      </button>
-
-                      <div className="separator">O</div>
-
-                      <button
-                        className="kit-owner-button"
-                        onClick={handleOwnerSetupClick}
-                      >
-                        SOY EL PROPIETARIO DE LA OBRA
-                      </button>
-                    </div>
-
-                    <p className="activation-note">
-                      Al hacer clic, se desplegará la información completa de pago tanto de la Corporación como de la persona a la que debe realizar la comisión, junto con el formulario de registro.
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="kit-navigation">
-              {step > 1 && (
-                <button className="kit-prev-button" onClick={prevStep}>
-                  Anterior
-                </button>
-              )}
-              {step < 5 && (
-                <button className="kit-next-button" onClick={nextStep}>
-                  Siguiente
-                </button>
-              )}
-            </div>
-          </div>
-
-          <div className="kit-footer">
-            <p><strong>CORPORACIÓN HEREJÍA ECONÓMICA</strong><br/>
-            <strong>C.H.E. MUNDO LIBRE</strong></p>
-          </div>
-        </>
-      ) : (
-        <>
-          {/* Componente de activación cuando se muestra */}
-          {activationInfo ? (
-            <div className="kit-activated-info">
-              <h2>Kit Activado Exitosamente</h2>
-              <div className="activation-details">
-                <p><strong>Nombre:</strong> {activationInfo.name}</p>
-                <p><strong>Email:</strong> {activationInfo.email}</p>
-                <p><strong>Fecha de Activación:</strong> {new Date(activationInfo.activationDate).toLocaleDateString()}</p>
-                {ownerInfo && <p><strong>Propietario:</strong> Sí</p>}
-              </div>
-
-              <div className="invitation-box">
-                <h3>Invita a más Personas</h3>
-                <p>Comparte este enlace único para invitar a otras personas al sistema:</p>
-                <div className="invitation-link-container">
-                  <input
-                    type="text"
-                    value={invitationLink}
-                    readOnly
-                    className="invitation-link-input"
-                  />
-                  <button
-                    className="copy-link-button"
-                    onClick={copyInvitationLink}
-                  >
-                    Copiar
-                  </button>
-                </div>
-                <p className="invitation-note">
-                  Cuando alguien haga clic en este enlace, será dirigido directamente
-                  al formulario de registro.
-                  {ownerInfo && ` Las comisiones del segundo nivel se dirigirán a la cuenta
-                  que has proporcionado.`}
-                </p>
-              </div>
-
-              {ownerInfo && (
-                <div className="owner-payment-info">
-                  <h3>Información de Pago Registrada</h3>
-                  <p>Esta información será utilizada para las comisiones del segundo nivel:</p>
-                  <div className="payment-details">
-                    <p><strong>Titular:</strong> {ownerInfo.paymentInfo.accountName}</p>
-                    <p><strong>Cuenta:</strong> {ownerInfo.paymentInfo.accountNumber}</p>
-                    <p><strong>Banco:</strong> {ownerInfo.paymentInfo.bank}</p>
-                    {ownerInfo.paymentInfo.paypalEmail && (
-                      <p><strong>PayPal:</strong> {ownerInfo.paymentInfo.paypalEmail}</p>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              <button className="kit-back-button" onClick={() => setShowActivation(false)}>
-                Volver a la Información del Kit
-              </button>
-            </div>
-          ) : (
-            <KitActivation onActivationComplete={(info) => {
-              setActivationInfo(info);
-            }} />
-          )}
-        </>
+      {/* Estado de carga */}
+      {!pdfLoaded && !pdfError && (
+        <div className="pdf-loading">
+          <div className="loading-spinner"></div>
+          <p>Cargando documento...</p>
+        </div>
       )}
+
+      {/* Mensaje de error */}
+      {pdfError && (
+        <div className="pdf-error">
+          <h3>❌ Error al cargar el PDF</h3>
+          <p>No se pudo mostrar el documento en el navegador.</p>
+          <p>
+            <strong>Solución:</strong> 
+            <a 
+              href="/temp/Guia-Familiar-Sistema-Kit2.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="error-download-link"
+            >
+              Haz clic aquí para abrir el PDF directamente
+            </a>
+          </p>
+        </div>
+      )}
+
+      {/* Visor PDF */}
+      <div className="pdf-viewer-container">
+        <iframe
+          src="/temp/Guia-Familiar-Sistema-Kit2.pdf"
+          className="pdf-iframe"
+          title="Guía Familiar Sistema Kit2"
+          onLoad={handlePdfLoad}
+          onError={handlePdfError}
+          width="100%"
+          height="800px"
+          style={{
+            border: 'none',
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            display: pdfError ? 'none' : 'block'
+          }}
+        />
+      </div>
+
+      {/* Información adicional */}
+      <div className="kit-info-footer">
+        <div className="info-card">
+          <h3>📚 Sobre este documento</h3>
+          <p>
+            La <strong>Guía Familiar Sistema Kit2</strong> contiene toda la información 
+            necesaria para entender y participar en el sistema de la Herejía Económica.
+          </p>
+          <p>
+            Este documento es parte integral del Kit de la Herejía y está diseñado 
+            para ser estudiado en familia.
+          </p>
+        </div>
+
+        <div className="info-card">
+          <h3>💡 Instrucciones de uso</h3>
+          <ul>
+            <li>Utiliza los controles del visor para navegar por el documento</li>
+            <li>Puedes hacer zoom para una mejor lectura</li>
+            <li>Descarga el PDF para acceso sin conexión</li>
+            <li>Comparte este conocimiento responsablemente</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Kit2Heresy;
+export default KitHeresy;
