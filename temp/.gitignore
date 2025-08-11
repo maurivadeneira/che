@@ -1,4 +1,10 @@
-# Ignorar todos los archivos en este directorio
-*
+# Ignorar archivos temporales
+*.tmp
+*.log
+*.cache
+
+# Permitir PDFs Kit2
+!*.pdf
+
 # Excepto este archivo .gitignore
 !.gitignore
