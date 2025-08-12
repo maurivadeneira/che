@@ -11,7 +11,8 @@ import ActivateKit from "./pages/ActivateKit";
 import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro componente Kit2
 import AdminPanel from "./components/admin/AdminPanel";
 import DownloadPDF from "./pages/DownloadPDF";
-import KitHeresy from "./components/kit-heresy/KitHeresy"; // ✅ NUEVA: Sistema Kit2 informativo
+import KitHeresy from "./components/kit-heresy/KitHeresy"; // ✅ Sistema Kit2 informativo (educación familiar)
+import KitHeresyPage from "./pages/KitHeresyPage"; // ✅ NUEVO: Visor PDF Kit2
 import "./App.css";
 
 const App = () => {
@@ -43,8 +44,14 @@ const App = () => {
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
               
-              {/* ✅ NUEVAS RUTAS: Sistema Kit2 informativo */}
+              {/* ✅ RUTAS SISTEMA KIT2 */}
+              <Route path="/kit2" element={<KitHeresy />} />           {/* Educación familiar */}
+              <Route path="/sistema-kit2" element={<KitHeresy />} />   {/* Educación familiar */}
+              <Route path="/kit-heresy" element={<KitHeresyPage />} /> {/* VISOR PDF */}
               
+              {/* ✅ RUTAS ADICIONALES PARA PDF */}
+              <Route path="/kit2-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
+              <Route path="/guia-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
             </Routes>
           </div>
         </div>
