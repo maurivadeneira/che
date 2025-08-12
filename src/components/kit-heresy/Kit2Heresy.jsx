@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './KitHeresy.css';
 
-const KitHeresy = () => {
+const Kit2Heresy = () => {
   const [pdfLoaded, setPdfLoaded] = useState(false);
   const [pdfError, setPdfError] = useState(false);
 
@@ -25,7 +25,7 @@ const KitHeresy = () => {
         {/* Botón de descarga como respaldo */}
         <div className="pdf-actions">
           <a 
-            href="/temp/Guia-Familiar-Sistema-Kit2.pdf" 
+            href="/Guia-Familiar-Sistema-Kit2.pdf" 
             download="Guia-Familiar-Sistema-Kit2.pdf"
             className="download-button"
             target="_blank"
@@ -52,7 +52,7 @@ const KitHeresy = () => {
           <p>
             <strong>Solución:</strong> 
             <a 
-              href="/temp/Guia-Familiar-Sistema-Kit2.pdf" 
+              href="/Guia-Familiar-Sistema-Kit2.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="error-download-link"
@@ -66,7 +66,7 @@ const KitHeresy = () => {
       {/* Visor PDF */}
       <div className="pdf-viewer-container">
         <iframe
-          src="/temp/Guia-Familiar-Sistema-Kit2.pdf"
+          src="/Guia-Familiar-Sistema-Kit2.pdf"
           className="pdf-iframe"
           title="Guía Familiar Sistema Kit2"
           onLoad={handlePdfLoad}
@@ -110,4 +110,4 @@ const KitHeresy = () => {
   );
 };
 
-export default KitHeresy;
+export default Kit2Heresy;
