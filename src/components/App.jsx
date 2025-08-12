@@ -26,16 +26,21 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              
               {/* Dashboard existente (mantenemos compatibilidad) */}
               <Route path="/dashboard" element={<Dashboard />} />
+              
               {/* ✅ NUEVO DASHBOARD PROFESIONAL */}
               <Route path="/mi-cuenta" element={<UserDashboard />} />
               <Route path="/perfil" element={<UserDashboard />} />
+              
               {/* Rutas existentes de activación */}
               <Route path="/activate/:code" element={<ActivateKit />} />
               <Route path="/activate" element={<ActivateKit />} />
+              
               {/* NUEVA RUTA para el sistema Kit2 */}
               <Route path="/activar" element={<ActivarKit />} />
+              
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
               
