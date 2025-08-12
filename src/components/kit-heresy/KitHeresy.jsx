@@ -25,7 +25,7 @@ const Kit2Heresy = () => {
         {/* Botón de descarga como respaldo */}
         <div className="pdf-actions">
           <a 
-            href="/contenido-herejiaecon/articulos/Guia-Familiar-Sistema-Kit2.pdf" 
+            href="/contenido-herejiaecon/articulos/KIT2.pdf" 
             download="Guia-Familiar-Sistema-Kit2.pdf"
             className="download-button"
             target="_blank"
@@ -52,7 +52,7 @@ const Kit2Heresy = () => {
           <p>
             <strong>Solución:</strong> 
             <a 
-              href="/contenido-herejiaecon/articulos/Guia-Familiar-Sistema-Kit2.pdf" 
+              href="/contenido-herejiaecon/articulos/KIT2.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="error-download-link"
@@ -66,7 +66,7 @@ const Kit2Heresy = () => {
       {/* Visor PDF */}
       <div className="pdf-viewer-container">
         <iframe
-          src="/contenido-herejiaecon/articulos/Guia-Familiar-Sistema-Kit2.pdf"
+          src="/contenido-herejiaecon/articulos/KIT2.pdf"
           className="pdf-iframe"
           title="Guía Familiar Sistema Kit2"
           onLoad={handlePdfLoad}
