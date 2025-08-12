@@ -48,10 +48,6 @@ const App = () => {
               <Route path="/kit2" element={<KitHeresy />} />           {/* Educación familiar */}
               <Route path="/sistema-kit2" element={<KitHeresy />} />   {/* Educación familiar */}
               <Route path="/kit-heresy" element={<KitHeresyPage />} /> {/* VISOR PDF */}
-              
-              {/* ✅ RUTAS ADICIONALES PARA PDF */}
-              <Route path="/kit2-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
-              <Route path="/guia-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
             </Routes>
           </div>
         </div>
