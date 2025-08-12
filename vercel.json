@@ -4,7 +4,29 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "devCommand": "npm run dev",
+  "headers": [
+    {
+      "source": "**/*.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline"
+        }
+      ]
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/Guia-Familiar-Sistema-Kit2.pdf",
+      "destination": "/Guia-Familiar-Sistema-Kit2.pdf"
+    },
+    { 
+      "source": "/((?!.*\\.pdf$).*)", 
+      "destination": "/" 
+    }
   ]
 }
