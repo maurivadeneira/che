@@ -1,113 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './KitHeresy.css';
 
-const Kit2Heresy = () => {
-  const [pdfLoaded, setPdfLoaded] = useState(false);
-  const [pdfError, setPdfError] = useState(false);
-
-  const handlePdfLoad = () => {
-    setPdfLoaded(true);
-    setPdfError(false);
-  };
-
-  const handlePdfError = () => {
-    setPdfLoaded(false);
-    setPdfError(true);
-  };
-
-  return (
-    <div className="kit-heresy-container">
-      {/* Header con título */}
-      <div className="kit-heresy-header">
-        <h1 className="kit-title">Kit de la Herejía</h1>
-        <h2 className="kit-subtitle">Guía Familiar Sistema Kit2</h2>
+const Kit2Heresy = () => (
+  <div className="kit-heresy-container">
+    <div className="kit-heresy-header">
+      <h1 className="kit-title">Kit de la Herejía</h1>
+      <h2 className="kit-subtitle">Guía Familiar Sistema Kit2</h2>
+    </div>
+    
+    <div className="pdf-simple-viewer">
+      <div className="pdf-info">
+        <h3>📚 Documento Completo</h3>
+        <p>
+          La <strong>Guía Familiar Sistema Kit2</strong> contiene toda la información 
+          necesaria para entender y participar en el sistema de la Herejía Económica.
+        </p>
+      </div>
+      
+      <div className="pdf-actions-center">
+        <a 
+          href="/contenido-herejiaecon/articulos/KIT2.pdf" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="big-pdf-button"
+        >
+          📄 VER GUÍA COMPLETA PDF
+        </a>
         
-        {/* Botón de descarga como respaldo */}
-        <div className="pdf-actions">
-          <a 
-            href="/contenido-herejiaecon/articulos/KIT2.pdf" 
-            download="KIT2.pdf"
-            className="download-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            📥 Descargar PDF
-          </a>
-        </div>
+        <a 
+          href="/contenido-herejiaecon/articulos/KIT2.pdf" 
+          download="Guia-Familiar-Sistema-Kit2.pdf"
+          className="download-button"
+        >
+          📥 DESCARGAR PDF
+        </a>
       </div>
-
-      {/* Estado de carga */}
-      {!pdfLoaded && !pdfError && (
-        <div className="pdf-loading">
-          <div className="loading-spinner"></div>
-          <p>Cargando documento...</p>
-        </div>
-      )}
-
-      {/* Mensaje de error */}
-      {pdfError && (
-        <div className="pdf-error">
-          <h3>❌ Error al cargar el PDF</h3>
-          <p>No se pudo mostrar el documento en el navegador.</p>
-          <p>
-            <strong>Solución:</strong> 
-            <a 
-              href="/contenido-herejiaecon/articulos/KIT2.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="error-download-link"
-            >
-              Haz clic aquí para abrir el PDF directamente
-            </a>
-          </p>
-        </div>
-      )}
-
-      {/* Visor PDF */}
-      <div className="pdf-viewer-container">
-        <iframe
-          src="/contenido-herejiaecon/articulos/KIT2.pdf"
-          className="pdf-iframe"
-          title="Guía Familiar Sistema Kit2"
-          onLoad={handlePdfLoad}
-          onError={handlePdfError}
-          width="100%"
-          height="800px"
-          style={{
-            border: 'none',
-            borderRadius: '8px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            display: pdfError ? 'none' : 'block'
-          }}
-        />
-      </div>
-
-      {/* Información adicional */}
-      <div className="kit-info-footer">
-        <div className="info-card">
-          <h3>📚 Sobre este documento</h3>
-          <p>
-            La <strong>Guía Familiar Sistema Kit2</strong> contiene toda la información 
-            necesaria para entender y participar en el sistema de la Herejía Económica.
-          </p>
-          <p>
-            Este documento es parte integral del Kit de la Herejía y está diseñado 
-            para ser estudiado en familia.
-          </p>
-        </div>
-
-        <div className="info-card">
-          <h3>💡 Instrucciones de uso</h3>
-          <ul>
-            <li>Utiliza los controles del visor para navegar por el documento</li>
-            <li>Puedes hacer zoom para una mejor lectura</li>
-            <li>Descarga el PDF para acceso sin conexión</li>
-            <li>Comparte este conocimiento responsablemente</li>
-          </ul>
-        </div>
+      
+      <div className="pdf-instructions">
+        <h3>💡 Instrucciones</h3>
+        <ul>
+          <li>Haz clic en "VER GUÍA COMPLETA PDF" para abrir el documento</li>
+          <li>Usa "DESCARGAR PDF" para guardarlo en tu dispositivo</li>
+          <li>El PDF se abrirá en una nueva pestaña</li>
+          <li>Comparte este conocimiento responsablemente</li>
+        </ul>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Kit2Heresy;
