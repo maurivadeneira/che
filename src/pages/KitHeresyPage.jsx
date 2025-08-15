@@ -1,10 +1,10 @@
 import React from 'react';
-import KitHeresy from '../components/kit-heresy/KitHeresy.jsx';
+import Kit2Heresy from '../components/kit-heresy/Kit2Heresy';
 
 const KitHeresyPage = () => {
   return (
     <div>
-      <KitHeresy />
+      <Kit2Heresy />
     </div>
   );
 };

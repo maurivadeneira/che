@@ -31,7 +31,7 @@ const KitHeresy = () => {
     const fetchKitInfo = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/kit-info');
+        const response = await fetch('http://localhost:3001/api/kit-info');
         if (!response.ok) {
           throw new Error('Error al cargar información del Kit');
         }
@@ -43,17 +43,18 @@ const KitHeresy = () => {
         setError('No se pudo cargar la información del Kit. Usando datos locales.');
         // Datos de respaldo en caso de error
         setKitInfo({
-          name: "Kit de la Herejía",
-          version: "1.0",
+          name: "Kit2 de la Herejía Económica",
+          version: "2.0",
           corporationDonation: 20,
           referrerDonation: 5,
           kitValidityDays: 365,
           contents: [
-            { id: 1, title: "Guía de iniciación a la Herejía Económica", type: "document" },
-            { id: 2, title: "Vídeo explicativo del sistema económico", type: "video" },
-            { id: 3, title: "E-book: Fundamentos de la Herejía Económica", type: "ebook" },
-            { id: 4, title: "Curso introductorio a los fondos rotatorios", type: "document" },
-            { id: 5, title: "Documentos de implementación práctica", type: "document" }
+            { id: 1, title: "Guía completa del Sistema Kit2", type: "document" },
+            { id: 2, title: "Educación Financiera Familiar paso a paso", type: "video" },
+            { id: 3, title: "E-book: La Herejía Económica - Edición Kit2", type: "ebook" },
+            { id: 4, title: "Plantillas para cuentas bancarias familiares", type: "document" },
+            { id: 5, title: "Curso: PayPal para toda la familia", type: "video" },
+            { id: 6, title: "Fondos Rotatorios - Implementación práctica", type: "document" }
           ]
         });
         setLoading(false);
@@ -117,7 +118,7 @@ const KitHeresy = () => {
   
   // Renderizar un estado de carga
   if (loading) {
-    return <div className="kit-loading">Cargando información del Kit...</div>;
+    return <div className="kit-loading">Cargando información del Kit2...</div>;
   }
   
   // Renderizar mensaje de error si hay problemas
@@ -134,7 +135,7 @@ const KitHeresy = () => {
     <div className="kit-heresy-container">
       {!showActivation ? (
         <>
-          <h1 className="kit-title">Kit de la Herejía</h1>
+          <h1 className="kit-title">Sistema Kit2 - La Herejía Económica</h1>
           
           {/* Wizard de pasos */}
           <div className="kit-wizard">
@@ -152,130 +153,195 @@ const KitHeresy = () => {
             <div className="kit-step-content">
               {step === 1 && (
                 <div>
-                  <h2>Introducción al Kit de la Herejía</h2>
+                  <h2>¿Qué es el Sistema Kit2?</h2>
                   <p>
-                    Bienvenido al Kit de la Herejía, un sistema basado en donaciones
-                    que permite la distribución equitativa de conocimiento y valor.
+                    <strong>Kit2</strong> es un sistema genérico que puede ser utilizado por cualquier autor 
+                    para distribuir su conocimiento de manera justa y educativa. Este Kit2 específico 
+                    contiene <strong>"La Herejía Económica"</strong>, pero el mismo sistema puede adaptarse 
+                    a otros autores como Pietro Krespy, o cualquier creador de contenido.
                   </p>
+                  <div className="highlight-box">
+                    <h3>🎯 Educación Financiera Familiar</h3>
+                    <p>
+                      Kit2 no es solo una plataforma de distribución, es una herramienta de 
+                      <strong> educación financiera intergeneracional</strong>. Los padres ayudan a 
+                      sus hijos a abrir sus primeras cuentas bancarias y PayPal, construyendo 
+                      capital para estudios futuros mientras aprenden el funcionamiento del dinero digital.
+                    </p>
+                  </div>
                   <p>
-                    <strong>Importante:</strong> El Kit de la Herejía solo puede ser adquirido por invitación
-                    de alguien que ya lo haya obtenido anteriormente. No es posible adquirirlo directamente 
-                    de la Corporación, excepto por el autor original de la obra.
+                    <strong>Principio fundamental:</strong> Solo se puede acceder al Kit2 por invitación 
+                    de alguien que ya forme parte del sistema, creando una red de conocimiento 
+                    distribuida y educativa.
                   </p>
-                  <p>
-                    Para obtener el kit completo, se requieren dos donaciones:
-                  </p>
-                  <ul>
-                    <li>Donación a la Corporación: US${kitInfo?.corporationDonation}</li>
-                    <li>Donación al Referente: US${kitInfo?.referrerDonation}</li>
-                  </ul>
                 </div>
               )}
               
               {step === 2 && (
                 <div>
-                  <h2>Contenido del Kit</h2>
-                  <p>Al activar tu Kit, obtendrás acceso a:</p>
-                  <ul className="kit-contents">
-                    {kitInfo?.contents.map(item => (
-                      <li key={item.id} className={`content-type-${item.type}`}>
-                        {item.title}
-                        <span className="content-type">{item.type}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p>Estos contenidos estarán disponibles por {kitInfo?.kitValidityDays} días desde la activación.</p>
+                  <h2>Sistema A, B, C, D - Flujo de Donaciones</h2>
+                  <div className="donation-flow-explanation">
+                    <h3>📊 Cómo Funcionan las Donaciones</h3>
+                    <div className="flow-diagram">
+                      <p><strong>A</strong> invita a <strong>B</strong></p>
+                      <p><strong>B</strong> invita a <strong>C</strong></p>
+                      <p><strong>C</strong> invita a <strong>D</strong></p>
+                      <p style={{color: '#e74c3c', fontWeight: 'bold'}}>
+                        🎯 <strong>D</strong> dona a <strong>B</strong> (dos niveles hacia atrás)
+                      </p>
+                      <p style={{color: '#e74c3c', fontWeight: 'bold'}}>
+                        🎯 <strong>C</strong> dona a <strong>A</strong> (dos niveles hacia atrás)
+                      </p>
+                    </div>
+                    <div className="system-benefits">
+                      <h4>Beneficios del Sistema:</h4>
+                      <ul>
+                        <li><strong>Sostenibilidad:</strong> Cada persona recibe donaciones de dos niveles más adelante</li>
+                        <li><strong>Educación:</strong> Las familias aprenden sobre flujos de dinero digital</li>
+                        <li><strong>Capital familiar:</strong> Se construye dinero para estudios futuros</li>
+                        <li><strong>Red segura:</strong> Múltiples conexiones evitan que se rompa la cadena</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               )}
               
               {step === 3 && (
                 <div>
-                  <h2>Primera Donación</h2>
-                  <p>
-                    La primera donación de US${kitInfo?.corporationDonation} se realiza a la Corporación
-                    para mantener la plataforma y financiar nuevos proyectos.
-                  </p>
-                  <p>
-                    Estas donaciones son de libre aplicación por parte de la Corporación, destinadas
-                    a los proyectos más relevantes que esté desarrollando en su momento, incluyendo
-                    los costos de su propia administración y operación.
-                  </p>
-                  <div className="donation-info">
-                    <h3>Información de Pago:</h3>
-                    <p>Banco: Banco Ejemplo</p>
-                    <p>Cuenta: 123-456-789</p>
-                    <p>Titular: Corporación Kit de la Herejía</p>
-                    <p><strong>PayPal:</strong> kit@herejia.org</p>
+                  <h2>Estructura de Pagos</h2>
+                  <div className="payment-structure">
+                    <div className="donation-section">
+                      <h3>💰 Donaciones (Modelo A,B,C,D)</h3>
+                      <ul>
+                        <li><strong>Donación Principal:</strong> US${kitInfo?.corporationDonation} a la Corporación Herejía Económica</li>
+                        <li><strong>Donación Familiar:</strong> US${kitInfo?.referrerDonation} a la persona dos niveles atrás</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="sales-section">
+                      <h3>📚 Ventas de Libros Físicos</h3>
+                      <p>
+                        <strong>100% de las ventas van a la Corporación Herejía Económica</strong>
+                      </p>
+                      <p>
+                        El autor recibe entre 10-30% según acuerdos específicos. 
+                        Esta estructura permite reinvertir en el desarrollo del sistema 
+                        y mantener la plataforma operativa.
+                      </p>
+                    </div>
+
+                    <div className="education-focus">
+                      <h3>🎓 Enfoque Educativo</h3>
+                      <p>
+                        Las donaciones son herramientas de aprendizaje. Los padres enseñan 
+                        a sus hijos a usar PayPal, abrir cuentas bancarias, y entender 
+                        conceptos de dinero digital mientras construyen capital real.
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
               
               {step === 4 && (
                 <div>
-                  <h2>Segunda Donación</h2>
-                  <p>
-                    La segunda donación de US${kitInfo?.referrerDonation} se realiza NO a quien te 
-                    ofreció el Kit, sino a la persona que le ofreció el Kit a tu referidor.
-                  </p>
-                  <p>
-                    Este sistema crea una red de distribución donde los beneficios
-                    fluyen a través de la comunidad de manera equitativa.
-                  </p>
+                  <h2>Educación Financiera Intergeneracional</h2>
+                  <div className="family-education">
+                    <h3>👨‍👩‍👧‍👦 El Poder del Aprendizaje Familiar</h3>
+                    <div className="generation-flow">
+                      <div className="generation">
+                        <h4>Abuelos 👴👵</h4>
+                        <p>Aportan sabiduría y capital inicial. Ven crecer el patrimonio familiar digital.</p>
+                      </div>
+                      <div className="arrow">⬇️</div>
+                      <div className="generation">
+                        <h4>Padres 👨‍👩</h4>
+                        <p>Facilitan cuentas bancarias y PayPal. Enseñan responsabilidad financiera.</p>
+                      </div>
+                      <div className="arrow">⬇️</div>
+                      <div className="generation">
+                        <h4>Hijos 👧👦</h4>
+                        <p>Aprenden dinero digital desde temprana edad. Construyen capital para sus estudios.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="paypal-learning">
+                      <h3>💳 PayPal como Universidad Financiera</h3>
+                      <ul>
+                        <li><strong>Primer contacto:</strong> Los niños aprenden a recibir y enviar dinero</li>
+                        <li><strong>Responsabilidad:</strong> Entienden que el dinero real tiene consecuencias reales</li>
+                        <li><strong>Ahorro digital:</strong> Acumulan fondos para gastos educativos futuros</li>
+                        <li><strong>Red familiar:</strong> Toda la familia participa en el crecimiento económico</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               )}
               
               {step === 5 && (
                 <div>
-                  <h2>Activación y Distribución</h2>
-                  <p>
-                    <strong>Proceso de activación:</strong> Cuando alguien te invite a formar parte del sistema,
-                    recibirás un enlace único que te llevará directamente al formulario de registro.
-                    Solo necesitas completar tus datos y confirmar las donaciones para activar tu Kit.
-                  </p>
-                  <p>
-                    <strong>Uso de las donaciones:</strong> Las donaciones recibidas por la Corporación
-                    serán destinadas a los proyectos más relevantes que se estén desarrollando en cada momento,
-                    incluyendo costos administrativos y operativos necesarios para mantener el sistema.
-                  </p>
-                  <p>
-                    <strong>Estrategia recomendada:</strong> Se recomienda registrar más de una cuenta en el sistema.
-                    Esto permite que, si una cuenta se estanca o se cierra por cualquier motivo, no se detenga
-                    el flujo de donaciones para otras personas en la cadena. Esta práctica beneficia a toda
-                    la comunidad al mantener activo el sistema de distribución.
-                  </p>
-                  <p>
-                    Recuerda que no recibirás donaciones directamente de las personas
-                    a quienes ofrezcas el Kit, sino de quienes ellos refieran, creando así
-                    una cadena de valor sostenible.
-                  </p>
-                  <div className="kit-info-box">
-                    <h3>Esperando invitación</h3>
-                    <p>Actualmente estás viendo información sobre el Kit de la Herejía. Para obtenerlo,
-                    necesitas ser invitado por alguien que ya posea el Kit. Esta persona te enviará
-                    un enlace único para activar tu registro.</p>
-                    
-                    <div className="action-buttons-container">
-                      <button 
-                        className="kit-activation-button" 
-                        onClick={() => setShowActivation(true)}
-                      >
-                        QUIERO MI KIT2
-                      </button>
-                      
-                      <div className="separator">O</div>
-                      
-                      <button 
-                        className="kit-owner-button" 
-                        onClick={handleOwnerSetupClick}
-                      >
-                        SOY EL PROPIETARIO DE LA OBRA
-                      </button>
+                  <h2>Activación y Visión Futura</h2>
+                  <div className="activation-vision">
+                    <h3>🚀 Casos de Uso Múltiples</h3>
+                    <div className="use-cases">
+                      <div className="case">
+                        <strong>Kit2 de La Herejía Económica</strong>
+                        <p>Sistema económico alternativo y educación financiera</p>
+                      </div>
+                      <div className="case">
+                        <strong>Kit2 de Pietro Krespy</strong>
+                        <p>Próximo autor que adoptará el sistema para su contenido</p>
+                      </div>
+                      <div className="case">
+                        <strong>Kit2 Genérico</strong>
+                        <p>Cualquier autor puede usar esta infraestructura</p>
+                      </div>
                     </div>
-                    
-                    <p className="activation-note">
-                      Si has recibido una invitación, haz clic en "QUIERO MI KIT2". 
-                      Si eres el propietario original, haz clic en "SOY EL PROPIETARIO DE LA OBRA".
+
+                    <h3>🔄 Fondos Rotatorios</h3>
+                    <p>
+                      Al final del proceso, cuando el sistema madure, se implementarán 
+                      <strong> fondos rotatorios familiares</strong> donde el capital acumulado 
+                      por las familias se reinvierta en educación y crecimiento conjunto.
                     </p>
+
+                    <h3>📈 Estrategia Recomendada</h3>
+                    <p>
+                      Se recomienda que las familias registren múltiples cuentas (padres, hijos mayores) 
+                      para crear redundancia en el sistema y maximizar las oportunidades de aprendizaje 
+                      y generación de capital educativo.
+                    </p>
+                    
+                    <div className="kit-info-box">
+                      <h3>💡 ¿Listo para Comenzar?</h3>
+                      <p>
+                        Estás viendo información sobre el Kit2 de La Herejía Económica. 
+                        Para acceder al sistema completo, necesitas ser invitado por una 
+                        familia que ya esté participando, o ser el propietario original.
+                      </p>
+                      
+                      <div className="action-buttons-container">
+                        <button 
+                          className="kit-activation-button" 
+                          onClick={() => setShowActivation(true)}
+                        >
+                          🎯 QUIERO MI KIT2
+                        </button>
+                        
+                        <div className="separator">O</div>
+                        
+                        <button 
+                          className="kit-owner-button" 
+                          onClick={handleOwnerSetupClick}
+                        >
+                          📚 SOY EL PROPIETARIO DE LA OBRA
+                        </button>
+                      </div>
+                      
+                      <p className="activation-note">
+                        Si tu familia ha recibido una invitación, haz clic en "QUIERO MI KIT2". 
+                        Si eres el autor original, haz clic en "SOY EL PROPIETARIO DE LA OBRA".
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -284,12 +350,12 @@ const KitHeresy = () => {
             <div className="kit-navigation">
               {step > 1 && (
                 <button className="kit-prev-button" onClick={prevStep}>
-                  Anterior
+                  ← Anterior
                 </button>
               )}
               {step < 5 && (
                 <button className="kit-next-button" onClick={nextStep}>
-                  Siguiente
+                  Siguiente →
                 </button>
               )}
             </div>
@@ -300,17 +366,17 @@ const KitHeresy = () => {
           {/* Componente de activación cuando se muestra */}
           {activationInfo ? (
             <div className="kit-activated-info">
-              <h2>Kit Activado Exitosamente</h2>
+              <h2>🎉 Kit2 Activado Exitosamente</h2>
               <div className="activation-details">
                 <p><strong>Nombre:</strong> {activationInfo.name}</p>
                 <p><strong>Email:</strong> {activationInfo.email}</p>
                 <p><strong>Fecha de Activación:</strong> {new Date(activationInfo.activationDate).toLocaleDateString()}</p>
-                {ownerInfo && <p><strong>Propietario:</strong> Sí</p>}
+                {ownerInfo && <p><strong>Propietario Original:</strong> Sí</p>}
               </div>
               
               <div className="invitation-box">
-                <h3>Invita a más Personas</h3>
-                <p>Comparte este enlace único para invitar a otras personas al sistema:</p>
+                <h3>👨‍👩‍👧‍👦 Invita a Más Familias</h3>
+                <p>Comparte este enlace único para invitar a otras familias al sistema de educación financiera:</p>
                 <div className="invitation-link-container">
                   <input 
                     type="text" 
@@ -322,19 +388,19 @@ const KitHeresy = () => {
                     className="copy-link-button"
                     onClick={copyInvitationLink}
                   >
-                    Copiar
+                    📋 Copiar
                   </button>
                 </div>
                 <p className="invitation-note">
-                  Cuando alguien haga clic en este enlace, será dirigido directamente al formulario de registro.
-                  {ownerInfo && ' Las donaciones secundarias se dirigirán a la cuenta que has proporcionado.'}
+                  Cuando una familia haga clic en este enlace, será dirigida al formulario de registro del Kit2.
+                  {ownerInfo && ' Las donaciones familiares se dirigirán automáticamente a tu cuenta registrada.'}
                 </p>
               </div>
               
               {ownerInfo && (
                 <div className="owner-payment-info">
-                  <h3>Información de Pago Registrada</h3>
-                  <p>Esta información será utilizada para las donaciones secundarias:</p>
+                  <h3>💳 Información de Pago Registrada</h3>
+                  <p>Esta información será utilizada para las donaciones familiares del sistema A,B,C,D:</p>
                   <div className="payment-details">
                     <p><strong>Titular:</strong> {ownerInfo.paymentInfo.accountName}</p>
                     <p><strong>Cuenta:</strong> {ownerInfo.paymentInfo.accountNumber}</p>
@@ -347,7 +413,7 @@ const KitHeresy = () => {
               )}
               
               <button className="kit-back-button" onClick={() => setShowActivation(false)}>
-                Volver a la Información del Kit
+                ← Volver a la Información del Kit2
               </button>
             </div>
           ) : (
