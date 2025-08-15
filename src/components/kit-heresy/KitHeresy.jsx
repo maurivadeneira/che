@@ -883,4 +883,3 @@ const KitHeresy = () => {
 
 export default KitHeresy;
 
-export default KitHeresy;
