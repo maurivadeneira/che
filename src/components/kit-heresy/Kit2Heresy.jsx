@@ -4,7 +4,7 @@ const Kit2Heresy = () => (
   <div style={{textAlign: 'center', padding: '50px'}}>
     <h1>Guía Familiar Sistema Kit2</h1>
     <a 
-      href="/contenido-herejiaecon/articulos/KIT2.pdf" 
+      href="/Guia-Familiar-Sistema-Kit2.pdf" 
       target="_blank"
       style={{
         display: 'inline-block',
