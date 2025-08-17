@@ -12,7 +12,7 @@ import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro com
 import AdminPanel from "./components/admin/AdminPanel";
 import DownloadPDF from "./pages/DownloadPDF";
 import KitHeresy from "./components/kit-heresy/KitHeresy"; // ✅ Sistema Kit2 informativo (educación familiar)
-import KitHeresyPage from "./pages/KitHeresyPage"; // ✅ NUEVO: Visor PDF Kit2
+import ObjetivoKit2Page from "./pages/ObjetivoKit2Page"; // ✅ NUEVA: Página Objetivo Kit2
 import "./App.css";
 
 const App = () => {
@@ -44,14 +44,14 @@ const App = () => {
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/download/:filename" element={<DownloadPDF />} />
               
-              {/* ✅ RUTAS SISTEMA KIT2 */}
+              {/* ✅ RUTAS OBJETIVO KIT2 */}
               <Route path="/kit2" element={<KitHeresy />} />           {/* Educación familiar */}
               <Route path="/sistema-kit2" element={<KitHeresy />} />   {/* Educación familiar */}
-              <Route path="/kit-heresy" element={<KitHeresyPage />} /> {/* VISOR PDF */}
+              <Route path="/objetivo-kit2" element={<ObjetivoKit2Page />} /> {/* ✅ NUEVA PÁGINA */}
               
-              {/* ✅ RUTAS ADICIONALES PARA PDF */}
-              <Route path="/kit2-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
-              <Route path="/guia-pdf" element={<KitHeresyPage />} />   {/* VISOR PDF alternativo */}
+              {/* ✅ RUTAS ADICIONALES PARA OBJETIVO KIT2 */}
+              <Route path="/kit2-pdf" element={<ObjetivoKit2Page />} />   {/* Alternativa */}
+              <Route path="/guia-pdf" element={<ObjetivoKit2Page />} />   {/* Alternativa */}
             </Routes>
           </div>
         </div>
