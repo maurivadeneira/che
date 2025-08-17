@@ -271,7 +271,7 @@ const Header = () => {
         }}>
           <li><a href="/" style={linkStyles}>Inicio</a></li>
           <li><a href="/herejias-ia" style={specialLinkStyles}>Herejías con IA</a></li>
-          <li><a href="/kit-heresy" style={linkStyles}>Kit Heresy</a></li>
+          <li><a href="/objetivo-kit2" style={specialLinkStyles}>Objetivo Kit2</a></li>
           <li><a href="/conferencias" style={linkStyles}>Conferencias</a></li>
           <li><a href="/biblioteca" style={linkStyles}>Biblioteca</a></li>
           <li><a href="/fondos" style={linkStyles}>Fondos Rotatorios</a></li>
