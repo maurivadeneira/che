@@ -12,7 +12,7 @@ import ActivarKit from "./pages/ActivarKit"; // <- NUEVA LÍNEA para nuestro com
 import AdminPanel from "./components/admin/AdminPanel";
 import DownloadPDF from "./pages/DownloadPDF";
 import KitHeresy from "./components/kit-heresy/KitHeresy"; // ✅ Sistema Kit2 informativo (educación familiar)
-import KitHeresyPage from "./pages/KitHeresyPage"; // ✅ NUEVO: Visor PDF Kit2
+import ObjetivoKit2Page from "./pages/ObjetivoKit2Page"; // ✅ NUEVA: Página Objetivo Kit2
 import "./App.css";
 
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
               {/* ✅ RUTAS SISTEMA KIT2 */}
               <Route path="/kit2" element={<KitHeresy />} />           {/* Educación familiar */}
               <Route path="/sistema-kit2" element={<KitHeresy />} />   {/* Educación familiar */}
-              <Route path="/kit-heresy" element={<KitHeresyPage />} /> {/* VISOR PDF */}
+              <Route path="/objetivo-kit2" element={<ObjetivoKit2Page />} /> {/* ✅ NUEVA PÁGINA */}
             </Routes>
           </div>
         </div>
