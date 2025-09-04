@@ -536,6 +536,214 @@ Servidor CHE maneja:
 
 ---
 
+## 15. ELEMENTOS DE NAVEGACIÓN Y UI
+
+### 15.1 ACTIVE STATES (Estados Activos)
+```css
+/* Indicador de página actual en navegación */
+.nav-item.active {
+  background-color: #0066cc;
+  color: white;
+  font-weight: bold;
+  border-bottom: 3px solid #ff6600;
+}
+
+/* Ejemplo: cuando usuario está en "Biblioteca" */
+.nav-biblioteca.active {
+  background: linear-gradient(45deg, #0066cc, #004499);
+}
+```
+
+### 15.2 BREADCRUMBS (Migas de Pan)
+```typescript
+// Navegación jerárquica
+interface Breadcrumb {
+  label: string;
+  url: string;
+  active: boolean;
+}
+
+// Ejemplos:
+"Inicio > Mi Cuenta > Kit2s Activos"
+"Inicio > Biblioteca > Economía > Herejía Económica"
+"Inicio > Admin > Usuarios > Aprobar Autores"
+"Inicio > Fondos Rotatorios > Editorial > Mauricio Rivadeneira"
+```
+
+### 15.3 SWITCHES Y TOGGLES
+```typescript
+// Cambios de rol (si usuario tiene múltiples)
+<RoleSwitch>
+  Comprador | Autor | Admin
+</RoleSwitch>
+
+// Cambios de vista
+<ViewToggle>
+  Lista ⋮⋮⋮ | Grid ⬜⬜⬜
+</ViewToggle>
+
+// Idioma
+<LanguageSwitch>
+  ES | EN
+</LanguageSwitch>
+
+// Tema
+<ThemeToggle>
+  ☀️ Claro | 🌙 Oscuro
+</ThemeToggle>
+```
+
+### 15.4 INDICADORES DE ESTADO
+```typescript
+// Estados de Kit2
+<StatusBadge status="activo">Kit2 Activo ✓</StatusBadge>
+<StatusBadge status="expirado">Kit2 Expirado ⚠️</StatusBadge>
+<StatusBadge status="pendiente">Pago Pendiente ⏳</StatusBadge>
+
+// Estados de usuario
+<UserStatus verified={true}>Usuario Verificado ✅</UserStatus>
+<ContractStatus>Contrato Firmado 📝</ContractStatus>
+<PaymentStatus>Último Pago: Exitoso 💳</PaymentStatus>
+
+// Estados de contenido
+<ContentStatus>Publicado ✓</ContentStatus>
+<ContentStatus>En Revisión 👀</ContentStatus>
+<ContentStatus>Rechazado ❌</ContentStatus>
+```
+
+### 15.5 NAVEGACIÓN CONTEXTUAL
+```typescript
+// Sidebar adaptativo según rol
+interface SidebarConfig {
+  comprador: ['Mi Cuenta', 'Mis Kit2s', 'Historial', 'Renovaciones'];
+  autor: ['Mi Cuenta', 'Mis Obras', 'Kit2 Template', 'Estadísticas', 'Contratos'];
+  admin: ['Dashboard', 'Usuarios', 'Contenido', 'Transacciones', 'Reportes'];
+  institucional: ['Mi Cuenta', 'Catálogo', 'Kit2 Institucional', 'Comisiones', 'Estudiantes'];
+}
+
+// Menú contextual por página
+interface ContextMenu {
+  biblioteca: ['Filtrar', 'Ordenar', 'Buscar', 'Categorías'];
+  kit2: ['Personalizar', 'Vista Previa', 'Comprar', 'Compartir'];
+  admin_usuarios: ['Aprobar', 'Suspender', 'Ver Detalle', 'Historial'];
+}
+```
+
+### 15.6 BOTONES DE ACCIÓN DINÁMICOS
+```typescript
+// Botones que cambian según estado
+<ActionButton 
+  primary={user.canBuy ? "Comprar Kit2" : "Login Requerido"}
+  secondary={user.hasKit2 ? "Ver Mi Kit2" : "Conocer Más"}
+  disabled={!user.verified}
+/>
+
+// Botones de proceso
+<ProcessButton step="payment">
+  {step === 1 && "Seleccionar Kit2"}
+  {step === 2 && "Confirmar Datos"}  
+  {step === 3 && "Procesar Pago"}
+  {step === 4 && "Completado ✓"}
+</ProcessButton>
+```
+
+### 15.7 PROGRESS INDICATORS
+```typescript
+// Proceso de registro
+<ProgressBar steps={[
+  "Datos Básicos",
+  "Verificación Email", 
+  "Documentos",
+  "Aprobación",
+  "Activo"
+]} current={2} />
+
+// Proceso de compra Kit2
+<StepIndicator>
+  1. Seleccionar → 2. Pagar → 3. Recibir → 4. Distribuir
+</StepIndicator>
+
+// Progreso de perfil
+<ProfileCompletion percentage={75}>
+  Perfil 75% completo
+</ProfileCompletion>
+```
+
+### 15.8 NOTIFICACIONES Y ALERTS
+```typescript
+// Tipos de notificaciones
+interface NotificationTypes {
+  success: "Kit2 adquirido exitosamente ✓";
+  warning: "Kit2 expira en 7 días ⚠️";
+  error: "Error en el pago ❌";
+  info: "Nueva versión de obras disponible ℹ️";
+  commission: "Comisión recibida: $25 USD 💰";
+}
+
+// Posicionamiento
+<NotificationContainer position="top-right" />
+<ToastContainer position="bottom-center" />
+```
+
+### 15.9 FILTROS Y BÚSQUEDA
+```typescript
+// Filtros dinámicos
+<FilterPanel>
+  <CategoryFilter options={["Todos", "Libros", "Artículos", "Cursos"]} />
+  <PriceFilter min={0} max={500} />
+  <LanguageFilter options={["ES", "EN", "PT"]} />
+  <StatusFilter options={["Activo", "Expirado", "Pendiente"]} />
+</FilterPanel>
+
+// Búsqueda inteligente
+<SearchBox 
+  placeholder="Buscar obras, autores, instituciones..."
+  suggestions={true}
+  filters={true}
+/>
+```
+
+### 15.10 RESPONSIVE NAVIGATION
+```typescript
+// Mobile menu hamburger
+<MobileNav>
+  <HamburgerButton />
+  <SlideMenu>
+    <NavItems />
+    <UserActions />
+    <LanguageSwitch />
+  </SlideMenu>
+</MobileNav>
+
+// Desktop navigation
+<DesktopNav>
+  <MainMenu horizontal />
+  <UserMenu dropdown />
+  <QuickActions />
+</DesktopNav>
+```
+
+### 15.11 ACCESIBILIDAD Y UX
+```typescript
+// Navegación por teclado
+- Tab navigation entre elementos
+- Enter/Space para activar botones
+- Escape para cerrar modales
+- Arrow keys para menús desplegables
+
+// Screen reader support
+<nav aria-label="Navegación principal">
+<button aria-pressed={isActive} aria-describedby="tooltip-id">
+<div role="tabpanel" aria-labelledby="tab-id">
+
+// Focus management
+- Focus visible en elementos activos
+- Skip links para saltar navegación
+- Focus trap en modales
+```
+
+---
+
 **PROYECTO ENTERPRISE COMPLETO - LISTO PARA DESARROLLO INMEDIATO**
 
 *Este documento constituye la especificación técnica maestra para el desarrollo de la plataforma CHE. Conservar como referencia permanente para todo el ciclo de desarrollo.*
