@@ -9,67 +9,67 @@ import { cn } from '@/lib/utils';
 
 const fondos = [
   {
-    name: 'Inversión Empresarial',
+    name: 'Inversión Empresarial - CHE Mundo Libre',
     href: '/fondos/inversion-empresarial',
     description: 'Proyectos de inversión y emprendimiento',
-    icon: '��',
+    icon: '💼',
   },
   {
-    name: 'Editorial y Medios Audiovisuales',
+    name: 'Editorial y Medios Audiovisuales - CHE Mundo Libre',
     href: '/fondos/editorial-medios',
     description: 'Publicaciones y contenido multimedia',
     icon: '📚',
   },
   {
-    name: 'Sanación Emocional',
+    name: 'Sanación Emocional - CHE Mundo Libre',
     href: '/fondos/sanacion-emocional',
     description: 'Bienestar emocional (en desarrollo)',
     icon: '💚',
   },
   {
-    name: 'Vivienda',
+    name: 'Vivienda - CHE Mundo Libre',
     href: '/fondos/vivienda',
     description: 'Proyectos habitacionales',
     icon: '🏠',
   },
   {
-    name: 'Recreación Social y Hotelera',
+    name: 'Recreación Social y Hotelera - CHE Mundo Libre',
     href: '/fondos/recreacion-hotelera',
     description: 'Turismo y entretenimiento',
     icon: '🌟',
   },
   {
-    name: 'Sistemas y Plataformas',
+    name: 'Sistemas y Plataformas - CHE Mundo Libre',
     href: '/fondos/sistemas-plataformas',
     description: 'Desarrollo tecnológico',
     icon: '⚙️',
   },
   {
-    name: 'Bancario',
+    name: 'Bancario - CHE Mundo Libre',
     href: '/fondos/bancario',
     description: 'Servicios financieros',
     icon: '🏦',
   },
   {
-    name: 'Proyectos de Ingeniería',
+    name: 'Proyectos de Ingeniería - CHE Mundo Libre',
     href: '/fondos/ingenieria',
     description: 'Infraestructura y construcción',
     icon: '🔧',
   },
   {
-    name: 'Comercial',
+    name: 'Comercial - CHE Mundo Libre',
     href: '/fondos/comercial',
     description: 'Actividades comerciales',
     icon: '🛒',
   },
   {
-    name: 'Investigación Científica',
+    name: 'Investigación Científica - CHE Mundo Libre',
     href: '/fondos/investigacion-cientifica',
     description: 'Investigación y desarrollo',
     icon: '🔬',
   },
   {
-    name: 'Arte y Cultura',
+    name: 'Arte y Cultura - CHE Mundo Libre',
     href: '/fondos/arte-cultura',
     description: 'Manifestaciones artísticas y culturales',
     icon: '🎨',
@@ -81,8 +81,8 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-white shadow-lg h-full">
-      <div className="p-4">
+    <aside className="w-64 bg-white shadow-lg h-screen flex flex-col">
+      <div className="p-4 border-b border-gray-200 flex-shrink-0">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center w-full text-left text-lg font-bold text-gray-800 hover:text-blue-600 transition-colors"
@@ -94,9 +94,11 @@ export function Sidebar() {
           )}
           Fondos Rotatorios
         </button>
+      </div>
 
-        {isOpen && (
-          <div className="mt-4 space-y-2">
+      {isOpen && (
+        <div className="flex-1 overflow-y-scroll p-4" style={{scrollbarWidth: 'thin'}}>
+          <div className="space-y-2">
             {fondos.map((fondo) => {
               const isActive = pathname === fondo.href;
               return (
@@ -106,46 +108,41 @@ export function Sidebar() {
                   className={cn(
                     'flex items-start p-3 rounded-lg transition-colors duration-200',
                     isActive
-                      ? 'bg-blue-50 border-l-4 border-blue-500'
+                      ? 'bg-blue-50 border-l-4 border-blue-500 shadow-sm'
                       : 'hover:bg-gray-50'
                   )}
                 >
                   <span className="text-xl mr-3 mt-0.5">{fondo.icon}</span>
-                  <div className="flex-1">
-                    <h3
-                      className={cn(
-                        'font-medium text-sm',
-                        isActive ? 'text-blue-700' : 'text-gray-900'
-                      )}
-                    >
-                      {fondo.name}
-                    </h3>
-                    <p className="text-xs text-gray-500 mt-1">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <h3
+                        className={cn(
+                          'font-medium text-sm truncate pr-2',
+                          isActive ? 'text-blue-700' : 'text-gray-900'
+                        )}
+                        title={fondo.name}
+                      >
+                        {fondo.name}
+                      </h3>
+                      <div className="relative h-5 w-5 flex-shrink-0">
+                        <Image
+                          src="/images/che-mini-logo.svg"
+                          alt="CHE"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1 truncate" title={fondo.description}>
                       {fondo.description}
                     </p>
                   </div>
                 </Link>
               );
             })}
-            
-            {/* Logo institucional al final de los fondos */}
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <div className="flex flex-col items-center text-center">
-                <div className="relative h-16 w-16 mb-2">
-                  <Image
-                    src="/images/che-mini-logo.svg"
-                    alt="CHE - Mundo Libre"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <p className="text-xs text-gray-600 font-medium">CHE</p>
-                <p className="text-xs text-gray-500">Mundo Libre</p>
-              </div>
-            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </aside>
   );
 }

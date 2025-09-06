@@ -3,40 +3,36 @@ import Image from 'next/image';
 export default function SanacionEmocionalPage() {
   return (
     <div className="p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <Image 
-            src="/images/fondos/03_Sanacion_Emocional.png" 
-            alt="Sanación Emocional"
-            width={400}
-            height={300}
-            className="mx-auto rounded-lg shadow-lg"
+      <div className="flex items-center gap-4 mb-8">
+        <h1 className="text-4xl font-bold">Sanación Emocional - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10">
+          <Image
+            src="/images/che-mini-logo.svg"
+            alt="CHE"
+            fill
+            className="object-contain"
           />
-          <h1 className="text-4xl font-bold mt-6 mb-4">Sanación Emocional</h1>
-          <p className="text-lg text-gray-600">Bienestar emocional y desarrollo personal</p>
         </div>
-        
-        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-6">
-          <strong className="font-bold">En desarrollo: </strong>
-          <span>Este fondo está en fase de planificación y desarrollo. Próximamente disponible.</span>
-        </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Proyectos de Bienestar</h2>
-          <p className="mb-4">
-            El Fondo de Sanación Emocional se enfocará en proyectos que promuevan
-            el bienestar emocional, el desarrollo personal y la salud mental
-            de los miembros de la comunidad CHE.
+      </div>
+      
+      <p className="text-lg mb-8">Bienestar emocional y desarrollo personal (en desarrollo).</p>
+      
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+        <h3 className="text-lg font-semibold text-yellow-800 mb-2">En Desarrollo</h3>
+        <p className="text-yellow-700">
+          Este fondo se encuentra actualmente en fase de desarrollo debido a consideraciones 
+          legales y regulatorias específicas del sector de bienestar emocional.
+        </p>
+      </div>
+
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Visión Futura</h2>
+          <p className="text-gray-600">
+            Desarrollar programas integrales de bienestar emocional que promuevan 
+            la salud mental y el crecimiento personal.
           </p>
-          
-          <h3 className="text-xl font-semibold mb-2">Objetivos planeados:</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Programas de desarrollo personal</li>
-            <li>Talleres de bienestar emocional</li>
-            <li>Apoyo comunitario y redes de soporte</li>
-            <li>Recursos educativos sobre salud mental</li>
-          </ul>
-        </div>
+        </section>
       </div>
     </div>
   );

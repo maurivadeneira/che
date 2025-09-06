@@ -3,26 +3,38 @@ import Image from 'next/image';
 export default function ViviendaPage() {
   return (
     <div className="p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <Image 
-            src="/images/fondos/04_Vivienda.png" 
-            alt="Vivienda"
-            width={400}
-            height={300}
-            className="mx-auto rounded-lg shadow-lg"
+      <div className="flex items-center gap-4 mb-8">
+        <h1 className="text-4xl font-bold">Vivienda - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10">
+          <Image
+            src="/images/che-mini-logo.svg"
+            alt="CHE"
+            fill
+            className="object-contain"
           />
-          <h1 className="text-4xl font-bold mt-6 mb-4">Vivienda</h1>
-          <p className="text-lg text-gray-600">Proyectos habitacionales</p>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Proyectos de Vivienda</h2>
-          <p className="mb-4">
-            El Fondo de Vivienda CHE se enfoca en desarrollar proyectos habitacionales
-            accesibles y sostenibles que promuevan la libertad económica.
+      </div>
+      
+      <p className="text-lg mb-8">Proyectos habitacionales y desarrollo urbano sostenible.</p>
+      
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Objetivo</h2>
+          <p className="text-gray-600">
+            Facilitar el acceso a vivienda digna y promover el desarrollo de proyectos 
+            habitacionales sostenibles y accesibles.
           </p>
-        </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Programas</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Vivienda de interés social</li>
+            <li>Proyectos de vivienda sostenible</li>
+            <li>Mejoramiento de barrios</li>
+            <li>Financiamiento para primera vivienda</li>
+          </ul>
+        </section>
       </div>
     </div>
   );

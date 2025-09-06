@@ -3,26 +3,39 @@ import Image from 'next/image';
 export default function ArteCulturaPage() {
   return (
     <div className="p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <Image 
-            src="/images/fondos/11_Arte_y_Cultura.png" 
-            alt="Arte y Cultura"
-            width={400}
-            height={300}
-            className="mx-auto rounded-lg shadow-lg"
+      <div className="flex items-center gap-4 mb-8">
+        <h1 className="text-4xl font-bold">Arte y Cultura - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10">
+          <Image
+            src="/images/che-mini-logo.svg"
+            alt="CHE"
+            fill
+            className="object-contain"
           />
-          <h1 className="text-4xl font-bold mt-6 mb-4">Arte y Cultura</h1>
-          <p className="text-lg text-gray-600">Manifestaciones artísticas y culturales</p>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Proyectos Culturales</h2>
-          <p className="mb-4">
-            Promoción y desarrollo de manifestaciones artísticas y culturales
-            que enriquezcan la propuesta social de CHE.
+      </div>
+      
+      <p className="text-lg mb-8">Manifestaciones artísticas y desarrollo cultural.</p>
+      
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Visión</h2>
+          <p className="text-gray-600">
+            Fomentar la creatividad, preservar el patrimonio cultural y promover 
+            manifestaciones artísticas que enriquezcan el tejido social.
           </p>
-        </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Programas</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Apoyo a artistas emergentes</li>
+            <li>Preservación del patrimonio cultural</li>
+            <li>Festivales y eventos culturales</li>
+            <li>Espacios culturales comunitarios</li>
+            <li>Educación artística</li>
+          </ul>
+        </section>
       </div>
     </div>
   );

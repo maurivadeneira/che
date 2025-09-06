@@ -3,26 +3,39 @@ import Image from 'next/image';
 export default function ComercialPage() {
   return (
     <div className="p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <Image 
-            src="/images/fondos/09_Comercial.png" 
-            alt="Comercial"
-            width={400}
-            height={300}
-            className="mx-auto rounded-lg shadow-lg"
+      <div className="flex items-center gap-4 mb-8">
+        <h1 className="text-4xl font-bold">Comercial - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10">
+          <Image
+            src="/images/che-mini-logo.svg"
+            alt="CHE"
+            fill
+            className="object-contain"
           />
-          <h1 className="text-4xl font-bold mt-6 mb-4">Comercial</h1>
-          <p className="text-lg text-gray-600">Actividades comerciales</p>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Actividades Comerciales</h2>
-          <p className="mb-4">
-            Desarrollo de actividades comerciales que generen ingresos
-            sostenibles para CHE y sus miembros.
+      </div>
+      
+      <p className="text-lg mb-8">Actividades comerciales y desarrollo de mercados.</p>
+      
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Propósito</h2>
+          <p className="text-gray-600">
+            Facilitar el desarrollo de actividades comerciales que promuevan 
+            el intercambio justo y el crecimiento económico equitativo.
           </p>
-        </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Áreas de Acción</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Comercio justo y sostenible</li>
+            <li>Desarrollo de mercados locales</li>
+            <li>Comercio electrónico</li>
+            <li>Cadenas de suministro éticas</li>
+            <li>Cooperativas comerciales</li>
+          </ul>
+        </section>
       </div>
     </div>
   );

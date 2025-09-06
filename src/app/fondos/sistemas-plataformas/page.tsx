@@ -3,26 +3,39 @@ import Image from 'next/image';
 export default function SistemasPlataformasPage() {
   return (
     <div className="p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <Image 
-            src="/images/fondos/06_Sistemas_y_Plataformas.png" 
-            alt="Sistemas y Plataformas"
-            width={400}
-            height={300}
-            className="mx-auto rounded-lg shadow-lg"
+      <div className="flex items-center gap-4 mb-8">
+        <h1 className="text-4xl font-bold">Sistemas y Plataformas - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10">
+          <Image
+            src="/images/che-mini-logo.svg"
+            alt="CHE"
+            fill
+            className="object-contain"
           />
-          <h1 className="text-4xl font-bold mt-6 mb-4">Sistemas y Plataformas</h1>
-          <p className="text-lg text-gray-600">Desarrollo tecnológico</p>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Desarrollo Tecnológico</h2>
-          <p className="mb-4">
-            Creación y mantenimiento de plataformas tecnológicas que soporten
-            la infraestructura digital de CHE y sus proyectos.
+      </div>
+      
+      <p className="text-lg mb-8">Desarrollo tecnológico e innovación digital.</p>
+      
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Misión</h2>
+          <p className="text-gray-600">
+            Impulsar la transformación digital y el desarrollo de tecnologías que 
+            faciliten la implementación de los principios de la Herejía Económica.
           </p>
-        </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Líneas de Desarrollo</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Plataformas de economía colaborativa</li>
+            <li>Sistemas de gestión empresarial</li>
+            <li>Aplicaciones fintech</li>
+            <li>Infraestructura tecnológica</li>
+            <li>Soluciones de automatización</li>
+          </ul>
+        </section>
       </div>
     </div>
   );
