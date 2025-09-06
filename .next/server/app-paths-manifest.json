@@ -1,1 +1,6 @@
-{}
+{
+  "/conferencias/page": "app/conferencias/page.js",
+  "/fondos-rotatorios/page": "app/fondos-rotatorios/page.js",
+  "/page": "app/page.js",
+  "/fondos/inversion-empresarial/page": "app/fondos/inversion-empresarial/page.js"
+}
