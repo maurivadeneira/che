@@ -23,6 +23,11 @@ export default function RootLayout({
           
           {/* Contenido principal */}
           <div className="flex flex-1 flex-col">
+            {/* Barra de desarrollo */}
+            <div className="bg-yellow-400 text-black py-2 px-4 text-center text-sm font-medium">
+              Este proyecto se encuentra en fase de desarrollo. Algunas secciones podrían estar incompletas.
+            </div>
+            
             {/* Header con navegación */}
             <Header />
             
