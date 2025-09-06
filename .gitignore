@@ -25,3 +25,7 @@ legal/biometric-data/
 # Archivos temporales y PDFs locales
 temp/*.pdf
 ContenidoProyChe/**/*.pdf
+# Next.js build outputs
+.next/
+# Cache directories
+.next/cache/
