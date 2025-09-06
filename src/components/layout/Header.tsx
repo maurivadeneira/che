@@ -7,15 +7,21 @@ import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { cn } from '@/lib/utils';
 
-const navigation = [
+const mainNavigation = [
   { name: 'Inicio', href: '/' },
   { name: 'Herejías con IA', href: '/herejias-ia' },
-  { name: 'Explicación Kit2', href: '/explicacion-kit2' },
   { name: 'Conferencias', href: '/conferencias' },
   { name: 'Biblioteca', href: '/biblioteca' },
   { name: 'Fondos Rotatorios', href: '/fondos-rotatorios' },
   { name: 'Nosotros', href: '/nosotros' },
   { name: 'Contacto', href: '/contacto' },
+];
+
+const userNavigation = [
+  { name: 'Explicación Kit2', href: '/explicacion-kit2' },
+  { name: 'Registrarse', href: '/auth/register' },
+  { name: 'Mi Cuenta', href: '/cuenta' },
+  { name: 'Login', href: '/auth/login' },
 ];
 
 export function Header() {
@@ -28,16 +34,40 @@ export function Header() {
         Este proyecto se encuentra en fase de desarrollo. Algunas secciones podrían estar incompletas.
       </div>
 
+      {/* Primera fila - Usuario - Espaciado ajustado para alinear con segunda fila */}
+      <div className="bg-slate-700 px-4 py-1">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="hidden lg:flex justify-end space-x-8 text-sm">
+            {userNavigation.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'px-4 py-1 text-white hover:text-orange-400 transition-colors',
+                    isActive && 'text-orange-400'
+                  )}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Segunda fila - Principal */}
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="relative h-12 w-12">
+            <Link href="/" className="flex items-center space-x-4">
+              <div className="relative h-14 w-20">
                 <Image
-                  src="/images/logo-che-grande.png"
+                  src="/images/logo-che-enhanced.svg"
                   alt="CHE Logo"
                   fill
-                  className="rounded-full object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>
@@ -49,15 +79,15 @@ export function Header() {
           </div>
 
           <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-1">
-              {navigation.map((item) => {
+            <div className="flex items-baseline space-x-2">
+              {mainNavigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      'px-4 py-2 text-sm font-medium text-white hover:text-orange-400 transition-colors duration-200',
+                      'px-3 py-2 text-sm font-medium text-white hover:text-orange-400 transition-colors duration-200',
                       isActive && 'text-orange-400 border-b-2 border-orange-400'
                     )}
                   >
@@ -65,18 +95,6 @@ export function Header() {
                   </Link>
                 );
               })}
-            </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <div className="ml-4 flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-sm">
-                <Link href="/auth/register" className="text-white hover:text-orange-400 transition-colors">Registrarse</Link>
-                <span className="text-gray-400">|</span>
-                <Link href="/cuenta" className="text-white hover:text-orange-400 transition-colors">Mi Cuenta</Link>
-                <span className="text-gray-400">|</span>
-                <Link href="/auth/login" className="text-white hover:text-orange-400 transition-colors">Login</Link>
-              </div>
             </div>
           </div>
 
@@ -94,7 +112,28 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-800/95">
-              {navigation.map((item) => {
+              {/* Navegación de usuario en móvil */}
+              <div className="border-b border-slate-600 pb-2 mb-2">
+                {userNavigation.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={cn(
+                        'block px-3 py-2 text-sm font-medium text-gray-300 hover:text-orange-400 transition-colors',
+                        isActive && 'text-orange-400'
+                      )}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
+              </div>
+              
+              {/* Navegación principal en móvil */}
+              {mainNavigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link
