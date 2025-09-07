@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --che-primary: #0066cc;
+  --che-secondary: #ff6600;
+  --che-dark: #1a365d;
+}
+
+@layer components {
+  .btn-che-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300;
+  }
+  
+  .btn-che-secondary {
+    @apply bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300;
+  }
+}

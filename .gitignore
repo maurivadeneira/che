@@ -25,4 +25,11 @@ legal/biometric-data/
 # Archivos temporales y PDFs locales
 temp/*.pdf
 ContenidoProyChe/**/*.pdf
+<<<<<<< HEAD
 .next/
+=======
+# Next.js build outputs
+.next/
+# Cache directories
+.next/cache/
+>>>>>>> che-core2-060925
