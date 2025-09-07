@@ -25,3 +25,4 @@ legal/biometric-data/
 # Archivos temporales y PDFs locales
 temp/*.pdf
 ContenidoProyChe/**/*.pdf
+.next/
