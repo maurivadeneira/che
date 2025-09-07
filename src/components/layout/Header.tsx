@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="bg-gray-800 text-white shadow-lg">
       {/* Barra superior con enlaces de cuenta */}
@@ -28,7 +33,6 @@ export function Header() {
           {/* Logo aún más grande */}
           <div className="flex items-center -ml-8">
             <Link href="/" className="flex items-center space-x-3">
-              {/* Logo más grande para leer "Mundo Libre" */}
               <div className="relative h-40 w-40">
                 <Image
                   src="/images/logo-che-enhanced.svg"
@@ -47,27 +51,62 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Navegación principal */}
+          {/* Navegación principal con estado activo */}
           <nav className="hidden md:flex space-x-8 mr-4">
-            <Link href="/" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/' ? 'text-orange-400' : ''
+              }`}
+            >
               Inicio
             </Link>
-            <Link href="/herejias-con-ia" className="text-orange-400 hover:text-orange-300 transition-colors font-medium">
+            <Link 
+              href="/herejias-con-ia" 
+              className={`hover:text-orange-300 transition-colors font-medium ${
+                pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'
+              }`}
+            >
               Herejías con IA
             </Link>
-            <Link href="/conferencias" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/conferencias" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/conferencias' ? 'text-orange-400' : ''
+              }`}
+            >
               Conferencias
             </Link>
-            <Link href="/biblioteca" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/biblioteca" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/biblioteca' ? 'text-orange-400' : ''
+              }`}
+            >
               Biblioteca
             </Link>
-            <Link href="/fondos-rotatorios" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/fondos-rotatorios" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''
+              }`}
+            >
               Fondos Rotatorios
             </Link>
-            <Link href="/nosotros" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/nosotros" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/nosotros' ? 'text-orange-400' : ''
+              }`}
+            >
               Nosotros
             </Link>
-            <Link href="/contacto" className="hover:text-blue-300 transition-colors font-medium">
+            <Link 
+              href="/contacto" 
+              className={`hover:text-blue-300 transition-colors font-medium ${
+                pathname === '/contacto' ? 'text-orange-400' : ''
+              }`}
+            >
               Contacto
             </Link>
           </nav>
