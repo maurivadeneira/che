@@ -1,19 +1,22 @@
 node_modules/
 public/contenido-herejiaecon/
-Disco local (C) - Acceso directo.lnk
 # Variables de entorno - CREDENCIALES SENSIBLES
 .env
 env.txt
 *.env
-
-# Archivos de configuración local
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env
-reset-password.js
-debug-jwt.js
+
+# Next.js build outputs
+.next/
+# Cache directories  
+.next/cache/
+
+# Archivos temporales y PDFs locales
+temp/*.pdf
+ContenidoProyChe/**/*.pdf
 
 # Documentos legales sensibles
 legal/signed-contracts/
@@ -21,15 +24,6 @@ legal/personal-data/
 legal/biometric-data/
 *.p12
 *.pfx
-# Permitir templates legales pero proteger datos reales
-# Archivos temporales y PDFs locales
-temp/*.pdf
-ContenidoProyChe/**/*.pdf
-<<<<<<< HEAD
-.next/
-=======
-# Next.js build outputs
-.next/
-# Cache directories
-.next/cache/
->>>>>>> che-core2-060925
+
+reset-password.js
+debug-jwt.js
