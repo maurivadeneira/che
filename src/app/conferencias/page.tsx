@@ -34,7 +34,7 @@ export default function ConferenciasPage() {
     }
   ];
 
-  const handleWatchVideo = (enlace) => {
+  const handleWatchVideo = (enlace: string) => {
     window.open(enlace, '_blank');
   };
 
