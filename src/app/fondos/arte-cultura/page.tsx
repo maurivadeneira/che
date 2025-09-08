@@ -2,8 +2,20 @@ import Image from 'next/image';
 
 export default function ArteCulturaPage() {
   return (
-    <div className="p-8">
-      <div className="flex items-center gap-4 mb-8">
+    <div className="max-w-6xl mx-auto p-8">
+      <div className="mb-8 flex justify-center">
+        <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
+          <Image
+            src="/images/fondos/11_Arte_y_Cultura.png"
+            alt="Arte y Cultura - CHE Mundo Libre - CHE Mundo Libre"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+
+      <div className="text-center mb-8">
         <h1 className="text-4xl font-bold">Arte y Cultura - CHE Mundo Libre</h1>
         <div className="relative h-10 w-10">
           <Image

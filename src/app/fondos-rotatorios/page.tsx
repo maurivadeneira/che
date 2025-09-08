@@ -31,12 +31,13 @@ export default function FondosRotatoriosPage() {
             className="group bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all hover:-translate-y-1"
           >
             <div className="text-center">
-              <div className="relative w-full h-32 mb-4 overflow-hidden rounded-lg">
+              <div className="relative w-full h-56 mb-4 overflow-hidden rounded-lg bg-gray-100">
                 <Image 
                   src={`/images/fondos/${fondo.img}`} 
                   alt={fondo.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform"
+                  className="object-contain group-hover:scale-105 transition-transform"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               

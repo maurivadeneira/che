@@ -1,10 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/contacto/page": "app/contacto/page.js",
-  "/explicacion-kit2/page": "app/explicacion-kit2/page.js",
-  "/auth/register/page": "app/auth/register/page.js",
-  "/auth/login/page": "app/auth/login/page.js",
   "/fondos/inversion-empresarial/page": "app/fondos/inversion-empresarial/page.js",
   "/fondos/editorial-medios/page": "app/fondos/editorial-medios/page.js",
   "/fondos/sanacion-emocional/page": "app/fondos/sanacion-emocional/page.js",

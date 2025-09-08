@@ -11,51 +11,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/herejias-con-ia/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/herejias-con-ia/page.js"
-    ],
-    "/conferencias/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/conferencias/page.js"
-    ],
-    "/biblioteca/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/biblioteca/page.js"
-    ],
-    "/fondos-rotatorios/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/fondos-rotatorios/page.js"
-    ],
-    "/nosotros/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/nosotros/page.js"
-    ],
-    "/contacto/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/contacto/page.js"
-    ],
-    "/explicacion-kit2/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/explicacion-kit2/page.js"
-    ],
-    "/auth/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/auth/register/page.js"
-    ],
-    "/auth/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/auth/login/page.js"
-    ],
     "/fondos/inversion-empresarial/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -75,11 +30,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/fondos/vivienda/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
