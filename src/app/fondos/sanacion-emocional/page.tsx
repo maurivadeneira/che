@@ -18,7 +18,7 @@ export default function SanacionEmocionalPage() {
 
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold">Sanación Emocional - CHE Mundo Libre</h1>
-        <div className="relative h-10 w-10">
+        <div className="relative h-10 w-10 mx-auto">
           <Image src="/images/che-mini-logo.svg" alt="CHE" fill className="object-contain" />
         </div>
       </div>

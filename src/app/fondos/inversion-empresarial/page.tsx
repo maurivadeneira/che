@@ -2,16 +2,32 @@ import Image from 'next/image';
 
 export default function InversionEmpresarialPage() {
   return (
-    <div className="p-8">
-      <div className="flex items-center gap-4 mb-8">
-        <h1 className="text-4xl font-bold">Inversión Empresarial - CHE Mundo Libre</h1>
-        <div className="relative h-10 w-10">
+    <div className="max-w-6xl mx-auto p-8">
+      {/* Imagen principal del fondo */}
+      <div className="mb-8 flex justify-center">
+        <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
           <Image
-            src="/images/che-mini-logo.svg"
-            alt="CHE"
+            src="/images/fondos/01_Inversion_Empresarial.png"
+            alt="Inversión Empresarial - CHE Mundo Libre"
             fill
             className="object-contain"
+            priority
           />
+        </div>
+      </div>
+
+      {/* Título con mini-logo centrado debajo */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold mb-4">Inversión Empresarial - CHE Mundo Libre</h1>
+        <div className="flex justify-center">
+          <div className="relative h-10 w-10">
+            <Image
+              src="/images/che-mini-logo.svg"
+              alt="CHE"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
       

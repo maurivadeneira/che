@@ -16,8 +16,8 @@ export default function InvestigacionCientificaPage() {
       </div>
 
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold">Investigación Científica - CHE Mundo Libre</h1>
-        <div className="relative h-10 w-10">
+        <h1 className="text-4xl font-bold mb-4">Investigación Científica - CHE Mundo Libre</h1>
+        <div className="relative h-10 w-10 mx-auto">
           <Image
             src="/images/che-mini-logo.svg"
             alt="CHE"
