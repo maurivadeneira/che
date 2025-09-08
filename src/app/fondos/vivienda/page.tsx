@@ -18,7 +18,16 @@ export default function ViviendaPage() {
 
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">Vivienda - CHE Mundo Libre</h1>
-        <div className="flex justify-center mt-2"><div className="relative h-10 w-10"><Image src="/images/che-mini-logo.svg" alt="CHE" fill className="object-contain" /></div></div>
+        <div className="flex justify-center mt-2">
+          <div className="relative h-10 w-10">
+            <Image
+              src="/images/che-mini-logo.svg"
+              alt="CHE"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
         <p className="text-lg">Soluciones habitacionales sostenibles (en desarrollo).</p>
       </div>
       

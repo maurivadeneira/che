@@ -18,7 +18,8 @@ export default function EditorialMediosPage() {
 
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold">Editorial y Medios Audiovisuales - CHE Mundo Libre</h1>
-        <div className="flex justify-center mt-2"><div className="relative h-10 w-10">
+        <div className="flex justify-center mt-2">
+        <div className="relative h-10 w-10">
           <Image src="/images/che-mini-logo.svg" alt="CHE" fill className="object-contain" />
         </div>
         </div>
