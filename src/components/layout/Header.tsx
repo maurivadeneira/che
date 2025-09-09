@@ -12,29 +12,29 @@ export function Header() {
 
   return (
     <header className="bg-gray-800 text-white shadow-lg">
-      {/* Barra superior - Mejor distribución en landscape */}
+      {/* Barra superior */}
       <div className="bg-gray-900 py-2 px-4">
         <div className="w-full flex justify-end space-x-4 text-xs sm:text-sm">
-          <Link href="/explicacion-kit2" className="hover:text-blue-300 transition-colors whitespace-nowrap">
+          <Link href="/explicacion-kit2" className="hover:text-blue-300 transition-colors">
             Explicación Kit2
           </Link>
-          <Link href="/auth/register" className="hover:text-blue-300 transition-colors whitespace-nowrap">
+          <Link href="/auth/register" className="hover:text-blue-300 transition-colors">
             Registrarse
           </Link>
-          <Link href="/mi-cuenta" className="hover:text-blue-300 transition-colors whitespace-nowrap">
+          <Link href="/mi-cuenta" className="hover:text-blue-300 transition-colors">
             Mi Cuenta
           </Link>
-          <Link href="/auth/login" className="hover:text-blue-300 transition-colors whitespace-nowrap">
+          <Link href="/auth/login" className="hover:text-blue-300 transition-colors">
             Login
           </Link>
         </div>
       </div>
 
-      {/* Barra principal - Distribuir mejor el espacio */}
+      {/* Barra principal - Distribución justificada */}
       <div className="py-2 px-4">
-        <div className="w-full flex items-center justify-between">
-          {/* Logo - Más compacto pero sin perder proporción */}
-          <div className="flex items-center flex-shrink-0">
+        <div className="w-full flex items-center">
+          {/* Logo */}
+          <div className="flex items-center mr-4">
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative h-8 w-8 sm:h-12 sm:w-12 md:h-40 md:w-40">
                 <Image
@@ -54,27 +54,27 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Navegación principal - Usar todo el espacio disponible */}
-          <nav className="hidden landscape:flex lg:flex flex-1 justify-center space-x-2 landscape:space-x-4 mx-4">
-            <Link href="/" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/' ? 'text-orange-400' : ''}`}>
+          {/* Navegación - Distribuir uniformemente en el espacio restante */}
+          <nav className="hidden landscape:flex lg:flex flex-1 justify-evenly">
+            <Link href="/" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/' ? 'text-orange-400' : ''}`}>
               Inicio
             </Link>
-            <Link href="/herejias-con-ia" className={`hover:text-orange-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'}`}>
+            <Link href="/herejias-con-ia" className={`hover:text-orange-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'}`}>
               Herejías con IA
             </Link>
-            <Link href="/conferencias" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/conferencias' ? 'text-orange-400' : ''}`}>
+            <Link href="/conferencias" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/conferencias' ? 'text-orange-400' : ''}`}>
               Conferencias
             </Link>
-            <Link href="/biblioteca" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/biblioteca' ? 'text-orange-400' : ''}`}>
+            <Link href="/biblioteca" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/biblioteca' ? 'text-orange-400' : ''}`}>
               Biblioteca
             </Link>
-            <Link href="/fondos-rotatorios" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''}`}>
+            <Link href="/fondos-rotatorios" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''}`}>
               Fondos Rotatorios
             </Link>
-            <Link href="/nosotros" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/nosotros' ? 'text-orange-400' : ''}`}>
+            <Link href="/nosotros" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/nosotros' ? 'text-orange-400' : ''}`}>
               Nosotros
             </Link>
-            <Link href="/contacto" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/contacto' ? 'text-orange-400' : ''}`}>
+            <Link href="/contacto" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/contacto' ? 'text-orange-400' : ''}`}>
               Contacto
             </Link>
           </nav>
@@ -82,7 +82,7 @@ export function Header() {
           {/* Hamburger solo en portrait */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="portrait:block landscape:hidden lg:hidden p-2 text-white flex-shrink-0"
+            className="portrait:block landscape:hidden lg:hidden p-2 text-white ml-auto"
             aria-label="Menu principal"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
