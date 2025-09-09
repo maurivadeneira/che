@@ -13,16 +13,16 @@ export function Header() {
   return (
     <header className="bg-gray-800 text-white shadow-lg">
       {/* Barra superior */}
-      <div className="bg-gray-900 py-2 px-4">
-        <div className="w-full flex justify-end space-x-4 text-xs sm:text-sm">
+      <div className="bg-gray-900 py-2 px-2">
+        <div className="flex justify-end space-x-3 text-xs">
           <Link href="/explicacion-kit2" className="hover:text-blue-300 transition-colors">
-            Explicación Kit2
+            Kit2
           </Link>
           <Link href="/auth/register" className="hover:text-blue-300 transition-colors">
-            Registrarse
+            Registro
           </Link>
           <Link href="/mi-cuenta" className="hover:text-blue-300 transition-colors">
-            Mi Cuenta
+            Cuenta
           </Link>
           <Link href="/auth/login" className="hover:text-blue-300 transition-colors">
             Login
@@ -30,69 +30,66 @@ export function Header() {
         </div>
       </div>
 
-      {/* Barra principal - Distribución justificada */}
-      <div className="py-2 px-4">
-        <div className="w-full flex items-center">
-          {/* Logo */}
-          <div className="flex items-center mr-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative h-8 w-8 sm:h-12 sm:w-12 md:h-40 md:w-40">
+      {/* Barra principal - Layout completamente custom */}
+      <div className="py-2 px-2">
+        <div className="w-full flex items-center gap-2">
+          {/* Logo compacto */}
+          <div className="flex items-center flex-shrink-0">
+            <Link href="/" className="flex items-center gap-1">
+              <div className="relative h-8 w-8">
                 <Image
                   src="/images/logo-che-enhanced.svg"
-                  alt="CHE Logo"
+                  alt="CHE"
                   fill
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col">
-                <div>
-                  <span className="text-sm sm:text-base md:text-3xl font-bold">C.H.E.</span>
-                  <span className="text-xs sm:text-sm md:text-xl text-white ml-1">Mundo Libre</span>
-                </div>
-                <span className="text-xs md:text-base text-gray-300 hidden sm:block">Corporación Herejía Económica</span>
+              <div className="hidden sm:flex flex-col">
+                <span className="text-xs font-bold">C.H.E.</span>
+                <span className="text-xs text-gray-300">Mundo Libre</span>
               </div>
             </Link>
           </div>
 
-          {/* Navegación - Distribuir uniformemente en el espacio restante */}
-          <nav className="hidden landscape:flex lg:flex flex-1 justify-evenly">
-            <Link href="/" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/' ? 'text-orange-400' : ''}`}>
+          {/* Navegación - Mobile first approach */}
+          <nav className="hidden md:flex flex-1 justify-between px-2">
+            <Link href="/" className={`text-xs font-medium px-1 ${pathname === '/' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
               Inicio
             </Link>
-            <Link href="/herejias-con-ia" className={`hover:text-orange-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'}`}>
-              Herejías con IA
+            <Link href="/herejias-con-ia" className={`text-xs font-medium px-1 ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'hover:text-orange-300'}`}>
+              Herejías
             </Link>
-            <Link href="/conferencias" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/conferencias' ? 'text-orange-400' : ''}`}>
+            <Link href="/conferencias" className={`text-xs font-medium px-1 ${pathname === '/conferencias' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
               Conferencias
             </Link>
-            <Link href="/biblioteca" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/biblioteca' ? 'text-orange-400' : ''}`}>
+            <Link href="/biblioteca" className={`text-xs font-medium px-1 ${pathname === '/biblioteca' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
               Biblioteca
             </Link>
-            <Link href="/fondos-rotatorios" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''}`}>
-              Fondos Rotatorios
+            <Link href="/fondos-rotatorios" className={`text-xs font-medium px-1 ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
+              Fondos
             </Link>
-            <Link href="/nosotros" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/nosotros' ? 'text-orange-400' : ''}`}>
+            <Link href="/nosotros" className={`text-xs font-medium px-1 ${pathname === '/nosotros' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
               Nosotros
             </Link>
-            <Link href="/contacto" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm ${pathname === '/contacto' ? 'text-orange-400' : ''}`}>
+            <Link href="/contacto" className={`text-xs font-medium px-1 ${pathname === '/contacto' ? 'text-orange-400' : 'hover:text-blue-300'}`}>
               Contacto
             </Link>
           </nav>
 
-          {/* Hamburger solo en portrait */}
+          {/* Hamburger - Solo cuando la navegación está oculta */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="portrait:block landscape:hidden lg:hidden p-2 text-white ml-auto"
-            aria-label="Menu principal"
+            className="md:hidden p-2 text-white ml-auto"
+            aria-label="Menu"
           >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMenuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
         </div>
       </div>
 
-      {/* Menú móvil - Solo portrait */}
+      {/* Menú móvil desplegable */}
       {isMenuOpen && (
-        <div className="portrait:block landscape:hidden lg:hidden bg-gray-700 border-t border-gray-600">
+        <div className="md:hidden bg-gray-700 border-t border-gray-600">
           <nav className="px-4 py-3 space-y-2">
             <Link href="/" onClick={() => setIsMenuOpen(false)} className={`block py-2 px-3 rounded ${pathname === '/' ? 'bg-orange-600 text-white' : 'text-gray-300 hover:bg-gray-600'}`}>
               Inicio
