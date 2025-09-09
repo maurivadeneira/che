@@ -1,7 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/fondos/inversion-empresarial/page": "app/fondos/inversion-empresarial/page.js",
-  "/fondos/editorial-medios/page": "app/fondos/editorial-medios/page.js",
-  "/fondos/sanacion-emocional/page": "app/fondos/sanacion-emocional/page.js",
-  "/fondos/vivienda/page": "app/fondos/vivienda/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/[locale]/page": "app/[locale]/page.js"
 }
