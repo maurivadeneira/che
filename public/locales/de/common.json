@@ -1,0 +1,31 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "heresies": "Häresien mit KI",
+    "conferences": "Konferenzen",
+    "library": "Bibliothek",
+    "funds": "Rotierende Fonds",
+    "about": "Über Uns",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "kit2": "Kit2 Erklärung",
+    "register": "Registrieren",
+    "account": "Mein Konto",
+    "login": "Anmelden"
+  },
+  "company": {
+    "name": "C.H.E. Freie Welt",
+    "fullName": "Wirtschaftshäresie Corporation",
+    "subtitle": "Ein globales Sozialprojekt für die Entwicklung in der ganzen Welt"
+  },
+  "funds": {
+    "title": "Die 11 CHE Rotierenden Fonds",
+    "subtitle": "Satzungsstruktur der Wirtschaftshäresie Corporation für globale Entwicklung",
+    "viewDetails": "Details anzeigen",
+    "status": {
+      "active": "Aktiv",
+      "development": "In Entwicklung"
+    }
+  }
+}

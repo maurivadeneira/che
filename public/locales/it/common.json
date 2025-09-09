@@ -1,0 +1,31 @@
+{
+  "navigation": {
+    "home": "Home",
+    "heresies": "Eresie con IA",
+    "conferences": "Conferenze",
+    "library": "Biblioteca",
+    "funds": "Fondi Rotativi",
+    "about": "Chi Siamo",
+    "contact": "Contatto"
+  },
+  "header": {
+    "kit2": "Spiegazione Kit2",
+    "register": "Registrati",
+    "account": "Il Mio Account",
+    "login": "Accedi"
+  },
+  "company": {
+    "name": "C.H.E. Mondo Libero",
+    "fullName": "Corporazione Eresia Economica",
+    "subtitle": "Un progetto sociale globale per lo sviluppo nell'intero mondo"
+  },
+  "funds": {
+    "title": "Gli 11 Fondi Rotativi CHE",
+    "subtitle": "Struttura statutaria della Corporazione Eresia Economica per lo sviluppo globale",
+    "viewDetails": "Vedi dettagli",
+    "status": {
+      "active": "Attivo",
+      "development": "In sviluppo"
+    }
+  }
+}

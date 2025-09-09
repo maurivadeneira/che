@@ -1,0 +1,31 @@
+{
+  "navigation": {
+    "home": "Home",
+    "heresies": "Heresies with AI",
+    "conferences": "Conferences",
+    "library": "Library",
+    "funds": "Rotating Funds",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "header": {
+    "kit2": "Kit2 Explanation",
+    "register": "Register",
+    "account": "My Account",
+    "login": "Login"
+  },
+  "company": {
+    "name": "C.H.E. Free World",
+    "fullName": "Economic Heresy Corporation",
+    "subtitle": "A global social project for development throughout the entire world"
+  },
+  "funds": {
+    "title": "The 11 CHE Rotating Funds",
+    "subtitle": "Statutory structure of the Economic Heresy Corporation for global development",
+    "viewDetails": "View details",
+    "status": {
+      "active": "Active",
+      "development": "In development"
+    }
+  }
+}
