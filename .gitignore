@@ -27,3 +27,7 @@ legal/biometric-data/
 
 reset-password.js
 debug-jwt.js
+# Next.js
+.next/
+.vercel/
+*.tsbuildinfo
