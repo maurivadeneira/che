@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { Footer } from '@/components/layout/Footer';
+import { Breadcrumb } from "@/components/common/Breadcrumb";
 
 const fondos = [
   { name: 'Inversión Empresarial', href: '/fondos/inversion-empresarial', description: 'Proyectos de inversión', icon: '💼' },
@@ -52,7 +53,8 @@ export default function RootLayout({
             <Header />
             
             {/* Contenido de la página con padding para botón móvil */}
-            <main className="flex-1 pt-16 md:pt-0">
+            <Breadcrumb />
+            <main className="flex-1">
               {children}
             </main>
             
