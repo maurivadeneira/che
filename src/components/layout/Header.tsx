@@ -12,29 +12,29 @@ export function Header() {
 
   return (
     <header className="bg-gray-800 text-white shadow-lg">
-      {/* Barra superior responsive */}
+      {/* Barra superior - Mejor distribución en landscape */}
       <div className="bg-gray-900 py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-end space-x-4 text-xs sm:text-sm">
-          <Link href="/explicacion-kit2" className="hover:text-blue-300 transition-colors">
+        <div className="w-full flex justify-end space-x-4 text-xs sm:text-sm">
+          <Link href="/explicacion-kit2" className="hover:text-blue-300 transition-colors whitespace-nowrap">
             Explicación Kit2
           </Link>
-          <Link href="/auth/register" className="hover:text-blue-300 transition-colors">
+          <Link href="/auth/register" className="hover:text-blue-300 transition-colors whitespace-nowrap">
             Registrarse
           </Link>
-          <Link href="/mi-cuenta" className="hover:text-blue-300 transition-colors">
+          <Link href="/mi-cuenta" className="hover:text-blue-300 transition-colors whitespace-nowrap">
             Mi Cuenta
           </Link>
-          <Link href="/auth/login" className="hover:text-blue-300 transition-colors">
+          <Link href="/auth/login" className="hover:text-blue-300 transition-colors whitespace-nowrap">
             Login
           </Link>
         </div>
       </div>
 
-      {/* Barra principal */}
+      {/* Barra principal - Distribuir mejor el espacio */}
       <div className="py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo responsive */}
-          <div className="flex items-center">
+        <div className="w-full flex items-center justify-between">
+          {/* Logo - Más compacto pero sin perder proporción */}
+          <div className="flex items-center flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative h-8 w-8 sm:h-12 sm:w-12 md:h-40 md:w-40">
                 <Image
@@ -54,35 +54,35 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Navegación principal - Mostrar más en landscape */}
-          <nav className="hidden landscape:flex lg:flex space-x-2 sm:space-x-4 xl:space-x-8 mr-4">
-            <Link href="/" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/' ? 'text-orange-400' : ''}`}>
+          {/* Navegación principal - Usar todo el espacio disponible */}
+          <nav className="hidden landscape:flex lg:flex flex-1 justify-center space-x-2 landscape:space-x-4 mx-4">
+            <Link href="/" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/' ? 'text-orange-400' : ''}`}>
               Inicio
             </Link>
-            <Link href="/herejias-con-ia" className={`hover:text-orange-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'}`}>
-              Herejías
+            <Link href="/herejias-con-ia" className={`hover:text-orange-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/herejias-con-ia' ? 'text-orange-400' : 'text-white'}`}>
+              Herejías con IA
             </Link>
-            <Link href="/conferencias" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/conferencias' ? 'text-orange-400' : ''}`}>
+            <Link href="/conferencias" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/conferencias' ? 'text-orange-400' : ''}`}>
               Conferencias
             </Link>
-            <Link href="/biblioteca" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/biblioteca' ? 'text-orange-400' : ''}`}>
+            <Link href="/biblioteca" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/biblioteca' ? 'text-orange-400' : ''}`}>
               Biblioteca
             </Link>
-            <Link href="/fondos-rotatorios" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''}`}>
-              Fondos
+            <Link href="/fondos-rotatorios" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/fondos-rotatorios' ? 'text-orange-400' : ''}`}>
+              Fondos Rotatorios
             </Link>
-            <Link href="/nosotros" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/nosotros' ? 'text-orange-400' : ''}`}>
+            <Link href="/nosotros" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/nosotros' ? 'text-orange-400' : ''}`}>
               Nosotros
             </Link>
-            <Link href="/contacto" className={`hover:text-blue-300 transition-colors font-medium text-xs sm:text-sm xl:text-base ${pathname === '/contacto' ? 'text-orange-400' : ''}`}>
+            <Link href="/contacto" className={`hover:text-blue-300 transition-colors font-medium text-xs landscape:text-sm whitespace-nowrap px-2 ${pathname === '/contacto' ? 'text-orange-400' : ''}`}>
               Contacto
             </Link>
           </nav>
 
-          {/* Hamburger solo en portrait o pantallas muy pequeñas */}
+          {/* Hamburger solo en portrait */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="portrait:block landscape:hidden lg:hidden p-2 text-white"
+            className="portrait:block landscape:hidden lg:hidden p-2 text-white flex-shrink-0"
             aria-label="Menu principal"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
