@@ -140,3 +140,22 @@
     line-height: 2.5rem;
   }
 }
+/* Responsive por orientación */
+@media (orientation: landscape) and (max-height: 600px) {
+  /* En móvil horizontal, reducir sidebar o ocultarlo */
+  .sidebar-landscape {
+    width: 200px; /* Más angosto */
+  }
+  
+  /* Header más compacto en landscape */
+  .header-landscape {
+    padding: 4px 0;
+  }
+}
+
+@media (orientation: portrait) {
+  /* En móvil vertical, ocultar sidebar */
+  .sidebar-portrait {
+    display: none;
+  }
+}
