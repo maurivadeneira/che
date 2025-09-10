@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from 'react';
 
-export type Locale = 'es' | 'en' | 'fr' | 'de' | 'it';
+export type Locale = 'es' | 'en' | 'fr' | 'de' | 'it' | 'pt';
 
 export const LocaleContext = createContext<{
   locale: Locale;
@@ -20,7 +20,6 @@ interface TranslationProviderProps {
   children: React.ReactNode;
 }
 
-// Helper para obtener texto traducido
 function getNestedTranslation(obj: any, path: string): string {
   return path.split('.').reduce((current, key) => current?.[key], obj) || path;
 }

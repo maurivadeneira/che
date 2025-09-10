@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Início",
+    "heresies": "Heresias com IA",
+    "conferences": "Conferências",
+    "library": "Biblioteca",
+    "funds": "Fundos Rotativos",
+    "about": "Sobre Nós",
+    "contact": "Contato"
+  },
+  "header": {
+    "kit2": "Explicação Kit2",
+    "register": "Registrar",
+    "account": "Minha Conta",
+    "login": "Login"
+  },
+  "company": {
+    "name": "C.H.E. Mundo Livre",
+    "fullName": "Corporação Heresia Econômica",
+    "subtitle": "Um projeto social global para desenvolvimento em todo o mundo"
+  },
+  "funds": {
+    "title": "Os 11 Fundos Rotativos CHE",
+    "subtitle": "Estrutura estatutária da Corporação Heresia Econômica para desenvolvimento global",
+    "viewDetails": "Ver detalhes",
+    "status": {
+      "active": "Ativo",
+      "development": "Em desenvolvimento"
+    },
+    "items": {
+      "business": "Investimento Empresarial",
+      "editorial": "Editorial e Mídia",
+      "healing": "Cura Emocional",
+      "housing": "Habitação",
+      "recreation": "Recreação Social",
+      "systems": "Sistemas e Plataformas",
+      "banking": "Bancário",
+      "engineering": "Projetos de Engenharia",
+      "commercial": "Comercial",
+      "research": "Pesquisa Científica",
+      "culture": "Arte e Cultura"
+    },
+    "descriptions": {
+      "business": "Projetos de investimento",
+      "editorial": "Publicações",
+      "healing": "Bem-estar",
+      "housing": "Soluções habitacionais",
+      "recreation": "Turismo",
+      "systems": "Tecnologia",
+      "banking": "Serviços financeiros",
+      "engineering": "Infraestrutura",
+      "commercial": "Atividades comerciais",
+      "research": "Pesquisa",
+      "culture": "Manifestações artísticas"
+    }
+  },
+  "development": {
+    "banner": "Este projeto está em fase de desenvolvimento. Algumas seções podem estar incompletas."
+  },
+  "homepage": {
+    "title": "CHE - Corporação Heresia Econômica",
+    "status": "Status: Base empresarial funcionando corretamente"
+  }
+}
