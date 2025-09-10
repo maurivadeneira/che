@@ -1,9 +1,14 @@
 {
   "pages": {
-    "/page": [
+    "/[locale]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/[locale]/page.js"
+    ],
+    "/[locale]/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,25 +16,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/fondos/inversion-empresarial/page": [
+    "/[locale]/herejias-con-ia/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/fondos/inversion-empresarial/page.js"
+      "static/chunks/app/[locale]/herejias-con-ia/page.js"
     ],
-    "/fondos/editorial-medios/page": [
+    "/[locale]/biblioteca/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/fondos/editorial-medios/page.js"
+      "static/chunks/app/[locale]/biblioteca/page.js"
     ],
-    "/fondos/sanacion-emocional/page": [
+    "/[locale]/fondos-rotatorios/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/fondos/sanacion-emocional/page.js"
-    ],
-    "/fondos/vivienda/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/fondos/vivienda/page.js"
+      "static/chunks/app/[locale]/fondos-rotatorios/page.js"
     ]
   }
 }

@@ -1,0 +1,31 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "heresies": "Herejías con IA",
+    "conferences": "Conferencias", 
+    "library": "Biblioteca",
+    "funds": "Fondos Rotatorios",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "header": {
+    "kit2": "Explicación Kit2",
+    "register": "Registrarse",
+    "account": "Mi Cuenta", 
+    "login": "Login"
+  },
+  "company": {
+    "name": "C.H.E. Mundo Libre",
+    "fullName": "Corporación Herejía Económica",
+    "subtitle": "Un proyecto social global para desarrollo en el mundo entero"
+  },
+  "funds": {
+    "title": "Los 11 Fondos Rotatorios CHE",
+    "subtitle": "Estructura estatutaria de la Corporación Herejía Económica para el desarrollo global",
+    "viewDetails": "Ver detalles",
+    "status": {
+      "active": "Activo",
+      "development": "En desarrollo"
+    }
+  }
+}

@@ -1,7 +1,6 @@
 {
-  "/page": "app/page.js",
-  "/fondos/inversion-empresarial/page": "app/fondos/inversion-empresarial/page.js",
-  "/fondos/editorial-medios/page": "app/fondos/editorial-medios/page.js",
-  "/fondos/sanacion-emocional/page": "app/fondos/sanacion-emocional/page.js",
-  "/fondos/vivienda/page": "app/fondos/vivienda/page.js"
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/herejias-con-ia/page": "app/[locale]/herejias-con-ia/page.js",
+  "/[locale]/biblioteca/page": "app/[locale]/biblioteca/page.js",
+  "/[locale]/fondos-rotatorios/page": "app/[locale]/fondos-rotatorios/page.js"
 }

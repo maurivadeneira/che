@@ -1,41 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'corpherejiaeconomica.com',
-      },
-    ],
-  },
   async rewrites() {
     return [
+      // Manejar archivos estáticos con prefijo de idioma
       {
-        source: '/kit-heresy',
-        destination: '/explicacion-kit2',
+        source: '/:locale/images/:path*',
+        destination: '/images/:path*'
       },
-    ];
-  },
-  async headers() {
-    return [
       {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-        ],
+        source: '/:locale/documentos/:path*', 
+        destination: '/documentos/:path*'
       },
+      {
+        source: '/:locale/ContenidoProyChe/:path*',
+        destination: '/ContenidoProyChe/:path*'
+      },
+      // También sin prefijo (por si acaso)
+      {
+        source: '/images/:path*',
+        destination: '/images/:path*'
+      },
+      {
+        source: '/documentos/:path*',
+        destination: '/documentos/:path*'
+      },
+      {
+        source: '/ContenidoProyChe/:path*',
+        destination: '/ContenidoProyChe/:path*'
+      }
     ];
-  },
-  reactStrictMode: true,
-  swcMinify: true,
-  poweredByHeader: false,
+  }
 };
-
 module.exports = nextConfig;
