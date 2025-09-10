@@ -26,6 +26,39 @@
     "status": {
       "active": "Activo",
       "development": "En desarrollo"
+    },
+    "items": {
+      "business": "Inversión Empresarial",
+      "editorial": "Editorial y Medios",
+      "healing": "Sanación Emocional",
+      "housing": "Vivienda",
+      "recreation": "Recreación Social",
+      "systems": "Sistemas y Plataformas",
+      "banking": "Bancario",
+      "engineering": "Proyectos de Ingeniería",
+      "commercial": "Comercial",
+      "research": "Investigación Científica",
+      "culture": "Arte y Cultura"
+    },
+    "descriptions": {
+      "business": "Proyectos de inversión",
+      "editorial": "Publicaciones",
+      "healing": "Bienestar",
+      "housing": "Soluciones habitacionales",
+      "recreation": "Turismo",
+      "systems": "Tecnología",
+      "banking": "Servicios financieros",
+      "engineering": "Infraestructura",
+      "commercial": "Actividades comerciales",
+      "research": "Investigación",
+      "culture": "Manifestaciones artísticas"
     }
+  },
+  "development": {
+    "banner": "Este proyecto se encuentra en fase de desarrollo. Algunas secciones podrían estar incompletas."
+  },
+  "homepage": {
+    "title": "CHE - Corporación Herejía Económica",
+    "status": "Estado: Base enterprise funcionando correctamente"
   }
 }

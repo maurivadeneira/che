@@ -26,6 +26,39 @@
     "status": {
       "active": "Active",
       "development": "In development"
+    },
+    "items": {
+      "business": "Business Investment",
+      "editorial": "Editorial & Media",
+      "healing": "Emotional Healing",
+      "housing": "Housing",
+      "recreation": "Social Recreation",
+      "systems": "Systems & Platforms",
+      "banking": "Banking",
+      "engineering": "Engineering Projects",
+      "commercial": "Commercial",
+      "research": "Scientific Research",
+      "culture": "Art & Culture"
+    },
+    "descriptions": {
+      "business": "Investment projects",
+      "editorial": "Publications",
+      "healing": "Well-being",
+      "housing": "Housing solutions",
+      "recreation": "Tourism",
+      "systems": "Technology",
+      "banking": "Financial services",
+      "engineering": "Infrastructure",
+      "commercial": "Commercial activities",
+      "research": "Research",
+      "culture": "Artistic manifestations"
     }
+  },
+  "development": {
+    "banner": "This project is in development phase. Some sections might be incomplete."
+  },
+  "homepage": {
+    "title": "CHE - Economic Heresy Corporation",
+    "status": "Status: Enterprise base working correctly"
   }
 }

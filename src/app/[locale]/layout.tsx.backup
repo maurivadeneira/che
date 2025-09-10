@@ -12,7 +12,6 @@ interface Props {
 }
 
 export default function LocaleLayout({ children, params: { locale } }: Props) {
-  // Definir fondos dinámicamente con locale
   const fondos = [
     { name: 'Inversión Empresarial', href: `/${locale}/fondos/inversion-empresarial`, description: 'Proyectos de inversión', icon: '💼' },
     { name: 'Editorial y Medios', href: `/${locale}/fondos/editorial-medios`, description: 'Publicaciones', icon: '📚' },
@@ -31,6 +30,11 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
     <html lang={locale}>
       <body>
         <div className="min-h-screen bg-gray-50 flex flex-col">
+          {/* Franja amarilla de desarrollo */}
+          <div className="bg-yellow-400 text-black text-center py-2 px-4 text-sm font-medium">
+            Este proyecto se encuentra en fase de desarrollo. Algunas secciones podrían estar incompletas.
+          </div>
+          
           <Header locale={locale} />
           <div className="flex-1 flex">
             <Sidebar fondos={fondos} />
