@@ -1,6 +1,0 @@
-{
-  "/[locale]/page": "app/[locale]/page.js",
-  "/[locale]/herejias-con-ia/page": "app/[locale]/herejias-con-ia/page.js",
-  "/[locale]/biblioteca/page": "app/[locale]/biblioteca/page.js",
-  "/[locale]/fondos-rotatorios/page": "app/[locale]/fondos-rotatorios/page.js"
-}
