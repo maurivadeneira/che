@@ -19,6 +19,126 @@
     "fullName": "Corporação Heresia Econômica",
     "subtitle": "Um projeto social global para desenvolvimento em todo o mundo"
   },
+  "about": {
+    "title": "Sobre Nós",
+    "corporateInfo": "Informações Corporativas",
+    "foundation": "Fundação",
+    "foundationDate": "5 de Março de 2014",
+    "headquarters": "Sede Principal",
+    "headquartersLocation": "Bogotá D.C., Colômbia",
+    "nature": "Natureza",
+    "natureType": "Corporação sem fins lucrativos",
+    "character": "Caráter",
+    "characterType": "Internacional",
+    "taxId": "CNPJ",
+    "taxIdValue": "[A ser renovado]",
+    "email": "Email",
+    "emailValue": "contacto@corpherejiaeconomica.com"
+  },
+  "contact": {
+    "title": "Contato",
+    "contactInfo": "Informações de Contato",
+    "primaryEmail": "Email Principal",
+    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
+    "headquarters": "Sede Principal",
+    "headquartersValue": "Bogotá D.C., Colômbia",
+    "website": "Site"
+  },
+  "library": {
+    "title": "Biblioteca",
+    "books": "Livros",
+    "articles": "Artigos",
+    "bookTitles": {
+      "comprehensiveAnalysis": "Análise Abrangente",
+      "firstBook": "Primeiro Livro",
+      "secondBook": "Segundo Livro",
+      "firstBookCommentary": "Comentário do Primeiro Livro",
+      "secondBookPresentation": "Apresentação do Segundo Livro"
+    },
+    "articleTitles": {
+      "proven": "Comprovado",
+      "twoFundamentalProblems": "Dois Problemas Fundamentais",
+      "worldEconomySOS": "Economia Mundial SOS",
+      "savingsInColombia": "A Poupança na Colômbia Erro Conceitual",
+      "inertialInflation": "O Problema da Inflação Inercial",
+      "fiscalDeficit": "O Problema do Déficit Fiscal",
+      "checkToWorldSystem": "Xeque ao Sistema Econômico Mundial",
+      "hereticEconomistReflections": "Reflexões do Economista Herege"
+    }
+  },
+  "heresies": {
+    "title": "Heresias com IA",
+    "subtitle": "Diálogos de inteligência artificial sobre teorias econômicas alternativas",
+    "dialogues": {
+      "bigBang": {
+        "title": "Questionando o Big Bang",
+        "description": "Análise crítica da teoria do Big Bang sob perspectivas econômicas alternativas"
+      },
+      "economyVsScience": {
+        "title": "Economia vs Ciência",
+        "description": "A interseção entre modelos econômicos e paradigmas científicos"
+      },
+      "extraterrestrials": {
+        "title": "Extraterrestres",
+        "description": "Implicações econômicas do contato extraterrestre"
+      }
+    }
+  },
+  "conferences": {
+    "title": "Conferências",
+    "subtitle": "Eventos e apresentações sobre Heresia Econômica",
+    "items": {
+      "intro": {
+        "title": "Introdução à Heresia Econômica",
+        "description": "Conferência introdutória sobre Heresia Econômica"
+      },
+      "fundamentals": {
+        "title": "Fundamentos da Heresia Econômica",
+        "description": "Fundamentos da Heresia Econômica"
+      }
+    },
+    "date": "Data",
+    "type": "Conferência",
+    "watch": "Assistir Conferência"
+  },
+  "kit2": {
+    "title": "Explicação Kit2",
+    "subtitle": "Sistema Kit2 modernizado para distribuição de conteúdo CHE",
+    "whatIs": "O que é o Kit2?",
+    "description": "O sistema Kit2 é uma inovação da CHE para distribuição viral de conteúdo educativo com modelo de comissões que beneficia toda a cadeia distributiva.",
+    "mainFeatures": "Características principais:",
+    "features": {
+      "personalizedPdf": "PDF personalizado com nome do usuário",
+      "validity": "Validade de exatamente 1 ano",
+      "configurableCommissions": "Comissões configuráveis por acordo",
+      "viralDistribution": "Distribuição viral: Usuário 0→1→2→3...",
+      "multipleKit2s": "Possibilidade de múltiplos Kit2s simultâneos"
+    }
+  },
+  "auth": {
+    "register": {
+      "title": "Registrar-se na CHE",
+      "fullName": "Nome completo",
+      "email": "Email",
+      "password": "Senha",
+      "createAccount": "Criar Conta"
+    },
+    "login": {
+      "title": "Entrar",
+      "email": "Email",
+      "password": "Senha",
+      "signIn": "Entrar"
+    }
+  },
+  "account": {
+    "title": "Minha Conta",
+    "panel": "Painel do Usuário CHE",
+    "developmentNote": "Funcionalidade em desenvolvimento - Sistema de autenticação empresarial em breve.",
+    "myKit2s": "Meus Kit2s",
+    "kit2sDescription": "Gerencie seus Kit2s ativos e expirados",
+    "commissions": "Comissões",
+    "commissionsDescription": "Revise seus ganhos por distribuição"
+  },
   "funds": {
     "title": "Os 11 Fundos Rotativos CHE",
     "subtitle": "Estrutura estatutária da Corporação Heresia Econômica para desenvolvimento global",
@@ -29,10 +149,10 @@
     },
     "items": {
       "business": "Investimento Empresarial",
-      "editorial": "Editorial e Mídia",
+      "editorial": "Editorial e Mídia Audiovisual",
       "healing": "Cura Emocional",
       "housing": "Habitação",
-      "recreation": "Recreação Social",
+      "recreation": "Recreação Social e Hoteleira",
       "systems": "Sistemas e Plataformas",
       "banking": "Bancário",
       "engineering": "Projetos de Engenharia",

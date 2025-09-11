@@ -1,41 +1,38 @@
+'use client';
+
+import { useTranslation } from '@/components/providers/TranslationProvider';
+
 export default function NosotrosPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Nosotros</h1>
+        <h1 className="text-4xl font-bold mb-8">{t('about.title')}</h1>
         
         <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-          <h2 className="text-2xl font-bold mb-4">CHE - Corporación Herejía Económica</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('company.fullName')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Información Corporativa</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('about.corporateInfo')}</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><strong>Fundación:</strong> 5 de Marzo de 2014</li>
-                <li><strong>Sede Principal:</strong> Bogotá D.C., Colombia</li>
-                <li><strong>Naturaleza:</strong> Corporación sin ánimo de lucro</li>
-                <li><strong>Carácter:</strong> Internacional</li>
-                <li><strong>RUT/NIT:</strong> [Por renovar]</li>
-                <li><strong>Email:</strong> contacto@corpherejiaeconomica.com</li>
+                <li><strong>{t('about.foundation')}:</strong> {t('about.foundationDate')}</li>
+                <li><strong>{t('about.headquarters')}:</strong> {t('about.headquartersLocation')}</li>
+                <li><strong>{t('about.nature')}:</strong> {t('about.natureType')}</li>
+                <li><strong>{t('about.character')}:</strong> {t('about.characterType')}</li>
+                <li><strong>{t('about.taxId')}:</strong> {t('about.taxIdValue')}</li>
+                <li><strong>{t('about.email')}:</strong> {t('about.emailValue')}</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Modelo de Concesión</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><strong>Mauricio Rivadeneira:</strong> 20% ingresos</li>
-                <li><strong>CHE Corporación:</strong> 80% operación</li>
-                <li><strong>Vigencia:</strong> 10 años renovables</li>
-              </ul>
+              <h3 className="text-lg font-semibold mb-2">{t('company.subtitle')}</h3>
+              <p className="text-gray-600">
+                {t('company.fullName')} es una organización dedicada al desarrollo 
+                de teorías económicas alternativas y soluciones innovadoras para 
+                el crecimiento global sostenible.
+              </p>
             </div>
           </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Objeto Corporativo</h2>
-          <p className="text-gray-600">
-            Divulgar teoría "Herejía Económica" para lograr libertad económica global 
-            mediante procesos que permitan generar ingresos, educación virtual, 
-            mercadeo multinivel y tecnología limpia.
-          </p>
         </div>
       </div>
     </div>

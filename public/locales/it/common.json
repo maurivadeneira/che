@@ -17,15 +17,168 @@
   "company": {
     "name": "C.H.E. Mondo Libero",
     "fullName": "Corporazione Eresia Economica",
-    "subtitle": "Un progetto sociale globale per lo sviluppo nell'intero mondo"
+    "subtitle": "Un progetto sociale globale per lo sviluppo in tutto il mondo"
+  },
+  "about": {
+    "title": "Chi Siamo",
+    "corporateInfo": "Informazioni Aziendali",
+    "foundation": "Fondazione",
+    "foundationDate": "5 Marzo 2014",
+    "headquarters": "Sede Principale",
+    "headquartersLocation": "Bogotá D.C., Colombia",
+    "nature": "Natura",
+    "natureType": "Corporazione senza scopo di lucro",
+    "character": "Carattere",
+    "characterType": "Internazionale",
+    "taxId": "ID Fiscale",
+    "taxIdValue": "[Da rinnovare]",
+    "email": "Email",
+    "emailValue": "contacto@corpherejiaeconomica.com"
+  },
+  "contact": {
+    "title": "Contatto",
+    "contactInfo": "Informazioni di Contatto",
+    "primaryEmail": "Email Principale",
+    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
+    "headquarters": "Sede Principale",
+    "headquartersValue": "Bogotá D.C., Colombia",
+    "website": "Sito Web"
+  },
+  "library": {
+    "title": "Biblioteca",
+    "books": "Libri",
+    "articles": "Articoli",
+    "bookTitles": {
+      "comprehensiveAnalysis": "Analisi Completa",
+      "firstBook": "Primo Libro",
+      "secondBook": "Secondo Libro",
+      "firstBookCommentary": "Commento al Primo Libro",
+      "secondBookPresentation": "Presentazione del Secondo Libro"
+    },
+    "articleTitles": {
+      "proven": "Provato",
+      "twoFundamentalProblems": "Due Problemi Fondamentali",
+      "worldEconomySOS": "Economia Mondiale SOS",
+      "savingsInColombia": "Il Risparmio in Colombia Errore Concettuale",
+      "inertialInflation": "Il Problema dell'Inflazione Inerziale",
+      "fiscalDeficit": "Il Problema del Deficit Fiscale",
+      "checkToWorldSystem": "Scacco al Sistema Economico Mondiale",
+      "hereticEconomistReflections": "Riflessioni dell'Economista Eretico"
+    }
+  },
+  "heresies": {
+    "title": "Eresie con IA",
+    "subtitle": "Dialoghi di intelligenza artificiale su teorie economiche alternative",
+    "dialogues": {
+      "bigBang": {
+        "title": "Questionare il Big Bang",
+        "description": "Analisi critica della teoria del Big Bang da prospettive economiche alternative"
+      },
+      "economyVsScience": {
+        "title": "Economia vs Scienza",
+        "description": "L'intersezione tra modelli economici e paradigmi scientifici"
+      },
+      "extraterrestrials": {
+        "title": "Extraterrestri",
+        "description": "Implicazioni economiche del contatto extraterrestre"
+      }
+    }
+  },
+  "conferences": {
+    "title": "Conferenze",
+    "subtitle": "Eventi e presentazioni sull'Eresia Economica",
+    "items": {
+      "intro": {
+        "title": "Introduzione all'Eresia Economica",
+        "description": "Conferenza introduttiva all'Eresia Economica"
+      },
+      "fundamentals": {
+        "title": "Fondamenti dell'Eresia Economica",
+        "description": "Fondamenti dell'Eresia Economica"
+      }
+    },
+    "date": "Data",
+    "type": "Conferenza",
+    "watch": "Guarda Conferenza"
+  },
+  "kit2": {
+    "title": "Spiegazione Kit2",
+    "subtitle": "Sistema Kit2 modernizzato per la distribuzione di contenuti CHE",
+    "whatIs": "Cos'è Kit2?",
+    "description": "Il sistema Kit2 è un'innovazione CHE per la distribuzione virale di contenuti educativi con un modello di commissioni che beneficia l'intera catena distributiva.",
+    "mainFeatures": "Caratteristiche principali:",
+    "features": {
+      "personalizedPdf": "PDF personalizzato con nome utente",
+      "validity": "Validità di esattamente 1 anno",
+      "configurableCommissions": "Commissioni configurabili per accordo",
+      "viralDistribution": "Distribuzione virale: Utente 0→1→2→3...",
+      "multipleKit2s": "Possibilità di Kit2 multipli simultanei"
+    }
+  },
+  "auth": {
+    "register": {
+      "title": "Registrati presso CHE",
+      "fullName": "Nome completo",
+      "email": "Email",
+      "password": "Password",
+      "createAccount": "Crea Account"
+    },
+    "login": {
+      "title": "Accedi",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Accedi"
+    }
+  },
+  "account": {
+    "title": "Il Mio Account",
+    "panel": "Pannello Utente CHE",
+    "developmentNote": "Funzionalità in sviluppo - Sistema di autenticazione aziendale disponibile presto.",
+    "myKit2s": "I Miei Kit2",
+    "kit2sDescription": "Gestisci i tuoi Kit2 attivi e scaduti",
+    "commissions": "Commissioni",
+    "commissionsDescription": "Rivedi i tuoi guadagni da distribuzione"
   },
   "funds": {
     "title": "Gli 11 Fondi Rotativi CHE",
     "subtitle": "Struttura statutaria della Corporazione Eresia Economica per lo sviluppo globale",
-    "viewDetails": "Vedi dettagli",
+    "viewDetails": "Vedi Dettagli",
     "status": {
       "active": "Attivo",
       "development": "In sviluppo"
+    },
+    "items": {
+      "business": "Investimento Aziendale",
+      "editorial": "Editorial & Media Audiovisivi",
+      "healing": "Guarigione Emotiva",
+      "housing": "Abitazioni",
+      "recreation": "Ricreazione Sociale & Alberghiera",
+      "systems": "Sistemi & Piattaforme",
+      "banking": "Bancario",
+      "engineering": "Progetti di Ingegneria",
+      "commercial": "Commerciale",
+      "research": "Ricerca Scientifica",
+      "culture": "Arte & Cultura"
+    },
+    "descriptions": {
+      "business": "Progetti di investimento",
+      "editorial": "Pubblicazioni",
+      "healing": "Benessere",
+      "housing": "Soluzioni abitative",
+      "recreation": "Turismo",
+      "systems": "Tecnologia",
+      "banking": "Servizi finanziari",
+      "engineering": "Infrastrutture",
+      "commercial": "Attività commerciali",
+      "research": "Ricerca",
+      "culture": "Manifestazioni artistiche"
     }
+  },
+  "development": {
+    "banner": "Questo progetto è in fase di sviluppo. Alcune sezioni potrebbero essere incomplete."
+  },
+  "homepage": {
+    "title": "CHE - Corporazione Eresia Economica",
+    "status": "Stato: Base aziendale funzionante correttamente"
   }
 }

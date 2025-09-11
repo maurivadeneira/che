@@ -19,6 +19,139 @@
     "fullName": "Economic Heresy Corporation",
     "subtitle": "A global social project for development throughout the entire world"
   },
+  "about": {
+    "title": "About Us",
+    "corporateInfo": "Corporate Information",
+    "foundation": "Foundation",
+    "foundationDate": "March 5, 2014",
+    "headquarters": "Main Headquarters",
+    "headquartersLocation": "Bogotá D.C., Colombia",
+    "nature": "Nature",
+    "natureType": "Non-profit corporation",
+    "character": "Character",
+    "characterType": "International",
+    "taxId": "TAX ID",
+    "taxIdValue": "[To be renewed]",
+    "email": "Email",
+    "emailValue": "contacto@corpherejiaeconomica.com"
+  },
+  "contact": {
+    "title": "Contact",
+    "contactInfo": "Contact Information",
+    "primaryEmail": "Primary Email",
+    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
+    "headquarters": "Main Headquarters",
+    "headquartersValue": "Bogotá D.C., Colombia",
+    "website": "Website"
+  },
+  "library": {
+    "title": "Library",
+    "books": "Books",
+    "articles": "Articles",
+    "bookTitles": {
+      "comprehensiveAnalysis": "Comprehensive Analysis",
+      "firstBook": "First Book",
+      "secondBook": "Second Book",
+      "firstBookCommentary": "First Book Commentary",
+      "secondBookPresentation": "Second Book Presentation"
+    },
+    "articleTitles": {
+      "proven": "Proven",
+      "twoFundamentalProblems": "Two Fundamental Problems",
+      "worldEconomySOS": "World Economy SOS",
+      "savingsInColombia": "Savings in Colombia Conceptual Error",
+      "inertialInflation": "The Inertial Inflation Problem",
+      "fiscalDeficit": "The Fiscal Deficit Problem",
+      "checkToWorldSystem": "Check to the World Economic System",
+      "hereticEconomistReflections": "Heretic Economist Reflections"
+    }
+  },
+  "heresies": {
+    "title": "Heresies with AI",
+    "subtitle": "Artificial intelligence dialogues on alternative economic theories",
+    "dialogues": {
+      "bigBang": {
+        "title": "Questioning the Big Bang",
+        "description": "Critical analysis of the Big Bang theory from alternative economic perspectives"
+      },
+      "economyVsScience": {
+        "title": "Economy vs Science",
+        "description": "The intersection between economic models and scientific paradigms"
+      },
+      "extraterrestrials": {
+        "title": "Extraterrestrials",
+        "description": "Economic implications of extraterrestrial contact"
+      },
+      "questioningPhysics": {
+        "title": "Questioning Physics",
+        "description": "Critical analysis of physical foundations from economic perspectives"
+      }
+    }
+  },
+  "conferences": {
+    "title": "Conferences",
+    "subtitle": "Events and presentations on Economic Heresy",
+    "items": {
+      "intro": {
+        "title": "Introduction to Economic Heresy",
+        "description": "Introductory conference to Economic Heresy"
+      },
+      "fundamentals": {
+        "title": "Fundamentals of Economic Heresy",
+        "description": "Fundamentals of Economic Heresy"
+      },
+      "kit": {
+        "title": "Economic Heresy Kit",
+        "description": "Tools for alternative economic analysis"
+      },
+      "author": {
+        "title": "Author Presentation",
+        "description": "Biography and trajectory of the author"
+      }
+    },
+    "date": "Date",
+    "type": "Conference",
+    "watch": "Watch Conference"
+  },
+  "kit2": {
+    "title": "Kit2 Explanation",
+    "subtitle": "Modernized Kit2 system for CHE content distribution",
+    "whatIs": "What is Kit2?",
+    "description": "The Kit2 system is a CHE innovation for viral distribution of educational content with a commission model that benefits the entire distribution chain.",
+    "mainFeatures": "Main features:",
+    "features": {
+      "personalizedPdf": "Personalized PDF with user name",
+      "validity": "1 year exact validity",
+      "configurableCommissions": "Configurable commissions by agreement",
+      "viralDistribution": "Viral distribution: User 0→1→2→3...",
+      "multipleKit2s": "Possibility of multiple simultaneous Kit2s"
+    },
+    "viewGuide": "View Family Guide Kit2 System"
+  },
+  "auth": {
+    "register": {
+      "title": "Register at CHE",
+      "fullName": "Full name",
+      "email": "Email",
+      "password": "Password",
+      "createAccount": "Create Account"
+    },
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In"
+    }
+  },
+  "account": {
+    "title": "My Account",
+    "panel": "CHE User Panel",
+    "developmentNote": "Functionality in development - Enterprise authentication system coming soon.",
+    "myKit2s": "My Kit2s",
+    "kit2sDescription": "Manage your active and expired Kit2s",
+    "commissions": "Commissions",
+    "commissionsDescription": "Review your distribution earnings"
+  },
   "funds": {
     "title": "The 11 CHE Rotating Funds",
     "subtitle": "Statutory structure of the Economic Heresy Corporation for global development",
@@ -29,10 +162,10 @@
     },
     "items": {
       "business": "Business Investment",
-      "editorial": "Editorial & Media",
+      "editorial": "Editorial & Audiovisual Media",
       "healing": "Emotional Healing",
       "housing": "Housing",
-      "recreation": "Social Recreation",
+      "recreation": "Social & Hotel Recreation",
       "systems": "Systems & Platforms",
       "banking": "Banking",
       "engineering": "Engineering Projects",

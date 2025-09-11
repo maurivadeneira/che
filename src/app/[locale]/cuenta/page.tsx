@@ -1,21 +1,27 @@
+'use client';
+
+import { useTranslation } from '@/components/providers/TranslationProvider';
+
 export default function CuentaPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Mi Cuenta</h1>
+        <h1 className="text-4xl font-bold mb-8">{t('account.title')}</h1>
         
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Panel de Usuario CHE</h2>
-          <p className="mb-4">Funcionalidad en desarrollo - Sistema de autenticación enterprise próximamente.</p>
+          <h2 className="text-2xl font-bold mb-4">{t('account.panel')}</h2>
+          <p className="mb-4">{t('account.developmentNote')}</p>
           
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Mis Kit2s</h3>
-              <p className="text-gray-600">Gestiona tus Kit2s activos y vencidos</p>
+              <h3 className="text-lg font-semibold mb-2">{t('account.myKit2s')}</h3>
+              <p className="text-gray-600">{t('account.kit2sDescription')}</p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Comisiones</h3>
-              <p className="text-gray-600">Revisa tus ganancias por distribución</p>
+              <h3 className="text-lg font-semibold mb-2">{t('account.commissions')}</h3>
+              <p className="text-gray-600">{t('account.commissionsDescription')}</p>
             </div>
           </div>
         </div>
