@@ -18,7 +18,7 @@ export function Header({ locale }: HeaderProps) {
   const { t } = useTranslation();
 
   return (
-    <header className="bg-gray-800 text-white shadow-lg md:ml-64">
+    <header className="bg-gray-800 text-white shadow-lg lg:ml-64">
       {/* Barra superior */}
       <div className="bg-gray-900 py-2 px-2">
         <div className="flex justify-end space-x-3 text-xs">
@@ -53,7 +53,7 @@ export function Header({ locale }: HeaderProps) {
           </div>
 
           {/* Navegación desktop */}
-          <nav className="hidden md:flex items-center space-x-4 flex-1 justify-end">
+          <nav className="hidden lg:flex items-center space-x-4 flex-1 justify-end">
             <Link href={`/${locale}`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.home')}</Link>
             <Link href={`/${locale}/herejias-con-ia`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/herejias-con-ia` ? 'bg-orange-600 text-white' : 'hover:text-orange-300'}`}>{t('navigation.heresies')}</Link>
             <Link href={`/${locale}/conferencias`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/conferencias` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.conferences')}</Link>
@@ -64,14 +64,14 @@ export function Header({ locale }: HeaderProps) {
           </nav>
 
           {/* Botón menú móvil */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 text-white" aria-label="Menu">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-white" aria-label="Menu">
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {/* Menú móvil desplegable */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+          <div className="lg:hidden mt-4 pb-4 border-t border-gray-700">
             <nav className="flex flex-col space-y-2 pt-4">
               <Link href={`/${locale}`} className={`text-sm px-2 py-2 rounded transition-colors ${pathname === `/${locale}` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`} onClick={() => setIsMenuOpen(false)}>{t('navigation.home')}</Link>
               <Link href={`/${locale}/herejias-con-ia`} className={`text-sm px-2 py-2 rounded transition-colors ${pathname === `/${locale}/herejias-con-ia` ? 'bg-orange-600 text-white' : 'hover:text-orange-300'}`} onClick={() => setIsMenuOpen(false)}>{t('navigation.heresies')}</Link>
