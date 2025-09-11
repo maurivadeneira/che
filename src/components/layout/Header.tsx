@@ -31,17 +31,17 @@ export function Header({ locale }: HeaderProps) {
       </div>
 
       {/* Header principal */}
-      <div className="py-4 px-3">
+      <div className="py-2 px-3 md:py-4">
         <div className="w-full flex items-center justify-between">
           {/* Logo y título */}
           <div className="flex items-center flex-shrink-0">
             <Link href={`/${locale}`} className="flex items-center gap-2">
-              <div className="relative h-36 w-28">
+              <div className="relative h-16 w-16 md:h-28 md:w-24 lg:h-36 lg:w-28">
                 <Image
                   src="/images/logo-che-enhanced.svg"
                   alt="CHE"
                   fill
-                  className="object-contain transform scale-125"
+                  className="object-contain"
                   priority
                 />
               </div>
