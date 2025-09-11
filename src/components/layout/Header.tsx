@@ -34,12 +34,12 @@ export function Header({ locale }: HeaderProps) {
           {/* Logo y título */}
           <div className="flex items-center flex-shrink-0">
             <Link href={`/${locale}`} className="flex items-center gap-2">
-              <div className="relative h-20 w-20">
+              <div className="relative h-36 w-28">
                 <Image
                   src="/images/logo-che-enhanced.svg"
                   alt="CHE"
                   fill
-                  className="object-contain"
+                  className="object-contain transform scale-125"
                   priority
                 />
               </div>
