@@ -22,10 +22,9 @@ export function LanguageSelector({ currentLocale }: LanguageSelectorProps) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
+  const currentLanguage = (languages.find(lang => lang.code === currentLocale) || languages[0])!;
 
   const handleLanguageChange = (newLocale: string) => {
-    // Cambiar la parte del locale en la URL
     const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
     router.push(newPath);
     setIsOpen(false);
