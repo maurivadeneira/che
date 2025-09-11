@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from '@/components/providers/TranslationProvider';
+import { LanguageSelector } from '@/components/common/LanguageSelector';
 
 interface HeaderProps {
   locale: string;
@@ -25,6 +26,7 @@ export function Header({ locale }: HeaderProps) {
           <Link href={`/${locale}/auth/register`} className="hover:text-blue-300 transition-colors">{t('header.register')}</Link>
           <Link href={`/${locale}/cuenta`} className="hover:text-blue-300 transition-colors">{t('header.account')}</Link>
           <Link href={`/${locale}/auth/login`} className="hover:text-blue-300 transition-colors">{t('header.login')}</Link>
+          <LanguageSelector currentLocale={locale} />
         </div>
       </div>
 
