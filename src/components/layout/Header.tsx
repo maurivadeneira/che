@@ -31,8 +31,8 @@ export function Header({ locale }: HeaderProps) {
       </div>
 
       {/* Header principal */}
-      <div className="py-2 px-3 md:py-4">
-        <div className="w-full flex items-center justify-between">
+      <div className="py-2 px-3 md:py-4 w-full">
+        <div className="w-full flex items-center justify-between min-w-full">
           {/* Logo y título */}
           <div className="flex items-center flex-shrink-0">
             <Link href={`/${locale}`} className="flex items-center gap-2">
@@ -53,7 +53,7 @@ export function Header({ locale }: HeaderProps) {
           </div>
 
           {/* Navegación desktop */}
-          <nav className="hidden md:flex items-center space-x-4">
+          <nav className="hidden md:flex items-center space-x-4 flex-1 justify-end">
             <Link href={`/${locale}`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.home')}</Link>
             <Link href={`/${locale}/herejias-con-ia`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/herejias-con-ia` ? 'bg-orange-600 text-white' : 'hover:text-orange-300'}`}>{t('navigation.heresies')}</Link>
             <Link href={`/${locale}/conferencias`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/conferencias` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.conferences')}</Link>
