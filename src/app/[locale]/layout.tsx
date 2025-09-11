@@ -47,7 +47,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
             <Header locale={locale} />
             <div className="flex-1 flex">
               <Sidebar fondos={fondos} />
-              <main className="flex-1 lg:ml-64">
+              <main className="flex-1 md:ml-64">
                 <div className="p-4">
                   <Breadcrumb />
                   {children}

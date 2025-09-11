@@ -13,7 +13,7 @@ interface SidebarProps {
 
 export function Sidebar({ fondos }: SidebarProps) {
   return (
-    <aside className="hidden lg:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-lg overflow-y-auto pt-24">
+    <aside className="hidden md:block fixed left-0 top-0 bottom-0 w-64 bg-white shadow-lg overflow-y-auto pt-24">
       <div className="p-4">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">Fondos Rotatorios</h2>
         <nav className="space-y-2">

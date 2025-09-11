@@ -18,7 +18,7 @@ export function Header({ locale }: HeaderProps) {
   const { t } = useTranslation();
 
   return (
-    <header className="bg-gray-800 text-white shadow-lg lg:ml-64">
+    <header className="bg-gray-800 text-white shadow-lg md:ml-64">
       {/* Barra superior */}
       <div className="bg-gray-900 py-2 px-2">
         <div className="flex justify-end space-x-3 text-xs">
