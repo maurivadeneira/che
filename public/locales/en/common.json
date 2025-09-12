@@ -185,6 +185,23 @@
       "commercial": "Commercial activities",
       "research": "Research",
       "culture": "Artistic manifestations"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Business Investment - CHE Free World",
+        "description": "Investment and entrepreneurship projects for economic development.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Facilitate access to investment capital for entrepreneurs and companies seeking to expand their operations or develop new innovative projects."
+        },
+        "types": {
+          "title": "Investment Types"
+        },
+        "process": {
+          "title": "Application Process",
+          "content": "Interested parties can submit their investment proposals through our online portal, where they will be evaluated by our team of experts."
+        }
+      }
     }
   },
   "development": {

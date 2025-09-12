@@ -169,9 +169,26 @@
       "systems": "Technologie",
       "banking": "Finanzdienstleistungen",
       "engineering": "Infrastruktur",
-      "commercial": "Kommerzielle Aktivitäten",
+      "commercial": "Geschäftstätigkeiten",
       "research": "Forschung",
       "culture": "Künstlerische Manifestationen"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Unternehmensinvestition - CHE Freie Welt",
+        "description": "Investitions- und Unternehmertumsprojekte für wirtschaftliche Entwicklung.",
+        "objective": {
+          "title": "Ziel des Fonds",
+          "content": "Erleichterung des Zugangs zu Investitionskapital für Unternehmer und Unternehmen, die ihre Geschäftstätigkeit erweitern oder neue innovative Projekte entwickeln möchten."
+        },
+        "types": {
+          "title": "Investitionsarten"
+        },
+        "process": {
+          "title": "Bewerbungsprozess",
+          "content": "Interessierte können ihre Investitionsvorschläge über unser Online-Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        }
+      }
     }
   },
   "development": {

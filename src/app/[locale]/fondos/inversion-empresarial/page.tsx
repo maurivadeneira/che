@@ -1,9 +1,12 @@
+'use client';
 import Image from 'next/image';
+import { useTranslation } from '@/components/providers/TranslationProvider';
 
 export default function InversionEmpresarialPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-6xl mx-auto p-8">
-      {/* Imagen principal del fondo */}
       <div className="mb-8 flex justify-center">
         <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
           <Image
@@ -16,9 +19,8 @@ export default function InversionEmpresarialPage() {
         </div>
       </div>
 
-      {/* Título con mini-logo centrado debajo */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Inversión Empresarial - CHE Mundo Libre</h1>
+        <h1 className="text-4xl font-bold mb-4">{t('funds.individual.inversionEmpresarial.title')}</h1>
         <div className="flex justify-center">
           <div className="relative h-10 w-10">
             <Image
@@ -31,19 +33,18 @@ export default function InversionEmpresarialPage() {
         </div>
       </div>
       
-      <p className="text-lg mb-8">Proyectos de inversión y emprendimiento para el desarrollo económico.</p>
+      <p className="text-lg mb-8">{t('funds.individual.inversionEmpresarial.description')}</p>
       
       <div className="space-y-6">
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Objetivo del Fondo</h2>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.objective.title')}</h2>
           <p className="text-gray-600">
-            Facilitar el acceso a capital de inversión para emprendedores y empresas que buscan 
-            expandir sus operaciones o desarrollar nuevos proyectos innovadores.
+            {t('funds.individual.inversionEmpresarial.objective.content')}
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Tipos de Inversión</h2>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.types.title')}</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Capital semilla para startups</li>
             <li>Expansión de empresas existentes</li>
@@ -53,10 +54,9 @@ export default function InversionEmpresarialPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Proceso de Aplicación</h2>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.process.title')}</h2>
           <p className="text-gray-600">
-            Los interesados pueden presentar sus propuestas de inversión a través de nuestro 
-            portal en línea, donde serán evaluadas por nuestro equipo de expertos.
+            {t('funds.individual.inversionEmpresarial.process.content')}
           </p>
         </section>
       </div>

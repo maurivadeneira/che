@@ -164,7 +164,7 @@
       "business": "Projets d'investissement",
       "editorial": "Publications",
       "healing": "Bien-être",
-      "housing": "Solutions de logement",
+      "housing": "Solutions d'habitation",
       "recreation": "Tourisme",
       "systems": "Technologie",
       "banking": "Services financiers",
@@ -172,6 +172,23 @@
       "commercial": "Activités commerciales",
       "research": "Recherche",
       "culture": "Manifestations artistiques"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Investissement d'Entreprise - CHE Monde Libre",
+        "description": "Projets d'investissement et d'entrepreneuriat pour le développement économique.",
+        "objective": {
+          "title": "Objectif du Fonds",
+          "content": "Faciliter l'accès au capital d'investissement pour les entrepreneurs et les entreprises qui cherchent à étendre leurs opérations ou à développer de nouveaux projets innovants."
+        },
+        "types": {
+          "title": "Types d'Investissement"
+        },
+        "process": {
+          "title": "Processus de Candidature",
+          "content": "Les parties intéressées peuvent soumettre leurs propositions d'investissement via notre portail en ligne, où elles seront évaluées par notre équipe d'experts."
+        }
+      }
     }
   },
   "development": {

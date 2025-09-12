@@ -185,6 +185,23 @@
       "commercial": "Actividades comerciales",
       "research": "Investigación",
       "culture": "Manifestaciones artísticas"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Inversión Empresarial - CHE Mundo Libre",
+        "description": "Proyectos de inversión y emprendimiento para el desarrollo económico.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Facilitar el acceso a capital de inversión para emprendedores y empresas que buscan expandir sus operaciones o desarrollar nuevos proyectos innovadores."
+        },
+        "types": {
+          "title": "Tipos de Inversión"
+        },
+        "process": {
+          "title": "Proceso de Aplicación",
+          "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      }
     }
   },
   "development": {

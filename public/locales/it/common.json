@@ -172,6 +172,23 @@
       "commercial": "Attività commerciali",
       "research": "Ricerca",
       "culture": "Manifestazioni artistiche"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Investimento Aziendale - CHE Mondo Libero",
+        "description": "Progetti di investimento e imprenditorialità per lo sviluppo economico.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Facilitare l'accesso al capitale di investimento per imprenditori e aziende che cercano di espandere le loro operazioni o sviluppare nuovi progetti innovativi."
+        },
+        "types": {
+          "title": "Tipi di Investimento"
+        },
+        "process": {
+          "title": "Processo di Candidatura",
+          "content": "Le parti interessate possono presentare le loro proposte di investimento attraverso il nostro portale online, dove saranno valutate dal nostro team di esperti."
+        }
+      }
     }
   },
   "development": {
