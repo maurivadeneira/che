@@ -4,15 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, AlignLeft } from 'lucide-react';
 import { useTranslation } from '@/components/providers/TranslationProvider';
 import { LanguageSelector } from '@/components/common/LanguageSelector';
 
 interface HeaderProps {
   locale: string;
+  onSidebarToggle?: () => void;
 }
 
-export function Header({ locale }: HeaderProps) {
+export function Header({ locale, onSidebarToggle }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation();
@@ -33,10 +34,20 @@ export function Header({ locale }: HeaderProps) {
       {/* Header principal */}
       <div className="py-2 px-3 md:py-4 w-full">
         <div className="w-full flex items-center justify-between min-w-full">
+          
+          {/* Botón Sidebar - Solo móviles/tablets */}
+          <button 
+            onClick={onSidebarToggle}
+            className="lg:hidden p-2 text-white mr-2 hover:bg-gray-700 rounded"
+            aria-label="Toggle Sidebar"
+          >
+            <AlignLeft size={20} />
+          </button>
+
           {/* Logo y título */}
           <div className="flex items-center flex-shrink-0">
             <Link href={`/${locale}`} className="flex items-center gap-2">
-              <div className="relative h-16 w-16 md:h-28 md:w-24 lg:h-36 lg:w-28">
+              <div className="relative h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24">
                 <Image
                   src="/images/logo-che-enhanced.svg"
                   alt="CHE"
@@ -52,8 +63,8 @@ export function Header({ locale }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Navegación desktop */}
-          <nav className="hidden lg:flex items-center space-x-4 flex-1 justify-end">
+          {/* Navegación - Aparece en landscape (md:) y desktop */}
+          <nav className="hidden md:flex items-center space-x-4 flex-1 justify-end">
             <Link href={`/${locale}`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.home')}</Link>
             <Link href={`/${locale}/herejias-con-ia`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/herejias-con-ia` ? 'bg-orange-600 text-white' : 'hover:text-orange-300'}`}>{t('navigation.heresies')}</Link>
             <Link href={`/${locale}/conferencias`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/conferencias` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.conferences')}</Link>
@@ -63,15 +74,15 @@ export function Header({ locale }: HeaderProps) {
             <Link href={`/${locale}/contacto`} className={`text-xs font-medium px-2 py-1 rounded transition-colors ${pathname === `/${locale}/contacto` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`}>{t('navigation.contact')}</Link>
           </nav>
 
-          {/* Botón menú móvil */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-white" aria-label="Menu">
+          {/* Botón menú móvil - Solo móvil vertical */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 text-white" aria-label="Menu">
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Menú móvil desplegable */}
+        {/* Menú móvil desplegable - Solo móvil vertical */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-700">
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
             <nav className="flex flex-col space-y-2 pt-4">
               <Link href={`/${locale}`} className={`text-sm px-2 py-2 rounded transition-colors ${pathname === `/${locale}` ? 'bg-orange-600 text-white' : 'hover:text-blue-300'}`} onClick={() => setIsMenuOpen(false)}>{t('navigation.home')}</Link>
               <Link href={`/${locale}/herejias-con-ia`} className={`text-sm px-2 py-2 rounded transition-colors ${pathname === `/${locale}/herejias-con-ia` ? 'bg-orange-600 text-white' : 'hover:text-orange-300'}`} onClick={() => setIsMenuOpen(false)}>{t('navigation.heresies')}</Link>
