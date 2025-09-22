@@ -17,152 +17,32 @@
   "company": {
     "name": "C.H.E. Freie Welt",
     "fullName": "Wirtschaftshäresie Corporation",
-    "subtitle": "Ein globales Sozialprojekt für Entwicklung in der ganzen Welt"
-  },
-  "about": {
-    "title": "Über Uns",
-    "corporateInfo": "Unternehmensinformationen",
-    "foundation": "Gründung",
-    "foundationDate": "5. März 2014",
-    "headquarters": "Hauptsitz",
-    "headquartersLocation": "Bogotá D.C., Kolumbien",
-    "nature": "Natur",
-    "natureType": "Gemeinnützige Corporation",
-    "character": "Charakter",
-    "characterType": "International",
-    "taxId": "Steuer-ID",
-    "taxIdValue": "[Zu erneuern]",
-    "email": "E-Mail",
-    "emailValue": "contacto@corpherejiaeconomica.com"
-  },
-  "contact": {
-    "title": "Kontakt",
-    "contactInfo": "Kontaktinformationen",
-    "primaryEmail": "Haupt-E-Mail",
-    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
-    "headquarters": "Hauptsitz",
-    "headquartersValue": "Bogotá D.C., Kolumbien",
-    "website": "Webseite"
-  },
-  "library": {
-    "title": "Bibliothek",
-    "books": "Bücher",
-    "articles": "Artikel",
-    "bookTitles": {
-      "comprehensiveAnalysis": "Umfassende Analyse",
-      "firstBook": "Erstes Buch",
-      "secondBook": "Zweites Buch",
-      "firstBookCommentary": "Kommentar zum Ersten Buch",
-      "secondBookPresentation": "Präsentation des Zweiten Buchs"
-    },
-    "articleTitles": {
-      "proven": "Bewiesen",
-      "twoFundamentalProblems": "Zwei Grundlegende Probleme",
-      "worldEconomySOS": "Weltwirtschaft SOS",
-      "savingsInColombia": "Das Sparen in Kolumbien Konzeptioneller Fehler",
-      "inertialInflation": "Das Problem der Trägheitsinflation",
-      "fiscalDeficit": "Das Problem des Haushaltsdefizits",
-      "checkToWorldSystem": "Schach dem Weltwirtschaftssystem",
-      "hereticEconomistReflections": "Reflexionen des Häretischen Ökonomen"
-    }
-  },
-  "heresies": {
-    "title": "Häresien mit KI",
-    "subtitle": "Künstliche Intelligenz Dialoge über alternative Wirtschaftstheorien",
-    "dialogues": {
-      "bigBang": {
-        "title": "Den Big Bang Hinterfragen",
-        "description": "Kritische Analyse der Big Bang Theorie aus alternativen wirtschaftlichen Perspektiven"
-      },
-      "economyVsScience": {
-        "title": "Wirtschaft vs Wissenschaft",
-        "description": "Die Schnittstelle zwischen wirtschaftlichen Modellen und wissenschaftlichen Paradigmen"
-      },
-      "extraterrestrials": {
-        "title": "Außerirdische",
-        "description": "Wirtschaftliche Implikationen außerirdischen Kontakts"
-      }
-    }
-  },
-  "conferences": {
-    "title": "Konferenzen",
-    "subtitle": "Veranstaltungen und Präsentationen über Wirtschaftshäresie",
-    "items": {
-      "intro": {
-        "title": "Einführung in die Wirtschaftshäresie",
-        "description": "Einführungskonferenz zur Wirtschaftshäresie"
-      },
-      "fundamentals": {
-        "title": "Grundlagen der Wirtschaftshäresie",
-        "description": "Grundlagen der Wirtschaftshäresie"
-      }
-    },
-    "date": "Datum",
-    "type": "Konferenz",
-    "watch": "Konferenz Ansehen"
-  },
-  "kit2": {
-    "title": "Kit2 Erklärung",
-    "subtitle": "Modernisiertes Kit2 System für CHE Inhaltsverteilung",
-    "whatIs": "Was ist Kit2?",
-    "description": "Das Kit2 System ist eine CHE Innovation für virale Verteilung von Bildungsinhalten mit einem Provisionsmodell, das der gesamten Verteilungskette zugute kommt.",
-    "mainFeatures": "Hauptmerkmale:",
-    "features": {
-      "personalizedPdf": "Personalisiertes PDF mit Benutzername",
-      "validity": "Gültigkeitsdauer von genau 1 Jahr",
-      "configurableCommissions": "Konfigurierbare Provisionen nach Vereinbarung",
-      "viralDistribution": "Virale Verteilung: Benutzer 0→1→2→3...",
-      "multipleKit2s": "Möglichkeit mehrerer gleichzeitiger Kit2s"
-    }
-  },
-  "auth": {
-    "register": {
-      "title": "Bei CHE Registrieren",
-      "fullName": "Vollständiger Name",
-      "email": "E-Mail",
-      "password": "Passwort",
-      "createAccount": "Konto Erstellen"
-    },
-    "login": {
-      "title": "Anmelden",
-      "email": "E-Mail",
-      "password": "Passwort",
-      "signIn": "Anmelden"
-    }
-  },
-  "account": {
-    "title": "Mein Konto",
-    "panel": "CHE Benutzer Panel",
-    "developmentNote": "Funktionalität in Entwicklung - Enterprise Authentifizierungssystem demnächst verfügbar.",
-    "myKit2s": "Meine Kit2s",
-    "kit2sDescription": "Verwalten Sie Ihre aktiven und abgelaufenen Kit2s",
-    "commissions": "Provisionen",
-    "commissionsDescription": "Überprüfen Sie Ihre Verteilungseinnahmen"
+    "subtitle": "Ein globales soziales Projekt für die Entwicklung in der ganzen Welt"
   },
   "funds": {
     "title": "Die 11 CHE Rotierenden Fonds",
     "subtitle": "Statutarische Struktur der Wirtschaftshäresie Corporation für globale Entwicklung",
-    "viewDetails": "Details Anzeigen",
+    "viewDetails": "Details anzeigen",
     "status": {
       "active": "Aktiv",
       "development": "In Entwicklung"
     },
     "items": {
-      "business": "Unternehmensinvestition",
-      "editorial": "Editorial & Audiovisuelle Medien",
+      "business": "Geschäftsinvestition",
+      "editorial": "Redaktion und Audiovisuelle Medien",
       "healing": "Emotionale Heilung",
-      "housing": "Wohnen",
-      "recreation": "Soziale & Hotel Erholung",
-      "systems": "Systeme & Plattformen",
+      "housing": "Wohnraum",
+      "recreation": "Soziale Erholung und Hotellerie",
+      "systems": "Systeme und Plattformen",
       "banking": "Bankwesen",
       "engineering": "Ingenieursprojekte",
       "commercial": "Kommerziell",
       "research": "Wissenschaftliche Forschung",
-      "culture": "Kunst & Kultur"
+      "culture": "Kunst und Kultur"
     },
     "descriptions": {
       "business": "Investitionsprojekte",
-      "editorial": "Publikationen",
+      "editorial": "Veröffentlichungen",
       "healing": "Wohlbefinden",
       "housing": "Wohnlösungen",
       "recreation": "Tourismus",
@@ -172,30 +52,9 @@
       "commercial": "Geschäftstätigkeiten",
       "research": "Forschung",
       "culture": "Künstlerische Manifestationen"
-    },
-    "individual": {
-      "inversionEmpresarial": {
-        "title": "Unternehmensinvestition - CHE Freie Welt",
-        "description": "Investitions- und Unternehmertumsprojekte für wirtschaftliche Entwicklung.",
-        "objective": {
-          "title": "Ziel des Fonds",
-          "content": "Erleichterung des Zugangs zu Investitionskapital für Unternehmer und Unternehmen, die ihre Geschäftstätigkeit erweitern oder neue innovative Projekte entwickeln möchten."
-        },
-        "types": {
-          "title": "Investitionsarten"
-        },
-        "process": {
-          "title": "Bewerbungsprozess",
-          "content": "Interessierte können ihre Investitionsvorschläge über unser Online-Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
-        }
-      }
     }
   },
   "development": {
     "banner": "Dieses Projekt befindet sich in der Entwicklungsphase. Einige Abschnitte könnten unvollständig sein."
-  },
-  "homepage": {
-    "title": "CHE - Wirtschaftshäresie Corporation",
-    "status": "Status: Unternehmensbasis funktioniert korrekt"
   }
 }

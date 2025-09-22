@@ -1,53 +1,33 @@
-import Image from 'next/image';
+'use client';
+
+import { useTranslation } from '@/components/providers/TranslationProvider';
 
 export default function RecreacionHoteleraPage() {
+  const { t } = useTranslation();
+
   return (
-    <div className="max-w-6xl mx-auto p-8">
-      <div className="mb-8 flex justify-center">
-        <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
-          <Image
-            src="/images/fondos/05_Recreacion_Social.png"
-            alt="Recreación Social y Hotelera - CHE Mundo Libre - CHE Mundo Libre"
-            fill
-            className="object-contain"
-            priority
-          />
+    <div className="max-w-4xl mx-auto py-8">
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          {t('funds.items.recreation')} - CHE
+        </h1>
+        
+        <div className="mb-6">
+          <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+            {t('funds.status.development')}
+          </span>
         </div>
-      </div>
 
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Recreación Social y Hotelera - CHE Mundo Libre</h1>
-        <div className="relative h-10 w-10 mx-auto">
-          <Image
-            src="/images/che-mini-logo.svg"
-            alt="CHE"
-            fill
-            className="object-contain"
-          />
+        <p className="text-lg text-gray-600 mb-8">
+          {t('funds.descriptions.recreation')}
+        </p>
+
+        <div className="grid gap-6">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-3">Objetivo del Fondo</h3>
+            <p>Desarrollar proyectos de recreación social y servicios hoteleros para el bienestar comunitario.</p>
+          </div>
         </div>
-      </div>
-      
-      <p className="text-lg mb-8">Turismo, entretenimiento y desarrollo de espacios recreativos.</p>
-      
-      <div className="space-y-6">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Enfoque</h2>
-          <p className="text-gray-600">
-            Promover el desarrollo de la industria turística y recreativa, generando 
-            espacios de esparcimiento que contribuyan al bienestar social y económico.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Áreas de Inversión</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Desarrollo hotelero y turístico</li>
-            <li>Centros recreativos y deportivos</li>
-            <li>Turismo ecológico y sostenible</li>
-            <li>Eventos culturales y sociales</li>
-            <li>Infraestructura recreativa comunitaria</li>
-          </ul>
-        </section>
       </div>
     </div>
   );

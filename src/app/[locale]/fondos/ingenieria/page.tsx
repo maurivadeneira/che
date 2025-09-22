@@ -1,53 +1,33 @@
-import Image from 'next/image';
+'use client';
+
+import { useTranslation } from '@/components/providers/TranslationProvider';
 
 export default function IngenieriaPage() {
+  const { t } = useTranslation();
+
   return (
-    <div className="max-w-6xl mx-auto p-8">
-      <div className="mb-8 flex justify-center">
-        <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
-          <Image
-            src="/images/fondos/08_Ingenieria.png"
-            alt="Proyectos de Ingeniería - CHE Mundo Libre - CHE Mundo Libre"
-            fill
-            className="object-contain"
-            priority
-          />
+    <div className="max-w-4xl mx-auto py-8">
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          {t('funds.items.engineering')} - CHE
+        </h1>
+        
+        <div className="mb-6">
+          <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+            {t('funds.status.development')}
+          </span>
         </div>
-      </div>
 
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Proyectos de Ingeniería - CHE Mundo Libre</h1>
-        <div className="relative h-10 w-10 mx-auto">
-          <Image
-            src="/images/che-mini-logo.svg"
-            alt="CHE"
-            fill
-            className="object-contain"
-          />
+        <p className="text-lg text-gray-600 mb-8">
+          {t('funds.descriptions.engineering')}
+        </p>
+
+        <div className="grid gap-6">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-3">Objetivo del Fondo</h3>
+            <p>Desarrollar proyectos de infraestructura e ingeniería para el desarrollo social y económico.</p>
+          </div>
         </div>
-      </div>
-      
-      <p className="text-lg mb-8">Infraestructura, construcción y desarrollo técnico.</p>
-      
-      <div className="space-y-6">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Objetivo</h2>
-          <p className="text-gray-600">
-            Ejecutar proyectos de ingeniería que contribuyan al desarrollo sostenible 
-            y mejoren la calidad de vida de las comunidades.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Especialidades</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Ingeniería civil y construcción</li>
-            <li>Infraestructura sostenible</li>
-            <li>Proyectos de energías renovables</li>
-            <li>Sistemas de agua y saneamiento</li>
-            <li>Infraestructura tecnológica</li>
-          </ul>
-        </section>
       </div>
     </div>
   );
