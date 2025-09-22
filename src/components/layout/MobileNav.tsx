@@ -18,10 +18,10 @@ export function MobileNav({ fondos }: MobileNavProps) {
 
   return (
     <>
-      {/* Hamburger Button */}
+      {/* Hamburger Button - Aparece cuando sidebar desaparece */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-lg shadow-lg"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-lg shadow-lg"
         aria-label="Menu"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -29,7 +29,7 @@ export function MobileNav({ fondos }: MobileNavProps) {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50">
+        <div className="lg:hidden fixed inset-0 z-40 bg-black bg-opacity-50">
           <div className="fixed left-0 top-0 h-full w-80 bg-white shadow-lg overflow-y-auto">
             <div className="p-6 pt-16">
               <h2 className="text-xl font-bold mb-6 text-gray-800">Fondos Rotatorios</h2>
