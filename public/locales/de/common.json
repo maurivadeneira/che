@@ -19,6 +19,139 @@
     "fullName": "Wirtschaftshäresie Corporation",
     "subtitle": "Ein globales soziales Projekt für die Entwicklung in der ganzen Welt"
   },
+  "about": {
+    "title": "Über Uns",
+    "corporateInfo": "Unternehmensinformationen",
+    "foundation": "Gründung",
+    "foundationDate": "5. März 2014",
+    "headquarters": "Hauptsitz",
+    "headquartersLocation": "Bogotá D.C., Kolumbien",
+    "nature": "Art",
+    "natureType": "Gemeinnützige Corporation",
+    "character": "Charakter",
+    "characterType": "International",
+    "taxId": "Steuernummer",
+    "taxIdValue": "[Zu erneuern]",
+    "email": "Email",
+    "emailValue": "contacto@corpherejiaeconomica.com"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "contactInfo": "Kontaktinformationen",
+    "primaryEmail": "Haupt-Email",
+    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
+    "headquarters": "Hauptsitz",
+    "headquartersValue": "Bogotá D.C., Kolumbien",
+    "website": "Website"
+  },
+  "library": {
+    "title": "Bibliothek",
+    "books": "Bücher",
+    "articles": "Artikel",
+    "bookTitles": {
+      "comprehensiveAnalysis": "Umfassende Analyse",
+      "firstBook": "Erstes Buch",
+      "secondBook": "Zweites Buch",
+      "firstBookCommentary": "Kommentar Erstes Buch",
+      "secondBookPresentation": "Präsentation Zweites Buch"
+    },
+    "articleTitles": {
+      "proven": "Bewiesen",
+      "twoFundamentalProblems": "Zwei Grundlegende Probleme",
+      "worldEconomySOS": "Weltwirtschaft SOS",
+      "savingsInColombia": "Das Sparen in Kolumbien Konzeptioneller Fehler",
+      "inertialInflation": "Das Problem der Trägheitsinflation",
+      "fiscalDeficit": "Das Problem des Haushaltsdefizits",
+      "checkToWorldSystem": "Schach dem Weltwirtschaftssystem",
+      "hereticEconomistReflections": "Reflexionen des Ketzer-Ökonomen"
+    }
+  },
+  "heresies": {
+    "title": "Häresien mit KI",
+    "subtitle": "Dialoge künstlicher Intelligenz über alternative Wirtschaftstheorien",
+    "dialogues": {
+      "bigBang": {
+        "title": "Den Big Bang hinterfragen",
+        "description": "Kritische Analyse der Big-Bang-Theorie aus alternativen wirtschaftlichen Perspektiven"
+      },
+      "economyVsScience": {
+        "title": "Wirtschaft vs Wissenschaft",
+        "description": "Die Schnittstelle zwischen Wirtschaftsmodellen und wissenschaftlichen Paradigmen"
+      },
+      "extraterrestrials": {
+        "title": "Außerirdische",
+        "description": "Wirtschaftliche Auswirkungen außerirdischen Kontakts"
+      },
+      "questioningPhysics": {
+        "title": "Physik hinterfragen",
+        "description": "Kritische Analyse physikalischer Grundlagen aus wirtschaftlichen Perspektiven"
+      }
+    }
+  },
+  "conferences": {
+    "title": "Konferenzen",
+    "subtitle": "Veranstaltungen und Präsentationen über Wirtschaftshäresie",
+    "items": {
+      "intro": {
+        "title": "Einführung in die Wirtschaftshäresie",
+        "description": "Einführungskonferenz zur Wirtschaftshäresie"
+      },
+      "fundamentals": {
+        "title": "Grundlagen der Wirtschaftshäresie",
+        "description": "Grundlagen der Wirtschaftshäresie"
+      },
+      "kit": {
+        "title": "Wirtschaftshäresie-Kit",
+        "description": "Werkzeuge für alternative Wirtschaftsanalyse"
+      },
+      "author": {
+        "title": "Autorenpräsentation",
+        "description": "Biografie und Werdegang des Autors"
+      }
+    },
+    "date": "Datum",
+    "type": "Konferenz",
+    "watch": "Konferenz ansehen"
+  },
+  "kit2": {
+    "title": "Kit2 Erklärung",
+    "subtitle": "Modernisiertes Kit2-System für CHE-Inhaltsverteilung",
+    "whatIs": "Was ist Kit2?",
+    "description": "Das Kit2-System ist eine CHE-Innovation für die virale Verteilung von Bildungsinhalten mit einem Provisionsmodell, das der gesamten Vertriebskette zugutekommt.",
+    "mainFeatures": "Hauptmerkmale:",
+    "features": {
+      "personalizedPdf": "Personalisiertes PDF mit Benutzername",
+      "validity": "Gültigkeitsdauer von genau 1 Jahr",
+      "configurableCommissions": "Konfigurierbare Provisionen nach Vereinbarung",
+      "viralDistribution": "Virale Verteilung: Benutzer 0→1→2→3...",
+      "multipleKit2s": "Möglichkeit mehrerer simultaner Kit2s"
+    },
+    "viewGuide": "Familien-Guide Kit2-System ansehen"
+  },
+  "auth": {
+    "register": {
+      "title": "Bei CHE registrieren",
+      "fullName": "Vollständiger Name",
+      "email": "Email",
+      "password": "Passwort",
+      "createAccount": "Konto erstellen"
+    },
+    "login": {
+      "title": "Anmelden",
+      "email": "Email",
+      "password": "Passwort",
+      "signIn": "Anmelden"
+    }
+  },
+  "account": {
+    "title": "Mein Konto",
+    "panel": "CHE Benutzer-Panel",
+    "developmentNote": "Funktionalität in Entwicklung - Enterprise-Authentifizierungssystem demnächst.",
+    "myKit2s": "Meine Kit2s",
+    "kit2sDescription": "Verwalten Sie Ihre aktiven und abgelaufenen Kit2s",
+    "commissions": "Provisionen",
+    "commissionsDescription": "Überprüfen Sie Ihre Vertriebsgewinne"
+  },
   "funds": {
     "title": "Die 11 CHE Rotierenden Fonds",
     "subtitle": "Statutarische Struktur der Wirtschaftshäresie Corporation für globale Entwicklung",
@@ -52,9 +185,30 @@
       "commercial": "Geschäftstätigkeiten",
       "research": "Forschung",
       "culture": "Künstlerische Manifestationen"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Geschäftsinvestition - CHE Freie Welt",
+        "description": "Investitions- und Unternehmerprojekte für wirtschaftliche Entwicklung.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Erleichterung des Zugangs zu Investitionskapital für Unternehmer und Firmen, die ihre Operationen erweitern oder neue innovative Projekte entwickeln möchten."
+        },
+        "types": {
+          "title": "Investitionsarten"
+        },
+        "process": {
+          "title": "Bewerbungsprozess",
+          "content": "Interessierte können ihre Investitionsvorschläge über unser Online-Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        }
+      }
     }
   },
   "development": {
     "banner": "Dieses Projekt befindet sich in der Entwicklungsphase. Einige Abschnitte könnten unvollständig sein."
+  },
+  "homepage": {
+    "title": "CHE - Wirtschaftshäresie Corporation",
+    "status": "Status: Unternehmensbasis funktioniert korrekt"
   }
 }

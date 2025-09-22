@@ -19,6 +19,139 @@
     "fullName": "Corporation Hérésie Économique",
     "subtitle": "Un projet social global pour le développement dans le monde entier"
   },
+  "about": {
+    "title": "À Propos",
+    "corporateInfo": "Informations Corporatives",
+    "foundation": "Fondation",
+    "foundationDate": "5 Mars 2014",
+    "headquarters": "Siège Principal",
+    "headquartersLocation": "Bogotá D.C., Colombie",
+    "nature": "Nature",
+    "natureType": "Corporation sans but lucratif",
+    "character": "Caractère",
+    "characterType": "International",
+    "taxId": "NIF/SIRET",
+    "taxIdValue": "[À renouveler]",
+    "email": "Email",
+    "emailValue": "contacto@corpherejiaeconomica.com"
+  },
+  "contact": {
+    "title": "Contact",
+    "contactInfo": "Informations de Contact",
+    "primaryEmail": "Email Principal",
+    "primaryEmailValue": "contacto@corpherejiaeconomica.com",
+    "headquarters": "Siège Principal",
+    "headquartersValue": "Bogotá D.C., Colombie",
+    "website": "Site Web"
+  },
+  "library": {
+    "title": "Bibliothèque",
+    "books": "Livres",
+    "articles": "Articles",
+    "bookTitles": {
+      "comprehensiveAnalysis": "Analyse Complète",
+      "firstBook": "Premier Livre",
+      "secondBook": "Second Livre",
+      "firstBookCommentary": "Commentaire Premier Livre",
+      "secondBookPresentation": "Présentation Second Livre"
+    },
+    "articleTitles": {
+      "proven": "Prouvé",
+      "twoFundamentalProblems": "Deux Problèmes Fondamentaux",
+      "worldEconomySOS": "Économie Mondiale SOS",
+      "savingsInColombia": "L'Épargne en Colombie Erreur Conceptuelle",
+      "inertialInflation": "Le Problème de l'Inflation Inertielle",
+      "fiscalDeficit": "Le Problème du Déficit Fiscal",
+      "checkToWorldSystem": "Échec au Système Économique Mondial",
+      "hereticEconomistReflections": "Réflexions de l'Économiste Hérétique"
+    }
+  },
+  "heresies": {
+    "title": "Hérésies avec IA",
+    "subtitle": "Dialogues d'intelligence artificielle sur les théories économiques alternatives",
+    "dialogues": {
+      "bigBang": {
+        "title": "Questionner le Big Bang",
+        "description": "Analyse critique de la théorie du Big Bang sous des perspectives économiques alternatives"
+      },
+      "economyVsScience": {
+        "title": "Économie vs Science",
+        "description": "L'intersection entre modèles économiques et paradigmes scientifiques"
+      },
+      "extraterrestrials": {
+        "title": "Extraterrestres",
+        "description": "Implications économiques du contact extraterrestre"
+      },
+      "questioningPhysics": {
+        "title": "Questionner la Physique",
+        "description": "Analyse critique des fondements physiques sous perspectives économiques"
+      }
+    }
+  },
+  "conferences": {
+    "title": "Conférences",
+    "subtitle": "Événements et présentations sur l'Hérésie Économique",
+    "items": {
+      "intro": {
+        "title": "Introduction à l'Hérésie Économique",
+        "description": "Conférence d'introduction à l'Hérésie Économique"
+      },
+      "fundamentals": {
+        "title": "Fondamentaux de l'Hérésie Économique",
+        "description": "Fondamentaux de l'Hérésie Économique"
+      },
+      "kit": {
+        "title": "Kit d'Hérésie Économique",
+        "description": "Outils pour l'analyse économique alternative"
+      },
+      "author": {
+        "title": "Présentation de l'Auteur",
+        "description": "Biographie et trajectoire de l'auteur"
+      }
+    },
+    "date": "Date",
+    "type": "Conférence",
+    "watch": "Voir Conférence"
+  },
+  "kit2": {
+    "title": "Explication Kit2",
+    "subtitle": "Système Kit2 modernisé pour la distribution de contenu CHE",
+    "whatIs": "Qu'est-ce que Kit2?",
+    "description": "Le système Kit2 est une innovation de CHE pour la distribution virale de contenu éducatif avec un modèle de commissions qui bénéficie à toute la chaîne distributive.",
+    "mainFeatures": "Caractéristiques principales:",
+    "features": {
+      "personalizedPdf": "PDF personnalisé avec nom d'utilisateur",
+      "validity": "Validité d'exactement 1 an",
+      "configurableCommissions": "Commissions configurables par accord",
+      "viralDistribution": "Distribution virale: Utilisateur 0→1→2→3...",
+      "multipleKit2s": "Possibilité de multiples Kit2s simultanés"
+    },
+    "viewGuide": "Voir Guide Familial Système Kit2"
+  },
+  "auth": {
+    "register": {
+      "title": "S'inscrire à CHE",
+      "fullName": "Nom complet",
+      "email": "Email",
+      "password": "Mot de passe",
+      "createAccount": "Créer Compte"
+    },
+    "login": {
+      "title": "Se Connecter",
+      "email": "Email",
+      "password": "Mot de passe",
+      "signIn": "Se Connecter"
+    }
+  },
+  "account": {
+    "title": "Mon Compte",
+    "panel": "Panneau Utilisateur CHE",
+    "developmentNote": "Fonctionnalité en développement - Système d'authentification d'entreprise bientôt.",
+    "myKit2s": "Mes Kit2s",
+    "kit2sDescription": "Gérez vos Kit2s actifs et expirés",
+    "commissions": "Commissions",
+    "commissionsDescription": "Consultez vos gains de distribution"
+  },
   "funds": {
     "title": "Les 11 Fonds Rotatifs CHE",
     "subtitle": "Structure statutaire de la Corporation Hérésie Économique pour le développement global",
@@ -26,9 +159,56 @@
     "status": {
       "active": "Actif",
       "development": "En développement"
+    },
+    "items": {
+      "business": "Investissement Commercial",
+      "editorial": "Éditorial et Médias Audiovisuels",
+      "healing": "Guérison Émotionnelle",
+      "housing": "Logement",
+      "recreation": "Loisirs Sociaux et Hôtellerie",
+      "systems": "Systèmes et Plateformes",
+      "banking": "Bancaire",
+      "engineering": "Projets d'Ingénierie",
+      "commercial": "Commercial",
+      "research": "Recherche Scientifique",
+      "culture": "Art et Culture"
+    },
+    "descriptions": {
+      "business": "Projets d'investissement",
+      "editorial": "Publications",
+      "healing": "Bien-être",
+      "housing": "Solutions de logement",
+      "recreation": "Tourisme",
+      "systems": "Technologie",
+      "banking": "Services financiers",
+      "engineering": "Infrastructure",
+      "commercial": "Activités commerciales",
+      "research": "Recherche",
+      "culture": "Manifestations artistiques"
+    },
+    "individual": {
+      "inversionEmpresarial": {
+        "title": "Investissement Commercial - CHE Monde Libre",
+        "description": "Projets d'investissement et d'entrepreneuriat pour le développement économique.",
+        "objective": {
+          "title": "Objectif du Fonds",
+          "content": "Faciliter l'accès au capital d'investissement pour les entrepreneurs et entreprises cherchant à étendre leurs opérations ou développer de nouveaux projets innovants."
+        },
+        "types": {
+          "title": "Types d'Investissement"
+        },
+        "process": {
+          "title": "Processus de Candidature",
+          "content": "Les intéressés peuvent soumettre leurs propositions d'investissement via notre portail en ligne, où elles seront évaluées par notre équipe d'experts."
+        }
+      }
     }
   },
   "development": {
     "banner": "Ce projet est en phase de développement. Certaines sections pourraient être incomplètes."
+  },
+  "homepage": {
+    "title": "CHE - Corporation Hérésie Économique",
+    "status": "Statut: Base d'entreprise fonctionnant correctement"
   }
 }
