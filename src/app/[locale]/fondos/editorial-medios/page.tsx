@@ -47,7 +47,7 @@ export default function EditorialMediosPage() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.editorialMedios.types.title')}</h2>
                     <ul className="list-disc list-inside space-y-2 text-gray-600">
-            {t('funds.individual.editorialMedios.items').map((item, index) => (
+            {(t('funds.individual.editorialMedios.items') as unknown as string[]).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>

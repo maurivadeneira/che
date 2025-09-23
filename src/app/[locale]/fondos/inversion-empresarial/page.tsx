@@ -46,7 +46,7 @@ export default function InversionEmpresarialPage() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.types.title')}</h2>
                     <ul className="list-disc list-inside space-y-2 text-gray-600">
-            {t('funds.individual.inversionEmpresarial.items').map((item, index) => (
+            {(t('funds.individual.inversionEmpresarial.items') as unknown as string[]).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
