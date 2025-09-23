@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Inicio",
     "heresies": "Herejías con IA",
-    "conferences": "Conferencias", 
+    "conferences": "Conferencias",
     "library": "Biblioteca",
     "funds": "Fondos Rotatorios",
     "about": "Nosotros",
@@ -11,7 +11,7 @@
   "header": {
     "kit2": "Explicación Kit2",
     "register": "Registrarse",
-    "account": "Mi Cuenta", 
+    "account": "Mi Cuenta",
     "login": "Login"
   },
   "company": {
@@ -200,6 +200,156 @@
         "process": {
           "title": "Proceso de Aplicación",
           "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "editorialMedios": {
+        "title": "Editorial y Medios Audiovisuales - CHE Mundo Libre",
+        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sanacionEmocional": {
+        "title": "Sanación Emocional - CHE Mundo Libre",
+        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "vivienda": {
+        "title": "Vivienda - CHE Mundo Libre",
+        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "recreacionSocial": {
+        "title": "Recreación Social y Hotelera - CHE Mundo Libre",
+        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sistemasPlatformas": {
+        "title": "Sistemas y Plataformas - CHE Mundo Libre",
+        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "bancario": {
+        "title": "Bancario - CHE Mundo Libre",
+        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "ingenieria": {
+        "title": "Proyectos de Ingeniería - CHE Mundo Libre",
+        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "comercial": {
+        "title": "Comercial - CHE Mundo Libre",
+        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "investigacionCientifica": {
+        "title": "Investigación Científica - CHE Mundo Libre",
+        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "arteCultura": {
+        "title": "Arte y Cultura - CHE Mundo Libre",
+        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "objective": {
+          "title": "Objetivo del Fondo",
+          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+        },
+        "types": {
+          "title": "Tipos de Proyectos"
+        },
+        "process": {
+          "title": "Proceso de Participación",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
         }
       }
     }

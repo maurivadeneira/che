@@ -1,33 +1,71 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslation } from '@/components/providers/TranslationProvider';
 
-export default function SistemasPage() {
+export default function SistemasPlatformasPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">
-          {t('funds.items.systems')} - CHE
-        </h1>
-        
-        <div className="mb-6">
-          <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
-            {t('funds.status.development')}
-          </span>
+    <div className="max-w-6xl mx-auto p-8">
+      <div className="mb-8 flex justify-center">
+        <div className="relative h-80 w-full max-w-4xl rounded-lg overflow-hidden bg-gray-100">
+          <Image
+            src="/images/fondos/06_Sistemas_y_Plataformas.png"
+            alt="sistemasPlatformas"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
+      </div>
 
-        <p className="text-lg text-gray-600 mb-8">
-          {t('funds.descriptions.systems')}
-        </p>
-
-        <div className="grid gap-6">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-3">Objetivo del Fondo</h3>
-            <p>Desarrollar sistemas tecnológicos y plataformas digitales innovadoras.</p>
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold mb-4">{t('funds.individual.sistemasPlatformas.title')}</h1>
+        <div className="flex justify-center">
+          <div className="relative h-10 w-10">
+            <Image
+              src="/images/che-mini-logo.svg"
+              alt="CHE"
+              fill
+              className="object-contain"
+            />
           </div>
         </div>
+      </div>
+      
+      <div className="mb-6">
+        <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+          {t('funds.status.development')}
+        </span>
+      </div>
+      
+      <p className="text-lg mb-8">{t('funds.individual.sistemasPlatformas.description')}</p>
+      
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.sistemasPlatformas.objective.title')}</h2>
+          <p className="text-gray-600">
+            {t('funds.individual.sistemasPlatformas.objective.content')}
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.sistemasPlatformas.types.title')}</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <li>Plataformas digitales</li>
+            <li>Sistemas tecnológicos</li>
+            <li>Soluciones informáticas</li>
+            <li>Innovación tecnológica</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.sistemasPlatformas.process.title')}</h2>
+          <p className="text-gray-600">
+            {t('funds.individual.sistemasPlatformas.process.content')}
+          </p>
+        </section>
       </div>
     </div>
   );

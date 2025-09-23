@@ -189,17 +189,167 @@
     "individual": {
       "inversionEmpresarial": {
         "title": "Investimento Aziendale - CHE Mondo Libero",
-        "description": "Progetti di investimento e imprenditorialità per lo sviluppo economico.",
+        "description": "Proyectos de inversión y emprendimiento para el desarrollo económico.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Facilitare l'accesso al capitale di investimento per imprenditori e aziende che cercano di espandere le loro operazioni o sviluppare nuovi progetti innovativi."
+          "content": "Facilitar el acceso a capital de inversión para emprendedores y empresas que buscan expandir sus operaciones o desarrollar nuevos proyectos innovadores."
         },
         "types": {
-          "title": "Tipi di Investimento"
+          "title": "Tipi di Progetti"
         },
         "process": {
-          "title": "Processo di Candidatura",
-          "content": "Gli interessati possono presentare le loro proposte di investimento attraverso il nostro portale online, dove saranno valutate dal nostro team di esperti."
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "editorialMedios": {
+        "title": "Editoriale e Media Audiovisivi - CHE Mondo Libero",
+        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sanacionEmocional": {
+        "title": "Guarigione Emotiva - CHE Mondo Libero",
+        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "vivienda": {
+        "title": "Abitazione - CHE Mondo Libero",
+        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "recreacionSocial": {
+        "title": "Ricreazione Sociale e Ospitalità - CHE Mondo Libero",
+        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sistemasPlatformas": {
+        "title": "Sistemi e Piattaforme - CHE Mondo Libero",
+        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "bancario": {
+        "title": "Bancario - CHE Mondo Libero",
+        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "ingenieria": {
+        "title": "Progetti di Ingegneria - CHE Mondo Libero",
+        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "comercial": {
+        "title": "Commerciale - CHE Mondo Libero",
+        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "investigacionCientifica": {
+        "title": "Ricerca Scientifica - CHE Mondo Libero",
+        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "arteCultura": {
+        "title": "Arte e Cultura - CHE Mondo Libero",
+        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "objective": {
+          "title": "Obiettivo del Fondo",
+          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+        },
+        "types": {
+          "title": "Tipi di Progetti"
+        },
+        "process": {
+          "title": "Processo di Partecipazione",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
         }
       }
     }

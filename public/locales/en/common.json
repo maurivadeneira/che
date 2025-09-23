@@ -195,11 +195,161 @@
           "content": "Facilitate access to investment capital for entrepreneurs and companies seeking to expand their operations or develop new innovative projects."
         },
         "types": {
-          "title": "Investment Types"
+          "title": "Project Types"
         },
         "process": {
-          "title": "Application Process",
+          "title": "Participation Process",
           "content": "Interested parties can submit their investment proposals through our online portal, where they will be evaluated by our team of experts."
+        }
+      },
+      "editorialMedios": {
+        "title": "Editorial & Audiovisual Media - CHE Free World",
+        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sanacionEmocional": {
+        "title": "Emotional Healing - CHE Free World",
+        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "vivienda": {
+        "title": "Housing - CHE Free World",
+        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "recreacionSocial": {
+        "title": "Social & Hotel Recreation - CHE Free World",
+        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sistemasPlatformas": {
+        "title": "Systems & Platforms - CHE Free World",
+        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "bancario": {
+        "title": "Banking - CHE Free World",
+        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "ingenieria": {
+        "title": "Engineering Projects - CHE Free World",
+        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "comercial": {
+        "title": "Commercial - CHE Free World",
+        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "investigacionCientifica": {
+        "title": "Scientific Research - CHE Free World",
+        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "arteCultura": {
+        "title": "Art & Culture - CHE Free World",
+        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "objective": {
+          "title": "Fund Objective",
+          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+        },
+        "types": {
+          "title": "Project Types"
+        },
+        "process": {
+          "title": "Participation Process",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
         }
       }
     }

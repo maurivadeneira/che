@@ -46,10 +46,10 @@ export default function InversionEmpresarialPage() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.types.title')}</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Capital semilla para startups</li>
-            <li>Expansión de empresas existentes</li>
-            <li>Proyectos de innovación tecnológica</li>
-            <li>Inversiones en economía sostenible</li>
+            <li>Seed capital for startups</li>
+            <li>Expansion of existing companies</li>
+            <li>Technological innovation projects</li>
+            <li>Investments in sustainable economy</li>
           </ul>
         </section>
 

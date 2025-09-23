@@ -189,17 +189,167 @@
     "individual": {
       "inversionEmpresarial": {
         "title": "Geschäftsinvestition - CHE Freie Welt",
-        "description": "Investitions- und Unternehmerprojekte für wirtschaftliche Entwicklung.",
+        "description": "Proyectos de inversión y emprendimiento para el desarrollo económico.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Erleichterung des Zugangs zu Investitionskapital für Unternehmer und Firmen, die ihre Operationen erweitern oder neue innovative Projekte entwickeln möchten."
+          "content": "Facilitar el acceso a capital de inversión para emprendedores y empresas que buscan expandir sus operaciones o desarrollar nuevos proyectos innovadores."
         },
         "types": {
-          "title": "Investitionsarten"
+          "title": "Projektarten"
         },
         "process": {
-          "title": "Bewerbungsprozess",
-          "content": "Interessierte können ihre Investitionsvorschläge über unser Online-Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "editorialMedios": {
+        "title": "Redaktion und Audiovisuelle Medien - CHE Freie Welt",
+        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sanacionEmocional": {
+        "title": "Emotionale Heilung - CHE Freie Welt",
+        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "vivienda": {
+        "title": "Wohnraum - CHE Freie Welt",
+        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "recreacionSocial": {
+        "title": "Soziale Erholung und Hotellerie - CHE Freie Welt",
+        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "sistemasPlatformas": {
+        "title": "Systeme und Plattformen - CHE Freie Welt",
+        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "bancario": {
+        "title": "Bankwesen - CHE Freie Welt",
+        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "ingenieria": {
+        "title": "Ingenieursprojekte - CHE Freie Welt",
+        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "comercial": {
+        "title": "Kommerziell - CHE Freie Welt",
+        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "investigacionCientifica": {
+        "title": "Wissenschaftliche Forschung - CHE Freie Welt",
+        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
+        }
+      },
+      "arteCultura": {
+        "title": "Kunst und Kultur - CHE Freie Welt",
+        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "objective": {
+          "title": "Fonds-Ziel",
+          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+        },
+        "types": {
+          "title": "Projektarten"
+        },
+        "process": {
+          "title": "Teilnahmeprozess",
+          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
         }
       }
     }
