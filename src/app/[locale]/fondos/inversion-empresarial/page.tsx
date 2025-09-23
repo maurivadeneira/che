@@ -45,11 +45,10 @@ export default function InversionEmpresarialPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.inversionEmpresarial.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Seed capital for startups</li>
-            <li>Expansion of existing companies</li>
-            <li>Technological innovation projects</li>
-            <li>Investments in sustainable economy</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.inversionEmpresarial.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 

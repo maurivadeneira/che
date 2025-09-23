@@ -46,11 +46,10 @@ export default function EditorialMediosPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.editorialMedios.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Libros y publicaciones especializadas</li>
-            <li>Videos educativos y documentales</li>
-            <li>Podcasts y contenido de audio</li>
-            <li>Materiales audiovisuales interactivos</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.editorialMedios.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 

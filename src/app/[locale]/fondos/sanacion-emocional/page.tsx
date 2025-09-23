@@ -52,11 +52,10 @@ export default function SanacionEmocionalPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.sanacionEmocional.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Terapias alternativas</li>
-            <li>Programas de bienestar</li>
-            <li>Sanación holística</li>
-            <li>Desarrollo personal</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.sanacionEmocional.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 

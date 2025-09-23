@@ -52,11 +52,10 @@ export default function ComercialPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.comercial.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Comercio ético</li>
-            <li>Empresas sostenibles</li>
-            <li>Comercio justo</li>
-            <li>Actividades comerciales</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.comercial.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 

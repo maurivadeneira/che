@@ -189,168 +189,234 @@
     "individual": {
       "inversionEmpresarial": {
         "title": "Geschäftsinvestition - CHE Freie Welt",
-        "description": "Proyectos de inversión y emprendimiento para el desarrollo económico.",
+        "description": "Investment- und Unternehmertumsprojekte für die wirtschaftliche Entwicklung.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Facilitar el acceso a capital de inversión para emprendedores y empresas que buscan expandir sus operaciones o desarrollar nuevos proyectos innovadores."
+          "content": "Erleichterung des Zugangs zu Investitionskapital für Unternehmer und Firmen, die ihre Geschäfte erweitern oder neue innovative Projekte entwickeln möchten."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Investitionsvorschläge über unser Online-Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Startkapital für Startups",
+          "Erweiterung bestehender Unternehmen",
+          "Technologische Innovationsprojekte",
+          "Investitionen in nachhaltige Wirtschaft"
+        ]
       },
       "editorialMedios": {
         "title": "Redaktion und Audiovisuelle Medien - CHE Freie Welt",
-        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "description": "Entwicklung von redaktionellen Inhalten und audiovisuellen Medien zur Verbreitung von CHE-Wissen.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+          "content": "Entwicklung und Förderung der Erstellung von redaktionellen Inhalten und audiovisuellen Medien zur Verbreitung von CHE-Wissen."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Fachbücher und Publikationen",
+          "Bildungsvideos und Dokumentarfilme",
+          "Podcasts und Audioinhalte",
+          "Interaktive audiovisuelle Materialien"
+        ]
       },
       "sanacionEmocional": {
         "title": "Emotionale Heilung - CHE Freie Welt",
-        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "description": "Programme für emotionales Wohlbefinden und ganzheitliche Heilung für die persönliche Entwicklung.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+          "content": "Entwicklung und Förderung von Programmen für emotionales Wohlbefinden und ganzheitliche Heilung für die persönliche Entwicklung."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Alternative Therapien",
+          "Wellness-Programme",
+          "Ganzheitliche Heilung",
+          "Persönliche Entwicklung"
+        ]
       },
       "vivienda": {
         "title": "Wohnraum - CHE Freie Welt",
-        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "description": "Innovative und zugängliche Wohnlösungen für globale Gemeinschaften.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+          "content": "Entwicklung und Förderung innovativer und zugänglicher Wohnlösungen für globale Gemeinschaften."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Sozialer Wohnungsbau",
+          "Nachhaltige Projekte",
+          "Stadtentwicklung",
+          "Bezahlbarer Wohnraum"
+        ]
       },
       "recreacionSocial": {
         "title": "Soziale Erholung und Hotellerie - CHE Freie Welt",
-        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "description": "Tourismus-, Freizeit- und Hotelprojekte für die soziale Entwicklung.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+          "content": "Entwicklung und Förderung von Tourismus-, Freizeit- und Hotelprojekten für die soziale Entwicklung."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Gemeinschaftstourismus",
+          "Freizeitzentren",
+          "Hoteldienstleistungen",
+          "Tourismusentwicklung"
+        ]
       },
       "sistemasPlatformas": {
         "title": "Systeme und Plattformen - CHE Freie Welt",
-        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "description": "Entwicklung innovativer Technologien und digitaler Plattformen.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+          "content": "Entwicklung und Förderung innovativer Technologien und digitaler Plattformen."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Digitale Plattformen",
+          "Technologische Systeme",
+          "IT-Lösungen",
+          "Technologische Innovation"
+        ]
       },
       "bancario": {
         "title": "Bankwesen - CHE Freie Welt",
-        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "description": "Alternative Finanzdienstleistungen und Gemeinschaftsbanking.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+          "content": "Entwicklung und Förderung alternativer Finanzdienstleistungen und Gemeinschaftsbanking."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Mikrofinanzierung",
+          "Gemeinschaftsbanking",
+          "Finanzdienstleistungen",
+          "Alternative Systeme"
+        ]
       },
       "ingenieria": {
         "title": "Ingenieursprojekte - CHE Freie Welt",
-        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "description": "Infrastruktur- und Ingenieurprojekte für nachhaltige Entwicklung.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+          "content": "Entwicklung und Förderung von Infrastruktur- und Ingenieurprojekten für nachhaltige Entwicklung."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Infrastruktur",
+          "Bauingenieurwesen",
+          "Umweltprojekte",
+          "Nachhaltige Entwicklung"
+        ]
       },
       "comercial": {
         "title": "Kommerziell - CHE Freie Welt",
-        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "description": "Geschäfts- und Unternehmensaktivitäten nach CHE-Prinzipien.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+          "content": "Entwicklung und Förderung von Geschäfts- und Unternehmensaktivitäten nach CHE-Prinzipien."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Ethischer Handel",
+          "Nachhaltige Unternehmen",
+          "Fairer Handel",
+          "Geschäftsaktivitäten"
+        ]
       },
       "investigacionCientifica": {
         "title": "Wissenschaftliche Forschung - CHE Freie Welt",
-        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "description": "Wissenschaftliche Forschung und Entwicklung innovativen Wissens.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+          "content": "Entwicklung und Förderung wissenschaftlicher Forschung und der Entwicklung innovativen Wissens."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Unabhängige Forschung",
+          "Wirtschaftsstudien",
+          "Wissenschaftliche Entwicklung",
+          "Angewandte Forschung"
+        ]
       },
       "arteCultura": {
         "title": "Kunst und Kultur - CHE Freie Welt",
-        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "description": "Künstlerische Ausdrucksformen und transformative Kulturprojekte.",
         "objective": {
           "title": "Fonds-Ziel",
-          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+          "content": "Entwicklung und Förderung künstlerischer Ausdrucksformen und transformativer Kulturprojekte."
         },
         "types": {
           "title": "Projektarten"
         },
         "process": {
           "title": "Teilnahmeprozess",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interessierte können ihre Vorschläge über unser spezialisiertes Portal einreichen, wo sie von unserem Expertenteam bewertet werden."
+        },
+        "items": [
+          "Künstlerische Ausdrucksformen",
+          "Kulturprojekte",
+          "Transformative Kunst",
+          "Kreative Manifestationen"
+        ]
       }
     }
   },

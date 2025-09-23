@@ -52,11 +52,10 @@ export default function RecreacionSocialPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.recreacionSocial.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Turismo comunitario</li>
-            <li>Centros recreativos</li>
-            <li>Servicios hoteleros</li>
-            <li>Desarrollo turístico</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.recreacionSocial.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 

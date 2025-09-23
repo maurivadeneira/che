@@ -200,7 +200,13 @@
         "process": {
           "title": "Proceso de Aplicación",
           "content": "Los interesados pueden presentar sus propuestas de inversión a través de nuestro portal en línea, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Capital semilla para startups",
+          "Expansión de empresas existentes",
+          "Proyectos de innovación tecnológica",
+          "Inversiones en economía sostenible"
+        ]
       },
       "editorialMedios": {
         "title": "Editorial y Medios Audiovisuales - CHE Mundo Libre",
@@ -215,7 +221,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Libros y publicaciones especializadas",
+          "Videos educativos y documentales",
+          "Podcasts y contenido de audio",
+          "Materiales audiovisuales interactivos"
+        ]
       },
       "sanacionEmocional": {
         "title": "Sanación Emocional - CHE Mundo Libre",
@@ -230,7 +242,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Terapias alternativas",
+          "Programas de bienestar",
+          "Sanación holística",
+          "Desarrollo personal"
+        ]
       },
       "vivienda": {
         "title": "Vivienda - CHE Mundo Libre",
@@ -245,7 +263,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Vivienda social",
+          "Proyectos sostenibles",
+          "Desarrollo urbano",
+          "Vivienda accesible"
+        ]
       },
       "recreacionSocial": {
         "title": "Recreación Social y Hotelera - CHE Mundo Libre",
@@ -260,7 +284,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Turismo comunitario",
+          "Centros recreativos",
+          "Servicios hoteleros",
+          "Desarrollo turístico"
+        ]
       },
       "sistemasPlatformas": {
         "title": "Sistemas y Plataformas - CHE Mundo Libre",
@@ -275,7 +305,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Plataformas digitales",
+          "Sistemas tecnológicos",
+          "Soluciones informáticas",
+          "Innovación tecnológica"
+        ]
       },
       "bancario": {
         "title": "Bancario - CHE Mundo Libre",
@@ -290,7 +326,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Microfinanzas",
+          "Banca comunitaria",
+          "Servicios financieros",
+          "Sistemas alternativos"
+        ]
       },
       "ingenieria": {
         "title": "Proyectos de Ingeniería - CHE Mundo Libre",
@@ -305,7 +347,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Infraestructura",
+          "Ingeniería civil",
+          "Proyectos ambientales",
+          "Desarrollo sostenible"
+        ]
       },
       "comercial": {
         "title": "Comercial - CHE Mundo Libre",
@@ -320,7 +368,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Comercio ético",
+          "Empresas sostenibles",
+          "Comercio justo",
+          "Actividades comerciales"
+        ]
       },
       "investigacionCientifica": {
         "title": "Investigación Científica - CHE Mundo Libre",
@@ -335,7 +389,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Investigación independiente",
+          "Estudios económicos",
+          "Desarrollo científico",
+          "Investigación aplicada"
+        ]
       },
       "arteCultura": {
         "title": "Arte y Cultura - CHE Mundo Libre",
@@ -350,7 +410,13 @@
         "process": {
           "title": "Proceso de Participación",
           "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+        },
+        "items": [
+          "Expresiones artísticas",
+          "Proyectos culturales",
+          "Arte transformador",
+          "Manifestaciones creativas"
+        ]
       }
     }
   },

@@ -200,157 +200,223 @@
         "process": {
           "title": "Participation Process",
           "content": "Interested parties can submit their investment proposals through our online portal, where they will be evaluated by our team of experts."
-        }
+        },
+        "items": [
+          "Seed capital for startups",
+          "Expansion of existing companies",
+          "Technological innovation projects",
+          "Investments in sustainable economy"
+        ]
       },
       "editorialMedios": {
         "title": "Editorial & Audiovisual Media - CHE Free World",
-        "description": "Desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento CHE.",
+        "description": "Development of editorial content and audiovisual media for CHE knowledge dissemination.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover desarrollo de contenido editorial y medios audiovisuales para la difusión del conocimiento che."
+          "content": "Create and distribute educational content, books, videos and audiovisual materials that promote Economic Heresy principles globally."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Authors, creators and producers can submit their content proposals through our specialized portal."
+        },
+        "items": [
+          "Specialized books and publications",
+          "Educational videos and documentaries",
+          "Podcasts and audio content",
+          "Interactive audiovisual materials"
+        ]
       },
       "sanacionEmocional": {
         "title": "Emotional Healing - CHE Free World",
-        "description": "Programas de bienestar emocional y sanación integral para el desarrollo personal.",
+        "description": "Emotional wellness and comprehensive healing programs for personal development.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover programas de bienestar emocional y sanación integral para el desarrollo personal."
+          "content": "Provide emotional healing services, alternative therapies and wellness programs that promote integral human development."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Interested individuals can access our healing services through scheduled appointments and specialized programs."
+        },
+        "items": [
+          "Alternative therapies",
+          "Wellness programs",
+          "Holistic healing",
+          "Personal development"
+        ]
       },
       "vivienda": {
         "title": "Housing - CHE Free World",
-        "description": "Soluciones habitacionales innovadoras y accesibles para comunidades globales.",
+        "description": "Innovative and accessible housing solutions for global communities.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover soluciones habitacionales innovadoras y accesibles para comunidades globales."
+          "content": "Develop accessible, sustainable and innovative housing projects that guarantee the right to dignified housing for all."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Families and communities can apply to our housing programs through our comprehensive evaluation system."
+        },
+        "items": [
+          "Social housing",
+          "Sustainable projects",
+          "Urban development",
+          "Accessible housing"
+        ]
       },
       "recreacionSocial": {
         "title": "Social & Hotel Recreation - CHE Free World",
-        "description": "Proyectos de turismo, recreación y servicios hoteleros para el desarrollo social.",
+        "description": "Tourism, recreation and hotel services projects for social development.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover proyectos de turismo, recreación y servicios hoteleros para el desarrollo social."
+          "content": "Create recreation spaces, community tourism and hotel services that generate local economic development and social welfare."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Communities and tourism entrepreneurs can present proposals for sustainable recreational and hotel projects."
+        },
+        "items": [
+          "Community tourism",
+          "Recreation centers",
+          "Hotel services",
+          "Tourism development"
+        ]
       },
       "sistemasPlatformas": {
         "title": "Systems & Platforms - CHE Free World",
-        "description": "Desarrollo de tecnologías y plataformas digitales innovadoras.",
+        "description": "Development of innovative technologies and digital platforms.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover desarrollo de tecnologías y plataformas digitales innovadoras."
+          "content": "Create technological systems, digital platforms and IT solutions that facilitate CHE principles implementation."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Developers and tech companies can propose innovative solutions through our technology incubation program."
+        },
+        "items": [
+          "Digital platforms",
+          "Technological systems",
+          "IT solutions",
+          "Technological innovation"
+        ]
       },
       "bancario": {
         "title": "Banking - CHE Free World",
-        "description": "Servicios financieros alternativos y banca comunitaria.",
+        "description": "Alternative financial services and community banking.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover servicios financieros alternativos y banca comunitaria."
+          "content": "Establish alternative banking services, microfinance and community financial systems that democratize capital access."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Individuals and communities can access our alternative banking services through our cooperative membership system."
+        },
+        "items": [
+          "Microfinance",
+          "Community banking",
+          "Financial services",
+          "Alternative systems"
+        ]
       },
       "ingenieria": {
         "title": "Engineering Projects - CHE Free World",
-        "description": "Infraestructura y proyectos de ingeniería para el desarrollo sostenible.",
+        "description": "Infrastructure and engineering projects for sustainable development.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover infraestructura y proyectos de ingeniería para el desarrollo sostenible."
+          "content": "Develop infrastructure, civil and environmental engineering projects that improve quality of life and promote sustainable development."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Engineers and construction companies can participate in our bidding processes for community infrastructure projects."
+        },
+        "items": [
+          "Infrastructure",
+          "Civil engineering",
+          "Environmental projects",
+          "Sustainable development"
+        ]
       },
       "comercial": {
         "title": "Commercial - CHE Free World",
-        "description": "Actividades comerciales y empresariales bajo principios CHE.",
+        "description": "Commercial and business activities under CHE principles.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover actividades comerciales y empresariales bajo principios che."
+          "content": "Promote ethical commercial activities, fair trade and businesses operating under Economic Heresy principles."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Companies and merchants can obtain CHE certification through our ethical business practices evaluation program."
+        },
+        "items": [
+          "Ethical commerce",
+          "Sustainable businesses",
+          "Fair trade",
+          "Commercial activities"
+        ]
       },
       "investigacionCientifica": {
         "title": "Scientific Research - CHE Free World",
-        "description": "Investigación científica y desarrollo de conocimiento innovador.",
+        "description": "Scientific research and innovative knowledge development.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover investigación científica y desarrollo de conocimiento innovador."
+          "content": "Finance independent scientific research, alternative economic studies and knowledge development that challenges established paradigms."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Researchers and academic institutions can apply to our research funds through our scientific evaluation system."
+        },
+        "items": [
+          "Independent research",
+          "Economic studies",
+          "Scientific development",
+          "Applied research"
+        ]
       },
       "arteCultura": {
         "title": "Art & Culture - CHE Free World",
-        "description": "Manifestaciones artísticas y proyectos culturales transformadores.",
+        "description": "Artistic manifestations and transformative cultural projects.",
         "objective": {
           "title": "Fund Objective",
-          "content": "Desarrollar y promover manifestaciones artísticas y proyectos culturales transformadores."
+          "content": "Promote artistic expressions, cultural projects and creative manifestations that disseminate Economic Heresy values and principles."
         },
         "types": {
           "title": "Project Types"
         },
         "process": {
           "title": "Participation Process",
-          "content": "Los interesados pueden presentar sus propuestas a través de nuestro portal especializado, donde serán evaluadas por nuestro equipo de expertos."
-        }
+          "content": "Artists and cultural managers can request support for their creative projects through our artistic scholarship program."
+        },
+        "items": [
+          "Artistic expressions",
+          "Cultural projects",
+          "Transformative art",
+          "Creative manifestations"
+        ]
       }
     }
   },

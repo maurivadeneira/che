@@ -52,11 +52,10 @@ export default function IngenieriaPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">{t('funds.individual.ingenieria.types.title')}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>Infraestructura</li>
-            <li>Ingeniería civil</li>
-            <li>Proyectos ambientales</li>
-            <li>Desarrollo sostenible</li>
+                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+            {t('funds.individual.ingenieria.items').map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 
