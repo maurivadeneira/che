@@ -12,7 +12,7 @@ export default function HerejiasConIAPage() {
     {
       titleKey: 'bigBang',
       docId: 'CUESTIONANDO_BIG_BANG',
-      hasTranslations: false, // Aún solo en español
+      hasTranslations: true, // Disponible en 6 idiomas
     },
     {
       titleKey: 'economyVsScience',
