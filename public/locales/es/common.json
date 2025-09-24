@@ -426,5 +426,23 @@
   "homepage": {
     "title": "CHE - Corporación Herejía Económica",
     "status": "Estado: Base enterprise funcionando correctamente"
+  },
+  "herejiasIA": {
+    "documents": {
+      "economia_vs_ciencia": {
+        "title": "¿Es la Economía una Ciencia?",
+        "description": "Diálogo entre Mauricio Rivadeneira y ChatGPT-4 sobre la naturaleza científica de la economía",
+        "available_languages": "Disponible en:"
+      }
+    },
+    "download": "Descargar",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "pt": "Português",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano"
+    }
   }
 }
