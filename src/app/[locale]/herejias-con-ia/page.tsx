@@ -27,7 +27,7 @@ export default function HerejiasConIAPage() {
     {
       titleKey: 'questioningPhysics',
       docId: 'CUESTIONANDO_LA_FISICA',
-      hasTranslations: false, // Aún solo en español
+      hasTranslations: true, // Aún solo en español
     }
   ];
 
