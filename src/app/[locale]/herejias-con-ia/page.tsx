@@ -22,7 +22,7 @@ export default function HerejiasConIAPage() {
     {
       titleKey: 'extraterrestrials',
       docId: 'EXTRATERRESTRES',
-      hasTranslations: false, // Aún solo en español
+      hasTranslations: true, // Aún solo en español
     },
     {
       titleKey: 'questioningPhysics',
