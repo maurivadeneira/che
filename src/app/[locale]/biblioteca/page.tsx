@@ -35,6 +35,19 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
+  // Función para obtener el PDF de la Presentación según idioma
+  const getPresentacionLibroSegundoPDF = (currentLocale: string) => {
+    const pdfPaths: { [key: string]: string } = {
+      'es': '/documentos/presentacion-libro-segundo/PRESENTACION_LIBRO_SEGUNDO.pdf',
+      'en': '/documentos/presentacion-libro-segundo/en/PRESENTACION_LIBRO_SEGUNDO.pdf',
+      'pt': '/documentos/presentacion-libro-segundo/pt/PRESENTACION_LIBRO_SEGUNDO.pdf',
+      'fr': '/documentos/presentacion-libro-segundo/fr/PRESENTACION_LIBRO_SEGUNDO.pdf',
+      'de': '/documentos/presentacion-libro-segundo/de/PRESENTACION_LIBRO_SEGUNDO.pdf',
+      'it': '/documentos/presentacion-libro-segundo/it/PRESENTACION_LIBRO_SEGUNDO.pdf'
+    };
+    return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
+
   const libros = [
     { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
     { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
