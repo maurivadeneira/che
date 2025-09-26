@@ -38,6 +38,7 @@ export default function BibliotecaPage() {
   const libros = [
     { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
     { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
+    { titleKey: 'presentacionLibroSegundo', file: getPresentacionLibroSegundoPDF(locale), useCustomTranslation: true },
     { titleKey: 'firstBook', file: '/documentos/libros/LIBRO_PRIMERO.pdf' },
     { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
     { titleKey: 'firstBookCommentary', file: '/documentos/libros/ComentarioLibroPrimero.pdf' },
