@@ -20,10 +20,24 @@ export default function BibliotecaPage() {
       'it': '/documentos/analisis-comprehensivo/it/ANALISIS_COMPREHENSIVO.pdf'
     };
     return pdfPaths[currentLocale] || pdfPaths['es'];
+
+  // Función para obtener el PDF del Comentario según idioma
+  const getComentarioLibroPrimeroPDF = (currentLocale: string) => {
+    const pdfPaths: { [key: string]: string } = {
+      'es': '/documentos/comentario-libro-primero/COMENTARIO_LIBRO_PRIMERO.pdf',
+      'en': '/documentos/comentario-libro-primero/en/COMENTARIO_LIBRO_PRIMERO.pdf',
+      'pt': '/documentos/comentario-libro-primero/pt/COMENTARIO_LIBRO_PRIMERO.pdf',
+      'fr': '/documentos/comentario-libro-primero/fr/COMENTARIO_LIBRO_PRIMERO.pdf',
+      'de': '/documentos/comentario-libro-primero/de/COMENTARIO_LIBRO_PRIMERO.pdf',
+      'it': '/documentos/comentario-libro-primero/it/COMENTARIO_LIBRO_PRIMERO.pdf'
+    };
+    return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
   };
 
   const libros = [
     { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
+    { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
     { titleKey: 'firstBook', file: '/documentos/libros/LIBRO_PRIMERO.pdf' },
     { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
     { titleKey: 'firstBookCommentary', file: '/documentos/libros/ComentarioLibroPrimero.pdf' },
