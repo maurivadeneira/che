@@ -11,6 +11,7 @@
   "biblioteca": {
     "analisisComprehensivo": "Análisis Comprehensivo"  
     ,"comentarioLibroPrimero": "Comentario Libro Primero"
+    ,"presentacionLibroSegundo": "Presentación Libro Segundo"
   },
   "header": {
     "kit2": "Explicación Kit2",
@@ -448,5 +449,10 @@
       "de": "Deutsch",
       "it": "Italiano"
     }
+  }
+  ,"biblioteca": {
+    "analisisComprehensivo": "Análisis Comprehensivo",
+    "comentarioLibroPrimero": "Comentario Libro Primero",
+    "presentacionLibroSegundo": "Presentación Libro Segundo"
   }
 }
