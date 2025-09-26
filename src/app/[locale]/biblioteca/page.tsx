@@ -20,6 +20,7 @@ export default function BibliotecaPage() {
       'it': '/documentos/analisis-comprehensivo/it/ANALISIS_COMPREHENSIVO.pdf'
     };
     return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
 
   // Función para obtener el PDF del Comentario según idioma
   const getComentarioLibroPrimeroPDF = (currentLocale: string) => {
@@ -32,7 +33,6 @@ export default function BibliotecaPage() {
       'it': '/documentos/comentario-libro-primero/it/COMENTARIO_LIBRO_PRIMERO.pdf'
     };
     return pdfPaths[currentLocale] || pdfPaths['es'];
-  };
   };
 
   const libros = [
