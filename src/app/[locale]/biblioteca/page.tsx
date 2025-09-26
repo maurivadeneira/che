@@ -55,7 +55,6 @@ export default function BibliotecaPage() {
     { titleKey: 'firstBook', file: '/documentos/libros/LIBRO_PRIMERO.pdf' },
     { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
     { titleKey: 'firstBookCommentary', file: '/documentos/libros/ComentarioLibroPrimero.pdf' },
-    { titleKey: 'secondBookPresentation', file: '/documentos/libros/PresentacionLibroSegundo.pdf' },
   ];
 
   const articulos = [
