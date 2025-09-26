@@ -81,7 +81,7 @@ export default function BibliotecaPage() {
               {libros.map((libro, index) => (
                 <div key={index} className="border-l-4 border-blue-200 pl-4 py-2">
                   <Link 
-                    href={libro.file} 
+                    href={libro.file || "#"} 
                     target="_blank"
                     className="text-lg font-medium hover:text-blue-600 transition-colors block"
                   >
@@ -101,7 +101,7 @@ export default function BibliotecaPage() {
               {articulos.map((articulo, index) => (
                 <div key={index} className="border-l-4 border-green-200 pl-4 py-2">
                   <Link 
-                    href={articulo.file} 
+                    href={articulo.file || "#"} 
                     target="_blank"
                     className="text-lg font-medium hover:text-green-600 transition-colors block"
                   >
