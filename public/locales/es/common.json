@@ -8,6 +8,9 @@
     "about": "Nosotros",
     "contact": "Contacto"
   },
+  "biblioteca": {
+    "analisisComprehensivo": "Análisis Comprehensivo"  
+  },
   "header": {
     "kit2": "Explicación Kit2",
     "register": "Registrarse",

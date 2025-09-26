@@ -2,12 +2,28 @@
 
 import Link from 'next/link';
 import { useTranslation } from '@/components/providers/TranslationProvider';
+import { useParams } from 'next/navigation';
 
 export default function BibliotecaPage() {
   const { t } = useTranslation();
+  const params = useParams();
+  const locale = params.locale as string;
+
+  // Función para obtener el PDF correcto según el idioma
+  const getAnalysisComprehensivePDF = (currentLocale: string) => {
+    const pdfPaths: { [key: string]: string } = {
+      'es': '/documentos/analisis-comprehensivo/ANALISIS_COMPREHENSIVO.pdf',
+      'en': '/documentos/analisis-comprehensivo/en/ANALISIS_COMPREHENSIVO.pdf',
+      'pt': '/documentos/analisis-comprehensivo/pt/ANALISIS_COMPREHENSIVO.pdf',
+      'fr': '/documentos/analisis-comprehensivo/fr/ANALISIS_COMPREHENSIVO.pdf',
+      'de': '/documentos/analisis-comprehensivo/de/ANALISIS_COMPREHENSIVO.pdf',
+      'it': '/documentos/analisis-comprehensivo/it/ANALISIS_COMPREHENSIVO.pdf'
+    };
+    return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
 
   const libros = [
-    { titleKey: 'comprehensiveAnalysis', file: '/documentos/libros/AnalisisComprehensivo.pdf' },
+    { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
     { titleKey: 'firstBook', file: '/documentos/libros/LIBRO_PRIMERO.pdf' },
     { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
     { titleKey: 'firstBookCommentary', file: '/documentos/libros/ComentarioLibroPrimero.pdf' },
@@ -41,7 +57,10 @@ export default function BibliotecaPage() {
                     target="_blank"
                     className="text-lg font-medium hover:text-blue-600 transition-colors block"
                   >
-                    {t(`library.bookTitles.${libro.titleKey}`)}
+                    {libro.useCustomTranslation 
+                      ? t(`biblioteca.${libro.titleKey}`)
+                      : t(`library.bookTitles.${libro.titleKey}`)
+                    }
                   </Link>
                 </div>
               ))}
