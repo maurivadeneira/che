@@ -1,0 +1,39 @@
+# ANEXO II
+
+## DOIS PROBLEMAS FUNDAMENTAIS: DTF E EMISSÃO PRIMÁRIA DE DINHEIRO
+
+**Por Mauricio Rivadeneira Mora**
+
+É possível demonstrar que os problemas básicos da nossa economia se podem solucionar melhor se controlarmos os dois parâmetros a saber: a taxa de juro (DTF) eliminando-a, e a emissão primária de dinheiro revivendo-a.
+
+Já se demonstrou na edição de 15 de dezembro na página 11 do Portfólio que a taxa de juro deve ser a mínima possível para efeitos de incentivar a poupança. Agora vejamos o que significa na realidade a DTF, ou taxa de juro de captação na Colômbia. Um exemplo ilustrar-nos-á a cadeia.
+
+Se um poupador dispõe de $100 milhões de pesos e por depositá-los num banco recebe $24 milhões como juros num ano, inquestionavelmente o sistema está mantendo zangões. Pagar a alguém por não fazer nada reflete que algo não está bem, começando porque esse dinheiro tem de ser gerado pelo sistema com muito esforço o que significa um sacrifício de algo ou de alguém.
+
+Só um empresário pode fazer uma montagem que gere dinheiro. Se esta pessoa pede emprestados os $100 milhões para trabalhar na sua empresa, terá de pagar os $24 milhões anuais por tanto tempo como deseje o empréstimo, mais $10 milhões adicionais que lhe cobrará o banco onde solicite a operação. Isto é, $34 milhões só em juros. O banco no final realiza um trabalho, logo algo de razão tem. Mas pagar $24 milhões a alguém que não faz nada, ainda que não seja sua culpa, é inaudito. Em nenhum país desenvolvido o fazem pelos custos sociais que isto representa.
+
+Podemo-nos perguntar como pode o sistema pagar essa quantidade se normalmente as empresas por vendas de $100 milhões de pesos recebem uma utilidade depois de impostos que pode ser da ordem dos 10%. Isto é, $10 milhões. É muito difícil encontrar negócios na Colômbia que deem mais desta quantidade. Em épocas difíceis é muito menor, e inclusivamente chega-se a taxas negativas. Tudo depende da concorrência. Vistas as proporções, legitimamente poderíamos dizer que não há empresa que possa pagar juros aos 34%. Mas como o sistema efetivamente os paga, é necessário averiguar de que maneira o faz, ou saber quem faz o sacrifício, ou qual é o custo social. O assunto é que alguém tem de pagá-lo, pois do nada não pode sair algo.
+
+Com efeito, a lei da demanda ilustra-nos que quanto mais poucas sejam as unidades que há no mercado, o preço dos respetivos produtos será o mais elevado possível. Muita gente atrás de um produto único estará disposta a pagar muito alto preço. E nesta situação, esse alto preço permitirá umas utilidades mais grandes para as companhias, o que faria possível pagar os juros.
+
+Mas o efeito de fabricar poucas quantidades para ter os preços mais elevados implica não dar trabalho a toda a população que o requer. Isto é, implica que o sistema deve ter uns cinturões de miséria, gente padecendo fome e colocados como numa vitrina, que obrigue aos demais a dizer: "Eu pago o que seja por não me ver nessa situação". E tudo por essa taxa de juro que se paga ao "poupador" por não fazer nada. Só por ter o dinheiro. É como se por ter uma casa desabitada de $100 milhões o governo tivesse de pagar $24 ao seu dono.
+
+Se o sistema pagasse menos, não haveria problema. O poupador investiria em indústria, pois esta diminuição dos juros aumentaria a utilidade dos empresários, revitalizar-se-ia a concorrência o que faria aumentar as quantidades oferecidas no mercado, e para isso ter-se-ia de incrementar o emprego.
+
+Ora bem, se um empresário tem de pagar juros muito elevados, e por sua vez, lhe abrem as comportas do mercado internacional de tal forma que a concorrência possa entrar com preços mais baixos por não ter de pagar esses juros, evidentemente estará assinada a sua sentença. O problema agora é que nem sequer poderá dar poucos empregos, ver-se-á abocado a desaparecer do mercado, pois não há concorrência justa. Não é que a nossa mão de obra não seja competitiva em custos. O desequilíbrio estrutural está nos juros de captação do sistema, os que revertem como um custo tanto para a banca como para a indústria.
+
+Com efeito, o ato de diminuir a DTF, contrário à crença geral, não implica que os dinheiros se fujam ao exterior, salvo os dinheiros especulativos que entre outras é melhor que se vão, senão que convidaria os poupadores a fazer investimentos diretamente na indústria, pois haveria campo para desenvolvê-la imensamente. Para ver as proporções é assunto de comparar as percentagens dos 8% que é uma média industrial do custo da mão de obra direta nas empresas, contra os 24% que seria a nova possibilidade de desenvolvimento para a indústria se lhe baixamos esse custo.
+
+Talvez a gente se pergunte o que passará com a poupança, mas a verdade é que na Colômbia a capacidade de poupar, isto é, a gente que depois de cobrir todos os seus gastos tem ainda dinheiros que lhe sobrem, são muito poucas. As famílias com capacidade de poupar na Colômbia não passam dos 10%, e em termos gerais coincidem com as pessoas que são empresários. Isto é, as que sabem mover a indústria e os negócios em geral, dando empregos à população. Estas pessoas não se vão ficar com o dinheiro debaixo da almofada, nem o vão desaparecer para a banca. Pelo contrário, vão aumentar os negócios, pois em princípio a diminuição do custo em 24% refletir-se-á num incremento da rentabilidade do mesmo.
+
+Demonstrámos que a DTF nas proporções que a mantemos na Colômbia é causa direta da miséria e impossibilidade de conseguir trabalho de muitas famílias, as que na sua desesperação e sem esperança só lhes fica a opção de subsistir, bem seja no rebusque, no mercado ilegal, ou qualquer outra forma desprezível, com tal de combater o sistema. E desvirtua abertamente a nossa constituição deixando só no papel o direito ao trabalho para todos os Colombianos.
+
+Eliminar a DTF é devolver à nossa constituição a possibilidade de realizá-la, é como acender os motores da indústria. Poder-nos-emos ajustar os cintos, não como nos pediram os nossos dirigentes no passado, para morrermos de fome, senão todo o contrário, para descolar, e buscar uma vida digna, à que também temos direito, tal como a desfrutam os países desenvolvidos onde é quase nula a taxa de juro de captação.
+
+O problema da emissão de dinheiro é diferente, ainda que também esteja ligado à taxa de juro. O dinheiro, numa economia em expansão, deve aumentar, o que se consegue através do banco emissor quando este realiza compras de ouro, ou adquire divisas bem seja por créditos ou por exportações, ou quando simplesmente realiza emissão primária.
+
+Como as divisas só se requerem para fazer compras ao exterior, é necessariamente um erro ter mais quantidades das necessárias para este fim. Se se têm reservas acumuladas em grandes quantidades é porque de alguma maneira se interveio o livre mercado de oferta e demanda, o qual não é lógico se vamos aplicar os preceitos da abertura e o livre mercado. Quando se têm reservas é equivalente a entregar a geração interna de dinheiro que requer a nossa economia, em troca de uma dívida, quando na realidade podemos fazer o mesmo sem ter de ficar devendo o favor, tão só com reviver a faculdade do governo a cobrir parte do seu déficit fiscal mediante a emissão primária.
+
+Logo não é nada conveniente confundir o investimento externo com a inundação de dólares, os que se podem incrementar aumentando a taxa de juro DTF, mas que significaria deslocar a nossa mão de obra ao exterior, deixando internamente às famílias colombianas sem possibilidade de trabalhar. É justo?
+
+Que cada país fabrique o seu próprio dinheiro na medida das suas próprias necessidades é o adequado, e diminuir a DTF ao nível dos países desenvolvidos é devolver às nossas empresas a igualdade de condições para enfrentarem-se à abertura. Só então saberemos do que são capazes os nossos empresários, entretanto, seguiremos falando de um massacre.
