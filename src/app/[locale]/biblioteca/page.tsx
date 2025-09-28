@@ -48,11 +48,24 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
+  // Función para obtener el PDF del Libro Primero según idioma
+  const getLibroPrimeroTeoriaEconomicaPDF = (currentLocale: string) => {
+    const pdfPaths: { [key: string]: string } = {
+      'es': '/documentos/libros/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
+      'en': '/documentos/libros/en/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
+      'pt': '/documentos/libros/pt/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
+      'fr': '/documentos/libros/fr/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
+      'de': '/documentos/libros/de/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
+      'it': '/documentos/libros/it/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf'
+    };
+    return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
+
   const libros = [
     { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
     { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
     { titleKey: 'presentacionLibroSegundo', file: getPresentacionLibroSegundoPDF(locale), useCustomTranslation: true },
-    { titleKey: 'firstBook', file: '/documentos/libros/LIBRO_PRIMERO.pdf' },
+    { titleKey: 'firstBook', file: getLibroPrimeroTeoriaEconomicaPDF(locale), useCustomTranslation: true },
     { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
   ];
 

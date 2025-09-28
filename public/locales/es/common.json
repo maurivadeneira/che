@@ -9,6 +9,7 @@
     "contact": "Contacto"
   },
   "biblioteca": {
+    "firstBook": "Primer Libro de Teoría Económica",
     "analisisComprehensivo": "Análisis Comprehensivo"  
     ,"comentarioLibroPrimero": "Comentario Libro Primero"
     ,"presentacionLibroSegundo": "Presentación Libro Segundo"
@@ -451,6 +452,7 @@
     }
   }
   ,"biblioteca": {
+    "firstBook": "Primer Libro de Teoría Económica",
     "analisisComprehensivo": "Análisis Comprehensivo",
     "comentarioLibroPrimero": "Comentario Libro Primero",
     "presentacionLibroSegundo": "Presentación Libro Segundo"
