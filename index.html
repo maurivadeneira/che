@@ -1,14 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CHE Corporación Herejía Económica">
-  <title>CHE - Corporación Herejía Económica</title>
-  <link rel="icon" href="/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Libro de Teoría Económica - Mauricio Rivadeneira Mora</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        .author {
+            font-size: 1.1em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .language-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .language-card:hover {
+            transform: translateY(-5px);
+        }
+        .language-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        .description {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stats {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .flag {
+            width: 24px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/index.jsx"></script>
+    <div class="header">
+        <h1>TEORÍA ECONÓMICA</h1>
+        <div class="subtitle">
+            COMO CONTROLAR LAS TASAS DE INTERÉS, LA OFERTA MONETARIA,<br>
+            LA INFLACIÓN, LAS EXPECTATIVAS Y LA INCERTIDUMBRE EN LA ECONOMÍA
+        </div>
+        <div class="subtitle">(UNA PROPUESTA PARA COLOMBIA)</div>
+        <div class="author">Mauricio Rivadeneira Mora</div>
+        <div style="margin-top: 10px; font-size: 0.9em;">Santa Fe de Bogotá, Junio de 1997</div>
+    </div>
+
+    <div class="description">
+        <h2>Sobre el Libro</h2>
+        <p>Este ensayo profundiza en las leyes económicas para explicar y dar solución a las coyunturas económicas, 
+        demostrando que las crisis no son accidentales sino lógicas, de conformidad con las políticas económicas aplicadas.</p>
+        
+        <p>La investigación se basa en obras fundamentales como la <em>Teoría General de la Ocupación, el Interés y el Dinero</em> 
+        de J.M. Keynes, textos del profesor Allen, y las Teorías del Desarrollo Económico de Irma Adelman, entre otros.</p>
+    </div>
+
+    <div class="stats">
+        <h3>Estadísticas del Proyecto</h3>
+        <ul>
+            <li><strong>6 idiomas</strong> de traducción completa</li>
+            <li><strong>1,107 líneas</strong> por libro consolidado</li>
+            <li><strong>5 capítulos</strong> principales + 7 anexos técnicos</li>
+            <li><strong>103 archivos</strong> individuales + 6 PDFs</li>
+            <li><strong>~200KB</strong> promedio por PDF</li>
+        </ul>
+    </div>
+
+    <h2>Descargar por Idioma</h2>
+    <div class="languages">
+        <div class="language-card">
+            <div class="language-title">🇪🇸 Español (Original)</div>
+            <p>Versión original del autor en español.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-es.pdf" class="download-btn">📄 Descargar PDF</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-es.md" class="download-btn">📋 Ver Índice</a>
+        </div>
+
+        <div class="language-card">
+            <div class="language-title">🇺🇸 English</div>
+            <p>Complete English translation of the economic theory.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-en.pdf" class="download-btn">📄 Download PDF</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-en.md" class="download-btn">📋 View Index</a>
+        </div>
+
+        <div class="language-card">
+            <div class="language-title">🇵🇹 Português</div>
+            <p>Tradução completa para português da teoria econômica.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-pt.pdf" class="download-btn">📄 Baixar PDF</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-pt.md" class="download-btn">📋 Ver Índice</a>
+        </div>
+
+        <div class="language-card">
+            <div class="language-title">🇫🇷 Français</div>
+            <p>Traduction complète en français de la théorie économique.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-fr.pdf" class="download-btn">📄 Télécharger PDF</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-fr.md" class="download-btn">📋 Voir Index</a>
+        </div>
+
+        <div class="language-card">
+            <div class="language-title">🇩🇪 Deutsch</div>
+            <p>Vollständige deutsche Übersetzung der Wirtschaftstheorie.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-de.pdf" class="download-btn">📄 PDF Herunterladen</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-de.md" class="download-btn">📋 Index Anzeigen</a>
+        </div>
+
+        <div class="language-card">
+            <div class="language-title">🇮🇹 Italiano</div>
+            <p>Traduzione completa in italiano della teoria economica.</p>
+            <a href="ContenidoProyChe/PDFs/Teoria-Economica-it.pdf" class="download-btn">📄 Scarica PDF</a>
+            <a href="ContenidoProyChe/traducciones/libro-primero-teoria-economica/00-indice-general-it.md" class="download-btn">📋 Vedi Indice</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 1997 Mauricio Rivadeneira Mora | Proyecto de traducción multilingual 2024</p>
+        <p>📧 Contacto: <a href="mailto:maurivadeneira@yahoo.es">maurivadeneira@yahoo.es</a></p>
+    </div>
 </body>
 </html>
