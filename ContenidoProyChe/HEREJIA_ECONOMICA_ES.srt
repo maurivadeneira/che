@@ -1,3 +1,5997 @@
+1
+00:00:02,920 --> 00:00:06,580
+[Música]
+
+2
+00:00:13,000 --> 00:00:14,480
+Vamos a hacer la presentación de la
+
+3
+00:00:14,480 --> 00:00:17,960
+Herejía Económica en el contexto actual.
+
+4
+00:00:17,960 --> 00:00:20,119
+Podemos decir que vamos a tener dos
+
+5
+00:00:20,119 --> 00:00:22,519
+teorías. Yo quiero que separemos dos
+
+6
+00:00:22,519 --> 00:00:25,000
+teorías y vamos a poner la que
+
+7
+00:00:25,000 --> 00:00:27,599
+generalmente todo el mundo conoce a un
+
+8
+00:00:27,599 --> 00:00:31,519
+lado, y vamos, por algún motivo, vamos a
+
+9
+00:00:31,519 --> 00:00:33,719
+olvidarnos de esa teoría, porque lo que
+
+10
+00:00:33,719 --> 00:00:36,000
+les voy a presentar es un nuevo contexto
+
+11
+00:00:36,000 --> 00:00:38,520
+para ver cómo estudiamos nuevamente la
+
+12
+00:00:38,520 --> 00:00:41,239
+teoría económica. Los acontecimientos
+
+13
+00:00:41,239 --> 00:00:45,000
+actuales nos están indicando que estamos
+
+14
+00:00:45,000 --> 00:00:49,199
+muy inermes. Nos cogen unas crisis y
+
+15
+00:00:49,199 --> 00:00:52,520
+nos voltean y nos dan vueltas y
+
+16
+00:00:52,520 --> 00:00:54,399
+aparentemente sabemos mucho, pero no
+
+17
+00:00:54,399 --> 00:00:56,960
+sabemos nada porque nos están golpeando.
+
+18
+00:00:56,960 --> 00:00:59,359
+Entonces yo quiero decirles a ustedes
+
+19
+00:00:59,359 --> 00:01:02,960
+que si ustedes vienen, tienen la
+
+20
+00:01:02,960 --> 00:01:04,799
+fortuna de venir a escuchar esta
+
+21
+00:01:04,799 --> 00:01:07,720
+conferencia antes de que ocurra ese gran
+
+22
+00:01:07,720 --> 00:01:10,520
+cataclismo que parece se nos va a venir,
+
+23
+00:01:10,520 --> 00:01:13,320
+tal vez ustedes puedan entender un
+
+24
+00:01:13,320 --> 00:01:15,560
+poco y ayudar a que no se presente tal
+
+25
+00:01:15,560 --> 00:01:17,759
+situación. Si se nos presenta la
+
+26
+00:01:17,759 --> 00:01:19,640
+situación y ustedes conocen esta
+
+27
+00:01:19,640 --> 00:01:23,000
+conferencia después, al menos entenderán
+
+28
+00:01:23,000 --> 00:01:25,320
+por qué pasaron esos acontecimientos, qué
+
+29
+00:01:25,320 --> 00:01:28,439
+fue lo que ocurrió. Y pero esperemos que
+
+30
+00:01:28,439 --> 00:01:31,240
+lo podamos hacer desde antes. Así que
+
+31
+00:01:31,240 --> 00:01:33,159
+Herejía Económica va a ser el nuevo
+
+32
+00:01:33,159 --> 00:01:35,280
+contexto que les voy a presentar. Herejía
+
+33
+00:01:35,280 --> 00:01:38,720
+Económica fundamentalmente va a repensar
+
+34
+00:01:38,720 --> 00:01:42,280
+la teoría. Vamos a volverla a construir,
+
+35
+00:01:42,280 --> 00:01:44,759
+vamos a volverla científica, porque el
+
+36
+00:01:44,759 --> 00:01:47,640
+problema de la teoría económica es
+
+37
+00:01:47,640 --> 00:01:49,719
+que no tiene un contexto
+
+38
+00:01:49,719 --> 00:01:51,960
+científico. Mi nombre es Mauricio
+
+39
+00:01:51,960 --> 00:01:56,039
+Rivadeneira Mora. Para ustedes, soy físico
+
+40
+00:01:56,039 --> 00:01:57,280
+y
+
+41
+00:01:57,280 --> 00:02:00,439
+economista. Y vamos a dar
+
+42
+00:02:00,439 --> 00:02:03,240
+a decir entonces que Herejía Económica se
+
+43
+00:02:03,240 --> 00:02:05,719
+basa en el libro. Próximo va a salir
+
+44
+00:02:05,719 --> 00:02:08,720
+"Protocolos hacia un nuevo sistema
+
+45
+00:02:08,720 --> 00:02:11,080
+económico". "Protocolos hacia un nuevo
+
+46
+00:02:11,080 --> 00:02:13,319
+sistema económico" desarrolla un nuevo
+
+47
+00:02:13,319 --> 00:02:15,599
+método científico y sistémico para la
+
+48
+00:02:15,599 --> 00:02:18,400
+teoría económica. Ustedes, antes de
+
+49
+00:02:18,400 --> 00:02:20,080
+conocer este libro, pueden
+
+50
+00:02:20,080 --> 00:02:22,760
+encontrar escritos al respecto en la
+
+51
+00:02:22,760 --> 00:02:25,879
+página web
+
+52
+00:02:26,239 --> 00:02:30,239
+http.che.com
+
+53
+00:02:30,360 --> 00:02:32,920
+[Música]
+
+54
+00:02:32,920 --> 00:02:35,440
+Herejía económica.
+
+55
+00:02:35,440 --> 00:02:37,560
+El
+
+56
+00:02:37,560 --> 00:02:39,920
+email con el que se pueden comunicar
+
+57
+00:02:39,920 --> 00:02:44,159
+conmigo directamente es maurivadeneira
+
+58
+00:02:44,159 --> 00:02:49,200
+@yahoo.es o herejiaeconomica
+
+59
+00:02:49,200 --> 00:02:53,040
+[Música]
+
+60
+00:02:53,159 --> 00:02:55,800
+@yahoo.es. La economía carece de método
+
+61
+00:02:55,800 --> 00:02:58,680
+científico. Lejos aún de la verdad, debe
+
+62
+00:02:58,680 --> 00:03:02,120
+ser cuestionada sin temores, porque si la
+
+63
+00:03:02,120 --> 00:03:03,599
+sociedad actual se pierde, no es por
+
+64
+00:03:03,599 --> 00:03:05,959
+designio de los dioses, sino por la
+
+65
+00:03:05,959 --> 00:03:09,120
+propia mano del hombre, por la fragilidad
+
+66
+00:03:09,120 --> 00:03:14,120
+de su pensamiento, por la rigidez de sus
+
+67
+00:03:14,120 --> 00:03:16,920
+creencias. Por eso los invito a que
+
+68
+00:03:16,920 --> 00:03:19,680
+hagamos a un lado, olvidémonos en este
+
+69
+00:03:19,680 --> 00:03:22,080
+momento de lo que ustedes saben y
+
+70
+00:03:22,080 --> 00:03:26,239
+empecemos una nueva forma de pensar la
+
+71
+00:03:26,239 --> 00:03:29,360
+teoría. Podríamos construir una utopía.
+
+72
+00:03:29,360 --> 00:03:31,239
+Nosotros nos podemos pensar actualmente
+
+73
+00:03:31,239 --> 00:03:34,360
+en una utopía, un nuevo mundo con una
+
+74
+00:03:34,360 --> 00:03:37,959
+nueva teoría. Podríamos creer en un país
+
+75
+00:03:37,959 --> 00:03:41,040
+ideal donde no exista inflación, donde
+
+76
+00:03:41,040 --> 00:03:44,040
+ningún país tenga deudas, donde todo el
+
+77
+00:03:44,040 --> 00:03:46,280
+mundo pueda trabajar, no existan pobres,
+
+78
+00:03:46,280 --> 00:03:48,239
+todos seamos ricos, el dinero sea
+
+79
+00:03:48,239 --> 00:03:50,599
+ilimitado, exista capitalismo y todos
+
+80
+00:03:50,599 --> 00:03:52,599
+tengan seguridad social.
+
+81
+00:03:52,599 --> 00:03:55,519
+Es decirles que en nuestros paradigmas y
+
+82
+00:03:55,519 --> 00:03:57,840
+en los conocimientos que tenemos hoy en
+
+83
+00:03:57,840 --> 00:04:00,120
+la teoría económica actual, nadie se
+
+84
+00:04:00,120 --> 00:04:02,480
+atrevería a decir que esto es
+
+85
+00:04:02,480 --> 00:04:04,840
+posible. Nuestros paradigmas nos dicen
+
+86
+00:04:04,840 --> 00:04:07,799
+que esto es
+
+87
+00:04:07,879 --> 00:04:09,400
+imposible.
+
+88
+00:04:09,400 --> 00:04:12,239
+Herejía Económica quiere decirles a
+
+89
+00:04:12,239 --> 00:04:15,879
+ustedes algunos motivos que justifican
+
+90
+00:04:15,879 --> 00:04:18,320
+cuestionar la teoría que conocemos
+
+91
+00:04:18,320 --> 00:04:21,959
+hoy. Primero y fundamental: que la mitad
+
+92
+00:04:21,959 --> 00:04:25,479
+de la población mundial está en la
+
+93
+00:04:25,479 --> 00:04:29,199
+pobreza. Segundo: nos acercamos a la
+
+94
+00:04:29,199 --> 00:04:31,400
+realidad a través de teorías y modelos.
+
+95
+00:04:31,400 --> 00:04:34,800
+En economía hacemos modelos que luego le
+
+96
+00:04:34,800 --> 00:04:37,320
+imponemos a la realidad. No buscamos el
+
+97
+00:04:37,320 --> 00:04:39,320
+mejor modelo que nos interprete la
+
+98
+00:04:39,320 --> 00:04:42,160
+realidad. En síntesis, no buscamos la
+
+99
+00:04:42,160 --> 00:04:45,280
+realidad. Hay algo que está
+
+100
+00:04:45,280 --> 00:04:48,520
+fallando. Tres: el método que utilizamos
+
+101
+00:04:48,520 --> 00:04:50,240
+es más cercano al de la matemática que
+
+102
+00:04:50,240 --> 00:04:52,720
+al de la física. La matemática nos
+
+103
+00:04:52,720 --> 00:04:54,840
+permite crear modelos independientes de
+
+104
+00:04:54,840 --> 00:04:57,680
+la realidad. La física, en cambio, nos
+
+105
+00:04:57,680 --> 00:04:59,840
+obliga a buscar las restricciones que
+
+106
+00:04:59,840 --> 00:05:02,759
+nos hace la realidad, y ambos son
+
+107
+00:05:02,759 --> 00:05:06,880
+lógicos. Cuatro: la inflación, que debemos
+
+108
+00:05:06,880 --> 00:05:09,440
+saber por qué se produce. En general,
+
+109
+00:05:09,440 --> 00:05:12,039
+cuando se conoce un fenómeno, cuando
+
+110
+00:05:12,039 --> 00:05:13,720
+conocemos la ley que produce ese
+
+111
+00:05:13,720 --> 00:05:16,000
+fenómeno, lo podemos controlar. Sin
+
+112
+00:05:16,000 --> 00:05:19,840
+embargo, la inflación se nos sigue
+
+113
+00:05:19,840 --> 00:05:22,319
+presentando.
+
+114
+00:05:22,319 --> 00:05:24,479
+Quinto: continuando con los motivos que
+
+115
+00:05:24,479 --> 00:05:26,360
+justifican cuestionar la teoría que hoy
+
+116
+00:05:26,360 --> 00:05:28,759
+tenemos en la economía, tenemos
+
+117
+00:05:28,759 --> 00:05:31,880
+paradigmas o creencias plenamente
+
+118
+00:05:31,880 --> 00:05:34,039
+posicionadas. Ejemplo: que si el gobierno
+
+119
+00:05:34,039 --> 00:05:36,840
+emite dinero, se produce inflación. Les
+
+120
+00:05:36,840 --> 00:05:39,240
+quiero decir que yo, personalmente, he
+
+121
+00:05:39,240 --> 00:05:40,880
+escuchado muchas explicaciones, pero
+
+122
+00:05:40,880 --> 00:05:42,680
+nunca he podido ver al menos un estudio
+
+123
+00:05:42,680 --> 00:05:44,840
+donde se pueda confirmar esta afirmación.
+
+124
+00:05:44,840 --> 00:05:49,680
+No existen estudios. No se han hecho.
+
+125
+00:05:49,680 --> 00:05:52,800
+Sexto: alguien emite el dinero, porque al
+
+126
+00:05:52,800 --> 00:05:54,759
+sistema alguien le está dando dinero.
+
+127
+00:05:54,759 --> 00:05:56,680
+Luego quiere decir que alguien lo está
+
+128
+00:05:56,680 --> 00:05:59,000
+emitiendo, y lo que nosotros decimos es
+
+129
+00:05:59,000 --> 00:06:00,960
+que si lo hace el gobierno, se produce
+
+130
+00:06:00,960 --> 00:06:03,639
+inflación, pero si lo hacen los
+
+131
+00:06:03,639 --> 00:06:06,840
+particulares, no. No hay
+
+132
+00:06:06,840 --> 00:06:08,560
+consistencia.
+
+133
+00:06:08,560 --> 00:06:11,840
+Séptimo: el Banco Central en todos los
+
+134
+00:06:11,840 --> 00:06:15,160
+países del mundo tienen hoy el deber de
+
+135
+00:06:15,160 --> 00:06:17,919
+controlar la inflación. Ahora, si lo logra,
+
+136
+00:06:17,919 --> 00:06:20,080
+bien, pero si no, entonces la culpa es del
+
+137
+00:06:20,080 --> 00:06:22,000
+gobierno, que está gastando demasiado.
+
+138
+00:06:22,000 --> 00:06:24,960
+Fíjense que eso no es
+
+139
+00:06:24,960 --> 00:06:28,560
+consistente. Octavo: nos abrimos a una
+
+140
+00:06:28,560 --> 00:06:31,520
+globalización aceptada. No tenemos forma
+
+141
+00:06:31,520 --> 00:06:34,639
+de medir sus resultados ni de poder
+
+142
+00:06:34,639 --> 00:06:37,800
+simular ni predecir su factibilidad. Ni
+
+143
+00:06:37,800 --> 00:06:40,520
+siquiera sabemos si es posible, pero la
+
+144
+00:06:40,520 --> 00:06:43,319
+aceptamos sin
+
+145
+00:06:43,440 --> 00:06:45,039
+reparos.
+
+146
+00:06:45,039 --> 00:06:48,039
+Noveno: nuestra teoría económica se
+
+147
+00:06:48,039 --> 00:06:50,120
+inicia con un postulado
+
+148
+00:06:50,120 --> 00:06:53,759
+fundamental: los recursos son limitados.
+
+149
+00:06:53,759 --> 00:06:55,879
+De ahí los resultados: mitad de la
+
+150
+00:06:55,879 --> 00:06:59,720
+población en la pobreza, todos los países
+
+151
+00:06:59,720 --> 00:07:01,360
+peleando por los recursos con los
+
+152
+00:07:01,360 --> 00:07:02,319
+otros
+
+153
+00:07:02,319 --> 00:07:05,280
+países, la guerra. Y todos estos son
+
+154
+00:07:05,280 --> 00:07:07,800
+elementos que se originan en la creencia
+
+155
+00:07:07,800 --> 00:07:11,160
+de que los recursos son limitados. Y ahí
+
+156
+00:07:11,160 --> 00:07:13,000
+arranca nuestra teoría. Ese es el
+
+157
+00:07:13,000 --> 00:07:14,960
+principio fundamental de la teoría que
+
+158
+00:07:14,960 --> 00:07:16,840
+hoy tenemos. Nosotros vamos a cambiar
+
+159
+00:07:16,840 --> 00:07:19,000
+radicalmente ese principio.
+
+160
+00:07:19,000 --> 00:07:21,800
+Décimo: sin embargo, la realidad parece
+
+161
+00:07:21,800 --> 00:07:25,360
+ser otra. Los recursos son ilimitados. En
+
+162
+00:07:25,360 --> 00:07:27,800
+efecto, el sol nos da una energía
+
+163
+00:07:27,800 --> 00:07:30,280
+prácticamente ilimitada. El mar y sus
+
+164
+00:07:30,280 --> 00:07:34,360
+olas nos brindan energía indefinida. La
+
+165
+00:07:34,360 --> 00:07:36,520
+nanotecnología nos brinda una dimensión
+
+166
+00:07:36,520 --> 00:07:40,319
+de infinitas posibilidades, etcétera. El
+
+167
+00:07:40,319 --> 00:07:42,319
+dinero, quiero decirles que también se
+
+168
+00:07:42,319 --> 00:07:44,879
+puede hacer todo el que se quiera o se
+
+169
+00:07:44,879 --> 00:07:47,919
+requiera, sin
+
+170
+00:07:48,199 --> 00:07:50,759
+restricciones.
+
+171
+00:07:50,759 --> 00:07:54,879
+Bien, les quiero hablar entonces ahora
+
+172
+00:07:54,879 --> 00:07:57,440
+del contexto de la teoría económica. Cómo
+
+173
+00:07:57,440 --> 00:08:00,599
+deberíamos concebirlo hoy
+
+174
+00:08:00,599 --> 00:08:04,080
+día. Una teoría se compone así de unas
+
+175
+00:08:04,080 --> 00:08:08,039
+leyes y principios. En economía, la parte
+
+176
+00:08:08,039 --> 00:08:10,919
+práctica, la que nos llevaría a decir
+
+177
+00:08:10,919 --> 00:08:13,879
+qué debemos hacer, nos lleva, nos conduce
+
+178
+00:08:13,879 --> 00:08:15,479
+a unas políticas
+
+179
+00:08:15,479 --> 00:08:18,479
+económicas. Y esas políticas económicas,
+
+180
+00:08:18,479 --> 00:08:21,039
+una vez que las aplicamos, ¿en dónde las
+
+181
+00:08:21,039 --> 00:08:23,720
+aplicamos? En las instituciones, donde nos
+
+182
+00:08:23,720 --> 00:08:26,919
+ponemos unas metas y unos objetivos, de
+
+183
+00:08:26,919 --> 00:08:30,159
+suerte que el contexto total de la
+
+184
+00:08:30,159 --> 00:08:33,440
+teoría no puede ser solamente políticas
+
+185
+00:08:33,440 --> 00:08:37,039
+económicas, no puede ser únicamente
+
+186
+00:08:37,039 --> 00:08:40,120
+institucional. No podemos decir que ah,
+
+187
+00:08:40,120 --> 00:08:43,480
+que la econometría no es una
+
+188
+00:08:43,480 --> 00:08:46,640
+integración entre las leyes, nuestros
+
+189
+00:08:46,640 --> 00:08:50,959
+principios, nuestro conocimiento de la
+
+190
+00:08:50,959 --> 00:08:53,880
+ley desarrollado a través de unas
+
+191
+00:08:53,880 --> 00:08:57,160
+políticas económicas que aplicamos. Luego,
+
+192
+00:08:57,160 --> 00:09:00,600
+entonces aquí medimos los resultados. La
+
+193
+00:09:00,600 --> 00:09:03,440
+teoría económica tiene que ser posible
+
+194
+00:09:03,440 --> 00:09:06,800
+medir. Si no medimos, si no comprobamos
+
+195
+00:09:06,800 --> 00:09:09,399
+los resultados experimentalmente, no
+
+196
+00:09:09,399 --> 00:09:11,839
+estamos hablando de una teoría
+
+197
+00:09:11,839 --> 00:09:14,560
+científica. Entonces nosotros tenemos que
+
+198
+00:09:14,560 --> 00:09:16,700
+poder interrelacionar ambos
+
+199
+00:09:16,700 --> 00:09:19,600
+[Música]
+
+200
+00:09:19,600 --> 00:09:24,720
+aspectos: nuestra prueba experimental y
+
+201
+00:09:24,720 --> 00:09:27,240
+retroalimentación, y entre uno y otro
+
+202
+00:09:27,240 --> 00:09:29,440
+bloque. Nosotros no podemos decir que la
+
+203
+00:09:29,440 --> 00:09:31,800
+teoría económica que tenemos, que cambiar
+
+204
+00:09:31,800 --> 00:09:34,440
+todas las instituciones, no tiene sentido.
+
+205
+00:09:34,440 --> 00:09:37,399
+Las instituciones evolucionan con
+
+206
+00:09:37,399 --> 00:09:40,120
+con el hombre, con las épocas,
+
+207
+00:09:40,120 --> 00:09:43,240
+con a través del tiempo. Entonces la
+
+208
+00:09:43,240 --> 00:09:45,959
+economía no son las instituciones, no son
+
+209
+00:09:45,959 --> 00:09:48,279
+solo las políticas económicas. Las
+
+210
+00:09:48,279 --> 00:09:50,720
+políticas económicas tienen que poderse
+
+211
+00:09:50,720 --> 00:09:52,360
+contrastar en la
+
+212
+00:09:52,360 --> 00:09:56,680
+práctica. Y si lo que esperamos es igual
+
+213
+00:09:56,680 --> 00:09:58,600
+al resultado, entonces podemos decir que
+
+214
+00:09:58,600 --> 00:10:00,160
+vamos bien.
+
+215
+00:10:00,160 --> 00:10:01,880
+Pero si nosotros decimos que vamos a
+
+216
+00:10:01,880 --> 00:10:04,200
+hacer una globalización de acuerdo a
+
+217
+00:10:04,200 --> 00:10:06,959
+nuestros principios, y entonces aplicamos
+
+218
+00:10:06,959 --> 00:10:09,000
+unas políticas, las políticas
+
+219
+00:10:09,000 --> 00:10:11,600
+neoliberales, y el resultado es que todo
+
+220
+00:10:11,600 --> 00:10:14,240
+se va al piso, pues no es congruente,
+
+221
+00:10:14,240 --> 00:10:16,760
+porque nosotros hacíamos eso para
+
+222
+00:10:16,760 --> 00:10:18,880
+poder evolucionar y para poder seguir
+
+223
+00:10:18,880 --> 00:10:20,800
+adelante, y se está derrumbando todo.
+
+224
+00:10:20,800 --> 00:10:23,000
+Quiere decir que algo está fallando. Pero
+
+225
+00:10:23,000 --> 00:10:25,279
+¿qué? ¿Cómo podemos saber qué es lo que
+
+226
+00:10:25,279 --> 00:10:28,320
+está fallando? Entonces ese problema
+
+227
+00:10:28,320 --> 00:10:30,680
+tenemos que poder resolver con la teoría
+
+228
+00:10:30,680 --> 00:10:33,079
+que estamos haciendo. Entonces
+
+229
+00:10:33,079 --> 00:10:36,560
+desarrollemos cada uno de estos
+
+230
+00:10:36,560 --> 00:10:40,160
+puntos. Veamos primero las leyes y los
+
+231
+00:10:40,160 --> 00:10:42,720
+principios. El conocimiento de la ley se
+
+232
+00:10:42,720 --> 00:10:44,360
+genera en el discurso de la teoría
+
+233
+00:10:44,360 --> 00:10:46,200
+económica.
+
+234
+00:10:46,200 --> 00:10:49,959
+Este discurso, en cierta forma, pongo
+
+235
+00:10:49,959 --> 00:10:53,160
+aquí nueve ecuaciones, no todas las vamos
+
+236
+00:10:53,160 --> 00:10:56,120
+a aceptar. Nueve ecuaciones que de
+
+237
+00:10:56,120 --> 00:10:58,360
+alguna manera en la economía ya se han
+
+238
+00:10:58,360 --> 00:11:00,959
+dado, pero aquí las recopilamos. En
+
+239
+00:11:00,959 --> 00:11:02,839
+ninguna parte las encuentran integradas,
+
+240
+00:11:02,839 --> 00:11:06,200
+pero les voy a mostrar básicamente
+
+241
+00:11:06,200 --> 00:11:08,120
+las ecuaciones que
+
+242
+00:11:08,120 --> 00:11:10,880
+tenemos. No les voy a desarrollar en este
+
+243
+00:11:10,880 --> 00:11:13,560
+momento esto con con con detalle. Esto es
+
+244
+00:11:13,560 --> 00:11:15,680
+apenas una conferencia para darles
+
+245
+00:11:15,680 --> 00:11:18,079
+introducción. Después lo podrán leer en
+
+246
+00:11:18,079 --> 00:11:21,279
+el en el libro. Esto los economistas lo
+
+247
+00:11:21,279 --> 00:11:25,279
+conocen como el ingreso, el el ingreso Y,
+
+248
+00:11:25,279 --> 00:11:28,240
+la gente lo consume o lo ahorra, pero
+
+249
+00:11:28,240 --> 00:11:30,440
+cuando hablamos así en estos términos,
+
+250
+00:11:30,440 --> 00:11:32,959
+quiero que entiendan que es en un país.
+
+251
+00:11:32,959 --> 00:11:34,920
+Esto es dimensión macro. Esto no es a
+
+252
+00:11:34,920 --> 00:11:37,519
+nivel individual. La gente
+
+253
+00:11:37,519 --> 00:11:40,560
+consume, y esto debió llamarse más bien
+
+254
+00:11:40,560 --> 00:11:43,680
+saldo, y el saldo dejémoslo ahí en este
+
+255
+00:11:43,680 --> 00:11:47,160
+momento. Hay una segunda
+
+256
+00:11:47,160 --> 00:11:49,680
+ecuación del ingenio. Producto del
+
+257
+00:11:49,680 --> 00:11:51,880
+ingenio de Keynes, él descifró esas
+
+258
+00:11:51,880 --> 00:11:54,839
+ecuaciones para la economía, en la cual
+
+259
+00:11:54,839 --> 00:11:57,480
+la producción, que la llamó también Y igual
+
+260
+00:11:57,480 --> 00:12:00,760
+que el ingreso, la producción se da
+
+261
+00:12:00,760 --> 00:12:02,880
+en producción de bienes de consumo o en
+
+262
+00:12:02,880 --> 00:12:06,200
+producción de bienes de
+
+263
+00:12:06,800 --> 00:12:10,680
+inversión. La llamó Y también porque
+
+264
+00:12:10,680 --> 00:12:13,040
+resulta que son iguales. Lo que la gente
+
+265
+00:12:13,040 --> 00:12:15,360
+produce genera un ingreso para las
+
+266
+00:12:15,360 --> 00:12:18,760
+personas, y entonces se identifican. Son
+
+267
+00:12:18,760 --> 00:12:21,680
+iguales. Como el consumo de la gente es
+
+268
+00:12:21,680 --> 00:12:24,519
+igual a los bienes de consumo, el ahorro,
+
+269
+00:12:24,519 --> 00:12:27,720
+que es, o el saldo que tiene la gente, es
+
+270
+00:12:27,720 --> 00:12:30,839
+lo que dedica a la inversión. ¿Inversión
+
+271
+00:12:30,839 --> 00:12:33,160
+de qué? Cuando ustedes hacen una empresa,
+
+272
+00:12:33,160 --> 00:12:35,560
+ustedes hacen inversión en bienes de
+
+273
+00:12:35,560 --> 00:12:38,399
+capital y en capital de
+
+274
+00:12:38,399 --> 00:12:41,399
+trabajo. Solamente realmente esas dos
+
+275
+00:12:41,399 --> 00:12:43,320
+en lo que se queda la inversión. O sea
+
+276
+00:12:43,320 --> 00:12:45,839
+que eso que decimos que el ahorro es
+
+277
+00:12:45,839 --> 00:12:48,320
+igual a la inversión, quiere decir que la
+
+278
+00:12:48,320 --> 00:12:51,199
+inversión está toda en inventario,
+
+279
+00:12:51,199 --> 00:12:53,920
+generalmente en cartera o el maquinario,
+
+280
+00:12:53,920 --> 00:12:55,959
+equipos nuevos que están surgiendo a la
+
+281
+00:12:55,959 --> 00:12:59,399
+economía. Keynes se dio cuenta que el
+
+282
+00:12:59,399 --> 00:13:02,480
+sistema, que esa parte era una parte real.
+
+283
+00:13:02,480 --> 00:13:04,240
+Esto es medible. Esta es la forma como se
+
+284
+00:13:04,240 --> 00:13:07,160
+mide el producto interno bruto de un país.
+
+285
+00:13:07,160 --> 00:13:10,560
+Keynes se dio cuenta que para ello existía
+
+286
+00:13:10,560 --> 00:13:12,760
+el dinero. Él habló de la oferta y la
+
+287
+00:13:12,760 --> 00:13:15,320
+demanda de dinero. Nosotros hablamos,
+
+288
+00:13:15,320 --> 00:13:17,639
+digamos, que solamente del dinero, y el
+
+289
+00:13:17,639 --> 00:13:22,199
+dinero se expresó como M1 y M2, y en
+
+290
+00:13:22,199 --> 00:13:25,600
+algunos contextos se ponen hasta M4 y
+
+291
+00:13:25,600 --> 00:13:29,360
+hasta más. Realmente, el fundamental es
+
+292
+00:13:29,360 --> 00:13:32,320
+la masa de dinero, y este es el más
+
+293
+00:13:32,320 --> 00:13:35,160
+importante: El
+
+294
+00:13:35,160 --> 00:13:38,560
+M1, el dinero que se tiene para que estos
+
+295
+00:13:38,560 --> 00:13:40,959
+productos circulen y generen el ingreso
+
+296
+00:13:40,959 --> 00:13:43,480
+de las personas. Entonces fíjese, como
+
+297
+00:13:43,480 --> 00:13:46,480
+como si fuera, como si habláramos de una
+
+298
+00:13:46,480 --> 00:13:49,399
+teoría a nivel científico, a nivel
+
+299
+00:13:49,399 --> 00:13:51,320
+físico, hablemos de una teoría
+
+300
+00:13:51,320 --> 00:13:53,800
+unificada. La economía hay que mirarla en
+
+301
+00:13:53,800 --> 00:13:56,120
+su contexto. Lo que nos invita esto,
+
+302
+00:13:56,120 --> 00:13:58,440
+cuando lo ponemos en esta forma, es que
+
+303
+00:13:58,440 --> 00:14:01,000
+hablamos de una teoría
+
+304
+00:14:01,000 --> 00:14:04,680
+unificada, de un sistema. Es muy
+
+305
+00:14:04,680 --> 00:14:06,480
+importante entender que esto es un
+
+306
+00:14:06,480 --> 00:14:08,040
+sistema.
+
+307
+00:14:08,040 --> 00:14:11,000
+Entonces el
+
+308
+00:14:11,000 --> 00:14:13,600
+dinero, cuando hacemos la
+
+309
+00:14:13,600 --> 00:14:17,440
+relación Y sobre M, nos inventamos
+
+310
+00:14:17,440 --> 00:14:20,560
+entonces la la interrelación que existe
+
+311
+00:14:20,560 --> 00:14:23,920
+en esos dos bloques: el ingreso y la
+
+312
+00:14:23,920 --> 00:14:26,880
+producción, que se combina con el dinero
+
+313
+00:14:26,880 --> 00:14:29,720
+para que los productos circulen, y
+
+314
+00:14:29,720 --> 00:14:31,360
+tenemos entonces la definición de
+
+315
+00:14:31,360 --> 00:14:34,199
+velocidad de circulación del dinero. Esa
+
+316
+00:14:34,199 --> 00:14:36,079
+velocidad de circulación del dinero, y
+
+317
+00:14:36,079 --> 00:14:38,199
+eso se puede expresar ya como una
+
+318
+00:14:38,199 --> 00:14:41,000
+ecuación. A pesar de que la teoría
+
+319
+00:14:41,000 --> 00:14:44,399
+económica de acá, la que todos conocen,
+
+320
+00:14:44,399 --> 00:14:46,800
+dicen que esto no es una ecuación, sino
+
+321
+00:14:46,800 --> 00:14:49,360
+una identidad, en nuestro contexto la
+
+322
+00:14:49,360 --> 00:14:51,040
+vamos a trabajar efectivamente como una
+
+323
+00:14:51,040 --> 00:14:53,079
+ecuación. La podemos expresar, entonces,
+
+324
+00:14:53,079 --> 00:14:55,480
+pasar el M a multiplicar al otro lado, y
+
+325
+00:14:55,480 --> 00:14:58,199
+decir que Y es igual a V por M. O sea, que
+
+326
+00:14:58,199 --> 00:15:00,279
+el producto interno bruto, o que la
+
+327
+00:15:00,279 --> 00:15:02,560
+producción, está relacionada con la
+
+328
+00:15:02,560 --> 00:15:04,279
+velocidad de circulación del dinero y
+
+329
+00:15:04,279 --> 00:15:06,959
+con la masa monetaria del
+
+330
+00:15:06,959 --> 00:15:10,160
+sistema. De suerte que, fíjense, nuestra
+
+331
+00:15:10,160 --> 00:15:12,920
+primera conclusión inmediata: si queremos
+
+332
+00:15:12,920 --> 00:15:17,279
+que aumente el producto interno bruto,
+
+333
+00:15:17,279 --> 00:15:20,440
+tenemos que hacer aumentar la masa
+
+334
+00:15:20,440 --> 00:15:23,240
+monetaria. Esto que nos va a decir, fíjense,
+
+335
+00:15:23,240 --> 00:15:24,959
+que vamos a empezar a chocar con los
+
+336
+00:15:24,959 --> 00:15:30,959
+conceptos que de la anterior teoría.
+
+337
+00:15:31,160 --> 00:15:34,639
+Que si hacemos emisiones, no hablemos
+
+338
+00:15:34,639 --> 00:15:36,240
+todavía de que se va a generar la
+
+339
+00:15:36,240 --> 00:15:38,240
+inflación, sino que se necesita hacer
+
+340
+00:15:38,240 --> 00:15:40,120
+emisiones para que aumente el producto
+
+341
+00:15:40,120 --> 00:15:43,800
+interno bruto. De esta expresión,
+
+342
+00:15:43,800 --> 00:15:46,519
+reemplazando Y por precios por
+
+343
+00:15:46,519 --> 00:15:50,199
+cantidades, P por Q, es la cantidad de
+
+344
+00:15:50,199 --> 00:15:52,480
+volumen que se vende en una economía en
+
+345
+00:15:52,480 --> 00:15:55,759
+un momento dado, es un indicador de la
+
+346
+00:15:55,759 --> 00:15:59,920
+producción. Precios por cantidades,
+
+347
+00:15:59,920 --> 00:16:01,720
+entonces nos queda que precios por
+
+348
+00:16:01,720 --> 00:16:05,759
+cantidades es igual a V por M. De esta
+
+349
+00:16:05,759 --> 00:16:07,480
+ecuación, que se llamó la ecuación
+
+350
+00:16:07,480 --> 00:16:11,519
+cuantitativa del dinero, se sacó
+
+351
+00:16:11,519 --> 00:16:14,440
+como conclusión que si aumentaba M,
+
+352
+00:16:14,440 --> 00:16:17,519
+aumentaban los precios. Bueno, eso es una
+
+353
+00:16:17,519 --> 00:16:20,279
+interpretación que se le ha dado a
+
+354
+00:16:20,279 --> 00:16:21,959
+través de la historia, y que ha
+
+355
+00:16:21,959 --> 00:16:24,040
+evolucionado a través de la historia.
+
+356
+00:16:24,040 --> 00:16:28,199
+Antes se decía que si el M aumentaba más
+
+357
+00:16:28,199 --> 00:16:31,120
+rápidamente que Q, se produce inflación.
+
+358
+00:16:31,120 --> 00:16:34,160
+En los textos nuevos que hoy tenemos, se
+
+359
+00:16:34,160 --> 00:16:38,000
+dice que si M aumenta, aumenta P
+
+360
+00:16:38,000 --> 00:16:40,480
+inmediatamente. ¿Por qué? Porque Q
+
+361
+00:16:40,480 --> 00:16:43,560
+varía muy poco, y porque V, la velocidad
+
+362
+00:16:43,560 --> 00:16:45,880
+de circulación, también son prácticamente
+
+363
+00:16:45,880 --> 00:16:48,959
+constantes en un instante de tiempo. Pero
+
+364
+00:16:48,959 --> 00:16:51,240
+eso es una mala interpretación, porque
+
+365
+00:16:51,240 --> 00:16:53,319
+nosotros tenemos que mirar esto en el
+
+366
+00:16:53,319 --> 00:16:56,160
+curso de un año, no cuando cuando el
+
+367
+00:16:56,160 --> 00:16:59,240
+límite del tiempo tiende a cero.
+
+368
+00:16:59,240 --> 00:17:02,519
+Lo miraremos más adelante. Cuando lo miro
+
+369
+00:17:02,519 --> 00:17:04,679
+en un año, en un año, ¿qué ocurre? Uno
+
+370
+00:17:04,679 --> 00:17:07,679
+tiene que aumentar la masa
+
+371
+00:17:07,679 --> 00:17:11,480
+monetaria en la medida en que aumenta Q,
+
+372
+00:17:11,480 --> 00:17:13,679
+y ahí se procura que mantengan los
+
+373
+00:17:13,679 --> 00:17:14,839
+precios
+
+374
+00:17:14,839 --> 00:17:17,480
+constantes. Cuando tenemos esto en el año,
+
+375
+00:17:17,480 --> 00:17:20,919
+quiere decir que si vamos al tiempo t igual
+
+376
+00:17:20,919 --> 00:17:24,360
+0, o sea, en en el día a día, en el día de
+
+377
+00:17:24,360 --> 00:17:27,919
+hoy, por decir algo, la emisión va a ser
+
+378
+00:17:27,919 --> 00:17:31,000
+la 365 parte de lo que voy a hacer en
+
+379
+00:17:31,000 --> 00:17:32,720
+el año, o sea, va a ser una cosa muy
+
+380
+00:17:32,720 --> 00:17:34,559
+pequeña, y entonces, ya hablando en
+
+381
+00:17:34,559 --> 00:17:36,280
+términos pequeños, una cosa muy pequeña
+
+382
+00:17:36,280 --> 00:17:38,400
+no me va a modificar esto, sino me va a
+
+383
+00:17:38,400 --> 00:17:41,120
+modificar la producción. La producción
+
+384
+00:17:41,120 --> 00:17:42,640
+diariamente está
+
+385
+00:17:42,640 --> 00:17:45,640
+creciendo o se está frenando, pero
+
+386
+00:17:45,640 --> 00:17:47,679
+dependiendo de cómo maneja el
+
+387
+00:17:47,679 --> 00:17:51,000
+dinero. Estas ecuaciones las expresó
+
+388
+00:17:51,000 --> 00:17:55,880
+Keynes, y Keynes, bueno, hizo algo más. Hizo,
+
+389
+00:17:55,880 --> 00:17:58,640
+habló de una quinta, que que sostengo yo
+
+390
+00:17:58,640 --> 00:18:01,280
+que que no es necesario manejarla, porque
+
+391
+00:18:01,280 --> 00:18:04,080
+sobre esto, lo que hace es empantanar un
+
+392
+00:18:04,080 --> 00:18:05,919
+poco el discurso. Habló de otra
+
+393
+00:18:05,919 --> 00:18:07,559
+proposición, que la eficiencia marginal
+
+394
+00:18:07,559 --> 00:18:09,120
+de capital llega hasta el punto en que se
+
+395
+00:18:09,120 --> 00:18:10,720
+iguala con la tasa de interés. Yo le
+
+396
+00:18:10,720 --> 00:18:12,000
+agrego con la tasa de interés de
+
+397
+00:18:12,000 --> 00:18:15,159
+captación, es un agregado mío. Keynes llegó
+
+398
+00:18:15,159 --> 00:18:18,000
+hasta acá, hasta la tasa de interés.
+
+399
+00:18:18,000 --> 00:18:21,080
+Keynes habló mucho de la de la tasa de
+
+400
+00:18:21,080 --> 00:18:24,039
+interés, pero nunca la expresó como tasa
+
+401
+00:18:24,039 --> 00:18:25,640
+de interés de captación del sistema
+
+402
+00:18:25,640 --> 00:18:28,039
+financiero más la tasa de interés de
+
+403
+00:18:28,039 --> 00:18:30,960
+intermediación del sistema financiero. Que
+
+404
+00:18:30,960 --> 00:18:32,919
+solo habló de la tasa de interés, en mi
+
+405
+00:18:32,919 --> 00:18:35,960
+concepto, se quedó muy corto. Había que
+
+406
+00:18:35,960 --> 00:18:39,080
+abrir la expresión y analizarlas una a
+
+407
+00:18:39,080 --> 00:18:41,919
+una. Pero él habló de la tasa de interés.
+
+408
+00:18:41,919 --> 00:18:44,760
+Yo agrego esta otra ecuación para el
+
+409
+00:18:44,760 --> 00:18:47,480
+mismo contexto: que las ventas, en general,
+
+410
+00:18:47,480 --> 00:18:51,480
+globales, en una economía, son iguales al
+
+411
+00:18:51,480 --> 00:18:54,480
+P por Q, casi del que hablábamos aquí. No
+
+412
+00:18:54,480 --> 00:18:57,320
+exactamente, pero es como, como como en el
+
+413
+00:18:57,320 --> 00:19:00,679
+PIB. Un P social, hablemos de un PIB
+
+414
+00:19:00,679 --> 00:19:03,360
+social, en donde las ventas va a ser
+
+415
+00:19:03,360 --> 00:19:05,840
+igual a los costos, más los gastos, más
+
+416
+00:19:05,840 --> 00:19:09,880
+los intereses, más los impuestos, más las
+
+417
+00:19:09,880 --> 00:19:13,440
+utilidades. O quitándole a esas ventas
+
+418
+00:19:13,440 --> 00:19:15,440
+todos estos gastos, nos quedan las
+
+419
+00:19:15,440 --> 00:19:19,520
+utilidades sociales de todo el sistema. Y
+
+420
+00:19:19,520 --> 00:19:21,960
+le agregaría una siguiente ecuación, que
+
+421
+00:19:21,960 --> 00:19:24,360
+es como un resultado del manejo que se
+
+422
+00:19:24,360 --> 00:19:26,799
+tenga acá, que es que la inflación
+
+423
+00:19:26,799 --> 00:19:30,799
+depende de los costos, de la masa
+
+424
+00:19:30,799 --> 00:19:33,840
+monetaria, y en particular, dentro de esos
+
+425
+00:19:33,840 --> 00:19:36,039
+costos, de la tasa de interés de
+
+426
+00:19:36,039 --> 00:19:39,400
+captación. Es fundamental en el contexto
+
+427
+00:19:39,400 --> 00:19:42,039
+teórico que vamos a a mirar aquí, en este
+
+428
+00:19:42,039 --> 00:19:45,159
+contexto. Keynes dijo lo siguiente. Keynes
+
+429
+00:19:45,159 --> 00:19:47,360
+analizó esto como un
+
+430
+00:19:47,360 --> 00:19:50,840
+sistema, y dijo: señores, miren muy bien,
+
+431
+00:19:50,840 --> 00:19:53,120
+están todas las variables. Cuando yo
+
+432
+00:19:53,120 --> 00:19:57,039
+hablo del ingreso, de la producción, del
+
+433
+00:19:57,039 --> 00:19:59,240
+consumo, yo puedo abrir esto como consumo
+
+434
+00:19:59,240 --> 00:20:01,120
+de las familias o el consumo del
+
+435
+00:20:01,120 --> 00:20:02,919
+gobierno. Estoy hablando de todas las
+
+436
+00:20:02,919 --> 00:20:05,320
+variables, de la masa monetaria, de la
+
+437
+00:20:05,320 --> 00:20:07,760
+oferta y la demanda de productos, de
+
+438
+00:20:07,760 --> 00:20:09,400
+oferta y demanda de ahorro y de
+
+439
+00:20:09,400 --> 00:20:11,440
+inversión, de oferta y
+
+440
+00:20:11,440 --> 00:20:15,520
+demanda general. Y Keynes hizo un
+
+441
+00:20:15,520 --> 00:20:18,480
+análisis. Keynes quiso saber cuáles eran
+
+442
+00:20:18,480 --> 00:20:20,480
+las variables independientes de ese
+
+443
+00:20:20,480 --> 00:20:23,679
+sistema. Cuando él dijo: cuáles eran las
+
+444
+00:20:23,679 --> 00:20:25,320
+variables independientes del sistema,
+
+445
+00:20:25,320 --> 00:20:27,760
+quería saber era cómo se podía manejar
+
+446
+00:20:27,760 --> 00:20:30,480
+el sistema. ¿En dónde estaba el secreto
+
+447
+00:20:30,480 --> 00:20:33,400
+para manejar el sistema? Y él descubrió
+
+448
+00:20:33,400 --> 00:20:35,880
+que las variables independientes del
+
+449
+00:20:35,880 --> 00:20:38,960
+sistema eran la masa monetaria y la tasa
+
+450
+00:20:38,960 --> 00:20:42,280
+de interés. Y nosotros vamos a manejar
+
+451
+00:20:42,280 --> 00:20:45,520
+este discurso muy bien. Fíjense que a
+
+452
+00:20:45,520 --> 00:20:48,960
+nosotros, en la teoría actual, nos dicen
+
+453
+00:20:48,960 --> 00:20:50,840
+que si aumenta la masa monetaria, se
+
+454
+00:20:50,840 --> 00:20:53,600
+produce inflación. Les voy a contradecir
+
+455
+00:20:53,600 --> 00:20:56,280
+eso más adelante. Y nos dice que si
+
+456
+00:20:56,280 --> 00:20:58,840
+aumenta la tasa de interés,
+
+457
+00:20:58,840 --> 00:21:01,240
+que podemos controlar la inflación.
+
+458
+00:21:01,240 --> 00:21:03,760
+También les voy a contradecir ese ese
+
+459
+00:21:03,760 --> 00:21:05,640
+punto, pero no se los voy a contradecir
+
+460
+00:21:05,640 --> 00:21:07,960
+yo. Se van a dar cuenta ustedes mismos
+
+461
+00:21:07,960 --> 00:21:10,640
+que eso es
+
+462
+00:21:10,760 --> 00:21:14,559
+falso. Cuando Keynes dijo que estas dos eran
+
+463
+00:21:14,559 --> 00:21:16,880
+las variables independientes del sistema,
+
+464
+00:21:16,880 --> 00:21:19,840
+quiere decir que quien maneje estas dos
+
+465
+00:21:19,840 --> 00:21:22,880
+variables maneja toda la economía,
+
+466
+00:21:22,880 --> 00:21:24,880
+invariablemente.
+
+467
+00:21:24,880 --> 00:21:29,120
+Cuando nosotros separamos y dimos a los
+
+468
+00:21:29,120 --> 00:21:31,720
+bancos centrales para que ellos manejen
+
+469
+00:21:31,720 --> 00:21:34,640
+la masa monetaria y la tasa de interés, y
+
+470
+00:21:34,640 --> 00:21:38,320
+el gobierno maneje el el producto, el
+
+471
+00:21:38,320 --> 00:21:41,279
+producto interno bruto, y la producción, y
+
+472
+00:21:41,279 --> 00:21:44,000
+el consumo, y que regule, entonces, el
+
+473
+00:21:44,000 --> 00:21:47,159
+empleo, hicimos, cometimos un pecado muy
+
+474
+00:21:47,159 --> 00:21:49,840
+grande, que fue dividir el sistema. El
+
+475
+00:21:49,840 --> 00:21:52,720
+sistema es indivisible. El sistema es uno
+
+476
+00:21:52,720 --> 00:21:56,000
+solo, y todo funciona en perfecta unidad.
+
+477
+00:21:56,000 --> 00:21:58,880
+Cuando lo dividimos, le dijimos a unos
+
+478
+00:21:58,880 --> 00:22:01,520
+señores: manejen ustedes esto. Les dimos
+
+479
+00:22:01,520 --> 00:22:03,840
+todo el poder del sistema económico a
+
+480
+00:22:03,840 --> 00:22:06,200
+unas personas para que lo manejen. Se lo
+
+481
+00:22:06,200 --> 00:22:08,600
+dimos a los bancos centrales, porque en
+
+482
+00:22:08,600 --> 00:22:10,880
+este momento los bancos centrales, todos
+
+483
+00:22:10,880 --> 00:22:13,520
+en el mundo, manejan estas dos
+
+484
+00:22:13,520 --> 00:22:16,039
+variables, y les dimos una
+
+485
+00:22:16,039 --> 00:22:18,320
+independencia del gobierno. Entonces,
+
+486
+00:22:18,320 --> 00:22:20,440
+quiere decir que esa independencia va
+
+487
+00:22:20,440 --> 00:22:22,880
+inclinada, más bien, hacia el manejo de
+
+488
+00:22:22,880 --> 00:22:25,400
+los particulares. Quiero decirles, con
+
+489
+00:22:25,400 --> 00:22:27,520
+esto, que aquí vamos viendo que tenemos
+
+490
+00:22:27,520 --> 00:22:29,120
+que volver a unir
+
+491
+00:22:29,120 --> 00:22:31,840
+la masa monetaria y la tasa de interés
+
+492
+00:22:31,840 --> 00:22:34,559
+para que la maneje el gobierno, como el
+
+493
+00:22:34,559 --> 00:22:38,279
+elemento social que es y que representa
+
+494
+00:22:38,279 --> 00:22:40,799
+a la comunidad en general, y no a los
+
+495
+00:22:40,799 --> 00:22:44,039
+intereses particulares. Bien, en este
+
+496
+00:22:44,039 --> 00:22:45,760
+contexto, este es el desarrollo que les
+
+497
+00:22:45,760 --> 00:22:48,080
+quería hablar en este en este momento.
+
+498
+00:22:48,080 --> 00:22:50,039
+Vamos a desarrollar un poco más adelante
+
+499
+00:22:50,039 --> 00:22:52,080
+esto, pero en una forma visual que todos
+
+500
+00:22:52,080 --> 00:22:54,279
+podamos entender, y en este momento lo
+
+501
+00:22:54,279 --> 00:22:57,880
+voy a dejar en ese punto. Vamos a
+
+502
+00:22:57,880 --> 00:23:00,480
+continuar, entonces, con nuestra segunda
+
+503
+00:23:00,480 --> 00:23:02,720
+parte: las políticas económicas. Fíjese
+
+504
+00:23:02,720 --> 00:23:04,679
+que las estamos dando por separado, y
+
+505
+00:23:04,679 --> 00:23:06,760
+después las vamos a
+
+506
+00:23:06,760 --> 00:23:09,200
+interrelacionar. Entonces, la segunda
+
+507
+00:23:09,200 --> 00:23:12,120
+parte nos dice: políticas económicas. Yo
+
+508
+00:23:12,120 --> 00:23:14,760
+les voy a hablar, en general, de ocho
+
+509
+00:23:14,760 --> 00:23:18,760
+políticas. Únicamente escogí estas ocho,
+
+510
+00:23:18,760 --> 00:23:21,240
+aunque las más importantes son tres. No,
+
+511
+00:23:21,240 --> 00:23:23,720
+más, escogí estas ocho, porque son las que
+
+512
+00:23:23,720 --> 00:23:26,799
+me definen el sistema macroeconómico a
+
+513
+00:23:26,799 --> 00:23:29,240
+grandes rasgos.
+
+514
+00:23:29,240 --> 00:23:31,559
+Hay muchísimas más políticas, porque
+
+515
+00:23:31,559 --> 00:23:34,080
+porque todo país va desarrollando
+
+516
+00:23:34,080 --> 00:23:36,799
+después políticas de empleo, políticas de
+
+517
+00:23:36,799 --> 00:23:40,840
+seguridad social, políticas de de de
+
+518
+00:23:40,840 --> 00:23:44,000
+desarrollo de agricultura, de de todos
+
+519
+00:23:44,000 --> 00:23:45,919
+los campos. En todos los campos, en todos
+
+520
+00:23:45,919 --> 00:23:48,480
+los tres sectores de la economía. Pero
+
+521
+00:23:48,480 --> 00:23:50,840
+con estos ocho, en
+
+522
+00:23:50,840 --> 00:23:54,600
+general, definimos el contexto general de
+
+523
+00:23:54,600 --> 00:23:59,000
+un país. Cómo se va ha de manejar un país.
+
+524
+00:23:59,000 --> 00:24:01,279
+Entonces, nosotros hablamos del libre
+
+525
+00:24:01,279 --> 00:24:04,080
+mercado, por ejemplo, y el libre mercado
+
+526
+00:24:04,080 --> 00:24:07,279
+puede, en un momento
+
+527
+00:24:07,279 --> 00:24:10,919
+dado, definir, definir nosotros como
+
+528
+00:24:10,919 --> 00:24:13,240
+política que no tengamos libre mercado, o
+
+529
+00:24:13,240 --> 00:24:16,159
+que sí tengamos libre mercado, o un rango
+
+530
+00:24:16,159 --> 00:24:18,080
+combinado,
+
+531
+00:24:18,080 --> 00:24:22,279
+cierto. Aranceles, podemos decir que no,
+
+532
+00:24:22,279 --> 00:24:24,480
+que no tengamos, o que sí tengamos. Tasas
+
+533
+00:24:24,480 --> 00:24:27,240
+de interés, igual, tenemos un un rango muy
+
+534
+00:24:27,240 --> 00:24:30,159
+grande para poder escoger una política
+
+535
+00:24:30,159 --> 00:24:32,919
+definida. Entonces, veamos, por ejemplo, qué
+
+536
+00:24:32,919 --> 00:24:34,200
+nos dice el Fondo Monetario
+
+537
+00:24:34,200 --> 00:24:36,399
+Internacional sobre el libre mercado. Nos
+
+538
+00:24:36,399 --> 00:24:39,360
+dice que tenemos que aplicarlo un 100%.
+
+539
+00:24:39,360 --> 00:24:41,399
+Sobre los aranceles, nos dice que tenemos
+
+540
+00:24:41,399 --> 00:24:43,880
+que eliminar los aranceles, y bueno, eso
+
+541
+00:24:43,880 --> 00:24:46,720
+tiene su explicación, que a todos nos nos
+
+542
+00:24:46,720 --> 00:24:48,320
+parecen
+
+543
+00:24:48,320 --> 00:24:50,399
+razonables. Debemos eliminar los
+
+544
+00:24:50,399 --> 00:24:52,399
+aranceles para que se genere más el
+
+545
+00:24:52,399 --> 00:24:54,679
+libre comercio, que eso ayuda a bajar los
+
+546
+00:24:54,679 --> 00:24:56,640
+precios, la competencia ayuda que bajen
+
+547
+00:24:56,640 --> 00:24:59,840
+los precios, y que y que los países se
+
+548
+00:24:59,840 --> 00:25:01,760
+beneficien, entonces, de poder adquirir
+
+549
+00:25:01,760 --> 00:25:04,200
+cosas más baratas. Sobre las tasas de
+
+550
+00:25:04,200 --> 00:25:05,399
+interés, nos
+
+551
+00:25:05,399 --> 00:25:08,240
+dicen que es mejor que sean altas para
+
+552
+00:25:08,240 --> 00:25:11,039
+que, para que los países atraigan el
+
+553
+00:25:11,039 --> 00:25:14,880
+capital externo, atraigan la inversión
+
+554
+00:25:14,880 --> 00:25:17,640
+extranjera. Nos dice que el déficit
+
+555
+00:25:17,640 --> 00:25:21,360
+fiscal lo debemos eliminar.
+
+556
+00:25:21,360 --> 00:25:25,320
+El FMI es Fondo Monetario Internacional. Lo
+
+557
+00:25:25,320 --> 00:25:28,440
+que nos vendieron con la globalización
+
+558
+00:25:28,440 --> 00:25:30,240
+son las políticas que nos define la
+
+559
+00:25:30,240 --> 00:25:32,159
+globalización. Entonces, que el déficit
+
+560
+00:25:32,159 --> 00:25:34,200
+fiscal lo debemos eliminar. ¿Qué quiere
+
+561
+00:25:34,200 --> 00:25:37,720
+decir eso? Que el los gobiernos igualen
+
+562
+00:25:37,720 --> 00:25:40,600
+sus ingresos corrientes que tienen con
+
+563
+00:25:40,600 --> 00:25:44,600
+sus gastos, que no se endeude. Esto, esto
+
+564
+00:25:44,600 --> 00:25:47,520
+falta ver si eso es posible hacerlo en
+
+565
+00:25:47,520 --> 00:25:50,240
+la práctica, en la realidad. Nos dijeron
+
+566
+00:25:50,240 --> 00:25:52,320
+que había que hacerlo, pero no, no nunca
+
+567
+00:25:52,320 --> 00:25:54,720
+nos hicieron un análisis si eso era
+
+568
+00:25:54,720 --> 00:25:57,120
+posible o no, y la gente cree que eso es
+
+569
+00:25:57,120 --> 00:25:59,480
+posible, pero eso es, eso es el
+
+570
+00:25:59,480 --> 00:26:02,200
+reto. Nos dijeron, entonces, que si no
+
+571
+00:26:02,200 --> 00:26:05,039
+lográbamos mantener un déficit fiscal,
+
+572
+00:26:05,039 --> 00:26:07,440
+que íbamos a tener que endeudarnos.
+
+573
+00:26:07,440 --> 00:26:10,799
+Entonces, están combinadas estas dos. El
+
+574
+00:26:10,799 --> 00:26:13,279
+endeudamiento, entonces, debe generarse. Si
+
+575
+00:26:13,279 --> 00:26:15,720
+esto no se da, va a haber
+
+576
+00:26:15,720 --> 00:26:19,000
+endeudamiento. La emisión de dinero, es
+
+577
+00:26:19,000 --> 00:26:21,399
+decir, que el Banco Central haga dinero
+
+578
+00:26:21,399 --> 00:26:23,200
+para el gobierno, para que el gobierno lo
+
+579
+00:26:23,200 --> 00:26:25,120
+gaste, que no se deben hacer esas
+
+580
+00:26:25,120 --> 00:26:27,360
+emisiones, y nos dijeron muy claramente
+
+581
+00:26:27,360 --> 00:26:29,480
+que porque eso producía inflación. Se
+
+582
+00:26:29,480 --> 00:26:31,679
+acuerdan que yo les dije ya que que la
+
+583
+00:26:31,679 --> 00:26:33,360
+inflación todavía no teníamos muy claro
+
+584
+00:26:33,360 --> 00:26:35,760
+que la producía. Ellos nos dicen que la
+
+585
+00:26:35,760 --> 00:26:38,360
+inflación la produce esa emisión de
+
+586
+00:26:38,360 --> 00:26:41,480
+dinero, y que no se debe hacer, y de hecho,
+
+587
+00:26:41,480 --> 00:26:43,159
+está prohibida en todo el mundo. A en
+
+588
+00:26:43,159 --> 00:26:45,320
+Estados Unidos, vamos a ver cómo esa
+
+589
+00:26:45,320 --> 00:26:47,120
+previsión hace que los países,
+
+590
+00:26:47,120 --> 00:26:49,600
+irremediablemente, lleguen a una crisis.
+
+591
+00:26:49,600 --> 00:26:51,480
+Pero lo vamos a ver más
+
+592
+00:26:51,480 --> 00:26:55,279
+adelante. Impuestos, nos dicen: bueno, si
+
+593
+00:26:55,279 --> 00:26:57,240
+para no tener que endeudarnos, entonces
+
+594
+00:26:57,240 --> 00:26:59,880
+tenemos que cobrar más impuestos, y los
+
+595
+00:26:59,880 --> 00:27:02,960
+impuestos deben ser elevados. Y entonces,
+
+596
+00:27:02,960 --> 00:27:05,159
+para poder pagar esos déficits, es mejor
+
+597
+00:27:05,159 --> 00:27:08,440
+privatizar toda la economía, privatizar
+
+598
+00:27:08,440 --> 00:27:11,960
+los servicios públicos, el petróleo,
+
+599
+00:27:11,960 --> 00:27:15,559
+privatizar absolutamente todos los los
+
+600
+00:27:15,559 --> 00:27:18,600
+los elementos, las empresas que tenga el
+
+601
+00:27:18,600 --> 00:27:20,440
+gobierno.
+
+602
+00:27:20,440 --> 00:27:24,799
+Bien. Pero, pero fíjense bien, esto es una
+
+603
+00:27:24,799 --> 00:27:28,399
+combinación de muchas posibles,
+
+604
+00:27:28,399 --> 00:27:30,679
+indudablemente. Cuando nos dijeron la
+
+605
+00:27:30,679 --> 00:27:33,399
+globalización, eso había que demostrar
+
+606
+00:27:33,399 --> 00:27:36,080
+primero que esa es la mejor
+
+607
+00:27:36,080 --> 00:27:38,480
+forma. Nunca nos demostraron nada. Nos
+
+608
+00:27:38,480 --> 00:27:40,760
+dijeron: hagan esto, y el mundo se fue
+
+609
+00:27:40,760 --> 00:27:43,200
+todo de cabeza a hacer eso, y hoy estamos
+
+610
+00:27:43,200 --> 00:27:44,880
+sufriendo unas consecuencias, y no
+
+611
+00:27:44,880 --> 00:27:48,360
+sabemos por qué. Vamos a tratar de ver
+
+612
+00:27:48,360 --> 00:27:50,760
+qué pasa. Pero en este momento, lo que
+
+613
+00:27:50,760 --> 00:27:52,840
+quiero ver con este cuadro es que
+
+614
+00:27:52,840 --> 00:27:56,240
+analicemos otras posibilidades para la
+
+615
+00:27:56,240 --> 00:27:59,000
+misma globalización, porque, efectivamente,
+
+616
+00:27:59,000 --> 00:28:01,519
+la esa combinación de políticas, pues son
+
+617
+00:28:01,519 --> 00:28:03,399
+muchas las posibilidades. Quiero
+
+618
+00:28:03,399 --> 00:28:06,640
+mostrarles lo que decía
+
+619
+00:28:08,120 --> 00:28:11,440
+Keynes. Keynes hablaba de que el libre
+
+620
+00:28:11,440 --> 00:28:13,159
+mercado, sí, pero con algunas
+
+621
+00:28:13,159 --> 00:28:17,880
+restricciones. O sea, no tan 100%, así a
+
+622
+00:28:17,880 --> 00:28:20,320
+fondo. Nos decía que los aranceles,
+
+623
+00:28:20,320 --> 00:28:22,960
+había que tener cierto cuidado con
+
+624
+00:28:22,960 --> 00:28:25,480
+los aranceles para proteger un poco el
+
+625
+00:28:25,480 --> 00:28:28,320
+mercado interno. Entonces, no muy alto,
+
+626
+00:28:28,320 --> 00:28:30,600
+pero, pero sí había que poner ciertos
+
+627
+00:28:30,600 --> 00:28:32,960
+aranceles. De las tasas de interés, en
+
+628
+00:28:32,960 --> 00:28:34,799
+Keynes, definitivamente, las tasas de
+
+629
+00:28:34,799 --> 00:28:37,399
+interés siempre deben ser bajas. Eso
+
+630
+00:28:37,399 --> 00:28:39,919
+quedó muy claro en su contexto teórico.
+
+631
+00:28:39,919 --> 00:28:43,440
+Sobre el déficit fiscal, Keynes entendió
+
+632
+00:28:43,440 --> 00:28:45,919
+que el gobierno era un motor esencial
+
+633
+00:28:45,919 --> 00:28:48,760
+para que se diera
+
+634
+00:28:48,760 --> 00:28:51,760
+ese, ese, ese motor que moviera la
+
+635
+00:28:51,760 --> 00:28:53,799
+economía. Luego, el déficit fiscal, sí,
+
+636
+00:28:53,799 --> 00:28:56,799
+debía existir. Él entendió que los meros
+
+637
+00:28:56,799 --> 00:28:59,080
+ingresos del Estado no son suficientes,
+
+638
+00:28:59,080 --> 00:29:01,640
+sino que hay, el Estado tiene que ser un
+
+639
+00:29:01,640 --> 00:29:04,279
+motor en el gasto para que la economía
+
+640
+00:29:04,279 --> 00:29:06,880
+se se se active. Ya lo veremos más
+
+641
+00:29:06,880 --> 00:29:09,480
+adelante, un poco más claro. El
+
+642
+00:29:09,480 --> 00:29:12,080
+endeudamiento, en Keynes, es muy claro,
+
+643
+00:29:12,080 --> 00:29:16,960
+tiene que darse. O sea, Keynes no habla de
+
+644
+00:29:16,960 --> 00:29:19,640
+emisiones libres de dinero. No habla de
+
+645
+00:29:19,640 --> 00:29:22,279
+emisiones muy restringidas del dinero,
+
+646
+00:29:22,279 --> 00:29:24,519
+pero el endeudamiento tiene que darse.
+
+647
+00:29:24,519 --> 00:29:28,200
+Que siempre vio la banca muy, muy
+
+648
+00:29:28,200 --> 00:29:30,039
+importante. Siempre nunca se pudo
+
+649
+00:29:30,039 --> 00:29:33,279
+despegar del del endeudamiento. Nuestra
+
+650
+00:29:33,279 --> 00:29:36,320
+civilización actual es la civilización
+
+651
+00:29:36,320 --> 00:29:38,880
+de la deuda. Todos estamos acostumbrados
+
+652
+00:29:38,880 --> 00:29:41,240
+a que tenemos que acudir a la deuda. Les
+
+653
+00:29:41,240 --> 00:29:44,840
+voy a decir que no necesariamente es
+
+654
+00:29:44,840 --> 00:29:48,120
+cierto. Sobre la emisión de dinero, Keynes:
+
+655
+00:29:48,120 --> 00:29:49,320
+debe darse,
+
+656
+00:29:49,320 --> 00:29:53,000
+efectivamente. No mucha. Los impuestos, en
+
+657
+00:29:53,000 --> 00:29:55,720
+Keynes, no deben ser tan altos. Deben ser apenas
+
+658
+00:29:55,720 --> 00:29:58,760
+regulados. Y sobre las privatizaciones, no
+
+659
+00:29:58,760 --> 00:30:01,320
+está muy de acuerdo Keynes. Keynes
+
+660
+00:30:01,320 --> 00:30:03,559
+entiende que parte de la función del
+
+661
+00:30:03,559 --> 00:30:06,880
+Estado es es prestar el servicio en
+
+662
+00:30:06,880 --> 00:30:10,240
+aquellos sitios donde los particulares
+
+663
+00:30:10,240 --> 00:30:14,399
+no, no, no son muy sociables para hacer
+
+664
+00:30:14,399 --> 00:30:18,600
+ese tipo de de trabajos. Bien, como
+
+665
+00:30:18,600 --> 00:30:21,159
+ustedes ven, mire, hay otra combinación
+
+666
+00:30:21,159 --> 00:30:23,760
+posible, y yo les quiero mostrar todavía
+
+667
+00:30:23,760 --> 00:30:26,679
+que hay muchísimas más combinaciones, y
+
+668
+00:30:26,679 --> 00:30:28,480
+les voy a mostrar otra más. Se van a
+
+669
+00:30:28,480 --> 00:30:31,320
+aterrar ustedes con
+
+670
+00:30:35,480 --> 00:30:38,320
+esto. Globalización, por ejemplo, según un
+
+671
+00:30:38,320 --> 00:30:40,399
+nuevo modelo. A lo mejor les puedo
+
+672
+00:30:40,399 --> 00:30:42,399
+comprobar que este, que esta otra
+
+673
+00:30:42,399 --> 00:30:44,440
+posibilidad es mucho mejor que las dos
+
+674
+00:30:44,440 --> 00:30:47,039
+anteriores. Una en la cual el libre
+
+675
+00:30:47,039 --> 00:30:50,000
+mercado, no tengamos libre mercado. O sea,
+
+676
+00:30:50,000 --> 00:30:52,200
+yo acepto el libre mercado. Me parece que
+
+677
+00:30:52,200 --> 00:30:55,080
+el libre mercado es el mejor de los
+
+678
+00:30:55,080 --> 00:30:58,360
+sistemas para poder llevar a la
+
+679
+00:30:58,360 --> 00:31:00,519
+civilización todos los elementos de
+
+680
+00:31:00,519 --> 00:31:04,080
+desarrollo posibles. El, quiero dejar
+
+681
+00:31:04,080 --> 00:31:08,360
+aclarar un punto. Libre mercado no es el
+
+682
+00:31:08,360 --> 00:31:10,480
+mercado. Dijéramos, es como el sol que
+
+683
+00:31:10,480 --> 00:31:12,840
+ilumina a todo el mundo, a ricos y pobres
+
+684
+00:31:12,840 --> 00:31:16,519
+por igual. El mercado hace lo, hace lo
+
+685
+00:31:16,519 --> 00:31:18,880
+mismo. El mercado no mira moral. El
+
+686
+00:31:18,880 --> 00:31:22,360
+mercado, sencillamente, funciona. Pero ese
+
+687
+00:31:22,360 --> 00:31:23,840
+mercado funciona de acuerdo a la
+
+688
+00:31:23,840 --> 00:31:26,279
+cantidad de dinero que hay en el sistema.
+
+689
+00:31:26,279 --> 00:31:30,480
+Si el dinero es muy poquito, entonces el el
+
+690
+00:31:30,480 --> 00:31:32,679
+mercado se encarga de sacar a todo, y y
+
+691
+00:31:32,679 --> 00:31:34,559
+lo pone a todo con la cantidad de dinero
+
+692
+00:31:34,559 --> 00:31:37,200
+que hay. Si hay mucho dinero, permite que
+
+693
+00:31:37,200 --> 00:31:40,120
+mucha gente entre. El mercado no mira, no
+
+694
+00:31:40,120 --> 00:31:42,159
+mira las personas. El mercado,
+
+695
+00:31:42,159 --> 00:31:44,200
+sencillamente, hace que funcione el
+
+696
+00:31:44,200 --> 00:31:45,679
+sistema de acuerdo a la cantidad de
+
+697
+00:31:45,679 --> 00:31:48,760
+dinero que hay. Entonces, lo que nos lleva
+
+698
+00:31:48,760 --> 00:31:51,039
+a esto es a lo que nos decía Keynes, que
+
+699
+00:31:51,039 --> 00:31:53,480
+que tenemos que controlar es la masa
+
+700
+00:31:53,480 --> 00:31:55,519
+monetaria, la emisión de dinero, si
+
+701
+00:31:55,519 --> 00:31:57,279
+queremos controlar el sistema. No.
+
+702
+00:31:57,279 --> 00:32:00,399
+Entonces, el mercado no es bueno per se,
+
+703
+00:32:00,399 --> 00:32:03,240
+no es malo per se. El mercado es algo que
+
+704
+00:32:03,240 --> 00:32:06,760
+funciona de acuerdo a cómo lo
+
+705
+00:32:06,760 --> 00:32:09,600
+alimenten. Aranceles, estoy de acuerdo en
+
+706
+00:32:09,600 --> 00:32:12,360
+que eliminemos los aranceles. Sí, muy bien.
+
+707
+00:32:12,360 --> 00:32:15,480
+Podemos eliminar los aranceles. Las tasas
+
+708
+00:32:15,480 --> 00:32:18,200
+de interés, definitivamente, estoy de
+
+709
+00:32:18,200 --> 00:32:21,399
+acuerdo en que sean muy bajas, realmente,
+
+710
+00:32:21,399 --> 00:32:23,840
+más bajas que las de Keynes. Pienso que puede
+
+711
+00:32:23,840 --> 00:32:26,320
+darse. Pero lo que es muy claro en la
+
+712
+00:32:26,320 --> 00:32:28,039
+tasa de interés es que la tasa de
+
+713
+00:32:28,039 --> 00:32:30,120
+interés de captación del sistema
+
+714
+00:32:30,120 --> 00:32:32,880
+financiero debe eliminarse, debe ser cero,
+
+715
+00:32:32,880 --> 00:32:35,399
+y ya veremos por qué. Ya lo veremos más
+
+716
+00:32:35,399 --> 00:32:39,679
+adelante. Sobre el déficit fiscal, quiero
+
+717
+00:32:39,679 --> 00:32:42,799
+decir que el gobierno sí puede gastar
+
+718
+00:32:42,799 --> 00:32:44,440
+todo lo que se
+
+719
+00:32:44,440 --> 00:32:48,360
+necesita. El consumo, como veíamos atrás,
+
+720
+00:32:48,360 --> 00:32:50,320
+el consumo de las familias y del
+
+721
+00:32:50,320 --> 00:32:53,159
+gobierno, el gobierno debe alimentar un
+
+722
+00:32:53,159 --> 00:32:55,559
+consumo de tal forma que sea suficiente
+
+723
+00:32:55,559 --> 00:32:59,240
+para que alimente también el el mercado
+
+724
+00:32:59,240 --> 00:33:01,440
+y pueda funcionar el
+
+725
+00:33:01,440 --> 00:33:04,799
+sistema capitalista. Es algo así como
+
+726
+00:33:04,799 --> 00:33:06,880
+decir que el sistema capitalista tiene
+
+727
+00:33:06,880 --> 00:33:08,960
+que componerse de una mitad socialista y
+
+728
+00:33:08,960 --> 00:33:11,960
+otra mitad capitalista. Esa socialista,
+
+729
+00:33:11,960 --> 00:33:14,120
+llamémoslo así, es la que alimenta de
+
+730
+00:33:14,120 --> 00:33:16,399
+recursos al sistema para que los
+
+731
+00:33:16,399 --> 00:33:18,399
+capitalistas puedan trabajar
+
+732
+00:33:18,399 --> 00:33:22,200
+permanentemente. El déficit fiscal debe
+
+733
+00:33:22,200 --> 00:33:26,760
+existir, y puede ser tan alto como se
+
+734
+00:33:26,760 --> 00:33:28,919
+requiera, suficientemente alto para que
+
+735
+00:33:28,919 --> 00:33:30,519
+el sistema genere empleo para
+
+736
+00:33:30,519 --> 00:33:32,960
+absolutamente todas las personas en edad
+
+737
+00:33:32,960 --> 00:33:35,200
+de trabajar, para todas las personas.
+
+738
+00:33:35,200 --> 00:33:38,080
+Entonces, eso, ¿qué quiere decir? Que el
+
+739
+00:33:38,080 --> 00:33:40,440
+endeudamiento, o ustedes creerían que el
+
+740
+00:33:40,440 --> 00:33:42,279
+endeudamiento debería ser muy grande. No,
+
+741
+00:33:42,279 --> 00:33:45,799
+mire, el endeudamiento puede ser cero,
+
+742
+00:33:45,799 --> 00:33:48,159
+siempre y cuando hagamos la emisión de
+
+743
+00:33:48,159 --> 00:33:50,519
+dinero, entonces, del Banco Central
+
+744
+00:33:50,519 --> 00:33:51,960
+directamente a los gobiernos, sin
+
+745
+00:33:51,960 --> 00:33:54,600
+necesidad de de préstamo ni nada. El
+
+746
+00:33:54,600 --> 00:33:58,360
+recurso dinero es ilimitado. Problema es
+
+747
+00:33:58,360 --> 00:34:01,760
+cómo lo podemos utilizar. Más adelante
+
+748
+00:34:01,760 --> 00:34:04,120
+explicaremos todo esto. Cómo, ya en forma
+
+749
+00:34:04,120 --> 00:34:07,600
+visual, al descomponer el los sistemas y
+
+750
+00:34:07,600 --> 00:34:11,000
+mirar cómo funciona el sistema económico,
+
+751
+00:34:11,000 --> 00:34:13,480
+entonces veremos más claramente ese
+
+752
+00:34:13,480 --> 00:34:16,480
+punto. En este momento, lo dejo solamente
+
+753
+00:34:16,480 --> 00:34:18,919
+anunciado. Esas emisiones de dinero
+
+754
+00:34:18,919 --> 00:34:20,200
+pueden hacerse
+
+755
+00:34:20,200 --> 00:34:24,280
+libremente, y endeudamiento cero. Los
+
+756
+00:34:24,280 --> 00:34:28,159
+impuestos, en este caso, pueden ser bajo,
+
+757
+00:34:28,159 --> 00:34:30,560
+bastante bajos, apenas para hacer una
+
+758
+00:34:30,560 --> 00:34:34,240
+redistribución equitativa del dinero
+
+759
+00
+
+760
+00:34:02,240 --> 00:34:05,280
+dentro de toda la población. Las
+
+761
+00:34:05,280 --> 00:34:08,040
+privatizaciones se pueden hacer, pero
+
+762
+00:34:08,040 --> 00:34:10,840
+siempre y cuando haya competencia en el
+
+763
+00:34:10,840 --> 00:34:13,639
+mercado, haya competencia en la oferta. Es
+
+764
+00:34:13,639 --> 00:34:15,280
+más importante que haya competencia en
+
+765
+00:34:15,280 --> 00:34:17,480
+la oferta cuando se trata, por ejemplo, de
+
+766
+00:34:17,480 --> 00:34:20,000
+los servicios
+
+767
+00:34:20,000 --> 00:34:24,640
+públicos. Entonces, vean, tenemos tres
+
+768
+00:34:24,640 --> 00:34:26,680
+posibilidades. Descartar que haya más
+
+769
+00:34:26,680 --> 00:34:29,040
+posibilidad de combinaciones. Es que
+
+770
+00:34:29,040 --> 00:34:31,240
+cuando hablamos de unas políticas
+
+771
+00:34:31,240 --> 00:34:33,280
+económicas de
+
+772
+00:34:33,280 --> 00:34:36,400
+globalización, quiere decir que podemos
+
+773
+00:34:36,400 --> 00:34:38,800
+combinar, hacer muchas
+
+774
+00:34:38,800 --> 00:34:41,800
+combinaciones. La pregunta sería: ¿cuál de todas las
+
+775
+00:34:41,800 --> 00:34:45,000
+políticas era la mejor? Y
+
+776
+00:34:45,000 --> 00:34:47,119
+eso es muy importante poder resolver esa
+
+777
+00:34:47,119 --> 00:34:50,160
+pregunta. ¿Será que la del Fondo Monetario
+
+778
+00:34:50,160 --> 00:34:53,520
+Internacional es la mejor? No lo sabemos.
+
+779
+00:34:53,520 --> 00:34:56,720
+Eso había que demostrarlo. Había que
+
+780
+00:34:56,720 --> 00:34:59,440
+poner el contexto y desarrollarlo, y
+
+781
+00:34:59,440 --> 00:35:01,079
+todavía no lo
+
+782
+00:35:01,079 --> 00:35:04,040
+sabemos. El contexto que vamos a proponer
+
+783
+00:35:04,040 --> 00:35:06,560
+nos va a permitir definir cuál es la
+
+784
+00:35:06,560 --> 00:35:09,200
+mejor política de
+
+785
+00:35:09,200 --> 00:35:14,040
+todas. Este problema, ¿cuál es el la mejor
+
+786
+00:35:14,040 --> 00:35:17,280
+combinación de estas políticas? Entonces,
+
+787
+00:35:17,280 --> 00:35:20,840
+hagámonos, hagámonos un una simulación
+
+788
+00:35:20,840 --> 00:35:24,040
+muy importante para para poder ver el
+
+789
+00:35:24,040 --> 00:35:27,760
+sistema económico general, para separar
+
+790
+00:35:27,760 --> 00:35:31,040
+las partes de ese sistema, ver cómo
+
+791
+00:35:31,040 --> 00:35:34,319
+funciona cada cada parte y cómo funciona
+
+792
+00:35:34,319 --> 00:35:38,440
+en el conjunto. Vamos a
+
+793
+00:35:39,000 --> 00:35:42,480
+llegar a este gran sistema económico en
+
+794
+00:35:42,480 --> 00:35:45,960
+donde vamos a a relacionar todo. No se
+
+795
+00:35:45,960 --> 00:35:48,839
+asusten. Todo, cuando se explica ya por
+
+796
+00:35:48,839 --> 00:35:52,680
+pedazos, sale más más sencillo. Este
+
+797
+00:35:52,680 --> 00:35:54,640
+sistema económico que vamos a integrar,
+
+798
+00:35:54,640 --> 00:35:57,599
+vamos a hablar de un un país, de un país
+
+799
+00:35:57,599 --> 00:36:00,280
+que tiene un Banco Central, de un país
+
+800
+00:36:00,280 --> 00:36:04,280
+que desarrolla una masa monetaria, y masa
+
+801
+00:36:04,280 --> 00:36:06,240
+monetaria que a veces aumenta y a veces
+
+802
+00:36:06,240 --> 00:36:08,680
+disminuye. Un país que tiene
+
+803
+00:36:08,680 --> 00:36:12,119
+exportaciones e importaciones. Un país
+
+804
+00:36:12,119 --> 00:36:15,359
+que recibe crédito, recibe inversión
+
+805
+00:36:15,359 --> 00:36:19,880
+externa, vende activos y recibe ingresos.
+
+806
+00:36:19,880 --> 00:36:22,599
+Un país que maneja unas reservas
+
+807
+00:36:22,599 --> 00:36:24,960
+internacionales a través de una tasa de
+
+808
+00:36:24,960 --> 00:36:26,040
+cambio.
+
+809
+00:36:26,040 --> 00:36:29,000
+Un país que tiene un gobierno que actúa
+
+810
+00:36:29,000 --> 00:36:32,920
+y tiene unos ingresos y unos egresos
+
+811
+00:36:32,920 --> 00:36:35,599
+presupuestales. Un país donde toda la
+
+812
+00:36:35,599 --> 00:36:39,079
+actividad económica se se desarrolla en
+
+813
+00:36:39,079 --> 00:36:43,319
+sus tres actividades básicas:
+
+814
+00:36:43,319 --> 00:36:47,480
+agricultura, el el agro, la parte primaria,
+
+815
+00:36:47,480 --> 00:36:49,640
+la parte secundaria de la industria, y la
+
+816
+00:36:49,640 --> 00:36:52,000
+parte terciaria de los servicios,
+
+817
+00:36:52,000 --> 00:36:55,760
+incluida la banca. Un país donde el
+
+818
+00:36:55,760 --> 00:36:58,800
+gobierno hace un tipo de obras, donde el
+
+819
+00:36:58,800 --> 00:37:01,560
+gobierno interviene también en la en la
+
+820
+00:37:01,560 --> 00:37:04,880
+economía. Un país en donde la banca está
+
+821
+00:37:04,880 --> 00:37:08,720
+recibiendo unos unos recursos que
+
+822
+00:37:08,720 --> 00:37:11,319
+llamamos de captación, en donde se
+
+823
+00:37:11,319 --> 00:37:14,000
+interrelaciona con las tasas de interés,
+
+824
+00:37:14,000 --> 00:37:16,839
+y le presta a la industria. La industria
+
+825
+00:37:16,839 --> 00:37:19,720
+y los particulares se endeudan a través
+
+826
+00:37:19,720 --> 00:37:22,800
+de sus costos y su actividad comercial,
+
+827
+00:37:22,800 --> 00:37:27,240
+donde se genera la inversión y se
+
+828
+00:37:27,240 --> 00:37:31,119
+interrelaciona todo el sistema. Entonces,
+
+829
+00:37:31,119 --> 00:37:34,359
+para poder ver ese conjunto, vamos a irlo
+
+830
+00:37:34,359 --> 00:37:36,760
+desarrollando a pedazos. Entonces, vamos a
+
+831
+00:37:36,760 --> 00:37:39,359
+desarrollar primero esta primera parte
+
+832
+00:37:39,359 --> 00:37:40,920
+que es la que
+
+833
+00:37:40,920 --> 00:37:42,480
+tenemos
+
+834
+00:37:42,480 --> 00:37:46,640
+aquí. Tenemos un país, cualquiera,
+
+835
+00:37:46,640 --> 00:37:48,920
+cualquiera, cualquier país puede ser
+
+836
+00:37:48,920 --> 00:37:51,160
+Estados Unidos, puede ser Colombia, puede
+
+837
+00:37:51,160 --> 00:37:54,359
+ser China, puede ser Rusia, puede ser el
+
+838
+00:37:54,359 --> 00:37:56,599
+que ustedes quieran.
+
+839
+00:37:56,599 --> 00:37:59,400
+Todos los países funcionan más o menos
+
+840
+00:37:59,400 --> 00:38:03,400
+en la misma forma. Tenemos un Banco
+
+841
+00:38:03,400 --> 00:38:07,599
+Central en esos países. Tenemos un
+
+842
+00:38:07,599 --> 00:38:10,480
+gobierno que está ejecutando unos
+
+843
+00:38:10,480 --> 00:38:13,160
+ingresos y unos ingresos
+
+844
+00:38:13,160 --> 00:38:15,960
+presupuestales. Tenemos un país al que le
+
+845
+00:38:15,960 --> 00:38:19,599
+está entrando dinero por muchas
+
+846
+00:38:19,599 --> 00:38:22,880
+fuentes. Ya las vamos a ver. Dinero que a
+
+847
+00:38:22,880 --> 00:38:27,119
+veces aumenta, a veces disminuye.
+
+848
+00:38:27,240 --> 00:38:29,839
+¿Qué se necesita para que el país siempre
+
+849
+00:38:29,839 --> 00:38:32,839
+esté funcionando perfectamente bien? Que
+
+850
+00:38:32,839 --> 00:38:34,920
+el dinero siempre esté
+
+851
+00:38:34,920 --> 00:38:37,319
+aumentando. Permanentemente debe estar
+
+852
+00:38:37,319 --> 00:38:38,760
+aumentando, porque el país
+
+853
+00:38:38,760 --> 00:38:40,800
+permanentemente está en
+
+854
+00:38:40,800 --> 00:38:43,000
+crecimiento. Para que ustedes se hagan
+
+855
+00:38:43,000 --> 00:38:46,000
+una idea de lo grave que es no tener
+
+856
+00:38:46,000 --> 00:38:48,800
+dinero, entonces de pronto quítenle
+
+857
+00:38:48,800 --> 00:38:51,359
+dinero al sistema. Imagínenselo. Esto
+
+858
+00:38:51,359 --> 00:38:53,760
+tiene que cogerlo en su imaginación.
+
+859
+00:38:53,760 --> 00:38:55,800
+Quítenle dinero al sistema y y piensen
+
+860
+00:38:55,800 --> 00:38:57,880
+qué va pasando. Si le quitamos dinero al
+
+861
+00:38:57,880 --> 00:39:00,359
+sistema, el sistema se va quedando sin
+
+862
+00:39:00,359 --> 00:39:03,520
+dinero. Entonces, ah, ustedes dirán
+
+863
+00:39:03,520 --> 00:39:06,599
+inmediatamente: no, pues entonces toca a
+
+864
+00:39:06,599 --> 00:39:10,119
+el trueque. No, el trueque le funcionaba
+
+865
+00:39:10,119 --> 00:39:13,440
+cuando era muy poquita la la gente, pero
+
+866
+00:39:13,440 --> 00:39:15,240
+hoy, con esta millonada de gente, ¿usted cree
+
+867
+00:39:15,240 --> 00:39:18,400
+que le va a funcionar el trueque? Olvídese. Se
+
+868
+00:39:18,400 --> 00:39:20,800
+va a estancar la economía, y la población
+
+869
+00:39:20,800 --> 00:39:22,839
+puede llegar a morir de hambre si no hay
+
+870
+00:39:22,839 --> 00:39:25,440
+dinero en el sistema.
+
+871
+00:39:25,440 --> 00:39:26,880
+No hay dinero, se estancó todo el
+
+872
+00:39:26,880 --> 00:39:29,359
+comercio, pero absolutamente todo.
+
+873
+00:39:29,359 --> 00:39:32,480
+Imagínenselo ustedes bien. Entonces
+
+874
+00:39:32,480 --> 00:39:34,560
+entenderán lo importante que es el
+
+875
+00:39:34,560 --> 00:39:36,400
+control de la masa monetaria en el
+
+876
+00:39:36,400 --> 00:39:40,240
+sistema. Si el sistema oscila, vamos a
+
+877
+00:39:40,240 --> 00:39:43,079
+tener, entonces, crisis. Si en un momento
+
+878
+00:39:43,079 --> 00:39:45,119
+dado tenemos buena masa monetaria, que
+
+879
+00:39:45,119 --> 00:39:47,280
+está creciendo, y el dinero es barato,
+
+880
+00:39:47,280 --> 00:39:49,839
+vamos a tener expansión. Pero si de
+
+881
+00:39:49,839 --> 00:39:51,960
+pronto lo frenamos y subimos la tasa de
+
+882
+00:39:51,960 --> 00:39:53,599
+interés, y le empezamos a quitar dinero
+
+883
+00:39:53,599 --> 00:39:56,520
+al sistema, vamos a tener contracción.
+
+884
+00:39:56,520 --> 00:39:58,640
+Cuando el Banco Central dice: hay que
+
+885
+00:39:58,640 --> 00:40:01,599
+subir la tasa de interés, y hay que
+
+886
+00:40:01,599 --> 00:40:04,000
+disminuir el gasto público, entonces está
+
+887
+00:40:04,000 --> 00:40:05,599
+diciendo que le quitemos dinero al
+
+888
+00:40:05,599 --> 00:40:07,560
+sistema, y el sistema empieza a
+
+889
+00:40:07,560 --> 00:40:10,280
+contraerse, y empieza a verse la crisis.
+
+890
+00:40:10,280 --> 00:40:13,960
+Entonces, ¿cómo es el asunto con el
+
+891
+00:40:13,960 --> 00:40:16,720
+dinero? ¿Cómo va surgiendo dinero a la
+
+892
+00:40:16,720 --> 00:40:19,119
+economía y cómo va saliendo dinero de la
+
+893
+00:40:19,119 --> 00:40:21,640
+economía? Tenemos que analizar ese ese
+
+894
+00:40:21,640 --> 00:40:24,839
+aspecto. Entonces, vamos por partes. Cuando
+
+895
+00:40:24,839 --> 00:40:27,760
+los gente se encontraban oro, los
+
+896
+00:40:27,760 --> 00:40:30,560
+buscadores de oro encontraban oro, y
+
+897
+00:40:30,560 --> 00:40:32,280
+venían y se lo vendían al gobierno, al
+
+898
+00:40:32,280 --> 00:40:34,000
+Banco Central, y el Banco Central
+
+899
+00:40:34,000 --> 00:40:37,040
+compraba ese oro, y surgían pesos a la
+
+900
+00:40:37,040 --> 00:40:39,359
+economía. Surgían pesos a la economía
+
+901
+00:40:39,359 --> 00:40:41,400
+cuando encontramos oro. Surgen pesos a la
+
+902
+00:40:41,400 --> 00:40:43,640
+economía si se los venden directamente
+
+903
+00:40:43,640 --> 00:40:46,960
+al Banco Central. El Banco Central emite
+
+904
+00:40:46,960 --> 00:40:50,400
+dinero, y surgen pesos a la economía.
+
+905
+00:40:50,400 --> 00:40:52,400
+Importantísimo,
+
+906
+00:40:52,400 --> 00:40:55,319
+¿verdad? Cuando hacíamos eso, nos que
+
+907
+00:40:55,319 --> 00:40:57,560
+estamos pegados con que, entonces, el
+
+908
+00:40:57,560 --> 00:41:00,920
+respaldo del dinero era el oro. Les quiero
+
+909
+00:41:00,920 --> 00:41:03,640
+decir de una vez: el dinero no necesita
+
+910
+00:41:03,640 --> 00:41:05,960
+respaldo para
+
+911
+00:41:05,960 --> 00:41:08,680
+nada. Eso fue una etapa histórica, pero
+
+912
+00:41:08,680 --> 00:41:11,480
+eso ya se abandonó hace mucho tiempo. La
+
+913
+00:41:11,480 --> 00:41:13,000
+gente, de pronto, sigue pensando que se
+
+914
+00:41:13,000 --> 00:41:15,280
+necesita respaldo, pero no es cierto. No
+
+915
+00:41:15,280 --> 00:41:18,119
+se necesita. Eso surgió en esa época, y
+
+916
+00:41:18,119 --> 00:41:21,880
+nos quedamos con ese chicle pegado ahí,
+
+917
+00:41:21,880 --> 00:41:24,040
+pero hay que hay que borrar eso, si
+
+918
+00:41:24,040 --> 00:41:25,800
+queremos seguir evolu-
+
+919
+00:41:25,800 --> 00:41:30,359
+cionando. El dinero no necesita respaldo de
+
+920
+00:41:30,359 --> 00:41:33,560
+ninguna clase. Bien, otra forma en que surge
+
+921
+00:41:33,560 --> 00:41:35,520
+dinero a la economía: cuando hacemos
+
+922
+00:41:35,520 --> 00:41:37,040
+exportaciones.
+
+923
+00:41:37,040 --> 00:41:39,640
+Nuestros agentes aquí hacen una
+
+924
+00:41:39,640 --> 00:41:41,800
+exportación, por ejemplo, exportamos café,
+
+925
+00:41:41,800 --> 00:41:46,119
+y de afuera nos pagan con dólares.
+
+926
+00:41:46,119 --> 00:41:48,240
+Dólares que, cuando entran aquí, se quedan
+
+927
+00:41:48,240 --> 00:41:50,359
+en una cajita que se llama reservas, que
+
+928
+00:41:50,359 --> 00:41:54,200
+maneja el Banco Central, y le emite pesos
+
+929
+00:41:54,200 --> 00:41:55,680
+a
+
+930
+00:41:55,680 --> 00:41:58,000
+al que hizo la exportación, y surgen
+
+931
+00:41:58,000 --> 00:42:00,880
+pesos para la economía
+
+932
+00:42:00,880 --> 00:42:04,000
+internamente. Esos pesos aumentan cuando
+
+933
+00:42:04,000 --> 00:42:06,119
+hay exportaciones. Pero cuando hay
+
+934
+00:42:06,119 --> 00:42:08,680
+importaciones, entonces el agente que
+
+935
+00:42:08,680 --> 00:42:12,520
+hizo la importación necesita pagar en
+
+936
+00:42:12,520 --> 00:42:15,440
+dólares. Entonces, tiene que coger pesos
+
+937
+00:42:15,440 --> 00:42:18,079
+de aquí, de la circulación, venir acá y
+
+938
+00:42:18,079 --> 00:42:19,640
+comprar
+
+939
+00:42:19,640 --> 00:42:22,599
+dólares, y los pesos, fíjense, que vienen y
+
+940
+00:42:22,599 --> 00:42:24,280
+se devuelven al Banco Central, y
+
+941
+00:42:24,280 --> 00:42:26,280
+desaparecen de de la
+
+942
+00:42:26,280 --> 00:42:29,400
+circulación. Y entonces, el este agente,
+
+943
+00:42:29,400 --> 00:42:32,280
+con dólares, paga esa
+
+944
+00:42:32,280 --> 00:42:36,160
+importación. Bien, exportación aumenta
+
+945
+00:42:36,160 --> 00:42:40,760
+dinero, importación disminuye el
+
+946
+00:42:41,400 --> 00:42:43,520
+dinero.
+
+947
+00:42:43,520 --> 00:42:47,079
+Cuando viene un crédito del
+
+948
+00:42:47,079 --> 00:42:49,559
+exterior, una empresa aquí pide un
+
+949
+00:42:49,559 --> 00:42:51,400
+préstamo, una empresa puede ser el mismo
+
+950
+00:42:51,400 --> 00:42:53,280
+gobierno quien pide un préstamo, puede
+
+951
+00:42:53,280 --> 00:42:54,760
+ser una empresa particular que pide un
+
+952
+00:42:54,760 --> 00:42:56,559
+préstamo.
+
+953
+00:42:56,559 --> 00:42:59,640
+Cuando ocurre eso, entonces vienen
+
+954
+00:42:59,640 --> 00:43:02,480
+el crédito, aumentan las reservas del
+
+955
+00:43:02,480 --> 00:43:04,640
+banco, y el banco emite pesos. Surgen
+
+956
+00:43:04,640 --> 00:43:06,440
+pesos a la
+
+957
+00:43:06,440 --> 00:43:09,720
+economía. Cuando viene un agente externo
+
+958
+00:43:09,720 --> 00:43:11,800
+a hacer una inversión, cuando viene una
+
+959
+00:43:11,800 --> 00:43:14,400
+petrolera a hacer una inversión, trae
+
+960
+00:43:14,400 --> 00:43:20,119
+dólares, y emiten pesos, y se aumentan las
+
+961
+00:43:20,119 --> 00:43:22,559
+reservas.
+
+962
+00:43:22,559 --> 00:43:26,000
+Bien, ahí van surgiendo los pesos a la
+
+963
+00:43:26,000 --> 00:43:29,920
+economía. ¿Qué pasa después cuando se va a
+
+964
+00:43:29,920 --> 00:43:33,359
+pagar el crédito? Entonces, la gente, la
+
+965
+00:43:33,359 --> 00:43:37,000
+gente aquí tiene que coger pesos de acá,
+
+966
+00:43:37,000 --> 00:43:42,480
+y pagar. Trae pesos, compra dólares, y paga
+
+967
+00:43:42,480 --> 00:43:45,400
+en dólares. ¿Qué pasó con los pesos? Se
+
+968
+00:43:45,400 --> 00:43:48,760
+vinieron al Banco Central, salieron pesos
+
+969
+00:43:48,760 --> 00:43:51,400
+de la circulación de la economía. Los
+
+970
+00:43:51,400 --> 00:43:53,359
+pesos, cuando entran al Banco Central,
+
+971
+00:43:53,359 --> 00:43:55,319
+desaparecen de la circulación de la
+
+972
+00:43:55,319 --> 00:43:57,920
+economía, y nosotros necesitamos que los
+
+973
+00:43:57,920 --> 00:44:01,079
+pesos estén aquí circulando. Entonces, ahí
+
+974
+00:44:01,079 --> 00:44:04,280
+vemos que a veces aumenta, y a veces
+
+975
+00:44:04,280 --> 00:44:06,760
+disminuye. Cuando la inversión también
+
+976
+00:44:06,760 --> 00:44:10,079
+empieza a revertir utilidades, entonces
+
+977
+00:44:10,079 --> 00:44:12,800
+el proceso inverso: los pesos vienen al
+
+978
+00:44:12,800 --> 00:44:15,960
+Banco Central, y se paga en dólares.
+
+979
+00:44:15,960 --> 00:44:17,920
+Cuando vendemos, ¿qué pasa cuando vendemos
+
+980
+00:44:17,920 --> 00:44:19,839
+un activo o una empresa? Cuando vendimos,
+
+981
+00:44:19,839 --> 00:44:23,240
+e, la empresa de energía, se vendió la
+
+982
+00:44:23,240 --> 00:44:26,200
+empresa de energía, entraron dólares,
+
+983
+00:44:26,200 --> 00:44:28,200
+pero después, entonces, ellos empiezan a
+
+984
+00:44:28,200 --> 00:44:29,880
+sacar las
+
+985
+00:44:29,880 --> 00:44:32,319
+utilidades. Entonces, ¿qué, qué ocurre?
+
+986
+00:44:32,319 --> 00:44:35,280
+Cogemos los pesos aquí, compramos dólares,
+
+987
+00:44:35,280 --> 00:44:37,960
+y se paga en dólares. Entonces, empiezan a
+
+988
+00:44:37,960 --> 00:44:41,480
+salir pesos. Muy bien. Aquí podríamos
+
+989
+00:44:41,480 --> 00:44:44,119
+hacernos una pregunta: si no existieran
+
+990
+00:44:44,119 --> 00:44:47,839
+más elementos, sino solo estos,
+
+991
+00:44:47,839 --> 00:44:50,839
+importaciones, exportaciones, que es lo
+
+992
+00:44:50,839 --> 00:44:55,720
+que llamamos la la la
+
+993
+00:44:55,720 --> 00:45:00,079
+la balanza comercial, o la balanza de
+
+994
+00:45:00,079 --> 00:45:03,720
+pagos, cuando las combinamos ambas con
+
+995
+00:45:03,720 --> 00:45:06,319
+con los recursos de oro internos, podemos
+
+996
+00:45:06,319 --> 00:45:09,960
+preguntarnos: si no existen más elementos,
+
+997
+00:45:09,960 --> 00:45:13,160
+¿qué puede estar pasando aquí con los
+
+998
+00:45:13,160 --> 00:45:16,000
+pesos? Con la entrada y la salida de los
+
+999
+00:45:16,000 --> 00:45:19,960
+pesos. Entonces, ¿qué será mayor? ¿Las
+
+1000
+00:45:19,960 --> 00:45:24,000
+exportaciones o las importaciones?
+
+1001
+00:45:25,160 --> 00:45:27,240
+Estas dos, quiero decirles, en general,
+
+1002
+00:45:27,240 --> 00:45:30,559
+tienden a equilibrarse. Tienden a ser
+
+1003
+00:45:30,559 --> 00:45:34,240
+iguales. Si no existiera nada más, estas
+
+1004
+00:45:34,240 --> 00:45:37,160
+dos deberían ser iguales, y entonces el
+
+1005
+00:45:37,160 --> 00:45:39,720
+precio del dólar, de acuerdo a la
+
+1006
+00:45:39,720 --> 00:45:41,520
+cantidad de reservas que hay, el precio
+
+1007
+00:45:41,520 --> 00:45:44,960
+puede subir o bajar, y sube y baja de tal
+
+1008
+00:45:44,960 --> 00:45:47,960
+forma que equilibra estas
+
+1009
+00:45:47,960 --> 00:45:50,920
+dos. Dijéramos, ahí un empate. Pero esto se
+
+1010
+00:45:50,920 --> 00:45:52,760
+puede desequilibrar en algún momento
+
+1011
+00:45:52,760 --> 00:45:55,760
+dado. Veremos más adelante.
+
+1012
+00:45:55,760 --> 00:45:58,200
+¿Qué pasa con los créditos? ¿Qué será mayor,
+
+1013
+00:45:58,200 --> 00:46:02,200
+el ingreso o el egreso? Entonces, ya
+
+1014
+00:46:02,200 --> 00:46:04,480
+poniendo esto a funcionar en el tiempo,
+
+1015
+00:46:04,480 --> 00:46:06,160
+un crédito a 10 años, entonces, al
+
+1016
+00:46:06,160 --> 00:46:08,119
+comienzo, no, se entró el crédito, muy bien,
+
+1017
+00:46:08,119 --> 00:46:10,480
+entró buena plata, pero después hay que
+
+1018
+00:46:10,480 --> 00:46:13,599
+hay que pagarlo en el término de 10 años.
+
+1019
+00:46:13,599 --> 00:46:17,000
+¿Qué será mejor, el mayor, el ingreso o el
+
+1020
+00:46:17,000 --> 00:46:21,800
+egreso de dinero? Entonces, ustedes, claro,
+
+1021
+00:46:21,800 --> 00:46:23,680
+hay que pagar no solo el crédito, el
+
+1022
+00:46:23,680 --> 00:46:25,680
+valor del crédito,
+
+1023
+00:46:25,680 --> 00:46:27,720
+el crédito, sino también los intereses.
+
+1024
+00:46:27,720 --> 00:46:31,240
+Entonces, serán mejor, mayores las salidas
+
+1025
+00:46:31,240 --> 00:46:33,960
+de dinero, ¿verdad? Cuando viene una
+
+1026
+00:46:33,960 --> 00:46:36,760
+inversión a largo plazo, ¿qué será mayor,
+
+1027
+00:46:36,760 --> 00:46:38,440
+la entrada o la
+
+1028
+00:46:38,440 --> 00:46:42,559
+salida? La salida. Cuando hay venta de
+
+1029
+00:46:42,559 --> 00:46:44,760
+activos, ¿qué será mayor, la entrada o la
+
+1030
+00:46:44,760 --> 00:46:47,960
+salida? Entonces, todos coincidirán en que
+
+1031
+00:46:47,960 --> 00:46:50,000
+la salida de dinero, entonces, si no
+
+1032
+00:46:50,000 --> 00:46:53,200
+existen más elementos, ustedes se darán
+
+1033
+00:46:53,200 --> 00:46:55,480
+cuenta por qué llega una crisis, porque
+
+1034
+00:46:55,480 --> 00:46:58,359
+las salidas van a ser mayores. Las
+
+1035
+00:46:58,359 --> 00:47:02,079
+salidas de dinero. Ustedes dirán: pero,
+
+1036
+00:47:02,079 --> 00:47:03,680
+pero, pero, no es lo que está pasando
+
+1037
+00:47:03,680 --> 00:47:05,000
+ahorita.
+
+1038
+00:47:05,000 --> 00:47:07,559
+Ahorita está ocurriendo todo eso, pero
+
+1039
+00:47:07,559 --> 00:47:10,040
+está llegando muchos dólares. Sí, pero es
+
+1040
+00:47:10,040 --> 00:47:11,680
+que nos estamos endeudando todavía,
+
+1041
+00:47:11,680 --> 00:47:14,880
+endeudando, endeudando, y entonces esas
+
+1042
+00:47:14,880 --> 00:47:17,200
+mayores deudas hace que aumenten las
+
+1043
+00:47:17,200 --> 00:47:18,720
+reservas. Ustedes, sí se han dado cuenta
+
+1044
+00:47:18,720 --> 00:47:20,880
+que tenemos una reservas muy elevadas,
+
+1045
+00:47:20,880 --> 00:47:23,920
+casi del orden de los 25.000 millones de
+
+1046
+00:47:23,920 --> 00:47:25,559
+de de de
+
+1047
+00:47:25,559 --> 00:47:27,359
+dólares, una
+
+1048
+00:47:27,359 --> 00:47:32,559
+barbaridad. Y eso hace que el dólar sea
+
+1049
+00:47:32,559 --> 00:47:35,520
+bajito. Nos estamos endeudando todavía, en
+
+1050
+00:47:35,520 --> 00:47:37,400
+el proceso de endeudamiento.
+
+1051
+00:47:37,400 --> 00:47:40,200
+Entonces, cuando haya que pagar todo eso,
+
+1052
+00:47:40,200 --> 00:47:43,559
+se va a desenredar toda la madeja, y la
+
+1053
+00:47:43,559 --> 00:47:45,800
+crisis va a ser terrible. De hecho, ya
+
+1054
+00:47:45,800 --> 00:47:50,000
+tenemos crisis en este momento. ¿Qué pasa,
+
+1055
+00:47:50,000 --> 00:47:53,280
+entonces, si no hay más elementos sino
+
+1056
+00:47:53,280 --> 00:47:55,760
+esos? Entonces, cuenten, que primero nos
+
+1057
+00:47:55,760 --> 00:47:57,920
+endeudamos. Cuando nos endeudamos,
+
+1058
+00:47:57,920 --> 00:48:00,200
+aumentan las reservas. Fíjense que el
+
+1059
+00:48:00,200 --> 00:48:02,800
+precio del dólar es muy especial. Cuando
+
+1060
+00:48:02,800 --> 00:48:05,760
+hay muchos dólares, su precio baja. Cuando
+
+1061
+00:48:05,760 --> 00:48:07,960
+el precio baja, entonces las
+
+1062
+00:48:07,960 --> 00:48:10,280
+importaciones, como se consiguen más
+
+1063
+00:48:10,280 --> 00:48:13,280
+baratas, van a aumentar. Desequilibramos
+
+1064
+00:48:13,280 --> 00:48:15,720
+la balanza, ¿cierto? Entonces, cuando
+
+1065
+00:48:15,720 --> 00:48:18,359
+desequilibramos esa balanza,
+
+1066
+00:48:18,359 --> 00:48:21,359
+entonces, internamente, entran productos
+
+1067
+00:48:21,359 --> 00:48:24,760
+muy baratos, y nuestra industria tiene
+
+1068
+00:48:24,760 --> 00:48:28,480
+dificultad. Va a, va a empezar a cerrarse,
+
+1069
+00:48:28,480 --> 00:48:30,079
+va a empezar a quebrarse. No puede con
+
+1070
+00:48:30,079 --> 00:48:32,480
+esa competencia. ¿Cómo se desequilibró
+
+1071
+00:48:32,480 --> 00:48:36,079
+esto? Con créditos, con muchos dólares.
+
+1072
+00:48:36,079 --> 00:48:38,760
+Muchos dólares, precio bajo, y entonces se
+
+1073
+00:48:38,760 --> 00:48:41,200
+desequilibró esta balanza comercial. De
+
+1074
+00:48:41,200 --> 00:48:42,880
+hecho, desde que comenzamos, más o menos
+
+1075
+00:48:42,880 --> 00:48:46,760
+en el 91, que antes las importación y
+
+1076
+00:48:46,760 --> 00:48:49,200
+exportaciones oscilaban, dejaron de
+
+1077
+00:48:49,200 --> 00:48:51,720
+oscilar, y siempre son mayores las
+
+1078
+00:48:51,720 --> 00:48:54,720
+importaciones, desde, desde aquel entonces,
+
+1079
+00:48:54,720 --> 00:48:57,839
+desde el 91, que empezó en Colombia esa
+
+1080
+00:48:57,839 --> 00:49:00,799
+globalización, que empezó en Colombia esa
+
+1081
+00:49:00,799 --> 00:49:03,240
+globalización de no emitir dinero.
+
+1082
+00:49:03,240 --> 00:49:05,920
+Entonces, fíjense cómo podemos alimentar
+
+1083
+00:49:05,920 --> 00:49:09,440
+también este sistema. El Banco Central
+
+1084
+00:49:09,440 --> 00:49:12,040
+hace una emisión de dinero, y se la da al
+
+1085
+00:49:12,040 --> 00:49:14,839
+gobierno para que el gobierno la incluya
+
+1086
+00:49:14,839 --> 00:49:17,839
+dentro de sus ingresos, y dentro de sus
+
+1087
+00:49:17,839 --> 00:49:20,079
+gastos. Los gastos del gobierno son
+
+1088
+00:49:20,079 --> 00:49:22,040
+gastos de
+
+1089
+00:49:22,040 --> 00:49:24,760
+funcionamiento, gastos de inversión, y
+
+1090
+00:49:24,760 --> 00:49:27,359
+servicio de la
+
+1091
+00:49:30,359 --> 00:49:33,640
+deuda. Los ingresos del gobierno son
+
+1092
+00:49:33,640 --> 00:49:35,760
+ingresos corrientes y recursos de
+
+1093
+00:49:35,760 --> 00:49:38,000
+capital. Bien, ese dinero que se hace
+
+1094
+00:49:38,000 --> 00:49:40,760
+puede venir como un recurso de capital.
+
+1095
+00:49:40,760 --> 00:49:42,960
+Normalmente, ese recurso de capital es el
+
+1096
+00:49:42,960 --> 00:49:45,760
+que ingresa como una deuda, una deuda del
+
+1097
+00:49:45,760 --> 00:49:48,040
+Banco Central, o una deuda de otros
+
+1098
+00:49:48,040 --> 00:49:50,240
+bancos. El gobierno se endeuda con otros
+
+1099
+00:49:50,240 --> 00:49:53,160
+bancos. Entonces, es un recurso de capital.
+
+1100
+00:49:53,160 --> 00:49:55,319
+Este recurso de capital puede ser una
+
+1101
+00:49:55,319 --> 00:49:57,680
+cosa muy especial, porque no tendría por
+
+1102
+00:49:57,680 --> 00:49:59,480
+qué
+
+1103
+00:49:59,480 --> 00:50:03,920
+ser un préstamo, sino un recurso de sí
+
+1104
+00:50:03,920 --> 00:50:05,520
+mismo, porque el Banco Central y el
+
+1105
+00:50:05,520 --> 00:50:08,799
+gobierno son lo mismo, y el dinero es un
+
+1106
+00:50:08,799 --> 00:50:11,119
+dinero que se necesita socialmente. Luego,
+
+1107
+00:50:11,119 --> 00:50:13,599
+entonces, el dinero puede entrar al
+
+1108
+00:50:13,599 --> 00:50:17,040
+gobierno no como préstamo, sino como el
+
+1109
+00:50:17,040 --> 00:50:19,640
+la parte, el aporte que se necesita para
+
+1110
+00:50:19,640 --> 00:50:21,960
+ese año. Fíjese que eso nos hace
+
+1111
+00:50:21,960 --> 00:50:25,280
+desaparecer la deuda. Entonces, hay un
+
+1112
+00:50:25,280 --> 00:50:28,680
+país puede funcionar sin deuda, con este
+
+1113
+00:50:28,680 --> 00:50:32,160
+recurso de emisión, para equilibrar esas
+
+1114
+00:50:32,160 --> 00:50:34,599
+entradas y salidas de dinero, para
+
+1115
+00:50:34,599 --> 00:50:37,400
+equilibrar que el dinero crezca
+
+1116
+00:50:37,400 --> 00:50:38,680
+permanentemente.
+
+1117
+00:50:38,680 --> 00:50:41,440
+¿En qué cantidades? En las cantidades
+
+1118
+00:50:41,440 --> 00:50:43,920
+necesarias para que se genere empleo
+
+1119
+00:50:43,920 --> 00:50:46,760
+para toda la población, no hasta que se
+
+1120
+00:50:46,760 --> 00:50:50,520
+desborden los precios. No, el necesario. El
+
+1121
+00:50:50,520 --> 00:50:55,000
+asunto es que este recurso es ilimitado.
+
+1122
+00:50:55,000 --> 00:50:57,079
+Lo fundamental es que el universo es
+
+1123
+00:50:57,079 --> 00:50:59,040
+ilimitado. El universo nos puede dar
+
+1124
+00:50:59,040 --> 00:51:01,720
+absolutamente todo lo que queramos, y
+
+1125
+00:51:01,720 --> 00:51:04,480
+aquí, el dinero también es ilimitado.
+
+1126
+00:51:04,480 --> 00:51:06,119
+Nosotros siempre hemos peleado que no
+
+1127
+00:51:06,119 --> 00:51:08,079
+tenemos dinero, que el dinero lo tienen
+
+1128
+00:51:08,079 --> 00:51:11,240
+allá, los americanos y los europeos. Ellos
+
+1129
+00:51:11,240 --> 00:51:13,839
+lo hacen en la misma forma. Lo hacen de
+
+1130
+00:51:13,839 --> 00:51:16,799
+acá, entonces, y lo hacen con, por eso les
+
+1131
+00:51:16,799 --> 00:51:18,720
+decía que esto puede ser cualquier país
+
+1132
+00:51:18,720 --> 00:51:23,400
+del del mundo. Bien, ese dinero entraría, y
+
+1133
+00:51:23,400 --> 00:51:25,720
+fíjese, entraría equilibrando una
+
+1134
+00:51:25,720 --> 00:51:29,240
+necesidad. Produciría
+
+1135
+00:51:30,000 --> 00:51:31,680
+inflación
+
+1136
+00:51:31,680 --> 00:51:33,960
+necesariamente? Estamos dando el dinero
+
+1137
+00:51:33,960 --> 00:51:36,119
+que se necesita para que la producción,
+
+1138
+00:51:36,119 --> 00:51:38,319
+toda, vaya creciendo permanentemente.
+
+1139
+00:51:38,319 --> 00:51:41,200
+Entonces, no, no necesariamente es
+
+1140
+00:51:41,200 --> 00:51:43,520
+inflacionario. De hecho, no es
+
+1141
+00:51:43,520 --> 00:51:46,520
+inflacionario. Es más, una vez que hay
+
+1142
+00:51:46,520 --> 00:51:48,839
+buen dinero circulando en el sistema,
+
+1143
+00:51:48,839 --> 00:51:50,520
+llegó un momento en que a los
+
+1144
+00:51:50,520 --> 00:51:52,160
+productores les ha surgido tanta
+
+1145
+00:51:52,160 --> 00:51:54,799
+competencia, que los precios tienen que
+
+1146
+00:51:54,799 --> 00:51:58,280
+bajar, y tenderían a bajar, si al comienzo
+
+1147
+00:51:58,280 --> 00:52:02,119
+es que se hay inflación. Bien, lo
+
+1148
+00:52:02,119 --> 00:52:05,240
+importante es que entra un dinero para
+
+1149
+00:52:05,240 --> 00:52:08,640
+el gobierno, y el gobierno, como lo
+
+1150
+00:52:08,640 --> 00:52:10,960
+depositaría en un banco, entonces entra
+
+1151
+00:52:10,960 --> 00:52:13,520
+un factor multiplicador por parte de la
+
+1152
+00:52:13,520 --> 00:52:17,160
+banca, que haría que, cuando el gobierno
+
+1153
+00:52:17,160 --> 00:52:19,720
+le va a comprar a un
+
+1154
+00:52:19,720 --> 00:52:21,960
+particular, ese particular puede
+
+1155
+00:52:21,960 --> 00:52:23,319
+encontrar recursos también para
+
+1156
+00:52:23,319 --> 00:52:26,480
+endeudarse con la banca, y poder responder,
+
+1157
+00:52:26,480 --> 00:52:29,079
+y puede surgir, equilibradamente, la
+
+1158
+00:52:29,079 --> 00:52:33,559
+producción con la demanda. Entonces, no, no
+
+1159
+00:52:33,559 --> 00:52:36,319
+tiene por qué generarse esa inflación. Hagamos
+
+1160
+00:52:36,319 --> 00:52:38,799
+una simulación, una simulación muy
+
+1161
+00:52:38,799 --> 00:52:43,040
+especial. Hagamos un puente, un
+
+1162
+00:52:43,040 --> 00:52:46,559
+puente con emisión, y hagamos un puente
+
+1163
+00:52:46,559 --> 00:52:50,520
+con deuda, y vamos a ver cómo funciona la
+
+1164
+00:52:50,520 --> 00:52:55,160
+cosa. Hagamos primero el puente
+
+1165
+00:52:55,160 --> 00:52:58,640
+con la deuda, perdón, con la emisión.
+
+1166
+00:52:58,640 --> 00:53:02,480
+Entonces, ¿qué ocurre? El gobierno, el Banco
+
+1167
+00:53:02,480 --> 00:53:04,400
+Central hace una emisión de dinero, se la
+
+1168
+00:53:04,400 --> 00:53:06,240
+entrega al gobierno, que la mete dentro
+
+1169
+00:53:06,240 --> 00:53:08,599
+de sus ingresos, y a través del gasto,
+
+1170
+00:53:08,599 --> 00:53:11,480
+como gasto de inversión, hace el puente.
+
+1171
+00:53:11,480 --> 00:53:15,040
+Entonces, ¿qué ocurrió? Quedó, aumentó la
+
+1172
+00:53:15,040 --> 00:53:16,880
+masa monetaria, quedó circulando el
+
+1173
+00:53:16,880 --> 00:53:20,040
+dinero entre todos los, entre todo el
+
+1174
+00:53:20,040 --> 00:53:25,480
+país, se hizo el puente, y el dinero quedó
+
+1175
+00:53:25,480 --> 00:53:27,960
+circulando. No se va a retornar, porque no
+
+1176
+00:53:27,960 --> 00:53:30,280
+tiene por qué retornar. Quedó circulando
+
+1177
+00:53:30,280 --> 00:53:35,440
+ahí, y entonces queda permanentemente
+
+1178
+00:53:35,440 --> 00:53:38,400
+funcionando. Hagamos ahora ese mismo
+
+1179
+00:53:38,400 --> 00:53:42,000
+puente con con deuda. Entonces, ¿cuál es el
+
+1180
+00:53:42,000 --> 00:53:44,280
+sistema para hacer eso? Viene un crédito
+
+1181
+00:53:44,280 --> 00:53:48,400
+del exterior, un crédito que quedan las
+
+1182
+00:53:48,400 --> 00:53:50,599
+reservas, y se monetizan. Entonces, el
+
+1183
+00:53:50,599 --> 00:53:53,280
+Banco Central emite el dinero, también,
+
+1184
+00:53:53,280 --> 00:53:54,920
+pero entonces
+
+1185
+00:53:54,920 --> 00:53:57,280
+quedó una parte aquí, en
+
+1186
+00:53:57,280 --> 00:54:00,599
+reservas. Se emitió el dinero, se hizo el
+
+1187
+00:54:00,599 --> 00:54:03,799
+puente, en la misma forma, pero quedamos
+
+1188
+00:54:03,799 --> 00:54:07,359
+debiendo un puente y unos
+
+1189
+00:54:07,359 --> 00:54:11,480
+intereses. No sé si se alcanza a a darse
+
+1190
+00:54:11,480 --> 00:54:14,200
+cuenta lo injusto que es quedar debiendo
+
+1191
+00:54:14,200 --> 00:54:16,000
+un puente con intereses, cuando por este
+
+1192
+00:54:16,000 --> 00:54:17,680
+lado hicimos el puente, y quedó el dinero
+
+1193
+00:54:17,680 --> 00:54:20,839
+circulando, y no le quedamos debiendo a
+
+1194
+00:54:20,839 --> 00:54:23,440
+nadie. Hicimos el puente, y quedamos
+
+1195
+00:54:23,440 --> 00:54:25,440
+debiendo
+
+1196
+00:54:25,440 --> 00:54:28,400
+todo. Esto, tanto el puente como los
+
+1197
+00:54:28,400 --> 00:54:31,680
+intereses. Es decir, que estos países
+
+1198
+00:54:31,680 --> 00:54:33,599
+subdesarrollados que acudieron al
+
+1199
+00:54:33,599 --> 00:54:35,839
+crédito, terminan pagando los pensionados
+
+1200
+00:54:35,839 --> 00:54:39,359
+de los países que hicieron el préstamo.
+
+1201
+00:54:39,359 --> 00:54:42,920
+Ese, ese es lo que pasa el
+
+1202
+00:54:42,920 --> 00:54:46,040
+endeudarse con la banca internacional.
+
+1203
+00:54:46,040 --> 00:54:50,440
+Ese es la deuda. La deuda, y esclaviza,
+
+1204
+00:54:50,440 --> 00:54:52,760
+esclaviza a las naciones. Lo que estoy
+
+1205
+00:54:52,760 --> 00:54:55,480
+hablando aquí es que no hay necesidad de
+
+1206
+00:54:55,480 --> 00:54:57,720
+quedar esclavizado. Todos los países
+
+1207
+00:54:57,720 --> 00:55:00,160
+pueden hacer este mecanismo, y todos los
+
+1208
+00:55:00,160 --> 00:55:01,280
+países
+
+1209
+00:55:01,280 --> 00:55:05,240
+pueden eliminar la deuda, dejar de ser un
+
+1210
+00:55:05,240 --> 00:55:08,280
+país de deuda, un país esclavo de la
+
+1211
+00:55:08,280 --> 00:55:10,760
+deuda. Quiere decir que todos los países
+
+1212
+00:55:10,760 --> 00:55:12,880
+tienen la capacidad de ganar su propia
+
+1213
+00:55:12,880 --> 00:55:15,440
+libertad, y tener los
+
+1214
+00:55:15,440 --> 00:55:18,520
+recursos necesarios para
+
+1215
+00:55:18,520 --> 00:55:21,880
+tener lo necesario para su subsistencia
+
+1216
+00:55:21,880 --> 00:55:25,200
+y pasar su vida en ese, en es este
+
+1217
+00:55:25,200 --> 00:55:28,240
+planeta. Pero ahí no termina la historia
+
+1218
+00:55:28,240 --> 00:55:31,160
+de del puente con la deuda, porque
+
+1219
+00:55:31,160 --> 00:55:33,520
+resulta que esas reservas, quiere decir
+
+1220
+00:55:33,520 --> 00:55:37,119
+que aumentaron las importaciones. Se
+
+1221
+00:55:37,119 --> 00:55:39,760
+acuerdan, mayor cantidad de reservas,
+
+1222
+00:55:39,760 --> 00:55:42,200
+menores precios del exterior, y entonces
+
+1223
+00:55:42,200 --> 00:55:46,160
+esta gente coge sus ingresos para
+
+1224
+00:55:46,160 --> 00:55:47,839
+comprar más barato afuera, y ellos
+
+1225
+00:55:47,839 --> 00:55:49,920
+vuelven y recuperan el
+
+1226
+00:55:49,920 --> 00:55:52,319
+dinero. Sus dólares vuelven y lo
+
+1227
+00:55:52,319 --> 00:55:55,119
+recuperan, y nosotros sí destruimos
+
+1228
+00:55:55,119 --> 00:55:59,319
+nuestras propias industrias, en favor de
+
+1229
+00:55:59,319 --> 00:56:02,640
+del extranjero. Entonces, es completo el
+
+1230
+00:56:02,640 --> 00:56:06,400
+panorama de de la deuda. El país que se
+
+1231
+00:56:06,400 --> 00:56:09,119
+endeuda con otro, inmediatamente ya pasó
+
+1232
+00:56:09,119 --> 00:56:11,280
+a ser esclavo, a comprarle todos los
+
+1233
+00:56:11,280 --> 00:56:13,599
+productos, desequilibrando su propia
+
+1234
+00:56:13,599 --> 00:56:14,799
+balanza
+
+1235
+00:56:14,799 --> 00:56:17,880
+comercial, y entrando en una situación
+
+1236
+00:56:17,880 --> 00:56:21,359
+muy complicada. ¿Qué ocurre cuando no se
+
+1237
+00:56:21,359 --> 00:56:24,799
+hace emisión? Cuando negamos la emisión,
+
+1238
+00:56:24,799 --> 00:56:26,359
+como hicimos nosotros ahorita, que
+
+1239
+00:56:26,359 --> 00:56:28,960
+dijimos en la Constitución del 91, y en
+
+1240
+00:56:28,960 --> 00:56:30,520
+general, en todos los países, en su
+
+1241
+00:56:30,520 --> 00:56:32,799
+momento, prohibieron los créditos del
+
+1242
+00:56:32,799 --> 00:56:35,599
+Banco Central al gobierno. No se pueden
+
+1243
+00:56:35,599 --> 00:56:36,960
+hacer crédito del Banco Central al
+
+1244
+00:56:36,960 --> 00:56:38,319
+gobierno. No se puede hacer estas
+
+1245
+00:56:38,319 --> 00:56:40,400
+emisiones que estamos hablando. Entonces,
+
+1246
+00:56:40,400 --> 00:56:44,039
+¿qué ocurre? Pues ya lo vimos, ya sabemos
+
+1247
+00:56:44,039 --> 00:56:47,240
+que, entonces, el país se va quedando sin
+
+1248
+00:56:47,240 --> 00:56:49,520
+dinero. ¿Cómo actúa
+
+1249
+00:56:49,520 --> 00:56:52,960
+entonces el presidente de ese país? ¿Qué
+
+1250
+00:56:52,960 --> 00:56:56,280
+le toca hacer? Como se, como sabe que no
+
+1251
+00:56:56,280 --> 00:56:58,319
+tiene dinero, y necesita dinero,
+
+1252
+00:56:58,319 --> 00:57:01,000
+forzosamente, entonces, tiene que acudir a
+
+1253
+00:57:01,000 --> 00:57:02,440
+un
+
+1254
+00:57:02,440 --> 00:57:05,200
+préstamo. Un préstamo para aumentar esta
+
+1255
+00:57:05,200 --> 00:57:07,400
+masa monetaria, ¿verdad? Viene el préstamo,
+
+1256
+00:57:07,400 --> 00:57:10,640
+aumenta la masa monetaria, y vi, entonces,
+
+1257
+00:57:10,640 --> 00:57:12,240
+y tiene que pagarlo después, con
+
+1258
+00:57:12,240 --> 00:57:14,760
+intereses. Cuando llega el momento de
+
+1259
+00:57:14,760 --> 00:57:17,160
+pagar la deuda, se
+
+1260
+00:57:17,160 --> 00:57:20,799
+quedaría con ese roto, disminuiría la
+
+1261
+00:57:20,799 --> 00:57:23,280
+masa monetaria. Entonces, para poder pagar
+
+1262
+00:57:23,280 --> 00:57:25,920
+eso, él tiene que conseguir un crédito
+
+1263
+00:57:25,920 --> 00:57:27,920
+exactamente
+
+1264
+00:57:27,920 --> 00:57:31,839
+igual, más un crédito
+
+1265
+00:57:31,839 --> 00:57:36,440
+mayor, más los intereses, que después, para
+
+1266
+00:57:36,440 --> 00:57:39,039
+poder pagar esto, entonces, tiene que
+
+1267
+00:57:39,039 --> 00:57:41,599
+conseguir un crédito para poder pagar. O
+
+1268
+00:57:41,599 --> 00:57:44,640
+sea, termina renegociando siempre la
+
+1269
+00:57:44,640 --> 00:57:48,200
+deuda. O sea, termina siempre regalando
+
+1270
+00:57:48,200 --> 00:57:49,319
+los
+
+1271
+00:57:49,319 --> 00:57:52,000
+intereses, renegociando permanentemente
+
+1272
+00:57:52,000 --> 00:57:54,760
+la deuda. Es decir, deuda que
+
+1273
+00:57:54,760 --> 00:57:57,119
+permanentemente va a ir aumentando. Por
+
+1274
+00:57:57,119 --> 00:57:59,520
+eso, todos los países que empezaron el
+
+1275
+00:57:59,520 --> 00:58:02,240
+cuento de la globalización y no emitir,
+
+1276
+00:58:02,240 --> 00:58:04,160
+lo primero que les ha crecido
+
+1277
+00:58:04,160 --> 00:58:06,960
+impresionantemente es la deuda, y la
+
+1278
+00:58:06,960 --> 00:58:09,319
+deuda los ha amarrado, entonces, a la
+
+1279
+00:58:09,319 --> 00:58:11,240
+voluntad de de los bancos, y lo que
+
+1280
+00:58:11,240 --> 00:58:13,359
+definan los los
+
+1281
+00:58:13,359 --> 00:58:15,799
+banqueros. Porque, además, los
+
+1282
+00:58:15,799 --> 00:58:17,720
+independizamos los bancos centrales, y
+
+1283
+00:58:17,720 --> 00:58:21,119
+pusimos banqueros ahí, que solamente
+
+1284
+00:58:21,119 --> 00:58:24,359
+defienden los intereses de la banca, de
+
+1285
+00:58:24,359 --> 00:58:26,920
+la banca, de la banca privada. De suerte
+
+1286
+00:58:26,920 --> 00:58:30,280
+que los países, ¿en qué terminaron? En un
+
+1287
+00:58:30,280 --> 00:58:32,240
+incremento de la deuda. Y eso es algo
+
+1288
+00:58:32,240 --> 00:58:35,000
+explosivo, por este motivo. Cuando no
+
+1289
+00:58:35,000 --> 00:58:37,200
+emitimos, usted puede decir que es
+
+1290
+00:58:37,200 --> 00:58:39,839
+cuestión de tiempo. La decatómbe va a
+
+1291
+00:58:39,839 --> 00:58:43,200
+llegar. Es irremediable, y lo estamos
+
+1292
+00:58:43,200 --> 00:58:45,000
+viendo, porque Estados Unidos también
+
+1293
+00:58:45,000 --> 00:58:47,720
+está cumpliendo
+
+1294
+00:58:48,880 --> 00:58:51,720
+esto. Pese a que en este momento, en
+
+1295
+00:58:51,720 --> 00:58:53,280
+Estados Unidos se está gestionando un
+
+1296
+00:58:53,280 --> 00:58:55,880
+crédito de 700.000 millones de de
+
+1297
+00:58:55,880 --> 00:58:58,280
+dólares. Si no lo siguen haciendo
+
+1298
+00:58:58,280 --> 00:59:00,440
+permanentemente, entonces van a tener
+
+1299
+00:59:00,440 --> 00:59:02,880
+esta situación. Tarde o temprano, le dan
+
+1300
+00:59:02,880 --> 00:59:05,160
+un respiro, pero después van a volver a
+
+1301
+00:59:05,160 --> 00:59:07,440
+tener la misma situación. Igual que toda
+
+1302
+00:59:07,440 --> 00:59:10,079
+Europa, igual que todo, todo el mundo.
+
+1303
+00:59:10,079 --> 00:59:13,119
+Entonces, eso es lo que pasa cuando no
+
+1304
+00:59:13,119 --> 00:59:15,319
+emitimos. Cuando no emitimos,
+
+1305
+00:59:15,319 --> 00:59:18,680
+quedamos esclavos. Para poder pagar esto,
+
+1306
+00:59:18,680 --> 00:59:20,920
+imagínense qué tendríamos que hacer.
+
+1307
+00:59:20,920 --> 00:59:22,799
+¿Un ejército nuestro ir y hacerles
+
+1308
+00:59:22,799 --> 00:59:24,319
+el mismo puente, allá en Estados Unidos, por
+
+1309
+00:59:24,319 --> 00:59:28,280
+cuenta nuestra, y hacer el puente, y traer
+
+1310
+00:59:28,280 --> 00:59:30,240
+por cuenta nuestra a nuestra gente, y
+
+1311
+00:59:30,240 --> 00:59:33,240
+poder saldar la situación? Cuando, mire,
+
+1312
+00:59:33,240 --> 00:59:35,359
+con la sola de emisión de dinero, podemos
+
+1313
+00:59:35,359 --> 00:59:37,359
+hacer nuestro puente, y nuestra economía
+
+1314
+00:59:37,359 --> 00:59:39,039
+queda
+
+1315
+00:59:39,039 --> 00:59:41,599
+saneada. Esto que nos dice que ningún
+
+1316
+00:59:41,599 --> 00:59:44,559
+país debería tener deuda. Ningún país
+
+1317
+00:59:44,559 --> 00:59:47,680
+tiene por qué esclavizar al otro, y todos
+
+1318
+00:59:47,680 --> 00:59:49,440
+podrían
+
+1319
+00:59:49,440 --> 00:59:52,640
+vivir suficientemente bien de su propio
+
+1320
+00:59:52,640 --> 00:59:54,680
+trabajo. Ningún país tiene por qué ir a
+
+1321
+00:59:54,680 --> 00:59:55,720
+explotar a
+
+1322
+00:59:55,720 --> 00:59:58,640
+otro. Cuando hablamos de la explotación
+
+1323
+00:59:58,640 --> 00:59:01,280
+de un país con otro, es porque pensamos
+
+1324
+00:59:01,280 --> 00:59:04,000
+que el recursos son limitados, y que esto
+
+1325
+00:59:04,000 --> 00:59:07,200
+no lo podemos hacer. Bien, y hay otro
+
+1326
+00:59:07,200 --> 00:59:11,319
+elemento que tenemos más, más adelante.
+
+1327
+00:59:11,319 --> 00:59:15,200
+Bien, veamos, vamos a la segunda parte
+
+1328
+00:59:15,200 --> 00:59:19,000
+de del del
+
+1329
+00:59:19,039 --> 00:59:21,680
+problema. ¿Cómo funciona esto de las tasas
+
+1330
+00:59:21,680 --> 00:59:23,480
+de interés? Nosotros tenemos un Banco
+
+1331
+00:59:23,480 --> 00:59:25,520
+Central,
+
+1332
+00:59:25,520 --> 00:59:28,280
+un banco cualquiera, un banco que capta
+
+1333
+00:59:28,280 --> 00:59:31,440
+recursos del público, y a cambio de esos
+
+1334
+00:59:31,440 --> 00:59:33,400
+recursos del público, paga una tasa de
+
+1335
+00:59:33,400 --> 00:59:35,720
+interés que llamamos interés de
+
+1336
+00:59:35,720 --> 00:59:39,960
+captación. Le paga a los, hemos llamado
+
+1337
+00:59:39,960 --> 00:59:43,000
+muy mal este término, a los ahorradores.
+
+1338
+00:59:43,000 --> 00:59:46,039
+No, estos no son ahorradores. El ahorro es
+
+1339
+00:59:46,039 --> 00:59:48,559
+un concepto muy diferente en economía. Ya
+
+1340
+00:59:48,559 --> 00:59:52,319
+vimos antes. No es el dinero que no, que
+
+1341
+00:59:52,319 --> 00:59:54,799
+que pagan los bancos. Ese es el interés
+
+1342
+00:59:54,799 --> 00:59:55,559
+de
+
+1343
+00:59:55,559 --> 00:59:58,559
+captación. Los bancos cogen es esos
+
+1344
+00:59:58,559 --> 01:00:01,640
+recursos que captaron del público, y se
+
+1345
+01:00:01,640 --> 01:00:04,720
+los prestan a las empresas. ¿A qué tasa se
+
+1346
+01:00:04,720 --> 01:00:07,599
+las prestan? Pues a una tasa de interés
+
+1347
+01:00:07,599 --> 01:00:10,119
+que incluye esta de captación, obviamente,
+
+1348
+01:00:10,119 --> 01:00:13,640
+la repiten, más una tasa de
+
+1349
+01:00:13,640 --> 01:00:16,680
+intermediación. Entonces, estas tasas se
+
+1350
+01:00:16,680 --> 01:00:21,160
+están transmitiendo del banco a la
+
+1351
+01:00:21,160 --> 01:00:24,400
+empresa. Y, ¿qué hace la empresa,
+
+1352
+01:00:24,400 --> 01:00:27,319
+entonces, con esos gastos que tiene ahí
+
+1353
+01:00:27,319 --> 01:00:29,920
+metidos? Está pagando intereses. ¿Dónde
+
+1354
+01:00:29,920 --> 01:00:33,039
+está cobrando esto? Pues todo eso se lo
+
+1355
+01:00:33,039 --> 01:00:35,760
+va a mandar al precio del
+
+1356
+01:00:35,760 --> 01:00:38,119
+producto, y entonces el precio del
+
+1357
+01:00:38,119 --> 01:00:41,760
+producto se lo devuelve al al grueso
+
+1358
+01:00:41,760 --> 01:00:45,680
+público, le incluye nuevamente lo que se
+
+1359
+01:00:45,680 --> 01:00:46,920
+le
+
+1360
+01:00:46,920 --> 01:00:50,240
+está pagando en esos intereses. O sea,
+
+1361
+01:00:50,240 --> 01:00:54,240
+está generando inflación. Esa tasa de des,
+
+1362
+01:00:54,240 --> 01:00:57,039
+de captación, está generando
+
+1363
+01:00:57,039 --> 01:01:00,319
+inflación. Fíjense que la inflación, les
+
+1364
+01:01:00,319 --> 01:01:02,799
+estoy diciendo aquí, no la produce la
+
+1365
+01:01:02,799 --> 01:01:08,520
+emisión de dinero. La produce esa tasa de
+
+1366
+01:01:10,240 --> 01:01:12,079
+interés.
+
+1367
+01:01:12,079 --> 01:01:16,160
+Bien, la empresa le devuelve, y le cobra.
+
+1368
+01:01:16,160 --> 01:01:19,119
+Pero, ¿qué hace la tasa de interés? La tasa
+
+1369
+01:01:19,119 --> 01:01:21,760
+de interés es como si disminuyera la
+
+1370
+01:01:21,760 --> 01:01:24,880
+masa monetaria. Entonces, va a generar una
+
+1371
+01:01:24,880 --> 01:01:27,839
+crisis. Va a generar una crisis, va a
+
+1372
+01:01:27,839 --> 01:01:30,799
+generar que la, los
+
+1373
+01:01:30,799 --> 01:01:33,160
+empresarios tengan esa como competencia,
+
+1374
+01:01:33,160 --> 01:01:35,359
+esa tasa de interés de captación, y no
+
+1375
+01:01:35,359 --> 01:01:37,520
+puedan generar todas las ventas que que
+
+1376
+01:01:37,520 --> 01:01:39,799
+requieren. Hay muchos gastos que que se
+
+1377
+01:01:39,799 --> 01:01:42,640
+les van en este punto. Entonces, las
+
+1378
+01:01:42,640 --> 01:01:44,520
+empresas no van a emplear a toda la
+
+1379
+01:01:44,520 --> 01:01:46,319
+gente que podrían emplear, si no
+
+1380
+01:01:46,319 --> 01:01:47,839
+existiera esa
+
+1381
+01:01:47,839 --> 01:01:51,200
+tasa. De hecho, recortó la masa monetaria.
+
+1382
+01:01:51,200 --> 01:01:52,760
+Entonces, eso hace que existan menos
+
+1383
+01:01:52,760 --> 01:01:55,240
+empresas. Entonces, esa tasa de interés de
+
+1384
+01:01:55,240 --> 01:01:58,440
+captación no solamente es
+
+1385
+01:01:58,440 --> 01:02:01,599
+recesiva, sino que, pues, va a generar,
+
+1386
+01:02:01,599 --> 01:02:04,480
+obligatoriamente, un margen residual de
+
+1387
+01:02:04,480 --> 01:02:07,520
+desempleo que no se, que no se. Hay un
+
+1388
+01:02:07,520 --> 01:02:09,000
+margen muy grande que no se va a poder
+
+1389
+01:02:09,000 --> 01:02:12,599
+emplear nunca. Bien, ese es el fenómeno de
+
+1390
+01:02:12,599 --> 01:02:15,599
+la tasa de interés de captación. ¿Qué
+
+1391
+01:02:15,599 --> 01:02:18,599
+hacer?
+
+1392
+01:02:18,680 --> 01:02:20,480
+Eliminarla.
+
+1393
+01:02:20,480 --> 01:02:22,839
+Ah, pero es que, entonces, ¿quién va a
+
+1394
+01:02:22,839 --> 01:02:25,480
+llevar su plata al banco si no le pagan
+
+1395
+01:02:25,480 --> 01:02:27,839
+nada? Todo el mundo va a seguir llevando
+
+1396
+01:02:27,839 --> 01:02:30,359
+su plata al banco, porque nadie va a
+
+1397
+01:02:30,359 --> 01:02:32,480
+andar con 50 millones de pesos en el
+
+1398
+01:02:32,480 --> 01:02:35,480
+bolsillo, poniéndose aquí, a que se lo
+
+1399
+01:02:35,480 --> 01:02:38,279
+roben. No, la gente va a seguir llevando
+
+1400
+01:02:38,279 --> 01:02:40,960
+su plata al banco. Lo que va a ocurrir es
+
+1401
+01:02:40,960 --> 01:02:44,279
+que, si la gente tiene mucho dinero en el
+
+1402
+01:02:44,279 --> 01:02:47,559
+banco, lo va es a mover. Va a montar una
+
+1403
+01:02:47,559 --> 01:02:49,640
+industria, va a comprar un terreno, y va a
+
+1404
+01:02:49,640 --> 01:02:51,599
+hacer un edificio para arrendar
+
+1405
+01:02:51,599 --> 01:02:55,640
+apartamentos, y se va a ganar su
+
+1406
+01:02:55,640 --> 01:02:57,279
+trabajo,
+
+1407
+01:02:57,279 --> 01:03:00,760
+trabajando, su salario trabajando, y no
+
+1408
+01:03:00,760 --> 01:03:03,359
+como un zángano, esperando que el banco
+
+1409
+01:03:03,359 --> 01:03:07,359
+le pague un interés. Quiero decir que los
+
+1410
+01:03:07,359 --> 01:03:09,359
+que, generalmente, tienen plata, han sido
+
+1411
+01:03:09,359 --> 01:03:11,760
+industriales, tipos que saben trabajar. A
+
+1412
+01:03:11,760 --> 01:03:13,839
+ellos, no es que les importe esta tasa.
+
+1413
+01:03:13,839 --> 01:03:15,839
+Ellos se ganarían más por fuera. Lo que
+
+1414
+01:03:15,839 --> 01:03:18,960
+pasa es que esta tasa compite con la
+
+1415
+01:03:18,960 --> 01:03:21,799
+industria, mientras que la industria
+
+1416
+01:03:21,799 --> 01:03:24,319
+tiene que
+
+1417
+01:03:24,319 --> 01:03:28,119
+contratar mucha gente, con tratar con
+
+1418
+01:03:28,119 --> 01:03:30,760
+proveedores, con empleados, con máquinas,
+
+1419
+01:03:30,760 --> 01:03:34,319
+con de todo, para ganarse una utilidad. El
+
+1420
+01:03:34,319 --> 01:03:35,760
+banco,
+
+1421
+01:03:35,760 --> 01:03:39,000
+sencillamente, le ofrece esa misma
+
+1422
+01:03:39,000 --> 01:03:41,880
+utilidad, sin hacer absolutamente nada.
+
+1423
+01:03:41,880 --> 01:03:44,640
+Entonces, hay un límite, que si usted
+
+1424
+01:03:44,640 --> 01:03:46,760
+tiene, por ejemplo, 100 millones de pesos,
+
+1425
+01:03:46,760 --> 01:03:49,640
+y haciendo todo esto, va a obtener una
+
+1426
+01:03:49,640 --> 01:03:51,839
+utilidad del 8%, pues usted mete la plata
+
+1427
+01:03:51,839 --> 01:03:54,960
+al banco, porque el banco le da al 8%.
+
+1428
+01:03:54,960 --> 01:03:58,039
+Entonces, dejó de hacer una industria,
+
+1429
+01:03:58,039 --> 01:04:00,240
+porque esto le puso un límite por debajo
+
+1430
+01:04:00,240 --> 01:04:01,319
+a las
+
+1431
+01:04:01,319 --> 01:04:04,400
+industrias. Ese interés de captación está
+
+1432
+01:04:04,400 --> 01:04:06,400
+compitiendo, haciendo que las industrias
+
+1433
+01:04:06,400 --> 01:04:09,839
+no se desarrollen hasta donde debían
+
+1434
+01:04:09,839 --> 01:04:14,680
+llegar, generando ese, ese desempleo.
+
+1435
+01:04:14,680 --> 01:04:19,720
+Bien, si es claro el esquema, muy sencillo,
+
+1436
+01:04:19,720 --> 01:04:21,440
+además.
+
+1437
+01:04:21,440 --> 01:04:25,559
+Podemos ver que, cuando el Banco Central
+
+1438
+01:04:25,559 --> 01:04:28,359
+y todos los analistas nos dicen que hay
+
+1439
+01:04:28,359 --> 01:04:30,279
+que subir la tasa de interés para
+
+1440
+01:04:30,279 --> 01:04:32,839
+controlar la inflación, es falso. La
+
+1441
+01:04:32,839 --> 01:04:35,880
+inflación la va a generar esa tasa de
+
+1442
+01:04:35,880 --> 01:04:38,920
+interés. ¿Por qué llegamos a creer que ese
+
+1443
+01:04:38,920 --> 01:04:42,880
+interés iba a disminuir la inflación?
+
+1444
+01:04:42,880 --> 01:04:45,760
+Porque la teoría nos dice que, cuando se
+
+1445
+01:04:45,760 --> 01:04:48,480
+aumenta esa tasa de interés, se disminuye
+
+1446
+01:04:48,480 --> 01:04:52,160
+la masa monetaria, se disminuyen las
+
+1447
+01:04:52,160 --> 01:04:55,119
+ventas de las empresas, y al bajar la
+
+1448
+01:04:55,119 --> 01:04:58,359
+demanda, entonces, van a bajar los precios.
+
+1449
+01:04:58,359 --> 01:05:01,279
+Pero no, no es cierto. No van a bajar los
+
+1450
+01:05:01,279 --> 01:05:03,200
+precios, porque también baja la
+
+1451
+01:05:03,200 --> 01:05:06,679
+producción, y queda, quedan disminuidos
+
+1452
+01:05:06,679 --> 01:05:09,680
+ambos, oferta y demanda, y los precios
+
+1453
+01:05:09,680 --> 01:05:13,440
+siguen. ¿Por qué? Están ahí metidos esos
+
+1454
+01:05:13,440 --> 01:05:15,200
+intereses que están ahí metidos, se van
+
+1455
+01:05:15,200 --> 01:05:18,240
+al precio del producto. Entonces, no hay
+
+1456
+01:05:18,240 --> 01:05:20,680
+tal. El gobierno nos
+
+1457
+01:05:20,680 --> 01:05:23,920
+dice, los analistas, hoy en el el día de
+
+1458
+01:05:23,920 --> 01:05:26,760
+hoy, nos dicen tres elementos: que hay
+
+1459
+01:05:26,760 --> 01:05:29,760
+que subir la tasa de interés, que hay que
+
+1460
+01:05:29,760 --> 01:05:31,760
+disminuir el gasto público, y que no se
+
+1461
+01:05:31,760 --> 01:05:33,240
+pueden hacer
+
+1462
+01:05:33,240 --> 01:05:36,599
+emisiones. Entonces, ahora, juntemos todo
+
+1463
+01:05:36,599 --> 01:05:39,599
+el discurso. Volvamos a juntar todo el
+
+1464
+01:05:39,599 --> 01:05:42,440
+discurso, y entonces, ¿cómo se monta esa
+
+1465
+01:05:42,440 --> 01:05:46,119
+primera parte con la de los
+
+1466
+01:05:46,599 --> 01:05:49,920
+intereses? Ya sabemos, entonces, qué pasa
+
+1467
+01:05:49,920 --> 01:05:52,000
+cuando aumentamos la tasa de interés,
+
+1468
+01:05:52,000 --> 01:05:54,480
+como nos dicen todos los analistas.
+
+1469
+01:05:54,480 --> 01:05:56,760
+Ya sabemos también qué pasa cuando
+
+1470
+01:05:56,760 --> 01:05:59,480
+disminuimos el el gasto público. Cuando
+
+1471
+01:05:59,480 --> 01:06:01,319
+disminuimos el gasto público, quiere
+
+1472
+01:06:01,319 --> 01:06:03,400
+decir que no hacemos emisiones. Entonces,
+
+1473
+01:06:03,400 --> 01:06:06,680
+que nos vamos a a ir quedando sin dinero.
+
+1474
+01:06:06,680 --> 01:06:09,240
+Entonces, la economía se va a contraer. Se
+
+1475
+01:06:09,240 --> 01:06:12,319
+contrae cuando disminuimos el gasto
+
+1476
+01:06:12,319 --> 01:06:15,440
+público. Se contrae la economía. Como nos
+
+1477
+01:06:15,440 --> 01:06:17,279
+dicen todos los analistas, que que
+
+1478
+01:06:17,279 --> 01:06:18,960
+tenemos que hacer para solucionar la
+
+1479
+01:06:18,960 --> 01:06:21,440
+crisis: aumentar la tasa de interés y
+
+1480
+01:06:21,440 --> 01:06:24,599
+disminuir el gasto público. Pues ahí nos
+
+1481
+01:06:24,599 --> 01:06:25,920
+damos cuenta que lo que nos están
+
+1482
+01:06:25,920 --> 01:06:27,559
+pidiendo es que nos vayamos para la
+
+1483
+01:06:27,559 --> 01:06:31,839
+crisis. O sea, es errado lo que nos dicen
+
+1484
+01:06:31,839 --> 01:06:33,799
+todos los analistas en este momento, que
+
+1485
+01:06:33,799 --> 01:06:35,720
+el remedio es aumentar la tasa y
+
+1486
+01:06:35,720 --> 01:06:38,720
+disminuir el gasto público. Bien, juntemos,
+
+1487
+01:06:38,720 --> 01:06:40,520
+entonces, el discurso. Entonces, ¿cómo nos
+
+1488
+01:06:40,520 --> 01:06:44,600
+puede funcionar la sociedad? Bien, ya
+
+1489
+01:06:44,600 --> 01:06:47,839
+sabemos, entonces, que si hacemos emisión
+
+1490
+01:06:47,839 --> 01:06:51,400
+de dinero, no tenemos que endeudarnos.
+
+1491
+01:06:51,400 --> 01:06:54,440
+Al no tener que endeudar,
+
+1492
+01:06:54,440 --> 01:06:56,759
+entonces, la importaciones y
+
+1493
+01:06:56,759 --> 01:06:59,120
+exportaciones se van a equilibrar. Al
+
+1494
+01:06:59,120 --> 01:07:01,120
+comienzo, al comienzo, va a haber el
+
+1495
+01:07:01,120 --> 01:07:04,359
+ajuste. Y es que se empieza a devolver,
+
+1496
+01:07:04,359 --> 01:07:06,680
+pues, lo que ya estamos debiendo, que
+
+1497
+01:07:06,680 --> 01:07:08,839
+debía, más bien, cancelarse eso, porque eso
+
+1498
+01:07:08,839 --> 01:07:11,640
+fue un robo. Pero, bueno, digamos que
+
+1499
+01:07:11,640 --> 01:
+
 1500
 01:07:11,640 --> 01:07:15,279
 podemos hacer el ajuste, devolviéndole a
