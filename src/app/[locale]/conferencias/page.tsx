@@ -21,13 +21,13 @@ export default function ConferenciasPage() {
     {
       titleKey: "kit", 
       fecha: "5/9/2025",
-      enlace: "https://www.youtube.com/watch?v=BczuFjzFNMQ",
+      enlace: "https://www.youtube.com/watch?v=B6zuFjeFNMQ",
       tipo: t('conferences.type')
     },
     {
       titleKey: "author", 
       fecha: "5/9/2025",
-      enlace: "https://www.youtube.com/watch?v=92nocY3EgwE",
+      enlace: "https://www.youtube.com/watch?v=9ZnozV3EgwE",
       tipo: t('conferences.type')
     }
   ];
