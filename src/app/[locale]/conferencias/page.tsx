@@ -1,34 +1,33 @@
 'use client';
-
 import { useState } from 'react';
 import { useTranslation } from '@/components/providers/TranslationProvider';
 
 export default function ConferenciasPage() {
   const { t } = useTranslation();
-
+  
   const conferencias = [
     {
       titleKey: "intro",
       fecha: "5/9/2025",
-      enlace: "https://youtu.be/m9rDQNNp6is?si=wpkoQXiK6sQRHMR2",
+      enlace: "https://www.youtube.com/watch?v=m9rDQNNp6is",
       tipo: t('conferences.type')
     },
     {
       titleKey: "fundamentals", 
       fecha: "5/9/2025",
-      enlace: "https://www.youtube.com/watch?v=S6vZCz20t9s&t=1s",
+      enlace: "https://www.youtube.com/watch?v=S6vZCz20t9s",
       tipo: t('conferences.type')
     },
     {
       titleKey: "kit", 
       fecha: "5/9/2025",
-      enlace: "#",
+      enlace: "https://www.youtube.com/watch?v=BczuFjzFNMQ",
       tipo: t('conferences.type')
     },
     {
       titleKey: "author", 
       fecha: "5/9/2025",
-      enlace: "#",
+      enlace: "https://www.youtube.com/watch?v=92nocY3EgwE",
       tipo: t('conferences.type')
     }
   ];
