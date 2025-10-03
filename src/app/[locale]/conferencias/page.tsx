@@ -4,47 +4,43 @@ import { useTranslation } from '@/components/providers/TranslationProvider';
 export default function ConferenciasPage() {
   const { t, locale } = useTranslation();
   
-  // Mapeo de idiomas para YouTube
-  const langMap: Record<string, string> = {
-    'es': 'es',
-    'en': 'en',
-    'pt': 'pt',
-    'fr': 'fr',
-    'de': 'de',
-    'it': 'it'
-  };
-  
   const conferencias = [
     {
       titleKey: "intro",
       fecha: "5/9/2025",
-      videoId: "m9rDQNNp6is",
+      enlace: "https://www.youtube.com/watch?v=m9rDQNNp6is",
       tipo: t('conferences.type')
     },
     {
       titleKey: "fundamentals", 
       fecha: "5/9/2025",
-      videoId: "S6vZCz20t9s",
+      enlace: "https://www.youtube.com/watch?v=S6vZCz20t9s",
       tipo: t('conferences.type')
     },
     {
       titleKey: "kit", 
       fecha: "5/9/2025",
-      videoId: "B6zuFjeFNMQ",
+      enlace: "https://www.youtube.com/watch?v=B6zuFjeFNMQ",
       tipo: t('conferences.type')
     },
     {
       titleKey: "author", 
       fecha: "5/9/2025",
-      videoId: "9ZnozV3EgwE",
+      enlace: "https://www.youtube.com/watch?v=9ZnozV3EgwE",
       tipo: t('conferences.type')
     }
   ];
 
-  // Generar URL con subtítulos automáticos en el idioma seleccionado
-  const getVideoUrl = (videoId: string) => {
-    const ccLang = langMap[locale] || 'es';
-    return `https://www.youtube.com/watch?v=${videoId}&cc_load_policy=1&cc_lang_pref=${ccLang}`;
+  const getLanguageName = () => {
+    const names: Record<string, string> = {
+      'es': 'Español',
+      'en': 'English',
+      'pt': 'Português',
+      'fr': 'Français',
+      'de': 'Deutsch',
+      'it': 'Italiano'
+    };
+    return names[locale] || 'Español';
   };
 
   return (
@@ -53,11 +49,16 @@ export default function ConferenciasPage() {
         <h1 className="text-4xl font-bold mb-4">{t('conferences.title')}</h1>
         <p className="text-lg mb-6 text-gray-600">{t('conferences.subtitle')}</p>
         
-        {/* Banner informativo */}
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 rounded">
-          <p className="text-sm text-blue-900">
-            💡 <strong>{t('conferences.tip')}:</strong> {t('conferences.subtitlesEnabled')}
-          </p>
+        {/* Instrucciones claras */}
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded">
+          <h3 className="font-bold text-blue-900 mb-2">
+            📺 {locale === 'es' ? 'Cómo activar subtítulos' : locale === 'en' ? 'How to enable subtitles' : locale === 'pt' ? 'Como ativar legendas' : locale === 'fr' ? 'Comment activer les sous-titres' : locale === 'de' ? 'Untertitel aktivieren' : 'Come attivare i sottotitoli'}
+          </h3>
+          <ol className="text-sm text-blue-900 space-y-1 ml-4 list-decimal">
+            <li>{locale === 'es' ? 'Click en el ícono CC (subtítulos) en el reproductor' : locale === 'en' ? 'Click the CC icon in the player' : locale === 'pt' ? 'Clique no ícone CC no player' : locale === 'fr' ? 'Cliquez sur l\'icône CC dans le lecteur' : locale === 'de' ? 'Klicken Sie auf das CC-Symbol' : 'Fare clic sull\'icona CC'}</li>
+            <li>{locale === 'es' ? 'Click en el ícono de configuración ⚙️' : locale === 'en' ? 'Click the settings icon ⚙️' : locale === 'pt' ? 'Clique no ícone de configurações ⚙️' : locale === 'fr' ? 'Cliquez sur l\'icône paramètres ⚙️' : locale === 'de' ? 'Klicken Sie auf Einstellungen ⚙️' : 'Fare clic sull\'icona impostazioni ⚙️'}</li>
+            <li>{locale === 'es' ? 'Selecciona "Subtítulos" → ' : locale === 'en' ? 'Select "Subtitles" → ' : locale === 'pt' ? 'Selecione "Legendas" → ' : locale === 'fr' ? 'Sélectionnez "Sous-titres" → ' : locale === 'de' ? 'Wählen Sie "Untertitel" → ' : 'Seleziona "Sottotitoli" → '}<strong>{getLanguageName()}</strong></li>
+          </ol>
         </div>
         
         <div className="grid gap-6">
@@ -78,7 +79,7 @@ export default function ConferenciasPage() {
                 </div>
                 <div>
                   <a 
-                    href={getVideoUrl(conferencia.videoId)} 
+                    href={conferencia.enlace} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition-colors"
