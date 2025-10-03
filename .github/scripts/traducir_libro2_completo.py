@@ -12,13 +12,13 @@ IDIOMAS = {
     'it': 'Italian'
 }
 
-def convertir_pdf_a_markdown(pdf_path, md_path):
-    """Convierte PDF a Markdown usando pandoc"""
-    print(f"Convirtiendo PDF a Markdown...")
+def convertir_docx_a_markdown(docx_path, md_path):
+    """Convierte DOCX a Markdown usando pandoc"""
+    print(f"Convirtiendo DOCX a Markdown...")
     try:
         subprocess.run([
             'pandoc',
-            pdf_path,
+            docx_path,
             '-o', md_path,
             '-t', 'markdown',
             '--wrap=none'
@@ -85,19 +85,19 @@ def convertir_markdown_a_pdf(md_path, pdf_path):
 
 def main():
     print("="*70)
-    print("TRADUCCION LIBRO 2")
+    print("TRADUCCION LIBRO 2 desde DOCX")
     print("="*70)
     
-    # Usar el PDF existente como fuente
-    pdf_input = Path('public/documentos/libros/LIBRO_SEGUNDO.pdf')
+    # Usar el DOCX como fuente
+    docx_input = Path('public/documentos/libros/source/LIBRO_SEGUNDO.docx')
     md_español = Path('temp_libro2_es.md')
     output_dir = Path('public/documentos/libros')
     
-    if not pdf_input.exists():
-        print(f"No encontrado: {pdf_input}")
+    if not docx_input.exists():
+        print(f"No encontrado: {docx_input}")
         return
     
-    if not convertir_pdf_a_markdown(pdf_input, md_español):
+    if not convertir_docx_a_markdown(docx_input, md_español):
         return
     
     with open(md_español, 'r', encoding='utf-8') as f:
