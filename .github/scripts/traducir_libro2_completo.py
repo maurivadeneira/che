@@ -18,8 +18,8 @@ def convertir_docx_a_markdown(docx_path, md_path):
     try:
         subprocess.run([
             'pandoc',
-            docx_path,
-            '-o', md_path,
+            str(docx_path),
+            '-o', str(md_path),
             '-t', 'markdown',
             '--wrap=none'
         ], check=True)
@@ -72,8 +72,8 @@ def convertir_markdown_a_pdf(md_path, pdf_path):
     try:
         subprocess.run([
             'pandoc',
-            md_path,
-            '-o', pdf_path,
+            str(md_path),
+            '-o', str(pdf_path),
             '--pdf-engine=xelatex',
             '-V', 'geometry:margin=2.5cm'
         ], check=True)
@@ -88,14 +88,16 @@ def main():
     print("TRADUCCION LIBRO 2 desde DOCX")
     print("="*70)
     
-    # Usar el DOCX como fuente
-    docx_input = Path('public/documentos/libros/source/LIBRO_SEGUNDO.docx')
+    # Usar el nombre EXACTO del archivo
+    docx_input = Path('public/documentos/libros/source/LIBRO SEGUNDO.HEREJIA.ECONOMICA.(PROTOCOLOS^^.) (1).docx')
     md_español = Path('temp_libro2_es.md')
     output_dir = Path('public/documentos/libros')
     
     if not docx_input.exists():
         print(f"No encontrado: {docx_input}")
         return
+    
+    print(f"Archivo encontrado: {docx_input}")
     
     if not convertir_docx_a_markdown(docx_input, md_español):
         return
