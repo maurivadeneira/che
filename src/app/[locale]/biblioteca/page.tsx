@@ -9,7 +9,6 @@ export default function BibliotecaPage() {
   const params = useParams();
   const locale = params.locale as string;
 
-  // Función para obtener el PDF correcto según el idioma
   const getAnalysisComprehensivePDF = (currentLocale: string) => {
     const pdfPaths: { [key: string]: string } = {
       'es': '/documentos/analisis-comprehensivo/ANALISIS_COMPREHENSIVO.pdf',
@@ -22,7 +21,6 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
-  // Función para obtener el PDF del Comentario según idioma
   const getComentarioLibroPrimeroPDF = (currentLocale: string) => {
     const pdfPaths: { [key: string]: string } = {
       'es': '/documentos/comentario-libro-primero/COMENTARIO_LIBRO_PRIMERO.pdf',
@@ -35,7 +33,6 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
-  // Función para obtener el PDF de la Presentación según idioma
   const getPresentacionLibroSegundoPDF = (currentLocale: string) => {
     const pdfPaths: { [key: string]: string } = {
       'es': '/documentos/presentacion-libro-segundo/PRESENTACION_LIBRO_SEGUNDO.pdf',
@@ -48,7 +45,6 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
-  // Función para obtener el PDF del Libro Primero según idioma
   const getLibroPrimeroTeoriaEconomicaPDF = (currentLocale: string) => {
     const pdfPaths: { [key: string]: string } = {
       'es': '/documentos/libros/LIBRO_PRIMERO_TEORIA_ECONOMICA.pdf',
@@ -61,7 +57,6 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
-  // Función para obtener el PDF del Libro Segundo según idioma
   const getLibroSegundoPDF = (currentLocale: string) => {
     const pdfPaths: { [key: string]: string } = {
       'es': '/documentos/libros/LIBRO_SEGUNDO.pdf',
@@ -79,7 +74,7 @@ export default function BibliotecaPage() {
     { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
     { titleKey: 'presentacionLibroSegundo', file: getPresentacionLibroSegundoPDF(locale), useCustomTranslation: true },
     { titleKey: 'firstBook', file: getLibroPrimeroTeoriaEconomicaPDF(locale), useCustomTranslation: true },
-    { titleKey: 'secondBook', file: getLibroSegundoPDF(locale), useCustomTranslation: true },
+    { titleKey: 'secondBook', file: getLibroSegundoPDF(locale) },
   ];
 
   const articulos = [
