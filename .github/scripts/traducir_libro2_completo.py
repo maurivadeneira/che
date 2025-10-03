@@ -12,13 +12,13 @@ IDIOMAS = {
     'it': 'Italian'
 }
 
-def convertir_docx_a_markdown(docx_path, md_path):
-    """Convierte DOCX a Markdown usando pandoc"""
-    print(f"Convirtiendo DOCX a Markdown...")
+def convertir_pdf_a_markdown(pdf_path, md_path):
+    """Convierte PDF a Markdown usando pandoc"""
+    print(f"Convirtiendo PDF a Markdown...")
     try:
         subprocess.run([
             'pandoc',
-            docx_path,
+            pdf_path,
             '-o', md_path,
             '-t', 'markdown',
             '--wrap=none'
@@ -26,7 +26,7 @@ def convertir_docx_a_markdown(docx_path, md_path):
         print(f"Markdown creado: {md_path}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"Error en conversión: {e}")
+        print(f"Error: {e}")
         return False
 
 def traducir_por_chunks(texto, idioma_destino, max_chars=4500):
@@ -38,18 +38,17 @@ def traducir_por_chunks(texto, idioma_destino, max_chars=4500):
     chunk_actual = []
     chars_actuales = 0
     
-    for i, parrafo in enumerate(parrafos):
+    for parrafo in parrafos:
         if chars_actuales + len(parrafo) > max_chars and chunk_actual:
             texto_chunk = '\n\n'.join(chunk_actual)
             try:
                 traducido = translator.translate(texto_chunk)
                 resultado.append(traducido)
-                print(f"Chunk {len(resultado)} traducido")
+                print(f"Chunk {len(resultado)} OK")
                 time.sleep(0.5)
             except Exception as e:
                 print(f"Error: {e}")
                 resultado.append(texto_chunk)
-            
             chunk_actual = [parrafo]
             chars_actuales = len(parrafo)
         else:
@@ -61,7 +60,6 @@ def traducir_por_chunks(texto, idioma_destino, max_chars=4500):
         try:
             traducido = translator.translate(texto_chunk)
             resultado.append(traducido)
-            print(f"Chunk final traducido")
         except Exception as e:
             print(f"Error: {e}")
             resultado.append(texto_chunk)
@@ -69,7 +67,7 @@ def traducir_por_chunks(texto, idioma_destino, max_chars=4500):
     return '\n\n'.join(resultado)
 
 def convertir_markdown_a_pdf(md_path, pdf_path):
-    """Convierte Markdown a PDF usando pandoc"""
+    """Convierte Markdown a PDF"""
     print(f"Generando PDF...")
     try:
         subprocess.run([
@@ -77,68 +75,59 @@ def convertir_markdown_a_pdf(md_path, pdf_path):
             md_path,
             '-o', pdf_path,
             '--pdf-engine=xelatex',
-            '-V', 'geometry:margin=2.5cm',
-            '-V', 'mainfont=DejaVu Sans'
+            '-V', 'geometry:margin=2.5cm'
         ], check=True)
-        print(f"PDF creado: {pdf_path}")
+        print(f"PDF: {pdf_path}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"Error generando PDF: {e}")
+        print(f"Error PDF: {e}")
         return False
 
 def main():
-    print("=" * 70)
-    print("TRADUCCION AUTOMATICA COMPLETA - LIBRO 2")
-    print("=" * 70)
+    print("="*70)
+    print("TRADUCCION LIBRO 2")
+    print("="*70)
     
-    base_dir = Path('.')
-    docx_input = base_dir / '1759505574269_LIBRO SEGUNDO.HEREJIA.ECONOMICA.(PROTOCOLOS^^.) (1).docx'
-    md_español = base_dir / 'temp_libro2_es.md'
+    # Usar el PDF existente como fuente
+    pdf_input = Path('public/documentos/libros/LIBRO_SEGUNDO.pdf')
+    md_español = Path('temp_libro2_es.md')
     output_dir = Path('public/documentos/libros')
     
-    if not docx_input.exists():
-        print(f"No se encuentra: {docx_input}")
+    if not pdf_input.exists():
+        print(f"No encontrado: {pdf_input}")
         return
     
-    if not convertir_docx_a_markdown(docx_input, md_español):
+    if not convertir_pdf_a_markdown(pdf_input, md_español):
         return
     
     with open(md_español, 'r', encoding='utf-8') as f:
         contenido_es = f.read()
     
-    print(f"\nTamaño del documento: {len(contenido_es):,} caracteres")
+    print(f"Tamaño: {len(contenido_es):,} chars")
     
     for codigo, nombre in IDIOMAS.items():
         print(f"\n{'='*70}")
-        print(f"Procesando: {nombre} ({codigo})")
-        print('='*70)
+        print(f"{nombre} ({codigo})")
         
         try:
-            print("Traduciendo...")
             texto_traducido = traducir_por_chunks(contenido_es, codigo)
             
-            md_traducido = base_dir / f'temp_libro2_{codigo}.md'
+            md_traducido = Path(f'temp_libro2_{codigo}.md')
             with open(md_traducido, 'w', encoding='utf-8') as f:
                 f.write(texto_traducido)
-            print(f"Markdown guardado")
             
             pdf_output = output_dir / codigo / 'LIBRO_SEGUNDO.pdf'
             pdf_output.parent.mkdir(parents=True, exist_ok=True)
             
-            if convertir_markdown_a_pdf(md_traducido, pdf_output):
-                print(f"PDF guardado en: {pdf_output}")
-            
+            convertir_markdown_a_pdf(md_traducido, pdf_output)
             md_traducido.unlink()
             
         except Exception as e:
-            print(f"Error en {nombre}: {e}")
-            continue
+            print(f"Error {nombre}: {e}")
     
     md_español.unlink()
-    
-    print("\n" + "=" * 70)
-    print("PROCESO COMPLETADO")
-    print("=" * 70)
+    print("\n" + "="*70)
+    print("COMPLETADO")
 
 if __name__ == "__main__":
     main()
