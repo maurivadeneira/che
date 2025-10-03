@@ -8,6 +8,9 @@ on:
         required: true
         default: 'no'
 
+permissions:
+  contents: write
+
 jobs:
   traducir:
     runs-on: ubuntu-latest
@@ -16,6 +19,8 @@ jobs:
     steps:
     - name: Checkout codigo
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Python
       uses: actions/setup-python@v4
