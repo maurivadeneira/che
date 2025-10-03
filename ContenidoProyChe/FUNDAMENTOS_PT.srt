@@ -1,0 +1,2311 @@
+1
+00:00:02,860 --> 00:00:05,820
+Uma saudação cordial
+
+2
+00:00:06,160 --> 00:00:13,150
+Vamos fazer uma pequena apresentação
+
+3
+00:00:08,760 --> 00:00:16,090
+dos princípios fundamentais de
+
+4
+00:00:13,150 --> 00:00:21,029
+economia para entender como
+
+5
+00:00:16,090 --> 00:00:21,029
+O neoliberalismo funciona
+
+6
+00:00:22,380 --> 00:00:28,949
+Eu sou mauricio rivadeneira um físico
+
+7
+00:00:25,740 --> 00:00:31,439
+Economista autor de uma série de
+
+8
+00:00:28,949 --> 00:00:34,440
+escritos que eu tenho juntos
+
+9
+00:00:31,439 --> 00:00:37,379
+chamado de energia econômica um dos
+
+10
+00:00:34,440 --> 00:00:39,600
+Os livros foram chamados de protocolos em direção a um
+
+11
+00:00:37,379 --> 00:00:43,000
+Novo sistema econômico
+
+12
+00:00:39,600 --> 00:00:44,920
+o que se apresentou hoje e é
+
+13
+00:00:43,000 --> 00:00:47,230
+Um esquema
+
+14
+00:00:44,920 --> 00:00:49,719
+muito rápido para entender os princípios
+
+15
+00:00:47,230 --> 00:00:52,510
+fundamentos da economia que vamos
+
+16
+00:00:49,719 --> 00:00:54,989
+Entender a economia e nós entenderemos
+
+17
+00:00:52,510 --> 00:00:57,339
+A luz desses princípios da economia
+
+18
+00:00:54,989 --> 00:01:00,089
+Como está o
+
+19
+00:00:57,339 --> 00:01:00,089
+neoliberalismo
+
+20
+00:01:00,520 --> 00:01:06,250
+E você pode esclarecer se o neoliberalismo
+
+21
+00:01:03,809 --> 00:01:09,240
+verdadeiramente
+
+22
+00:01:06,250 --> 00:01:12,079
+É bom ou ruim
+
+23
+00:01:09,240 --> 00:01:15,750
+Vamos começar com a apresentação de nossos atores
+
+24
+00:01:12,079 --> 00:01:18,619
+Vamos falar sobre o produto interno bruto do
+
+25
+00:01:15,750 --> 00:01:18,619
+produto Interno Bruto
+
+26
+00:01:19,630 --> 00:01:24,360
+Nós medimos isso através da admissão é
+
+27
+00:01:22,570 --> 00:01:28,270
+Lá em economia, será chamado
+
+28
+00:01:24,360 --> 00:01:29,829
+entrada nacional que, em seu valor
+
+29
+00:01:28,270 --> 00:01:31,470
+ser exatamente o mesmo que o produto
+
+30
+00:01:29,829 --> 00:01:35,530
+Interno bruto
+
+31
+00:01:31,470 --> 00:01:40,420
+Essa renda é obtida no S
+
+32
+00:01:35,530 --> 00:01:43,000
+No país todas as pessoas do país
+
+33
+00:01:40,420 --> 00:01:45,759
+Eles têm a soma de todas essas renda
+
+34
+00:01:43,000 --> 00:01:48,250
+Produto interno bruto nos dá aqueles
+
+35
+00:01:45,759 --> 00:01:50,799
+Toda a renda vem de
+
+36
+00:01:48,250 --> 00:01:53,470
+pessoas que trabalham em empresas e
+
+37
+00:01:50,799 --> 00:01:56,380
+Eles ganham seu salário em empresas do
+
+38
+00:01:53,470 --> 00:01:59,170
+Agricultura em empresas industriais em
+
+39
+00:01:56,380 --> 00:02:01,509
+Empresas de serviços de produção
+
+40
+00:01:59,170 --> 00:02:04,920
+de bens e serviços de consumo e em
+
+41
+00:02:01,509 --> 00:02:09,830
+Bens de investimento e serviços
+
+42
+00:02:04,920 --> 00:02:13,790
+aquela renda que é obtida trabalhando
+
+43
+00:02:09,830 --> 00:02:17,410
+e também inclui receita de
+
+44
+00:02:13,790 --> 00:02:22,930
+Juros da renda de capital pelo
+
+45
+00:02:17,410 --> 00:02:25,670
+Aluguel de ações para qualquer conceito
+
+46
+00:02:22,930 --> 00:02:27,740
+entrada para todos os conceitos e
+
+47
+00:02:25,670 --> 00:02:31,390
+Soma de toda a renda nos dá
+
+48
+00:02:27,740 --> 00:02:31,390
+O produto interno bruto
+
+49
+00:02:32,340 --> 00:02:38,150
+O que as pessoas fazem com sua renda
+
+50
+00:02:35,970 --> 00:02:41,269
+consumir
+
+51
+00:02:38,150 --> 00:02:43,930
+consome e o que não consome é o que
+
+52
+00:02:41,269 --> 00:02:46,000
+que foi chamado na economia elabora
+
+53
+00:02:43,930 --> 00:02:50,470
+muito bom
+
+54
+00:02:46,000 --> 00:02:52,060
+Este é um quadrado especial porque
+
+55
+00:02:50,470 --> 00:02:56,620
+Sempre se mova como um quadrado perfeito
+
+56
+00:02:52,060 --> 00:02:58,420
+Esta é uma matriz quadrada onde
+
+57
+00:02:56,620 --> 00:03:03,220
+As seguintes condições têm o
+
+58
+00:02:58,420 --> 00:03:06,670
+bens e serviços de consumo são iguais a
+
+59
+00:03:03,220 --> 00:03:10,360
+o que vamos chamar de consumo e
+
+60
+00:03:06,670 --> 00:03:13,360
+O investimento é o mesmo
+
+61
+00:03:10,360 --> 00:03:16,120
+Isso sempre será dado em todos
+
+62
+00:03:13,360 --> 00:03:19,110
+Os países do mundo medem o produto
+
+63
+00:03:16,120 --> 00:03:22,170
+Bruto interno dessa maneira
+
+64
+00:03:19,110 --> 00:03:24,990
+E não apenas este quadrado nos diz
+
+65
+00:03:22,170 --> 00:03:27,170
+Essas definições, mas nos diz
+
+66
+00:03:24,990 --> 00:03:29,560
+Também como funciona
+
+67
+00:03:27,170 --> 00:03:32,890
+A economia pode
+
+68
+00:03:29,560 --> 00:03:37,590
+No tempo que estagnado ou
+
+69
+00:03:32,890 --> 00:03:40,560
+pode encolher ou se esticar
+
+70
+00:03:37,590 --> 00:03:44,220
+com uma particularidade sempre como um
+
+71
+00:03:40,560 --> 00:03:46,330
+O quadrado perfeito não se move
+
+72
+00:03:44,220 --> 00:03:49,530
+Então
+
+73
+00:03:46,330 --> 00:03:52,380
+Nem se move assim
+
+74
+00:03:49,530 --> 00:03:55,190
+movimentos como um quadrado perfeito ou
+
+75
+00:03:52,380 --> 00:03:58,819
+A economia só pode encolher
+
+76
+00:03:55,190 --> 00:04:01,300
+Você pode ficar quieto ou pode
+
+77
+00:03:58,819 --> 00:04:03,640
+ampliar
+
+78
+00:04:01,300 --> 00:04:05,800
+O que nos interessa é que
+
+79
+00:04:03,640 --> 00:04:07,670
+A economia é ótima sempre cresce
+
+80
+00:04:05,800 --> 00:04:09,800
+crescer
+
+81
+00:04:07,670 --> 00:04:13,490
+O que está encolhido
+
+82
+00:04:09,800 --> 00:04:15,860
+Bem, então se você conseguir ver lá
+
+83
+00:04:13,490 --> 00:04:18,049
+O que acontece quando a economia encolhe
+
+84
+00:04:15,860 --> 00:04:19,609
+significa que o consumo está encolhido e
+
+85
+00:04:18,049 --> 00:04:22,759
+Poupança
+
+86
+00:04:19,609 --> 00:04:25,300
+E quando a comunidade é esticada
+
+87
+00:04:22,759 --> 00:04:28,449
+Também consumo e economia
+
+88
+00:04:25,300 --> 00:04:31,060
+Bem, o que nós na economia
+
+89
+00:04:28,449 --> 00:04:33,759
+Você sempre ouve políticos
+
+90
+00:04:31,060 --> 00:04:36,159
+conversa é que você tem que reduzir o
+
+91
+00:04:33,759 --> 00:04:39,000
+consumo ou isso deve aumentar o
+
+92
+00:04:36,159 --> 00:04:42,460
+bom consumo que é a parte prática
+
+93
+00:04:39,000 --> 00:04:44,979
+Quando reduzimos o consumo o que
+
+94
+00:04:42,460 --> 00:04:47,740
+Eles dizem ultimamente na era neoliberal
+
+95
+00:04:44,979 --> 00:04:49,930
+é esse o consumo do
+
+96
+00:04:47,740 --> 00:04:52,659
+Governo então reduz o consumo
+
+97
+00:04:49,930 --> 00:04:55,090
+do governo significa encolher o
+
+98
+00:04:52,659 --> 00:04:57,039
+economia ou diminuição quando
+
+99
+00:04:55,090 --> 00:04:59,680
+Diminuímos o consumo, diminuímos
+
+100
+00:04:57,039 --> 00:05:02,710
+economia simultaneamente que deseja
+
+101
+00:04:59,680 --> 00:05:04,090
+diga que diminuímos o investimento e que
+
+102
+00:05:02,710 --> 00:05:07,440
+significa que o produto doméstico
+
+103
+00:05:04,090 --> 00:05:07,440
+Gross também diminui
+
+104
+00:05:07,510 --> 00:05:10,780
+Não é entendido porque políticos
+
+105
+00:05:09,340 --> 00:05:12,460
+Eles dizem que o
+
+106
+00:05:10,780 --> 00:05:14,680
+Os economistas do consumo dizem
+
+107
+00:05:12,460 --> 00:05:17,500
+Reduza o consumo do banco central
+
+108
+00:05:14,680 --> 00:05:20,730
+ordens que o consumo deve ser reduzido
+
+109
+00:05:17,500 --> 00:05:24,640
+Isso não faz sentido, mas não há sentido
+
+110
+00:05:20,730 --> 00:05:28,409
+- Quando o comparamos e colocamos o
+
+111
+00:05:24,640 --> 00:05:30,590
+população nesse contexto
+
+112
+00:05:28,409 --> 00:05:33,740
+Nós temos
+
+113
+00:05:30,590 --> 00:05:36,180
+do que a economia
+
+114
+00:05:33,740 --> 00:05:38,790
+Em uma das condições iniciais
+
+115
+00:05:36,180 --> 00:05:41,640
+Dissemos que começamos neste momento
+
+116
+00:05:38,790 --> 00:05:44,610
+uma população desempregada fora
+
+117
+00:05:41,640 --> 00:05:46,920
+o da economia então o que
+
+118
+00:05:44,610 --> 00:05:49,470
+Precisamos fazer é esse consumo
+
+119
+00:05:46,920 --> 00:05:51,449
+cresce cresce até que você alcance e cubra
+
+120
+00:05:49,470 --> 00:05:53,030
+Toda a população
+
+121
+00:05:51,449 --> 00:05:55,249
+bom
+
+122
+00:05:53,030 --> 00:05:57,739
+Quando somos assim
+
+123
+00:05:55,249 --> 00:06:00,529
+Em uma situação inicial em que
+
+124
+00:05:57,739 --> 00:06:03,049
+Há desemprego importante e eles nos dizem
+
+125
+00:06:00,529 --> 00:06:05,449
+Esse consumo deve ser reduzido como
+
+126
+00:06:03,049 --> 00:06:08,569
+consumo significa que vamos
+
+127
+00:06:05,449 --> 00:06:12,469
+também reduz a economia também
+
+128
+00:06:08,569 --> 00:06:16,490
+investimento e também renda que é
+
+129
+00:06:12,469 --> 00:06:18,889
+Vamos dar mais pessoas de desemprego
+
+130
+00:06:16,490 --> 00:06:21,319
+Essa política não faz sentido ser
+
+131
+00:06:18,889 --> 00:06:23,949
+que é impossível poder explicar um
+
+132
+00:06:21,319 --> 00:06:27,710
+Política de é neoliberalismo
+
+133
+00:06:23,949 --> 00:06:30,500
+Isso significa encolher a economia para
+
+134
+00:06:27,710 --> 00:06:34,360
+Eu considero que não é possível entender um
+
+135
+00:06:30,500 --> 00:06:34,360
+situação daqueles bons
+
+136
+00:06:39,080 --> 00:06:45,720
+Isso é apenas quando nos permite entender
+
+137
+00:06:42,030 --> 00:06:48,510
+Como as coisas se movem ou o
+
+138
+00:06:45,720 --> 00:06:53,330
+A renda é consumida ou salva sobre o que
+
+139
+00:06:48,510 --> 00:06:58,140
+proporção, diríamos sobre 180 20
+
+140
+00:06:53,330 --> 00:07:00,210
+85 15 é essa proporção da idade
+
+141
+00:06:58,140 --> 00:07:02,040
+O resultado da economia não pode ser
+
+142
+00:07:00,210 --> 00:07:06,750
+Escolher a priori não pode dizer
+
+143
+00:07:02,040 --> 00:07:10,640
+Vou reduzir o consumo para aumentar
+
+144
+00:07:06,750 --> 00:07:13,410
+A economia não acontece quando eu defino
+
+145
+00:07:10,640 --> 00:07:16,110
+Diminuir o consumo diminui
+
+146
+00:07:13,410 --> 00:07:19,710
+Economiza simultaneamente então não
+
+147
+00:07:16,110 --> 00:07:21,420
+Ele não tem regularmente dizendo que eu vou
+
+148
+00:07:19,710 --> 00:07:24,120
+diminuir o consumo para aumentar o
+
+149
+00:07:21,420 --> 00:07:26,430
+Economia que diminuiu isso
+
+150
+00:07:24,120 --> 00:07:29,220
+Salvar essas práticas governamentais em
+
+151
+00:07:26,430 --> 00:07:30,550
+Gastamos essa economia nisso
+
+152
+00:07:29,220 --> 00:07:34,300
+existe
+
+153
+00:07:30,550 --> 00:07:36,130
+não existe não funciona se a economia
+
+154
+00:07:34,300 --> 00:07:37,760
+Este é o princípio de que logo acima deles
+
+155
+00:07:36,130 --> 00:07:40,900
+narrar
+
+156
+00:07:37,760 --> 00:07:40,900
+É um começo
+
+157
+00:07:41,000 --> 00:07:48,970
+Devemos entender isso como uma lei
+
+158
+00:07:45,180 --> 00:07:50,920
+Na verdade, isso foi descoberto por peines
+
+159
+00:07:48,970 --> 00:07:52,490
+Queines não fizeram esta apresentação de
+
+160
+00:07:50,920 --> 00:07:55,090
+Esta foto
+
+161
+00:07:52,490 --> 00:08:00,319
+Aconteceu muito tempo depois para
+
+162
+00:07:55,090 --> 00:08:02,180
+fez as matrizes de Leontief e
+
+163
+00:08:00,319 --> 00:08:04,639
+Eu aprendi a lidar com esse tipo de
+
+164
+00:08:02,180 --> 00:08:06,889
+imagens deste tipo de matrizes, mas
+
+165
+00:08:04,639 --> 00:08:11,569
+Queines descobriram a operação do
+
+166
+00:08:06,889 --> 00:08:13,970
+o sistema é assim e desde então é conhecido
+
+167
+00:08:11,569 --> 00:08:15,440
+que, se diminuído, diminui, diminui
+
+168
+00:08:13,970 --> 00:08:18,620
+Economia e investimento simultaneamente
+
+169
+00:08:15,440 --> 00:08:21,470
+E, portanto, também a renda é
+
+170
+00:08:18,620 --> 00:08:24,050
+Por um longo tempo para o
+
+171
+00:08:21,470 --> 00:08:27,440
+economista mais importante de todos
+
+172
+00:08:24,050 --> 00:08:30,250
+James Times equivalente a um YouTube
+
+173
+00:08:27,440 --> 00:08:30,250
+Em física
+
+174
+00:08:31,120 --> 00:08:36,279
+Porque eles esquecem esse princípio o
+
+175
+00:08:33,580 --> 00:08:38,469
+Os economistas vão saber por que não
+
+176
+00:08:36,279 --> 00:08:42,070
+Eles entenderam ou não estudaram o que os inadados
+
+177
+00:08:38,469 --> 00:08:45,700
+Mas isso é conhecido pelo oratório
+
+178
+00:08:42,070 --> 00:08:49,480
+Econômico por um longo tempo do
+
+179
+00:08:45,700 --> 00:08:52,600
+tempos de rua e bem e
+
+180
+00:08:49,480 --> 00:08:55,210
+Apresentamos esta foto então com o
+
+181
+00:08:52,600 --> 00:08:58,360
+Ator populacional A economia não
+
+182
+00:08:55,210 --> 00:09:04,089
+Você tem algum significado se não pensarmos sobre
+
+183
+00:08:58,360 --> 00:09:08,580
+Na população então já sabemos que
+
+184
+00:09:04,089 --> 00:09:08,580
+Em geral, esta é a situação inicial
+
+185
+00:09:08,889 --> 00:09:14,230
+e desemprego o que nós
+
+186
+00:09:11,559 --> 00:09:16,660
+Teríamos que fazer é alcançar todo o
+
+187
+00:09:14,230 --> 00:09:20,290
+população e a partir de então se
+
+188
+00:09:16,660 --> 00:09:22,779
+Podemos pensar que se aumentarmos
+
+189
+00:09:20,290 --> 00:09:25,209
+consumo porque as coisas vão entrar
+
+190
+00:09:22,779 --> 00:09:29,649
+inflação não o tempo que estivermos em
+
+191
+00:09:25,209 --> 00:09:33,269
+Essa posição um não deve pensar sobre o
+
+192
+00:09:29,649 --> 00:09:35,990
+inflação, mas estamos nesta situação
+
+193
+00:09:33,269 --> 00:09:38,600
+inicial
+
+194
+00:09:35,990 --> 00:09:40,100
+E há inflação então o que é o que
+
+195
+00:09:38,600 --> 00:09:42,320
+que produz inflação que temos que
+
+196
+00:09:40,100 --> 00:09:44,470
+Descubra essas coisas que veremos mais
+
+197
+00:09:42,320 --> 00:09:44,470
+avançar
+
+198
+00:09:44,990 --> 00:09:51,080
+Vamos retirar nosso ator neste
+
+199
+00:09:47,180 --> 00:09:53,899
+momento e então estamos em nosso
+
+200
+00:09:51,080 --> 00:09:55,550
+condições na economia para que
+
+201
+00:09:53,899 --> 00:09:59,290
+Podemos colocar para o trabalho
+
+202
+00:09:55,550 --> 00:10:02,139
+Temos que assobiar então
+
+203
+00:09:59,290 --> 00:10:05,139
+Aqui teoricamente, mas como fazemos para
+
+204
+00:10:02,139 --> 00:10:06,899
+aumentar o consumo
+
+205
+00:10:05,139 --> 00:10:09,800
+de um país
+
+206
+00:10:06,899 --> 00:10:13,220
+Bem, precisamos apresentar outro ator
+
+207
+00:10:09,800 --> 00:10:13,220
+A massa monetária
+
+208
+00:10:14,200 --> 00:10:19,570
+Dinheiro Primário Dinheiro Primário
+
+209
+00:10:17,290 --> 00:10:21,760
+A missa é feita em um banco central
+
+210
+00:10:19,570 --> 00:10:25,090
+monetário é muito mais geral é o
+
+211
+00:10:21,760 --> 00:10:26,650
+M1 dinheiro primário com mais frequência
+
+212
+00:10:25,090 --> 00:10:28,180
+Você é máximo de quatro mansões cinco
+
+213
+00:10:26,650 --> 00:10:30,670
+Seis moções inventaram
+
+214
+00:10:28,180 --> 00:10:33,730
+economistas uma série de termos, mas
+
+215
+00:10:30,670 --> 00:10:37,080
+O mais importante de dois é o
+
+216
+00:10:33,730 --> 00:10:41,830
+Emissão primária m1 a base monetária
+
+217
+00:10:37,080 --> 00:10:47,580
+Quando a base monetária cresce
+
+218
+00:10:41,830 --> 00:10:47,580
+Tudo mais e cresce também
+
+219
+00:10:48,670 --> 00:10:56,950
+O país é uma relação direta entre
+
+220
+00:10:52,030 --> 00:10:59,110
+que m 1 base monetária e crescimento
+
+221
+00:10:56,950 --> 00:11:01,300
+de consumo
+
+222
+00:10:59,110 --> 00:11:05,850
+Se alguém fizer essa transmissão primária para
+
+223
+00:11:01,300 --> 00:11:09,350
+através do consumo do governo
+
+224
+00:11:05,850 --> 00:11:09,350
+O país cresce
+
+225
+00:11:10,120 --> 00:11:14,589
+E isso produz inflexão não é verdadeiro
+
+226
+00:11:12,460 --> 00:11:16,540
+entenda primeiro que esse relacionamento
+
+227
+00:11:14,589 --> 00:11:20,889
+Tem que existir para a economia
+
+228
+00:11:16,540 --> 00:11:23,350
+É permitido crescer
+
+229
+00:11:20,889 --> 00:11:26,350
+fornecimento de dinheiro através da base
+
+230
+00:11:23,350 --> 00:11:29,609
+monetário tem que aumentar o
+
+231
+00:11:26,350 --> 00:11:29,609
+base monetária m1
+
+232
+00:11:30,610 --> 00:11:33,209
+bom
+
+233
+00:11:33,379 --> 00:11:42,730
+Essa base monetária para aumentar
+
+234
+00:11:37,220 --> 00:11:45,630
+Bem, a base monetária aumenta
+
+235
+00:11:42,730 --> 00:11:48,750
+Em dois aspectos basicamente
+
+236
+00:11:45,630 --> 00:11:50,460
+Quando o banco central aumenta o
+
+237
+00:11:48,750 --> 00:11:53,700
+empréstimos para empresas quando
+
+238
+00:11:50,460 --> 00:11:56,610
+As empresas pedem mais crédito então lá
+
+239
+00:11:53,700 --> 00:11:58,800
+A base monetária surge
+
+240
+00:11:56,610 --> 00:12:01,019
+A base monetária está se movendo
+
+241
+00:11:58,800 --> 00:12:03,750
+todos os momentos às vezes o banco do
+
+242
+00:12:01,019 --> 00:12:06,240
+República entra, mas também retorna
+
+243
+00:12:03,750 --> 00:12:08,700
+dinheiro para o Banco da República como
+
+244
+00:12:06,240 --> 00:12:10,440
+Tudo sai como um empréstimo e você deve
+
+245
+00:12:08,700 --> 00:12:12,899
+então retorne para os créditos que existem
+
+246
+00:12:10,440 --> 00:12:14,550
+que então a base então
+
+247
+00:12:12,899 --> 00:12:17,490
+monetário está sendo renovado
+
+248
+00:12:14,550 --> 00:12:18,870
+permanentemente entre o dinheiro que é
+
+249
+00:12:17,490 --> 00:12:22,620
+em circulação e o banco do
+
+250
+00:12:18,870 --> 00:12:24,300
+República bem o que é necessário é que
+
+251
+00:12:22,620 --> 00:12:27,870
+aquela base monetária que está em
+
+252
+00:12:24,300 --> 00:12:31,260
+A circulação aumentou permanentemente
+
+253
+00:12:27,870 --> 00:12:36,690
+Quando isso ocorre, o consumo aumenta e
+
+254
+00:12:31,260 --> 00:12:41,329
+então ainda aumentar a economia se
+
+255
+00:12:36,690 --> 00:12:45,519
+Em frente à base monetária é coletada
+
+256
+00:12:41,329 --> 00:12:45,519
+A economia contrata
+
+257
+00:12:45,730 --> 00:12:52,089
+Nos anos 30 na Grande Depressão
+
+258
+00:12:49,050 --> 00:12:55,000
+Aconteceu exatamente isso para os bancos
+
+259
+00:12:52,089 --> 00:12:58,389
+centrals esqueceram que eles tinham que
+
+260
+00:12:55,000 --> 00:13:01,779
+produzir dinheiro e depois o sistema
+
+261
+00:12:58,389 --> 00:13:04,510
+Ele começou a coletar todo o dinheiro e veio
+
+262
+00:13:01,779 --> 00:13:07,570
+uma crise para escapar antes quando ela
+
+263
+00:13:04,510 --> 00:13:09,850
+Naquela ocasião, eles ainda não tinham
+
+264
+00:13:07,570 --> 00:13:13,570
+Muito conhecimento da economia aconteceu
+
+265
+00:13:09,850 --> 00:13:16,209
+Isso e a economia foram deixados sem dinheiro e
+
+266
+00:13:13,570 --> 00:13:18,459
+Foi a grande depressão
+
+267
+00:13:16,209 --> 00:13:22,420
+as seguintes depressões que temos
+
+268
+00:13:18,459 --> 00:13:24,689
+teve a mesma causa exatamente
+
+269
+00:13:22,420 --> 00:13:24,689
+porque
+
+270
+00:13:25,910 --> 00:13:31,040
+aumentando outros elementos que vamos
+
+271
+00:13:28,670 --> 00:13:33,980
+Ver mais tarde é porque o sistema é
+
+272
+00:13:31,040 --> 00:13:38,660
+Fica sem dinheiro e depois vem o
+
+273
+00:13:33,980 --> 00:13:42,230
+Bem crise então sabemos que
+
+274
+00:13:38,660 --> 00:13:44,570
+Entre o dinheiro da economia estes
+
+275
+00:13:42,230 --> 00:13:48,530
+princípios econômicos básicos e
+
+276
+00:13:44,570 --> 00:13:51,860
+população porque tudo está acontecendo
+
+277
+00:13:48,530 --> 00:13:55,310
+O fenômeno se o dinheiro aumentarmos, podemos
+
+278
+00:13:51,860 --> 00:13:58,780
+Aumente a economia e podemos ir
+
+279
+00:13:55,310 --> 00:13:58,780
+eliminando o desemprego
+
+280
+00:14:00,470 --> 00:14:04,310
+Elemental não vai perguntar
+
+281
+00:14:02,240 --> 00:14:07,570
+bem e se for tão simples porque o
+
+282
+00:14:04,310 --> 00:14:07,570
+governo não faz isso
+
+283
+00:14:07,740 --> 00:14:12,660
+Pergunte ao governo que eles têm
+
+284
+00:14:09,690 --> 00:14:14,640
+otras creencias en economía tienen otras
+
+285
+00:14:12,660 --> 00:14:16,470
+imposiciones lo que yo les estoy
+
+286
+00:14:14,640 --> 00:14:18,529
+explicando aquí es cómo funciona la
+
+287
+00:14:16,470 --> 00:14:21,019
+teoría económica
+
+288
+00:14:18,529 --> 00:14:22,910
+E como isso deve ser aplicado
+
+289
+00:14:21,019 --> 00:14:25,879
+vamos a refrescar un poquito los
+
+290
+00:14:22,910 --> 00:14:27,589
+conceitos para economistas e acima de tudo
+
+291
+00:14:25,879 --> 00:14:29,600
+para os do planejamento porque
+
+292
+00:14:27,589 --> 00:14:34,120
+O
+
+293
+00:14:29,600 --> 00:14:34,120
+Princípios da teoria econômica boa
+
+294
+00:14:35,740 --> 00:14:42,180
+Que relacionamento temos entre dinheiro e
+
+295
+00:14:39,130 --> 00:14:42,180
+A taxa de juros
+
+296
+00:14:43,209 --> 00:14:50,660
+Entre esses dois, há um relacionamento
+
+297
+00:14:45,639 --> 00:14:54,379
+Inverso se a taxa de juros aumentar
+
+298
+00:14:50,660 --> 00:14:56,040
+Isso ganha dinheiro simultaneamente
+
+299
+00:14:54,379 --> 00:14:58,440
+diminui
+
+300
+00:14:56,040 --> 00:15:00,779
+E, claro, quando a taxa de juros
+
+301
+00:14:58,440 --> 00:15:03,300
+Aumentos e dinheiro diminuem assim
+
+302
+00:15:00,779 --> 00:15:06,010
+Contratos econômicos
+
+303
+00:15:03,300 --> 00:15:08,440
+E as crises aparecerão e vai
+
+304
+00:15:06,010 --> 00:15:12,280
+Aumentar o desemprego
+
+305
+00:15:08,440 --> 00:15:14,350
+Isso é muito claro os princípios se
+
+306
+00:15:12,280 --> 00:15:16,150
+Entendemos os princípios que entendemos
+
+307
+00:15:14,350 --> 00:15:18,250
+Como a economia funciona e sim
+
+308
+00:15:16,150 --> 00:15:20,110
+Entendemos que podemos controlar o
+
+309
+00:15:18,250 --> 00:15:22,570
+economia e para a qual
+
+310
+00:15:20,110 --> 00:15:24,970
+Serviço de pessoas sem dúvida para
+
+311
+00:15:22,570 --> 00:15:32,079
+Essa ciência
+
+312
+00:15:24,970 --> 00:15:35,230
+É por isso que é por isso que esse nome
+
+313
+00:15:32,079 --> 00:15:37,540
+que demos energia econômica porque
+
+314
+00:15:35,230 --> 00:15:40,930
+as crenças que começaram em
+
+315
+00:15:37,540 --> 00:15:43,420
+As economias são diferentes não são
+
+316
+00:15:40,930 --> 00:15:46,769
+Baseado em ciências científicas
+
+317
+00:15:43,420 --> 00:15:46,769
+Isso é que estou te dizendo
+
+318
+00:15:47,560 --> 00:15:52,990
+O primeiro ou hereges na economia
+
+319
+00:15:49,570 --> 00:15:54,070
+eram os cientistas aqui
+
+320
+00:15:52,990 --> 00:15:56,730
+Nós também somos
+
+321
+00:15:54,070 --> 00:15:56,730
+cientistas
+
+322
+00:15:58,880 --> 00:16:03,730
+bom
+
+323
+00:16:00,980 --> 00:16:03,730
+outro
+
+324
+00:16:05,040 --> 00:16:10,620
+Então, como podemos fazê -lo aumentar
+
+325
+00:16:07,980 --> 00:16:12,209
+consumo através de dinheiro, mas como
+
+326
+00:16:10,620 --> 00:16:15,660
+Nós ganhamos dinheiro entre
+
+327
+00:16:12,209 --> 00:16:18,840
+Economia através do governo
+
+328
+00:16:15,660 --> 00:16:22,170
+através de empresas privadas e
+
+329
+00:16:18,840 --> 00:16:24,840
+Neste banco entra verdadeiro
+
+330
+00:16:22,170 --> 00:16:27,060
+Banco de entrada e receba o dinheiro
+
+331
+00:16:24,840 --> 00:16:30,690
+Do banco central e do setor bancário
+
+332
+00:16:27,060 --> 00:16:34,499
+emprestar a indivíduos que
+
+333
+00:16:30,690 --> 00:16:36,809
+É feito hoje eu
+
+334
+00:16:34,499 --> 00:16:40,789
+E há algo que não é
+
+335
+00:16:36,809 --> 00:16:44,699
+o suficiente para que não funcione muito bem
+
+336
+00:16:40,789 --> 00:16:46,709
+Porque a economia está estagnada
+
+337
+00:16:44,699 --> 00:16:48,599
+A população está desempregada então há
+
+338
+00:16:46,709 --> 00:16:50,759
+Algo que não funciona bem para isso
+
+339
+00:16:48,599 --> 00:16:54,479
+Temos que trazer ao outro ator o
+
+340
+00:16:50,759 --> 00:16:57,749
+Orçamento do governo o orçamento
+
+341
+00:16:54,479 --> 00:17:00,629
+do governo o governo entra aqui
+
+342
+00:16:57,749 --> 00:17:03,059
+caixa nesta parte do consumo no
+
+343
+00:17:00,629 --> 00:17:05,610
+Produção de um país o governo é
+
+344
+00:17:03,059 --> 00:17:08,069
+em todos os setores em milagres em
+
+345
+00:17:05,610 --> 00:17:11,519
+A indústria em serviços e também
+
+346
+00:17:08,069 --> 00:17:13,299
+produz bens e serviços de consumo e
+
+347
+00:17:11,519 --> 00:17:16,119
+investimento
+
+348
+00:17:13,299 --> 00:17:18,279
+E então o governo tem um
+
+349
+00:17:16,119 --> 00:17:19,910
+importante na participação do
+
+350
+00:17:18,279 --> 00:17:21,860
+economia
+
+351
+00:17:19,910 --> 00:17:24,860
+Meu governo tem que participar do
+
+352
+00:17:21,860 --> 00:17:27,230
+A economia é o jeito que faz
+
+353
+00:17:24,860 --> 00:17:30,200
+pode alimentar a economia e pode
+
+354
+00:17:27,230 --> 00:17:33,370
+reativar e mover a economia o país
+
+355
+00:17:30,200 --> 00:17:37,180
+Solito com indivíduos não funciona
+
+356
+00:17:33,370 --> 00:17:39,880
+Precisamos de finanças do governo
+
+357
+00:17:37,180 --> 00:17:42,370
+Como eles entram nas finanças do governo
+
+358
+00:17:39,880 --> 00:17:44,890
+O governo tem renda que é
+
+359
+00:17:42,370 --> 00:17:47,640
+Produto de seus impostos e você tem alguns
+
+360
+00:17:44,890 --> 00:17:52,830
+Despesas essas despesas são geralmente
+
+361
+00:17:47,640 --> 00:17:55,590
+maior do que aqueles que rendem
+
+362
+00:17:52,830 --> 00:17:57,750
+O que é maior é o que você tem que
+
+363
+00:17:55,590 --> 00:18:02,110
+Cubra com dívida
+
+364
+00:17:57,750 --> 00:18:04,510
+Então o país tem que emprestar
+
+365
+00:18:02,110 --> 00:18:08,110
+O país toma emprestado com bancos privados
+
+366
+00:18:04,510 --> 00:18:10,330
+Mas também poderia emprestar com o
+
+367
+00:18:08,110 --> 00:18:13,809
+Banco Central com seu próprio banco
+
+368
+00:18:10,330 --> 00:18:16,200
+Central que funcionou em empréstimos
+
+369
+00:18:13,809 --> 00:18:18,700
+Com seu próprio banco central, ele funcionou
+
+370
+00:18:16,200 --> 00:18:21,220
+O mundo inteiro
+
+371
+00:18:18,700 --> 00:18:24,429
+Muito tempo que os Estados Unidos foram
+
+372
+00:18:21,220 --> 00:18:28,000
+O primeiro que começou a isso nisso
+
+373
+00:18:24,429 --> 00:18:30,820
+É a operação da Colômbia também
+
+374
+00:18:28,000 --> 00:18:34,419
+Ele fez para as emissões primárias
+
+375
+00:18:30,820 --> 00:18:37,770
+do banco central e cobrimos parte de
+
+376
+00:18:34,419 --> 00:18:37,770
+Esse déficit
+
+377
+00:18:38,200 --> 00:18:44,470
+Atualmente, esse déficit é feito é
+
+378
+00:18:42,630 --> 00:18:46,960
+regulamentado
+
+379
+00:18:44,470 --> 00:18:52,590
+diríamos por uma ordem invisível de
+
+380
+00:18:46,960 --> 00:18:56,760
+Banco Central é a tese de D
+
+381
+00:18:52,590 --> 00:19:01,880
+que o déficit fiscal não é superior
+
+382
+00:18:56,760 --> 00:19:04,950
+em 3% a famosa regra fiscal que 3% que
+
+383
+00:19:01,880 --> 00:19:09,029
+Eles dizem que é para crescimento
+
+384
+00:19:04,950 --> 00:19:12,419
+Sustentável dos países não dá nenhum
+
+385
+00:19:09,029 --> 00:19:15,809
+Crescimento sustentável pode ser visto de
+
+386
+00:19:12,419 --> 00:19:18,419
+fez os países estão bem entrando
+
+387
+00:19:15,809 --> 00:19:20,700
+pouco a pouco em crise porque em termos
+
+388
+00:19:18,419 --> 00:19:23,600
+O que temos é que o país
+
+389
+00:19:20,700 --> 00:19:28,490
+Ele está contratando
+
+390
+00:19:23,600 --> 00:19:31,730
+Aquela regra fiscal do SSD é ruim
+
+391
+00:19:28,490 --> 00:19:34,539
+Porque 3% porque não 5% porque não
+
+392
+00:19:31,730 --> 00:19:34,539
+7%
+
+393
+00:19:34,540 --> 00:19:39,100
+E isso faz com que a dívida cresça e
+
+394
+00:19:37,330 --> 00:19:41,170
+Então a dívida também deve pagar
+
+395
+00:19:39,100 --> 00:19:44,710
+E então bom se ele concorda em
+
+396
+00:19:41,170 --> 00:19:46,460
+Aqui é muito bom que vem 3%, mas
+
+397
+00:19:44,710 --> 00:19:51,560
+É preciso um
+
+398
+00:19:46,460 --> 00:19:55,160
+Eu diria 2% adicionais uma despesa de 2%
+
+399
+00:19:51,560 --> 00:19:57,350
+Isso deve vir diretamente do banco
+
+400
+00:19:55,160 --> 00:20:00,620
+Central para o governo um crédito bancário
+
+401
+00:19:57,350 --> 00:20:03,620
+central para o governo em mais 2%
+
+402
+00:20:00,620 --> 00:20:06,350
+A regra fiscal deve ser adicionada em
+
+403
+00:20:03,620 --> 00:20:08,690
+que 2% adicionais do produto doméstico
+
+404
+00:20:06,350 --> 00:20:11,330
+Nojento não
+
+405
+00:20:08,690 --> 00:20:14,060
+de possibilidade de endividamento de
+
+406
+00:20:11,330 --> 00:20:17,390
+Orçamento da nação
+
+407
+00:20:14,060 --> 00:20:20,600
+Todo ano é isso que um
+
+408
+00:20:17,390 --> 00:20:22,910
+crédito caro com bancos, mas um
+
+409
+00:20:20,600 --> 00:20:25,340
+Crédito mais amigável com o banco
+
+410
+00:20:22,910 --> 00:20:28,310
+central com o objetivo de fazer
+
+411
+00:20:25,340 --> 00:20:32,090
+sustentável a economia para que o país
+
+412
+00:20:28,310 --> 00:20:35,420
+pode crescer pode alimentar todo o seu
+
+413
+00:20:32,090 --> 00:20:37,850
+População a população para trabalhar
+
+414
+00:20:35,420 --> 00:20:40,610
+O mecanismo de liberdade de preço
+
+415
+00:20:37,850 --> 00:20:44,810
+para trabalhar o capitalismo como
+
+416
+00:20:40,610 --> 00:20:46,910
+Deve ser quando não fazemos essa expansão
+
+417
+00:20:44,810 --> 00:20:49,010
+de dinheiro suficiente
+
+418
+00:20:46,910 --> 00:20:50,570
+O capitalismo também funciona, mas
+
+419
+00:20:49,010 --> 00:20:54,200
+descontroladamente porque ele começa
+
+420
+00:20:50,570 --> 00:20:58,029
+contratar e começar a ser um
+
+421
+00:20:54,200 --> 00:21:01,029
+fim da história então
+
+422
+00:20:58,029 --> 00:21:04,559
+O assunto é isso para o capitalismo
+
+423
+00:21:01,029 --> 00:21:09,399
+função como deveria ser
+
+424
+00:21:04,559 --> 00:21:13,090
+mais endividado com o sistema, mas um
+
+425
+00:21:09,399 --> 00:21:16,539
+um bem desses 2% adicionais com o
+
+426
+00:21:13,090 --> 00:21:18,909
+Fundos do banco central para o
+
+427
+00:21:16,539 --> 00:21:21,860
+Governo para entrar
+
+428
+00:21:18,909 --> 00:21:25,970
+Orçamento e o governo pode
+
+429
+00:21:21,860 --> 00:21:28,730
+inclua isso em sua receita de despesas como
+
+430
+00:21:25,970 --> 00:21:32,780
+A renda de alguém para o trabalho produzido
+
+431
+00:21:28,730 --> 00:21:35,840
+Para renda e produção são
+
+432
+00:21:32,780 --> 00:21:38,809
+o mesmo significa que a oferta e o
+
+433
+00:21:35,840 --> 00:21:40,999
+demanda são a oferta de mercadorias
+
+434
+00:21:38,809 --> 00:21:44,059
+e serviços
+
+435
+00:21:40,999 --> 00:21:46,099
+e a demanda ou a renda é
+
+436
+00:21:44,059 --> 00:21:47,899
+O mesmo é sempre o mesmo
+
+437
+00:21:46,099 --> 00:21:50,139
+há para ter inflação para isso
+
+438
+00:21:47,899 --> 00:21:50,139
+conceito
+
+439
+00:21:50,520 --> 00:21:55,830
+A menos que toda a população esteja coberta
+
+440
+00:21:54,060 --> 00:22:01,250
+Se toda a população não estiver coberta
+
+441
+00:21:55,830 --> 00:22:06,110
+A inflação deve aparecer então
+
+442
+00:22:01,250 --> 00:22:07,370
+Porque há inflação que temos que trazer
+
+443
+00:22:06,110 --> 00:22:10,490
+aqui
+
+444
+00:22:07,370 --> 00:22:13,700
+A taxa de juros da taxa de juros
+
+445
+00:22:10,490 --> 00:22:16,370
+que eles usam diz isso para
+
+446
+00:22:13,700 --> 00:22:18,110
+Controle a inflação não a taxa de
+
+447
+00:22:16,370 --> 00:22:21,080
+O interesse não é usado para controlar
+
+448
+00:22:18,110 --> 00:22:27,020
+Inflação a taxa de juros quando é
+
+449
+00:22:21,080 --> 00:22:30,380
+acima de 12 % está
+
+450
+00:22:27,020 --> 00:22:31,940
+para obter a massa monetária no que
+
+451
+00:22:30,380 --> 00:22:34,640
+forma contra massa monetária
+
+452
+00:22:31,940 --> 00:22:38,270
+Quando temos a taxa de juros então
+
+453
+00:22:34,640 --> 00:22:42,070
+Porque as pessoas que já têm sua renda
+
+454
+00:22:38,270 --> 00:22:46,060
+Não pode ser usado para consumo, mas
+
+455
+00:22:42,070 --> 00:22:49,120
+pagamento de juros ou um
+
+456
+00:22:46,060 --> 00:22:51,430
+Série de recursos que não vão mais gastar
+
+457
+00:22:49,120 --> 00:22:54,370
+As empresas não vão mais gastar e
+
+458
+00:22:51,430 --> 00:22:57,830
+Para que a taxa de juros faça
+
+459
+00:22:54,370 --> 00:23:00,110
+Recursos vão para os bancos
+
+460
+00:22:57,830 --> 00:23:01,940
+Quando temos um desequilíbrio
+
+461
+00:23:00,110 --> 00:23:05,600
+Em nossos países nossos países
+
+462
+00:23:01,940 --> 00:23:08,149
+subdesenvolvido tem uma taxa de
+
+463
+00:23:05,600 --> 00:23:11,350
+alto interesse e países europeus a
+
+464
+00:23:08,149 --> 00:23:13,490
+Taxa de juros Os países são baixos
+
+465
+00:23:11,350 --> 00:23:15,679
+desenvolveu uma curta taxa de juros
+
+466
+00:23:13,490 --> 00:23:19,220
+Uma transferência de
+
+467
+00:23:15,679 --> 00:23:21,169
+Recursos de menos países
+
+468
+00:23:19,220 --> 00:23:22,700
+desenvolvido para países mais
+
+469
+00:23:21,169 --> 00:23:25,279
+desenvolvido é por isso que não
+
+470
+00:23:22,700 --> 00:23:27,340
+Podemos desenvolver porque com essa taxa
+
+471
+00:23:25,279 --> 00:23:29,530
+de interesse
+
+472
+00:23:27,340 --> 00:23:33,130
+os recursos retiram a taxa de
+
+473
+00:23:29,530 --> 00:23:36,930
+Os juros não podem ser excedentes de 2%
+
+474
+00:23:33,130 --> 00:23:38,690
+Nominal anual
+
+475
+00:23:36,930 --> 00:23:40,820
+2
+
+476
+00:23:38,690 --> 00:23:44,150
+Os bancos precisam ser colocados um limite
+
+477
+00:23:40,820 --> 00:23:47,540
+Se não colocarmos um limite, é como é
+
+478
+00:23:44,150 --> 00:23:49,820
+Como se deixá -los ser reproduzidos
+
+479
+00:23:47,540 --> 00:23:52,190
+Muitos logotipos expressam como foi
+
+480
+00:23:49,820 --> 00:23:54,500
+todos os gêneros e destruir o
+
+481
+00:23:52,190 --> 00:23:56,210
+Sistema para bancos deve ser colocado um
+
+482
+00:23:54,500 --> 00:23:58,730
+limite porque eles não podem
+
+483
+00:23:56,210 --> 00:24:00,740
+destruir o sistema com a taxa de
+
+484
+00:23:58,730 --> 00:24:03,410
+interesse que eles usam para gerar
+
+485
+00:24:00,740 --> 00:24:07,460
+Crise não controlar a inflação
+
+486
+00:24:03,410 --> 00:24:09,330
+Isso realmente não é verdade a taxa de
+
+487
+00:24:07,460 --> 00:24:13,080
+interesse
+
+488
+00:24:09,330 --> 00:24:17,100
+Se for curto lá, já está controlando em
+
+489
+00:24:13,080 --> 00:24:19,320
+Inflação bem então temos
+
+490
+00:24:17,100 --> 00:24:22,680
+apresentou os princípios
+
+491
+00:24:19,320 --> 00:24:24,270
+fundamental da economia e agora já
+
+492
+00:24:22,680 --> 00:24:27,810
+Sabemos como a economia funciona
+
+493
+00:24:24,270 --> 00:24:32,160
+E que erros estão sendo cometidos
+
+494
+00:24:27,810 --> 00:24:34,290
+O neoliberalismo é isso
+
+495
+00:24:32,160 --> 00:24:38,950
+reduzir permanentemente o consumo
+
+496
+00:24:34,290 --> 00:24:41,200
+Quando dizemos isso para reduzir o
+
+497
+00:24:38,950 --> 00:24:43,170
+salário para os congressistas que são
+
+498
+00:24:41,200 --> 00:24:45,630
+diminuir o consumo
+
+499
+00:24:43,170 --> 00:24:48,090
+Quando dizemos tirar a prorrogação
+
+500
+00:24:45,630 --> 00:24:52,740
+Isto é para reduzir o
+
+501
+00:24:48,090 --> 00:24:55,770
+consumo quando dizemos aposentados
+
+502
+00:24:52,740 --> 00:24:58,220
+Eles querem tirar isso que é reduzir o
+
+503
+00:24:55,770 --> 00:24:58,220
+consumo
+
+504
+00:24:58,500 --> 00:25:08,190
+Se de 45 a 70 ou menos
+
+505
+00:25:03,000 --> 00:25:11,010
+Economias se expandiram atrás dele
+
+506
+00:25:08,190 --> 00:25:14,010
+dos anos 90 com neoliberalismo que temos
+
+507
+00:25:11,010 --> 00:25:16,950
+começou uma contração permanente que
+
+508
+00:25:14,010 --> 00:25:20,400
+Críticas muito críticas já são feitas porque
+
+509
+00:25:16,950 --> 00:25:23,100
+Temos um desemprego muito grande que temos
+
+510
+00:25:20,400 --> 00:25:25,680
+uma população que essa população quando
+
+511
+00:25:23,100 --> 00:25:27,680
+está fora porque eles permanecem no
+
+512
+00:25:25,680 --> 00:25:30,810
+lutar pela sobrevivência então
+
+513
+00:25:27,680 --> 00:25:32,850
+A comunidade subterrânea vem no
+
+514
+00:25:30,810 --> 00:25:36,060
+A economia de drogas vem a economia
+
+515
+00:25:32,850 --> 00:25:38,540
+do assalto o assalto porque por que
+
+516
+00:25:36,060 --> 00:25:41,430
+Porque eles estão procurando como sobreviver é
+
+517
+00:25:38,540 --> 00:25:44,559
+Impossível esse é o mecanismo para
+
+518
+00:25:41,430 --> 00:25:47,889
+destruir uma nação
+
+519
+00:25:44,559 --> 00:25:51,080
+Uma regra fiscal absurda
+
+520
+00:25:47,889 --> 00:25:53,870
+Essa regra fiscal deve ser revisada
+
+521
+00:25:51,080 --> 00:25:55,399
+Espero que você faça isso viral
+
+522
+00:25:53,870 --> 00:25:57,290
+Vídeo para todos entenderem
+
+523
+00:25:55,399 --> 00:26:00,140
+porque
+
+524
+00:25:57,290 --> 00:26:02,780
+Os princípios do
+
+525
+00:26:00,140 --> 00:26:04,880
+teoria econômica começará a aplicar o
+
+526
+00:26:02,780 --> 00:26:08,600
+princípios da teoria econômica como
+
+527
+00:26:04,880 --> 00:26:11,180
+Deve ser e espero que com este curto
+
+528
+00:26:08,600 --> 00:26:13,880
+Vídeo você começa a entender o
+
+529
+00:26:11,180 --> 00:26:15,470
+Macroeconomia econômica e o que em
+
+530
+00:26:13,880 --> 00:26:18,950
+Governos de ação realmente para
+
+531
+00:26:15,470 --> 00:26:21,380
+trabalho não esqueça um limite
+
+532
+00:26:18,950 --> 00:26:25,220
+para os banqueiros que a taxa de
+
+533
+00:26:21,380 --> 00:26:27,170
+juros nunca excedem 2% ou
+
+534
+00:26:25,220 --> 00:26:30,260
+nominal que os bancos só podem jogar
+
+535
+00:26:27,170 --> 00:26:33,680
+dentro de 0 e 2%, isso já é muito
+
+536
+00:26:30,260 --> 00:26:36,710
+Deve ser menor entre 0 e 1%
+
+537
+00:26:33,680 --> 00:26:39,470
+É o limite para colocar o
+
+538
+00:26:36,710 --> 00:26:43,100
+bancos centrais e dois que o dinheiro que
+
+539
+00:26:39,470 --> 00:26:45,770
+O dinheiro da oferta de dinheiro la m1
+
+540
+00:26:43,100 --> 00:26:48,410
+Fornecimento de dinheiro primário
+
+541
+00:26:45,770 --> 00:26:50,900
+Primário
+
+542
+00:26:48,410 --> 00:26:53,840
+créditos dos bancos centrais para
+
+543
+00:26:50,900 --> 00:26:56,260
+Governo que era proibido com precisão
+
+544
+00:26:53,840 --> 00:26:57,630
+Com a Constituição
+
+545
+00:26:56,260 --> 00:27:00,610
+Com as novas constituições
+
+546
+00:26:57,630 --> 00:27:02,710
+neoliberais em todos os países em
+
+547
+00:27:00,610 --> 00:27:07,840
+Colômbia que a projeção está no
+
+548
+00:27:02,710 --> 00:27:12,160
+O artigo 373 deve estar reformando que
+
+549
+00:27:07,840 --> 00:27:14,530
+Artigo 373 da Constituição deve ser
+
+550
+00:27:12,160 --> 00:27:16,060
+limitar -lhes os interesses de
+
+551
+00:27:14,530 --> 00:27:18,220
+os banqueiros não devem permitir o
+
+552
+00:27:16,060 --> 00:27:22,000
+Os banqueiros brincam com a taxa de juros
+
+553
+00:27:18,220 --> 00:27:24,970
+Porque eles descascam todas as empresas
+
+554
+00:27:22,000 --> 00:27:27,280
+Estes são os princípios gerais que
+
+555
+00:27:24,970 --> 00:27:30,520
+Eu queria compartilhar com você, espero
+
+556
+00:27:27,280 --> 00:27:34,090
+Eles me entendem e veem a importância de
+
+557
+00:27:30,520 --> 00:27:35,830
+Os livros que eu apresento para você em
+
+558
+00:27:34,090 --> 00:27:37,930
+A heresia econômica não esquece isso
+
+559
+00:27:35,830 --> 00:27:40,060
+O nome de guia econômico não é porque
+
+560
+00:27:37,930 --> 00:27:41,710
+Vamos ser feiticeiros, é porque nos amamos
+
+561
+00:27:40,060 --> 00:27:45,280
+Cientistas científicos de volta
+
+562
+00:27:41,710 --> 00:27:47,470
+Econômico que atualmente não
+
+563
+00:27:45,280 --> 00:27:50,170
+Cientista atualmente se aplica um
+
+564
+00:27:47,470 --> 00:27:51,820
+série de conceitos que já foram esquecidos
+
+565
+00:27:50,170 --> 00:27:54,430
+totalmente dos princípios do
+
+566
+00:27:51,820 --> 00:27:56,110
+teoria econômica que queremos
+
+567
+00:27:54,430 --> 00:27:58,540
+Os princípios da teoria retornam
+
+568
+00:27:56,110 --> 00:28:01,720
+Econômico esse conhecimento retorna
+
+569
+00:27:58,540 --> 00:28:07,080
+do conhecimento da ciência e que aplicamos
+
+570
+00:28:01,720 --> 00:28:09,640
+ciência por que motivo você quer
+
+571
+00:28:07,080 --> 00:28:11,740
+Excluir a população quer destruir o
+
+572
+00:28:09,640 --> 00:28:14,110
+população para diminuir o
+
+573
+00:28:11,740 --> 00:28:16,000
+A população não faz sentido aqui que nos encaixamos
+
+574
+00:28:14,110 --> 00:28:19,210
+Tudo nesta mãe de terra, sabemos
+
+575
+00:28:16,000 --> 00:28:24,410
+Tudo e nós podemos fazer isso
+
+576
+00:28:19,210 --> 00:28:29,410
+Espero que você tenha gostado deste vídeo
+
+577
+00:28:24,410 --> 00:28:29,410
+E para você eu desejo -lhe um
+
+578
+00:28:29,710 --> 00:28:34,289
+Um futuro feliz muito obrigado
