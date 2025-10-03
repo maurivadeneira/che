@@ -61,12 +61,25 @@ export default function BibliotecaPage() {
     return pdfPaths[currentLocale] || pdfPaths['es'];
   };
 
+  // Función para obtener el PDF del Libro Segundo según idioma
+  const getLibroSegundoPDF = (currentLocale: string) => {
+    const pdfPaths: { [key: string]: string } = {
+      'es': '/documentos/libros/LIBRO_SEGUNDO.pdf',
+      'en': '/documentos/libros/en/LIBRO_SEGUNDO.pdf',
+      'pt': '/documentos/libros/pt/LIBRO_SEGUNDO.pdf',
+      'fr': '/documentos/libros/fr/LIBRO_SEGUNDO.pdf',
+      'de': '/documentos/libros/de/LIBRO_SEGUNDO.pdf',
+      'it': '/documentos/libros/it/LIBRO_SEGUNDO.pdf'
+    };
+    return pdfPaths[currentLocale] || pdfPaths['es'];
+  };
+
   const libros = [
     { titleKey: 'analisisComprehensivo', file: getAnalysisComprehensivePDF(locale), useCustomTranslation: true },
     { titleKey: 'comentarioLibroPrimero', file: getComentarioLibroPrimeroPDF(locale), useCustomTranslation: true },
     { titleKey: 'presentacionLibroSegundo', file: getPresentacionLibroSegundoPDF(locale), useCustomTranslation: true },
     { titleKey: 'firstBook', file: getLibroPrimeroTeoriaEconomicaPDF(locale), useCustomTranslation: true },
-    { titleKey: 'secondBook', file: '/documentos/libros/LIBRO_SEGUNDO.pdf' },
+    { titleKey: 'secondBook', file: getLibroSegundoPDF(locale), useCustomTranslation: true },
   ];
 
   const articulos = [
