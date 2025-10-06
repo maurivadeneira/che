@@ -21,18 +21,15 @@ export function LanguageDetectionBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    // Solo ejecutar en el cliente
     if (typeof window === 'undefined') return;
 
-    // Verificar si ya se mostró el banner
     const bannerShown = sessionStorage.getItem('language-banner-shown');
     if (bannerShown) return;
 
-    // Detectar idioma del navegador
-    const browserLang = navigator.language.split('-')[0]; // 'en-US' -> 'en'
+    const browserLang = navigator.language.split('-')[0];
     
-    // Solo mostrar si el idioma detectado es diferente al actual y está soportado
-    if (browserLang !== currentLocale && languageMap[browserLang]) {
+    // Verificación explícita para TypeScript
+    if (browserLang && browserLang !== currentLocale && languageMap[browserLang]) {
       setDetectedLocale(browserLang);
       setShowBanner(true);
     }
