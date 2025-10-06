@@ -19,7 +19,7 @@ export function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
   
   const currentLocale = (params.locale as string) || 'es';
-  const currentLang = languages.find(lang => lang.code === currentLocale) || languages[0];
+  const currentLang = (languages.find(lang => lang.code === currentLocale) || languages[0])!;
 
   const handleLanguageChange = (newLocale: string) => {
     const newPathname = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
