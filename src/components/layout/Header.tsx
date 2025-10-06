@@ -26,7 +26,7 @@ export function Header({ locale }: HeaderProps) {
           <Link href={`/${locale}/auth/register`} className="hover:text-blue-300 transition-colors">{t('header.register')}</Link>
           <Link href={`/${locale}/cuenta`} className="hover:text-blue-300 transition-colors">{t('header.account')}</Link>
           <Link href={`/${locale}/auth/login`} className="hover:text-blue-300 transition-colors">{t('header.login')}</Link>
-          <LanguageSelector currentLocale={locale} />
+          <LanguageSelector />
         </div>
       </div>
 
