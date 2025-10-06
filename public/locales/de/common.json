@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Erstes Buch der Wirtschaftstheorie",
-    "analisisComprehensivo": "Umfassende Analyse"
-    ,"comentarioLibroPrimero": "Kommentar Erstes Buch"
-    ,"presentacionLibroSegundo": "Präsentation Zweites Buch"
-    ,"editorialNote": "Die Werke befinden sich im redaktionellen Überarbeitungsprozess. Sie werden in ihrem aktuellen Zustand veröffentlicht, um den Zugang zum Wissen zu erleichtern, während der professionelle Redaktionsprozess abgeschlossen wird. Wir danken für Ihr Verständnis."
-    ,"editorialNote": "Die Werke befinden sich im redaktionellen Überarbeitungsprozess. Sie werden in ihrem aktuellen Zustand veröffentlicht, um den Zugang zum Wissen zu erleichtern, während der professionelle Redaktionsprozess abgeschlossen wird. Wir danken für Ihr Verständnis."
+    "analisisComprehensivo": "Umfassende Analyse",
+    "comentarioLibroPrimero": "Kommentar Erstes Buch",
+    "presentacionLibroSegundo": "Präsentation Zweites Buch",
+    "editorialNote": "Die Werke befinden sich im redaktionellen Überarbeitungsprozess. Sie werden in ihrem aktuellen Zustand veröffentlicht, um den Zugang zum Wissen zu erleichtern, während der professionelle Redaktionsprozess abgeschlossen wird. Wir danken für Ihr Verständnis."
   },
   "header": {
     "kit2": "Kit2 Erklärung",
@@ -434,5 +433,16 @@
   "homepage": {
     "title": "CHE - Wirtschaftshäresie Corporation",
     "status": "Status: Unternehmensbasis funktioniert korrekt"
+  },
+  "academicInvitation": {
+    "title": "Einladung an die akademische Gemeinschaft",
+    "greeting": "Liebe Kollegen, Professoren und Studenten der Wirtschaftswissenschaften und verwandter Wissenschaften:",
+    "intro": "Als Physiker und Ökonom habe ich eine Forschung entwickelt, die einen rigorosen experimentellen Ansatz für die Wirtschaftswissenschaften vorschlägt und sie in eine echte experimentelle Wissenschaft verwandeln möchte.",
+    "platform": "Diese Plattform (corpherejiaeconomica.com) enthält meine Thesen, Bücher, Vorträge und Dialoge mit künstlicher Intelligenz über Wirtschaft, verfügbar in sechs Sprachen dank der Unterstützung von Claude AI. Obwohl die automatischen Übersetzungen nicht perfekt sind, machen sie den Inhalt einem globalen Publikum zugänglich.",
+    "invitation": "Ich lade Sie ein, diese Argumente zu erforschen und zu überlegen, ob sie wertvolle Perspektiven bieten, um die Grundlagen der Wirtschaftstheorie zu überdenken.",
+    "dialogues": "Die KI-Dialoge, die Sie hier finden, können als Ausgangspunkt für tiefere akademische Debatten dienen.",
+    "closing": "Dieses Projekt wurde mit begrenzten Ressourcen, aber mit wissenschaftlicher Überzeugung entwickelt. Ich danke Ihnen im Voraus für Ihre Zeit und intellektuelle Offenheit.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Physiker und Ökonom"
   }
 }

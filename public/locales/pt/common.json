@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Primeiro Livro de Teoria Económica",
-    "analisisComprehensivo": "Análise Abrangente"
-    ,"comentarioLibroPrimero": "Comentário Primeiro Livro"
-    ,"presentacionLibroSegundo": "Apresentação Segundo Livro"
-    ,"editorialNote": "As obras estão em processo de revisão editorial. São publicadas em seu estado atual para facilitar o acesso ao conhecimento enquanto o processo profissional de edição é concluído. Agradecemos sua compreensão."
-    ,"editorialNote": "As obras estão em processo de revisão editorial. São publicadas em seu estado atual para facilitar o acesso ao conhecimento enquanto o processo profissional de edição é concluído. Agradecemos sua compreensão."
+    "analisisComprehensivo": "Análise Abrangente",
+    "comentarioLibroPrimero": "Comentário Primeiro Livro",
+    "presentacionLibroSegundo": "Apresentação Segundo Livro",
+    "editorialNote": "As obras estão em processo de revisão editorial. São publicadas em seu estado atual para facilitar o acesso ao conhecimento enquanto o processo profissional de edição é concluído. Agradecemos sua compreensão."
   },
   "header": {
     "kit2": "Explicação Kit2",
@@ -421,5 +420,16 @@
   "homepage": {
     "title": "CHE - Corporação Heresia Econômica",
     "status": "Status: Base empresarial funcionando corretamente"
+  },
+  "academicInvitation": {
+    "title": "Convite à Comunidade Acadêmica",
+    "greeting": "Caros colegas, professores e estudantes de economia e ciências afins:",
+    "intro": "Como físico e economista, desenvolvi uma pesquisa que propõe uma abordagem experimental rigorosa para a economia, buscando transformá-la em uma verdadeira ciência experimental.",
+    "platform": "Esta plataforma (corpherejiaeconomica.com) contém minhas teses, livros, conferências e diálogos com inteligência artificial sobre economia, disponíveis em seis idiomas graças ao apoio do Claude AI. Embora as traduções automáticas não sejam perfeitas, permitem que o conteúdo seja acessível a um público global.",
+    "invitation": "Convido vocês a explorar estes argumentos e considerar se oferecem perspectivas valiosas para repensar os fundamentos da teoria econômica.",
+    "dialogues": "Os diálogos com IA que encontrarão aqui podem servir como ponto de partida para debates acadêmicos mais profundos.",
+    "closing": "Este projeto foi desenvolvido com recursos limitados, mas com convicção científica. Agradeço antecipadamente seu tempo e abertura intelectual.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Físico e Economista"
   }
 }

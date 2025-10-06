@@ -5,6 +5,7 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { Footer } from '@/components/layout/Footer';
 import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { LanguageDetectionBanner } from '@/components/common/LanguageDetectionBanner';
 import { TranslationProvider, type Locale } from '@/components/providers/TranslationProvider';
 import { getTranslations } from '@/lib/i18n';
 
@@ -16,7 +17,6 @@ interface Props {
 export default async function LocaleLayout({ children, params: { locale } }: Props) {
   const translations = await getTranslations(locale as Locale);
   
-  // Helper para obtener traducciones en servidor
   const getServerTranslation = (key: string) => {
     return key.split('.').reduce((current, k) => current?.[k], translations) || key;
   };
@@ -24,7 +24,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   const fondos = [
     { name: getServerTranslation('funds.items.business'), href: `/${locale}/fondos/inversion-empresarial`, description: getServerTranslation('funds.descriptions.business'), icon: '💼' },
     { name: getServerTranslation('funds.items.editorial'), href: `/${locale}/fondos/editorial-medios`, description: getServerTranslation('funds.descriptions.editorial'), icon: '📚' },
-    { name: getServerTranslation('funds.items.healing'), href: `/${locale}/fondos/sanacion-emocional`, description: getServerTranslation('funds.descriptions.healing'), icon: '��' },
+    { name: getServerTranslation('funds.items.healing'), href: `/${locale}/fondos/sanacion-emocional`, description: getServerTranslation('funds.descriptions.healing'), icon: '🌟' },
     { name: getServerTranslation('funds.items.housing'), href: `/${locale}/fondos/vivienda`, description: getServerTranslation('funds.descriptions.housing'), icon: '🏠' },
     { name: getServerTranslation('funds.items.recreation'), href: `/${locale}/fondos/recreacion-hotelera`, description: getServerTranslation('funds.descriptions.recreation'), icon: '🌴' },
     { name: getServerTranslation('funds.items.systems'), href: `/${locale}/fondos/sistemas-plataformas`, description: getServerTranslation('funds.descriptions.systems'), icon: '💻' },
@@ -39,6 +39,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
     <html lang={locale}>
       <body>
         <TranslationProvider locale={locale as Locale} translations={translations}>
+          <LanguageDetectionBanner />
           <div className="min-h-screen bg-gray-50 flex flex-col">
             <div className="bg-yellow-400 text-black text-center py-2 px-4 text-sm font-medium">
               {getServerTranslation('development.banner')}

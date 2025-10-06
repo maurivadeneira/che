@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Primo Libro di Teoria Economica",
-    "analisisComprehensivo": "Analisi Comprensiva"
-    ,"comentarioLibroPrimero": "Commento Primo Libro"
-    ,"presentacionLibroSegundo": "Presentazione Secondo Libro"
-    ,"editorialNote": "Le opere sono in fase di revisione editoriale. Vengono pubblicate nel loro stato attuale per facilitare l'accesso alla conoscenza mentre il processo di editing professionale viene completato. Apprezziamo la vostra comprensione."
-    ,"editorialNote": "Le opere sono in fase di revisione editoriale. Vengono pubblicate nel loro stato attuale per facilitare l'accesso alla conoscenza mentre il processo di editing professionale viene completato. Apprezziamo la vostra comprensione."
+    "analisisComprehensivo": "Analisi Comprensiva",
+    "comentarioLibroPrimero": "Commento Primo Libro",
+    "presentacionLibroSegundo": "Presentazione Secondo Libro",
+    "editorialNote": "Le opere sono in fase di revisione editoriale. Vengono pubblicate nel loro stato attuale per facilitare l'accesso alla conoscenza mentre il processo di editing professionale viene completato. Apprezziamo la vostra comprensione."
   },
   "header": {
     "kit2": "Spiegazione Kit2",
@@ -434,5 +433,16 @@
   "homepage": {
     "title": "CHE - Corporazione Eresia Economica",
     "status": "Stato: Base aziendale funzionante correttamente"
+  },
+  "academicInvitation": {
+    "title": "Invito alla Comunità Accademica",
+    "greeting": "Cari colleghi, professori e studenti di economia e scienze affini:",
+    "intro": "Come fisico ed economista, ho sviluppato una ricerca che propone un approccio sperimentale rigoroso all'economia, cercando di trasformarla in una vera scienza sperimentale.",
+    "platform": "Questa piattaforma (corpherejiaeconomica.com) contiene le mie tesi, libri, conferenze e dialoghi con intelligenza artificiale sull'economia, disponibili in sei lingue grazie al supporto di Claude AI. Sebbene le traduzioni automatiche non siano perfette, rendono il contenuto accessibile a un pubblico globale.",
+    "invitation": "Vi invito a esplorare questi argomenti e a considerare se offrono prospettive preziose per ripensare i fondamenti della teoria economica.",
+    "dialogues": "I dialoghi con l'IA che troverete qui possono servire come punto di partenza per dibattiti accademici più profondi.",
+    "closing": "Questo progetto è stato sviluppato con risorse limitate ma con convinzione scientifica. Vi ringrazio in anticipo per il vostro tempo e apertura intellettuale.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Fisico ed Economista"
   }
 }

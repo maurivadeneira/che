@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Primer Libro de Teoría Económica",
-    "analisisComprehensivo": "Análisis Comprehensivo"  
-    ,"comentarioLibroPrimero": "Comentario Libro Primero"
-    ,"presentacionLibroSegundo": "Presentación Libro Segundo"
-    ,"editorialNote": "Las obras están en proceso de revisión editorial. Se publican en su estado actual para facilitar el acceso al conocimiento mientras se completa el proceso profesional de edición. Agradecemos su comprensión."
-    ,"editorialNote": "Las obras están en proceso de revisión editorial. Se publican en su estado actual para facilitar el acceso al conocimiento mientras se completa el proceso profesional de edición. Agradecemos su comprensión."
+    "analisisComprehensivo": "Análisis Comprehensivo",
+    "comentarioLibroPrimero": "Comentario Libro Primero",
+    "presentacionLibroSegundo": "Presentación Libro Segundo",
+    "editorialNote": "Las obras están en proceso de revisión editorial. Se publican en su estado actual para facilitar el acceso al conocimiento mientras se completa el proceso profesional de edición. Agradecemos su comprensión."
   },
   "header": {
     "kit2": "Explicación Kit2",
@@ -452,13 +451,16 @@
       "de": "Deutsch",
       "it": "Italiano"
     }
-  }
-  ,"biblioteca": {
-    "firstBook": "Primer Libro de Teoría Económica",
-    "analisisComprehensivo": "Análisis Comprehensivo",
-    "comentarioLibroPrimero": "Comentario Libro Primero",
-    "presentacionLibroSegundo": "Presentación Libro Segundo"
-    ,"editorialNote": "Las obras están en proceso de revisión editorial. Se publican en su estado actual para facilitar el acceso al conocimiento mientras se completa el proceso profesional de edición. Agradecemos su comprensión."
-    ,"editorialNote": "Las obras están en proceso de revisión editorial. Se publican en su estado actual para facilitar el acceso al conocimiento mientras se completa el proceso profesional de edición. Agradecemos su comprensión."
+  },
+  "academicInvitation": {
+    "title": "Invitación a la Comunidad Académica",
+    "greeting": "Estimados colegas, profesores y estudiantes de economía y ciencias afines:",
+    "intro": "Como físico y economista, he desarrollado una investigación que propone un enfoque experimental riguroso para la economía, buscando transformarla en una verdadera ciencia experimental.",
+    "platform": "Esta plataforma (corpherejiaeconomica.com) contiene mis tesis, libros, conferencias y diálogos con inteligencia artificial sobre economía, disponibles en seis idiomas gracias al apoyo de Claude AI. Si bien las traducciones automáticas no son perfectas, permiten que el contenido sea accesible a una audiencia global.",
+    "invitation": "Los invito a explorar estos argumentos y considerar si ofrecen perspectivas valiosas para repensar los fundamentos de la teoría económica.",
+    "dialogues": "Los diálogos con IA que encontrarán aquí pueden servir como punto de partida para debates académicos más profundos.",
+    "closing": "Este proyecto se ha desarrollado con recursos limitados pero con convicción científica. Agradezco de antemano su tiempo y apertura intelectual.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Físico y Economista"
   }
 }

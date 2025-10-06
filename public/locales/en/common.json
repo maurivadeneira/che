@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "First Book of Economic Theory",
-    "analisisComprehensivo": "Comprehensive Analysis"
-    ,"comentarioLibroPrimero": "First Book Commentary"
-    ,"presentacionLibroSegundo": "Second Book Presentation"
-    ,"editorialNote": "The works are undergoing editorial review. They are published in their current state to facilitate access to knowledge while the professional editing process is completed. We appreciate your understanding."
-    ,"editorialNote": "The works are undergoing editorial review. They are published in their current state to facilitate access to knowledge while the professional editing process is completed. We appreciate your understanding."
+    "analisisComprehensivo": "Comprehensive Analysis",
+    "comentarioLibroPrimero": "First Book Commentary",
+    "presentacionLibroSegundo": "Second Book Presentation",
+    "editorialNote": "The works are undergoing editorial review. They are published in their current state to facilitate access to knowledge while the professional editing process is completed. We appreciate your understanding."
   },
   "header": {
     "kit2": "Kit2 Explanation",
@@ -452,5 +451,16 @@
       "de": "Deutsch",
       "it": "Italiano"
     }
+  },
+  "academicInvitation": {
+    "title": "Invitation to the Academic Community",
+    "greeting": "Dear colleagues, professors, and students of economics and related sciences:",
+    "intro": "As a physicist and economist, I have developed research proposing a rigorous experimental approach to economics, seeking to transform it into a true experimental science.",
+    "platform": "This platform (corpherejiaeconomica.com) contains my theses, books, conferences, and dialogues with artificial intelligence about economics, available in six languages thanks to Claude AI support. While automatic translations are not perfect, they make the content accessible to a global audience.",
+    "invitation": "I invite you to explore these arguments and consider whether they offer valuable perspectives for rethinking the foundations of economic theory.",
+    "dialogues": "The AI dialogues you will find here can serve as a starting point for deeper academic debates.",
+    "closing": "This project has been developed with limited resources but with scientific conviction. I thank you in advance for your time and intellectual openness.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Physicist and Economist"
   }
 }

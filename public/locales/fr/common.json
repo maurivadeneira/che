@@ -10,11 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Premier Livre de Théorie Économique",
-    "analisisComprehensivo": "Analyse Globale"
-    ,"comentarioLibroPrimero": "Commentaire Premier Livre"
-    ,"presentacionLibroSegundo": "Présentation Second Livre"
-    ,"editorialNote": "Les œuvres sont en cours de révision éditoriale. Elles sont publiées dans leur état actuel pour faciliter l'accès à la connaissance pendant que le processus d'édition professionnelle est terminé. Nous apprécions votre compréhension."
-    ,"editorialNote": "Les œuvres sont en cours de révision éditoriale. Elles sont publiées dans leur état actuel pour faciliter l'accès à la connaissance pendant que le processus d'édition professionnelle est terminé. Nous apprécions votre compréhension."
+    "analisisComprehensivo": "Analyse Globale",
+    "comentarioLibroPrimero": "Commentaire Premier Livre",
+    "presentacionLibroSegundo": "Présentation Second Livre",
+    "editorialNote": "Les œuvres sont en cours de révision éditoriale. Elles sont publiées dans leur état actuel pour faciliter l'accès à la connaissance pendant que le processus d'édition professionnelle est terminé. Nous apprécions votre compréhension."
   },
   "header": {
     "kit2": "Explication Kit2",
@@ -434,5 +433,16 @@
   "homepage": {
     "title": "CHE - Corporation Hérésie Économique",
     "status": "Statut: Base d'entreprise fonctionnant correctement"
+  },
+  "academicInvitation": {
+    "title": "Invitation à la Communauté Académique",
+    "greeting": "Chers collègues, professeurs et étudiants en économie et sciences connexes :",
+    "intro": "En tant que physicien et économiste, j'ai développé une recherche proposant une approche expérimentale rigoureuse de l'économie, cherchant à la transformer en une véritable science expérimentale.",
+    "platform": "Cette plateforme (corpherejiaeconomica.com) contient mes thèses, livres, conférences et dialogues avec l'intelligence artificielle sur l'économie, disponibles en six langues grâce au soutien de Claude AI. Bien que les traductions automatiques ne soient pas parfaites, elles rendent le contenu accessible à un public mondial.",
+    "invitation": "Je vous invite à explorer ces arguments et à considérer s'ils offrent des perspectives précieuses pour repenser les fondements de la théorie économique.",
+    "dialogues": "Les dialogues avec l'IA que vous trouverez ici peuvent servir de point de départ pour des débats académiques plus approfondis.",
+    "closing": "Ce projet a été développé avec des ressources limitées mais avec conviction scientifique. Je vous remercie d'avance pour votre temps et votre ouverture intellectuelle.",
+    "signature": "Mauricio Rivadeneira",
+    "title_signature": "Physicien et Économiste"
   }
 }
