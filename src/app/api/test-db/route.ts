@@ -3,16 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 
 export async function GET() {
   try {
-    // Debug: ver qué variables están disponibles
-    console.log('Environment check:', {
-      hasPublicUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
-      hasPublicKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-      urlLength: process.env.NEXT_PUBLIC_SUPABASE_URL?.length || 0,
-      keyLength: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.length || 0
-    });
-
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    // Usar variables SIN el prefijo NEXT_PUBLIC_ para API routes
+    const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     if (!supabaseUrl || !supabaseKey) {
       return NextResponse.json({
@@ -20,9 +13,7 @@ export async function GET() {
         error: 'Missing environment variables',
         debug: {
           hasUrl: !!supabaseUrl,
-          hasKey: !!supabaseKey,
-          urlValue: supabaseUrl ? 'present' : 'missing',
-          keyValue: supabaseKey ? 'present' : 'missing'
+          hasKey: !!supabaseKey
         }
       }, { status: 500 });
     }
@@ -49,8 +40,7 @@ export async function GET() {
   } catch (error: any) {
     return NextResponse.json({
       success: false,
-      error: error.message,
-      stack: error.stack
+      error: error.message
     }, { status: 500 });
   }
 }
