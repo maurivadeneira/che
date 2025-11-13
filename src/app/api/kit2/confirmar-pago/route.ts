@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
       .eq('id', purchase.template_id)
       .single();
 
-    const prefijo = template.data?.contract?.codigo_prefijo || 'K2';
+    const prefijo = template.data?.contract?.[0]?.codigo_prefijo || 'K2';
     const codigoKit2 = `${prefijo}-K2-${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
 
     // Crear instance (Kit2 del comprador)
