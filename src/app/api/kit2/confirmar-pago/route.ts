@@ -111,20 +111,21 @@ export async function POST(request: NextRequest) {
     }
 
     // Actualizar estadísticas del invitador
-    await supabase.rpc('increment', {
-      table_name: 'kit2_instances',
-      column_name: 'total_invitados_directos',
-      row_id: purchase.origen_instance_id
-    }).catch(() => {
-      // Fallback manual
-      supabase
-        .from('kit2_instances')
-        .update({ 
-          total_invitados_directos: supabase.raw('total_invitados_directos + 1'),
-          total_invitados_activos: supabase.raw('total_invitados_activos + 1')
-        })
-        .eq('id', purchase.origen_instance_id);
-    });
+const { data: origenInstance } = await supabase
+  .from('kit2_instances')
+  .select('total_invitados_directos, total_invitados_activos')
+  .eq('id', purchase.origen_instance_id)
+  .single();
+
+if (origenInstance) {
+  await supabase
+    .from('kit2_instances')
+    .update({
+      total_invitados_directos: (origenInstance.total_invitados_directos || 0) + 1,
+      total_invitados_activos: (origenInstance.total_invitados_activos || 0) + 1
+    })
+    .eq('id', purchase.origen_instance_id);
+}
 
     // Actualizar chain
     await supabase
