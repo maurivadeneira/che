@@ -8,18 +8,43 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+// Función para generar contraseña temporal segura
+function generateSecurePassword(): string {
+  const length = 12;
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+  let password = '';
+  for (let i = 0; i < length; i++) {
+    password += charset.charAt(Math.floor(Math.random() * charset.length));
+  }
+  return password;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { origen_codigo, email, nombre, apellido, pais } = body;
+    const { 
+      origen_codigo, 
+      email, 
+      nombre, 
+      apellido, 
+      pais,
+      telefono,
+      whatsapp,
+      direccion,
+      identificacion,
+      cuentas_bancarias, // Array de objetos: [{banco, numero_cuenta, tipo_cuenta}]
+      paypal_email // OBLIGATORIO
+    } = body;
 
-    if (!origen_codigo || !email || !nombre) {
+    // Validaciones básicas
+    if (!origen_codigo || !email || !nombre || !paypal_email) {
       return NextResponse.json(
-        { error: 'Datos incompletos' },
+        { error: 'Datos incompletos. Email, nombre y PayPal son obligatorios' },
         { status: 400 }
       );
     }
 
+    // Validar código de origen
     const { data: origenInstance, error: origenError } = await supabase
       .from('kit2_instances')
       .select('*, template:template_id(*, contract:contract_id(*))')
@@ -35,30 +60,97 @@ export async function POST(request: NextRequest) {
     }
 
     let userId;
+    let authUserId;
+    let temporaryPassword;
+    let isNewUser = false;
+
+    // Verificar si el usuario ya existe
     const { data: existingUser } = await supabase
       .from('users')
-      .select('id')
+      .select('id, auth_user_id')
       .eq('email', email)
       .single();
 
     if (existingUser) {
+      // Usuario ya existe
       userId = existingUser.id;
+      authUserId = existingUser.auth_user_id;
     } else {
+      // Nuevo usuario - crear cuenta de autenticación
+      isNewUser = true;
+      temporaryPassword = generateSecurePassword();
+
+      // 1. Crear usuario en Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+        email: email,
+        password: temporaryPassword,
+        email_confirm: true, // Auto-confirmar email
+        user_metadata: {
+          nombre: nombre,
+          apellido: apellido
+        }
+      });
+
+      if (authError || !authData.user) {
+        console.error('Error creando usuario auth:', authError);
+        return NextResponse.json(
+          { error: 'Error creando cuenta de usuario' },
+          { status: 500 }
+        );
+      }
+
+      authUserId = authData.user.id;
+
+      // 2. Crear usuario en tabla users
       const { data: newUser, error: userError } = await supabase
         .from('users')
-        .insert({ email, nombre, apellido, pais, activo: true })
+        .insert({ 
+          auth_user_id: authUserId,
+          email, 
+          nombre, 
+          apellido, 
+          pais,
+          telefono,
+          whatsapp,
+          direccion,
+          identificacion,
+          paypal_email,
+          activo: true,
+          fecha_registro: new Date().toISOString()
+        })
         .select('id')
         .single();
 
       if (userError || !newUser) {
+        // Si falla, intentar eliminar el usuario auth creado
+        await supabase.auth.admin.deleteUser(authUserId);
+        
         return NextResponse.json(
-          { error: 'Error creando usuario' },
+          { error: 'Error creando usuario en base de datos' },
           { status: 500 }
         );
       }
+
       userId = newUser.id;
+
+      // 3. Guardar cuentas bancarias si se proporcionaron
+      if (cuentas_bancarias && Array.isArray(cuentas_bancarias) && cuentas_bancarias.length > 0) {
+        const cuentasToInsert = cuentas_bancarias.map(cuenta => ({
+          user_id: userId,
+          banco: cuenta.banco,
+          numero_cuenta: cuenta.numero_cuenta,
+          tipo_cuenta: cuenta.tipo_cuenta || 'ahorros',
+          pais: pais,
+          es_principal: cuenta.es_principal || false
+        }));
+
+        await supabase
+          .from('user_cuentas_bancarias')
+          .insert(cuentasToInsert);
+      }
     }
 
+    // Calcular nivel y beneficiario
     const nuevoNivel = origenInstance.nivel_xn + 1;
     const beneficiarioId = nuevoNivel >= 2 
       ? (await supabase
@@ -72,6 +164,7 @@ export async function POST(request: NextRequest) {
     const contract = origenInstance.template.contract;
     const numeroOrden = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
 
+    // Crear registro de compra
     const { data: purchase, error: purchaseError } = await supabase
       .from('kit2_purchases')
       .insert({
@@ -104,6 +197,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Registrar evento en cadena
     await supabase.from('chain_events').insert({
       chain_id: origenInstance.chain_id,
       template_id: origenInstance.template_id,
@@ -112,20 +206,58 @@ export async function POST(request: NextRequest) {
       purchase_id: purchase.id,
       nivel_xn: nuevoNivel,
       descripcion: `Compra iniciada por ${nombre} desde codigo ${origen_codigo}`,
-      metadata: { numero_orden: numeroOrden, email },
+      metadata: { numero_orden: numeroOrden, email, is_new_user: isNewUser },
       origen: 'usuario',
       tags: ['compra', 'iniciada']
     });
 
-    return NextResponse.json({
+    // Obtener datos del beneficiario para mostrar en respuesta
+    let beneficiarioData = null;
+    if (beneficiarioId) {
+      const { data: beneficiario } = await supabase
+        .from('users')
+        .select('nombre, apellido, paypal_email')
+        .eq('id', beneficiarioId)
+        .single();
+      
+      if (beneficiario) {
+        beneficiarioData = {
+          nombre: `${beneficiario.nombre} ${beneficiario.apellido}`,
+          paypal: beneficiario.paypal_email
+        };
+
+        // Obtener cuentas bancarias del beneficiario
+        const { data: cuentas } = await supabase
+          .from('user_cuentas_bancarias')
+          .select('banco, numero_cuenta, tipo_cuenta')
+          .eq('user_id', beneficiarioId);
+        
+        if (cuentas) {
+          beneficiarioData.cuentas_bancarias = cuentas;
+        }
+      }
+    }
+
+    // Respuesta
+    const response: any = {
       success: true,
+      is_new_user: isNewUser,
+      user_id: userId,
       purchase_id: purchase.id,
       numero_orden: numeroOrden,
-      beneficiario_id: beneficiarioId,
+      beneficiario: beneficiarioData,
       monto_agradecimiento: contract.monto_agradecimiento_usd,
       monto_productos: contract.precio_producto_usd,
       tiempo_limite: purchase.tiempo_limite_pago
-    });
+    };
+
+    // Si es nuevo usuario, incluir contraseña temporal
+    if (isNewUser && temporaryPassword) {
+      response.temporary_password = temporaryPassword;
+      response.message = 'Cuenta creada exitosamente. Se ha enviado un correo con tus credenciales de acceso.';
+    }
+
+    return NextResponse.json(response);
 
   } catch (error) {
     console.error('Error iniciando compra:', error);
