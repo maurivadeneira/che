@@ -85,21 +85,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-```
-
-6. **Guarda el archivo**
-
-7. **El servidor de desarrollo debería recargar automáticamente**
-
-8. **Intenta registrarte de nuevo en** `http://localhost:3000/auth/register`
-
-**La estructura final debe quedar:**
-```
-src/
-└── app/
-    └── api/
-        └── user/
-            ├── create/
-            │   └── route.ts  ← Este archivo
-            └── profile/
-                └── route.ts
