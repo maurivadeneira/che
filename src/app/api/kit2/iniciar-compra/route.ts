@@ -212,32 +212,36 @@ export async function POST(request: NextRequest) {
     });
 
     // Obtener datos del beneficiario para mostrar en respuesta
-    let beneficiarioData = null;
-    if (beneficiarioId) {
-      const { data: beneficiario } = await supabase
-        .from('users')
-        .select('nombre, apellido, paypal_email')
-        .eq('id', beneficiarioId)
-        .single();
-      
-      if (beneficiario) {
-        beneficiarioData = {
-          nombre: `${beneficiario.nombre} ${beneficiario.apellido}`,
-          paypal: beneficiario.paypal_email
-        };
+let beneficiarioData: {
+  nombre: string;
+  paypal: string;
+  cuentas_bancarias?: any[];
+} | null = null;
 
-        // Obtener cuentas bancarias del beneficiario
-        const { data: cuentas } = await supabase
-          .from('user_cuentas_bancarias')
-          .select('banco, numero_cuenta, tipo_cuenta')
-          .eq('user_id', beneficiarioId);
-        
-        if (cuentas) {
-          beneficiarioData.cuentas_bancarias = cuentas;
-        }
-      }
+if (beneficiarioId) {
+  const { data: beneficiario } = await supabase
+    .from('users')
+    .select('nombre, apellido, paypal_email')
+    .eq('id', beneficiarioId)
+    .single();
+  
+  if (beneficiario) {
+    beneficiarioData = {
+      nombre: `${beneficiario.nombre} ${beneficiario.apellido}`,
+      paypal: beneficiario.paypal_email
+    };
+
+    // Obtener cuentas bancarias del beneficiario
+    const { data: cuentas } = await supabase
+      .from('user_cuentas_bancarias')
+      .select('banco, numero_cuenta, tipo_cuenta')
+      .eq('user_id', beneficiarioId);
+    
+    if (cuentas) {
+      beneficiarioData.cuentas_bancarias = cuentas;
     }
-
+  }
+}
     // Respuesta
     const response: any = {
       success: true,
