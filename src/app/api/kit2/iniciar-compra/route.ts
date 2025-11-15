@@ -59,9 +59,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    let userId;
-    let authUserId;
-    let temporaryPassword;
+    let userId: string | null = null;
+    let authUserId: string | null = null;
+    let temporaryPassword: string | undefined;
     let isNewUser = false;
 
     // Verificar si el usuario ya existe
