@@ -111,31 +111,42 @@ export async function POST(request: NextRequest) {
     }
 
     // Actualizar estadísticas del invitador
-const { data: origenInstance } = await supabase
-  .from('kit2_instances')
-  .select('total_invitados_directos, total_invitados_activos')
-  .eq('id', purchase.origen_instance_id)
-  .single();
+    const { data: origenInstance } = await supabase
+      .from('kit2_instances')
+      .select('total_invitados_directos, total_invitados_activos')
+      .eq('id', purchase.origen_instance_id)
+      .single();
 
-if (origenInstance) {
-  await supabase
-    .from('kit2_instances')
-    .update({
-      total_invitados_directos: (origenInstance.total_invitados_directos || 0) + 1,
-      total_invitados_activos: (origenInstance.total_invitados_activos || 0) + 1
-    })
-    .eq('id', purchase.origen_instance_id);
-}
+    if (origenInstance) {
+      await supabase
+        .from('kit2_instances')
+        .update({
+          total_invitados_directos: (origenInstance.total_invitados_directos || 0) + 1,
+          total_invitados_activos: (origenInstance.total_invitados_activos || 0) + 1
+        })
+        .eq('id', purchase.origen_instance_id);
+    }
 
-    // Actualizar chain
-    await supabase
+    // Actualizar chain - CORREGIDO
+    const { data: currentChain } = await supabase
       .from('kit2_chains')
-      .update({
-        total_participantes: supabase.raw('total_participantes + 1'),
-        nivel_mas_profundo: Math.max(purchase.nivel_xn_calculado, purchase.nivel_mas_profundo || 0),
-        ultima_venta: new Date().toISOString()
-      })
-      .eq('id', purchase.chain_id);
+      .select('total_participantes, nivel_mas_profundo')
+      .eq('id', purchase.chain_id)
+      .single();
+
+    if (currentChain) {
+      await supabase
+        .from('kit2_chains')
+        .update({
+          total_participantes: (currentChain.total_participantes || 0) + 1,
+          nivel_mas_profundo: Math.max(
+            purchase.nivel_xn_calculado, 
+            currentChain.nivel_mas_profundo || 0
+          ),
+          ultima_venta: new Date().toISOString()
+        })
+        .eq('id', purchase.chain_id);
+    }
 
     // Registrar evento de entrega
     await supabase.from('chain_events').insert({
@@ -156,15 +167,24 @@ if (origenInstance) {
       tags: ['kit2', 'entregado', 'completado']
     });
 
-    // Si hay beneficiario, registrar comisión
+    // Si hay beneficiario, registrar comisión - CORREGIDO
     if (purchase.beneficiario_user_id) {
-      await supabase
+      const { data: beneficiarioInstance } = await supabase
         .from('kit2_instances')
-        .update({
-          total_comisiones_recibidas: supabase.raw(`total_comisiones_recibidas + ${purchase.agradecimiento_monto_usd}`)
-        })
+        .select('total_comisiones_recibidas')
         .eq('user_id', purchase.beneficiario_user_id)
-        .eq('chain_id', purchase.chain_id);
+        .eq('chain_id', purchase.chain_id)
+        .single();
+
+      if (beneficiarioInstance) {
+        await supabase
+          .from('kit2_instances')
+          .update({
+            total_comisiones_recibidas: (beneficiarioInstance.total_comisiones_recibidas || 0) + parseFloat(purchase.agradecimiento_monto_usd)
+          })
+          .eq('user_id', purchase.beneficiario_user_id)
+          .eq('chain_id', purchase.chain_id);
+      }
 
       await supabase.from('chain_events').insert({
         chain_id: purchase.chain_id,
