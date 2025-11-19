@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 
+// Force new bundle
+const BUILD_VERSION = '2025-11-19-final';
+
 export default function LoginPage() {
   const router = useRouter();
   const supabase = createClientComponentClient();
