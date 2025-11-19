@@ -3,11 +3,6 @@ export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 // Función para generar contraseña temporal segura
 function generateSecurePassword(): string {
   const length = 12;
@@ -21,6 +16,12 @@ function generateSecurePassword(): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // ✅ MOVIDO AQUÍ - Crear cliente DENTRO de la función
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
     const body = await request.json();
     const { 
       origen_codigo, 
@@ -212,36 +213,37 @@ export async function POST(request: NextRequest) {
     });
 
     // Obtener datos del beneficiario para mostrar en respuesta
-let beneficiarioData: {
-  nombre: string;
-  paypal: string;
-  cuentas_bancarias?: any[];
-} | null = null;
+    let beneficiarioData: {
+      nombre: string;
+      paypal: string;
+      cuentas_bancarias?: any[];
+    } | null = null;
 
-if (beneficiarioId) {
-  const { data: beneficiario } = await supabase
-    .from('users')
-    .select('nombre, apellido, paypal_email')
-    .eq('id', beneficiarioId)
-    .single();
-  
-  if (beneficiario) {
-    beneficiarioData = {
-      nombre: `${beneficiario.nombre} ${beneficiario.apellido}`,
-      paypal: beneficiario.paypal_email
-    };
+    if (beneficiarioId) {
+      const { data: beneficiario } = await supabase
+        .from('users')
+        .select('nombre, apellido, paypal_email')
+        .eq('id', beneficiarioId)
+        .single();
+      
+      if (beneficiario) {
+        beneficiarioData = {
+          nombre: `${beneficiario.nombre} ${beneficiario.apellido}`,
+          paypal: beneficiario.paypal_email
+        };
 
-    // Obtener cuentas bancarias del beneficiario
-    const { data: cuentas } = await supabase
-      .from('user_cuentas_bancarias')
-      .select('banco, numero_cuenta, tipo_cuenta')
-      .eq('user_id', beneficiarioId);
-    
-    if (cuentas) {
-      beneficiarioData.cuentas_bancarias = cuentas;
+        // Obtener cuentas bancarias del beneficiario
+        const { data: cuentas } = await supabase
+          .from('user_cuentas_bancarias')
+          .select('banco, numero_cuenta, tipo_cuenta')
+          .eq('user_id', beneficiarioId);
+        
+        if (cuentas) {
+          beneficiarioData.cuentas_bancarias = cuentas;
+        }
+      }
     }
-  }
-}
+
     // Respuesta
     const response: any = {
       success: true,
