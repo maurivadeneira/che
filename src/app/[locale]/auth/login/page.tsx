@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { getSupabaseClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 
 // Force new bundle
-const BUILD_VERSION = '2025-11-19-final';
+const BUILD_VERSION = '2025-11-19-final-v2';
 
 export default function LoginPage() {
   const router = useRouter();
-  const supabase = createClientComponentClient();
+  const supabase = getSupabaseClient();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
