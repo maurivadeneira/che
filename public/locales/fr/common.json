@@ -10,10 +10,10 @@
   },
   "biblioteca": {
     "firstBook": "Premier Livre de Théorie Économique",
-    "analisisComprehensivo": "Analyse Globale",
+    "analisisComprehensivo": "Analyse Complète",
     "comentarioLibroPrimero": "Commentaire Premier Livre",
     "presentacionLibroSegundo": "Présentation Second Livre",
-    "editorialNote": "Les œuvres sont en cours de révision éditoriale. Elles sont publiées dans leur état actuel pour faciliter l'accès à la connaissance pendant que le processus d'édition professionnelle est terminé. Nous apprécions votre compréhension."
+    "editorialNote": "Les œuvres sont en cours de révision éditoriale. Elles sont publiées dans leur état actuel pour faciliter l'accès au savoir pendant que le processus professionnel d'édition est complété. Nous apprécions votre compréhension."
   },
   "header": {
     "kit2": "Explication Kit2",
@@ -28,26 +28,26 @@
   },
   "about": {
     "title": "À Propos",
-    "corporateInfo": "Informations Corporatives",
+    "corporateInfo": "Information Corporate",
     "foundation": "Fondation",
     "foundationDate": "5 Mars 2014",
-    "headquarters": "Siège Principal",
+    "headquarters": "Siège",
     "headquartersLocation": "Bogotá D.C., Colombie",
     "nature": "Nature",
-    "natureType": "Corporation sans but lucratif",
+    "natureType": "Corporation à but non lucratif",
     "character": "Caractère",
     "characterType": "International",
-    "taxId": "NIF/SIRET",
+    "taxId": "RUT/NIT",
     "taxIdValue": "[À renouveler]",
     "email": "Email",
     "emailValue": "contacto@corpherejiaeconomica.com"
   },
   "contact": {
     "title": "Contact",
-    "contactInfo": "Informations de Contact",
+    "contactInfo": "Information de Contact",
     "primaryEmail": "Email Principal",
     "primaryEmailValue": "contacto@corpherejiaeconomica.com",
-    "headquarters": "Siège Principal",
+    "headquarters": "Siège",
     "headquartersValue": "Bogotá D.C., Colombie",
     "website": "Site Web"
   },
@@ -70,7 +70,7 @@
       "inertialInflation": "Le Problème de l'Inflation Inertielle",
       "fiscalDeficit": "Le Problème du Déficit Fiscal",
       "checkToWorldSystem": "Échec au Système Économique Mondial",
-      "hereticEconomistReflections": "Réflexions de l'Économiste Hérétique"
+      "hereticEconomistReflections": "Réflexions Économiste Hérétique"
     }
   },
   "heresies": {
@@ -79,11 +79,11 @@
     "dialogues": {
       "bigBang": {
         "title": "Questionner le Big Bang",
-        "description": "Analyse critique de la théorie du Big Bang sous des perspectives économiques alternatives"
+        "description": "Analyse critique de la théorie du Big Bang depuis des perspectives économiques alternatives"
       },
       "economyVsScience": {
         "title": "Économie vs Science",
-        "description": "L'intersection entre modèles économiques et paradigmes scientifiques"
+        "description": "L'intersection entre les modèles économiques et les paradigmes scientifiques"
       },
       "extraterrestrials": {
         "title": "Extraterrestres",
@@ -91,7 +91,7 @@
       },
       "questioningPhysics": {
         "title": "Questionner la Physique",
-        "description": "Analyse critique des fondements physiques sous perspectives économiques"
+        "description": "Analyse critique des fondements physiques depuis des perspectives économiques"
       }
     }
   },
@@ -101,11 +101,11 @@
     "items": {
       "intro": {
         "title": "Introduction à l'Hérésie Économique",
-        "description": "Conférence d'introduction à l'Hérésie Économique"
+        "description": "Conférence introductive à l'Hérésie Économique"
       },
       "fundamentals": {
-        "title": "Fondamentaux de l'Hérésie Économique",
-        "description": "Fondamentaux de l'Hérésie Économique"
+        "title": "Fondements de l'Hérésie Économique",
+        "description": "Fondements de l'Hérésie Économique"
       },
       "kit": {
         "title": "Kit d'Hérésie Économique",
@@ -118,7 +118,7 @@
     },
     "date": "Date",
     "type": "Conférence",
-    "watch": "Voir Conférence"
+    "watch": "Regarder la Conférence"
   },
   "kit2": {
     "title": "Explication Kit2",
@@ -127,13 +127,13 @@
     "description": "Le système Kit2 est une innovation de CHE pour la distribution virale de contenu éducatif avec un modèle de commissions qui bénéficie à toute la chaîne distributive.",
     "mainFeatures": "Caractéristiques principales:",
     "features": {
-      "personalizedPdf": "PDF personnalisé avec nom d'utilisateur",
+      "personalizedPdf": "PDF personnalisé avec nom de l'utilisateur",
       "validity": "Validité d'exactement 1 an",
       "configurableCommissions": "Commissions configurables par accord",
       "viralDistribution": "Distribution virale: Utilisateur 0→1→2→3...",
       "multipleKit2s": "Possibilité de multiples Kit2s simultanés"
     },
-    "viewGuide": "Voir Guide Familial Système Kit2"
+    "viewGuide": "Voir le Guide Familial Système Kit2"
   },
   "auth": {
     "register": {
@@ -141,28 +141,70 @@
       "fullName": "Nom complet",
       "email": "Email",
       "password": "Mot de passe",
-      "createAccount": "Créer Compte"
+      "createAccount": "Créer un Compte"
     },
     "login": {
       "title": "Se Connecter",
       "email": "Email",
       "password": "Mot de passe",
       "signIn": "Se Connecter"
+    },
+    "forgotPassword": {
+      "title": "Récupérer le Mot de Passe",
+      "subtitle": "Kit2 - Arbre Magique de l'Épargne",
+      "step1": {
+        "title": "Étape 1: Vérifiez votre identité",
+        "description": "Entrez votre email et téléphone pour vérifier votre compte",
+        "emailLabel": "Email",
+        "emailPlaceholder": "votre@email.com",
+        "phoneLabel": "Téléphone",
+        "phonePlaceholder": "+57 300 123 4567",
+        "sendCodeButton": "Envoyer le code de vérification",
+        "sendingButton": "Envoi en cours..."
+      },
+      "step2": {
+        "title": "Étape 2: Entrez le code",
+        "description": "Nous avons envoyé un code à 6 chiffres à votre email",
+        "codeLabel": "Code de vérification",
+        "codePlaceholder": "123456",
+        "verifyButton": "Vérifier le code",
+        "verifyingButton": "Vérification...",
+        "resendCode": "Vous n'avez pas reçu le code? Vérifiez votre dossier spam"
+      },
+      "step3": {
+        "title": "Étape 3: Nouveau mot de passe",
+        "description": "Entrez votre nouveau mot de passe",
+        "passwordLabel": "Nouveau Mot de Passe",
+        "passwordPlaceholder": "••••••••",
+        "passwordHint": "Minimum 6 caractères",
+        "updateButton": "Mettre à jour le mot de passe",
+        "updatingButton": "Mise à jour..."
+      },
+      "messages": {
+        "codeSent": "✅ Code envoyé. Vérifiez votre email (et dossier spam).",
+        "codeVerified": "✅ Code vérifié avec succès.",
+        "passwordUpdated": "✅ Mot de passe mis à jour. Redirection vers la connexion...",
+        "userNotFound": "Aucun utilisateur trouvé avec cet email et ce téléphone.",
+        "invalidCode": "Code invalide ou expiré. Réessayez.",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 6 caractères.",
+        "genericError": "Erreur de traitement. Réessayez."
+      },
+      "backToLogin": "Retour à la connexion"
     }
   },
   "account": {
     "title": "Mon Compte",
     "panel": "Panneau Utilisateur CHE",
-    "developmentNote": "Fonctionnalité en développement - Système d'authentification d'entreprise bientôt.",
+    "developmentNote": "Fonctionnalité en développement - Système d'authentification entreprise bientôt disponible.",
     "myKit2s": "Mes Kit2s",
     "kit2sDescription": "Gérez vos Kit2s actifs et expirés",
     "commissions": "Commissions",
-    "commissionsDescription": "Consultez vos gains de distribution"
+    "commissionsDescription": "Examinez vos gains par distribution"
   },
   "funds": {
     "title": "Les 11 Fonds Rotatifs CHE",
-    "subtitle": "Structure statutaire de la Corporation Hérésie Économique pour le développement global",
-    "viewDetails": "Voir détails",
+    "subtitle": "Structure statutaire de la Corporation Hérésie Économique pour le développement mondial",
+    "viewDetails": "Voir les détails",
     "status": {
       "active": "Actif",
       "development": "En développement"
@@ -172,7 +214,7 @@
       "editorial": "Éditorial et Médias Audiovisuels",
       "healing": "Guérison Émotionnelle",
       "housing": "Logement",
-      "recreation": "Loisirs Sociaux et Hôtellerie",
+      "recreation": "Récréation Sociale et Hôtelière",
       "systems": "Systèmes et Plateformes",
       "banking": "Bancaire",
       "engineering": "Projets d'Ingénierie",
@@ -184,7 +226,7 @@
       "business": "Projets d'investissement",
       "editorial": "Publications",
       "healing": "Bien-être",
-      "housing": "Solutions de logement",
+      "housing": "Solutions d'habitation",
       "recreation": "Tourisme",
       "systems": "Technologie",
       "banking": "Services financiers",
@@ -199,17 +241,17 @@
         "description": "Projets d'investissement et d'entrepreneuriat pour le développement économique.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Faciliter l'accès au capital d'investissement pour les entrepreneurs et les entreprises cherchant à étendre leurs opérations ou développer de nouveaux projets innovants."
+          "content": "Faciliter l'accès au capital d'investissement pour les entrepreneurs et les entreprises qui cherchent à élargir leurs opérations ou à développer de nouveaux projets innovants."
         },
         "types": {
-          "title": "Types de Projets"
+          "title": "Types d'Investissement"
         },
         "process": {
-          "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions d'investissement via notre portail en ligne, où elles seront évaluées par notre équipe d'experts."
+          "title": "Processus de Candidature",
+          "content": "Les intéressés peuvent soumettre leurs propositions d'investissement via notre portail en ligne, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
-          "Capital d'amorçage pour les startups",
+          "Capital d'amorçage pour startups",
           "Expansion d'entreprises existantes",
           "Projets d'innovation technologique",
           "Investissements en économie durable"
@@ -217,17 +259,17 @@
       },
       "editorialMedios": {
         "title": "Éditorial et Médias Audiovisuels - CHE Monde Libre",
-        "description": "Développement de contenu éditorial et de médias audiovisuels pour la diffusion des connaissances CHE.",
+        "description": "Développement de contenu éditorial et de médias audiovisuels pour la diffusion du savoir CHE.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Développer et promouvoir la création de contenu éditorial et de médias audiovisuels pour la diffusion des connaissances CHE."
+          "content": "Développer et promouvoir le développement de contenu éditorial et de médias audiovisuels pour la diffusion du savoir che."
         },
         "types": {
           "title": "Types de Projets"
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Livres et publications spécialisées",
@@ -248,7 +290,7 @@
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Thérapies alternatives",
@@ -259,17 +301,17 @@
       },
       "vivienda": {
         "title": "Logement - CHE Monde Libre",
-        "description": "Solutions d'habitat innovantes et accessibles pour les communautés mondiales.",
+        "description": "Solutions d'habitation innovantes et accessibles pour les communautés mondiales.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Développer et promouvoir des solutions d'habitat innovantes et accessibles pour les communautés mondiales."
+          "content": "Développer et promouvoir des solutions d'habitation innovantes et accessibles pour les communautés mondiales."
         },
         "types": {
           "title": "Types de Projets"
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Logement social",
@@ -279,18 +321,18 @@
         ]
       },
       "recreacionSocial": {
-        "title": "Loisirs Sociaux et Hôtellerie - CHE Monde Libre",
-        "description": "Projets de tourisme, de loisirs et de services hôteliers pour le développement social.",
+        "title": "Récréation Sociale et Hôtelière - CHE Monde Libre",
+        "description": "Projets de tourisme, récréation et services hôteliers pour le développement social.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Développer et promouvoir des projets de tourisme, de loisirs et de services hôteliers pour le développement social."
+          "content": "Développer et promouvoir des projets de tourisme, récréation et services hôteliers pour le développement social."
         },
         "types": {
           "title": "Types de Projets"
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Tourisme communautaire",
@@ -311,7 +353,7 @@
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Plateformes numériques",
@@ -325,14 +367,14 @@
         "description": "Services financiers alternatifs et banque communautaire.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Développer et promouvoir des services financiers alternatifs et une banque communautaire."
+          "content": "Développer et promouvoir des services financiers alternatifs et la banque communautaire."
         },
         "types": {
           "title": "Types de Projets"
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Microfinance",
@@ -353,28 +395,28 @@
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Infrastructure",
-          "Génie civil",
+          "Ingénierie civile",
           "Projets environnementaux",
           "Développement durable"
         ]
       },
       "comercial": {
         "title": "Commercial - CHE Monde Libre",
-        "description": "Activités commerciales et entrepreneuriales selon les principes CHE.",
+        "description": "Activités commerciales et d'affaires selon les principes CHE.",
         "objective": {
           "title": "Objectif du Fonds",
-          "content": "Développer et promouvoir des activités commerciales et entrepreneuriales selon les principes CHE."
+          "content": "Développer et promouvoir des activités commerciales et d'affaires selon les principes che."
         },
         "types": {
           "title": "Types de Projets"
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Commerce éthique",
@@ -395,7 +437,7 @@
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Recherche indépendante",
@@ -416,7 +458,7 @@
         },
         "process": {
           "title": "Processus de Participation",
-          "content": "Les intéressés peuvent présenter leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
+          "content": "Les intéressés peuvent soumettre leurs propositions via notre portail spécialisé, où elles seront évaluées par notre équipe d'experts."
         },
         "items": [
           "Expressions artistiques",
@@ -428,20 +470,38 @@
     }
   },
   "development": {
-    "banner": "Ce projet est en phase de développement. Certaines sections pourraient être incomplètes."
+    "banner": "Ce projet est en phase de développement. Certaines sections peuvent être incomplètes."
   },
   "homepage": {
     "title": "CHE - Corporation Hérésie Économique",
-    "status": "Statut: Base d'entreprise fonctionnant correctement"
+    "status": "État: Base entreprise fonctionnant correctement"
+  },
+  "herejiasIA": {
+    "documents": {
+      "economia_vs_ciencia": {
+        "title": "L'Économie est-elle une Science?",
+        "description": "Dialogue entre Mauricio Rivadeneira et ChatGPT-4 sur la nature scientifique de l'économie",
+        "available_languages": "Disponible en:"
+      }
+    },
+    "download": "Télécharger",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "pt": "Português",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano"
+    }
   },
   "academicInvitation": {
     "title": "Invitation à la Communauté Académique",
-    "greeting": "Chers collègues, professeurs et étudiants en économie et sciences connexes :",
-    "intro": "En tant que physicien et économiste, j'ai développé une recherche proposant une approche expérimentale rigoureuse de l'économie, cherchant à la transformer en une véritable science expérimentale.",
+    "greeting": "Chers collègues, professeurs et étudiants d'économie et de sciences connexes:",
+    "intro": "En tant que physicien et économiste, j'ai développé une recherche qui propose une approche expérimentale rigoureuse pour l'économie, cherchant à la transformer en une véritable science expérimentale.",
     "platform": "Cette plateforme (corpherejiaeconomica.com) contient mes thèses, livres, conférences et dialogues avec l'intelligence artificielle sur l'économie, disponibles en six langues grâce au soutien de Claude AI. Bien que les traductions automatiques ne soient pas parfaites, elles rendent le contenu accessible à un public mondial.",
     "invitation": "Je vous invite à explorer ces arguments et à considérer s'ils offrent des perspectives précieuses pour repenser les fondements de la théorie économique.",
-    "dialogues": "Les dialogues avec l'IA que vous trouverez ici peuvent servir de point de départ pour des débats académiques plus approfondis.",
-    "closing": "Ce projet a été développé avec des ressources limitées mais avec conviction scientifique. Je vous remercie d'avance pour votre temps et votre ouverture intellectuelle.",
+    "dialogues": "Les dialogues avec l'IA que vous trouverez ici peuvent servir de point de départ pour des débats académiques plus profonds.",
+    "closing": "Ce projet a été développé avec des ressources limitées mais avec une conviction scientifique. Je vous remercie d'avance pour votre temps et votre ouverture intellectuelle.",
     "signature": "Mauricio Rivadeneira",
     "title_signature": "Physicien et Économiste"
   }

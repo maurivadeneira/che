@@ -4,16 +4,16 @@
     "heresies": "Eresie con IA",
     "conferences": "Conferenze",
     "library": "Biblioteca",
-    "funds": "Fondi Rotativi",
+    "funds": "Fondi Rotatori",
     "about": "Chi Siamo",
     "contact": "Contatto"
   },
   "biblioteca": {
     "firstBook": "Primo Libro di Teoria Economica",
-    "analisisComprehensivo": "Analisi Comprensiva",
+    "analisisComprehensivo": "Analisi Completa",
     "comentarioLibroPrimero": "Commento Primo Libro",
     "presentacionLibroSegundo": "Presentazione Secondo Libro",
-    "editorialNote": "Le opere sono in fase di revisione editoriale. Vengono pubblicate nel loro stato attuale per facilitare l'accesso alla conoscenza mentre il processo di editing professionale viene completato. Apprezziamo la vostra comprensione."
+    "editorialNote": "Le opere sono in fase di revisione editoriale. Vengono pubblicate nel loro stato attuale per facilitare l'accesso alla conoscenza mentre il processo professionale di editing viene completato. Apprezziamo la vostra comprensione."
   },
   "header": {
     "kit2": "Spiegazione Kit2",
@@ -24,11 +24,11 @@
   "company": {
     "name": "C.H.E. Mondo Libero",
     "fullName": "Corporazione Eresia Economica",
-    "subtitle": "Un progetto sociale globale per lo sviluppo nel mondo intero"
+    "subtitle": "Un progetto sociale globale per lo sviluppo in tutto il mondo"
   },
   "about": {
     "title": "Chi Siamo",
-    "corporateInfo": "Informazioni Aziendali",
+    "corporateInfo": "Informazioni Corporate",
     "foundation": "Fondazione",
     "foundationDate": "5 Marzo 2014",
     "headquarters": "Sede Principale",
@@ -70,12 +70,12 @@
       "inertialInflation": "Il Problema dell'Inflazione Inerziale",
       "fiscalDeficit": "Il Problema del Deficit Fiscale",
       "checkToWorldSystem": "Scacco al Sistema Economico Mondiale",
-      "hereticEconomistReflections": "Riflessioni dell'Economista Eretico"
+      "hereticEconomistReflections": "Riflessioni Economista Eretico"
     }
   },
   "heresies": {
     "title": "Eresie con IA",
-    "subtitle": "Dialoghi di intelligenza artificiale su teorie economiche alternative",
+    "subtitle": "Dialoghi di intelligenza artificiale sulle teorie economiche alternative",
     "dialogues": {
       "bigBang": {
         "title": "Mettere in Discussione il Big Bang",
@@ -113,27 +113,27 @@
       },
       "author": {
         "title": "Presentazione dell'Autore",
-        "description": "Biografia e traiettoria dell'autore"
+        "description": "Biografia e percorso dell'autore"
       }
     },
     "date": "Data",
     "type": "Conferenza",
-    "watch": "Guarda Conferenza"
+    "watch": "Guarda la Conferenza"
   },
   "kit2": {
     "title": "Spiegazione Kit2",
     "subtitle": "Sistema Kit2 modernizzato per la distribuzione di contenuti CHE",
     "whatIs": "Cos'è Kit2?",
-    "description": "Il sistema Kit2 è un'innovazione di CHE per la distribuzione virale di contenuti educativi con un modello di commissioni che beneficia tutta la catena distributiva.",
+    "description": "Il sistema Kit2 è un'innovazione di CHE per la distribuzione virale di contenuti educativi con un modello di commissioni che beneficia l'intera catena distributiva.",
     "mainFeatures": "Caratteristiche principali:",
     "features": {
-      "personalizedPdf": "PDF personalizzato con nome utente",
+      "personalizedPdf": "PDF personalizzato con nome dell'utente",
       "validity": "Validità di esattamente 1 anno",
       "configurableCommissions": "Commissioni configurabili per accordo",
       "viralDistribution": "Distribuzione virale: Utente 0→1→2→3...",
-      "multipleKit2s": "Possibilità di multipli Kit2s simultanei"
+      "multipleKit2s": "Possibilità di multipli Kit2 simultanei"
     },
-    "viewGuide": "Visualizza Guida Familiare Sistema Kit2"
+    "viewGuide": "Vedi Guida Familiare Sistema Kit2"
   },
   "auth": {
     "register": {
@@ -148,19 +148,61 @@
       "email": "Email",
       "password": "Password",
       "signIn": "Accedi"
+    },
+    "forgotPassword": {
+      "title": "Recupera Password",
+      "subtitle": "Kit2 - Albero Magico del Risparmio",
+      "step1": {
+        "title": "Passo 1: Verifica la tua identità",
+        "description": "Inserisci la tua email e telefono per verificare il tuo account",
+        "emailLabel": "Email",
+        "emailPlaceholder": "tua@email.com",
+        "phoneLabel": "Telefono",
+        "phonePlaceholder": "+57 300 123 4567",
+        "sendCodeButton": "Invia codice di verifica",
+        "sendingButton": "Invio in corso..."
+      },
+      "step2": {
+        "title": "Passo 2: Inserisci il codice",
+        "description": "Abbiamo inviato un codice di 6 cifre alla tua email",
+        "codeLabel": "Codice di verifica",
+        "codePlaceholder": "123456",
+        "verifyButton": "Verifica codice",
+        "verifyingButton": "Verifica...",
+        "resendCode": "Non hai ricevuto il codice? Controlla la cartella spam"
+      },
+      "step3": {
+        "title": "Passo 3: Nuova password",
+        "description": "Inserisci la tua nuova password",
+        "passwordLabel": "Nuova Password",
+        "passwordPlaceholder": "••••••••",
+        "passwordHint": "Minimo 6 caratteri",
+        "updateButton": "Aggiorna password",
+        "updatingButton": "Aggiornamento..."
+      },
+      "messages": {
+        "codeSent": "✅ Codice inviato. Controlla la tua email (e cartella spam).",
+        "codeVerified": "✅ Codice verificato con successo.",
+        "passwordUpdated": "✅ Password aggiornata. Reindirizzamento all'accesso...",
+        "userNotFound": "Nessun utente trovato con questa email e telefono.",
+        "invalidCode": "Codice non valido o scaduto. Riprova.",
+        "passwordTooShort": "La password deve avere almeno 6 caratteri.",
+        "genericError": "Errore di elaborazione. Riprova."
+      },
+      "backToLogin": "Torna all'accesso"
     }
   },
   "account": {
     "title": "Il Mio Account",
     "panel": "Pannello Utente CHE",
-    "developmentNote": "Funzionalità in sviluppo - Sistema di autenticazione aziendale in arrivo.",
-    "myKit2s": "I Miei Kit2s",
-    "kit2sDescription": "Gestisci i tuoi Kit2s attivi e scaduti",
+    "developmentNote": "Funzionalità in sviluppo - Sistema di autenticazione enterprise in arrivo.",
+    "myKit2s": "I Miei Kit2",
+    "kit2sDescription": "Gestisci i tuoi Kit2 attivi e scaduti",
     "commissions": "Commissioni",
-    "commissionsDescription": "Rivedi i tuoi guadagni da distribuzione"
+    "commissionsDescription": "Esamina i tuoi guadagni dalla distribuzione"
   },
   "funds": {
-    "title": "Gli 11 Fondi Rotativi CHE",
+    "title": "Gli 11 Fondi Rotatori CHE",
     "subtitle": "Struttura statutaria della Corporazione Eresia Economica per lo sviluppo globale",
     "viewDetails": "Vedi dettagli",
     "status": {
@@ -168,11 +210,11 @@
       "development": "In sviluppo"
     },
     "items": {
-      "business": "Investimento Aziendale",
+      "business": "Investimento Imprenditoriale",
       "editorial": "Editoriale e Media Audiovisivi",
       "healing": "Guarigione Emotiva",
       "housing": "Abitazione",
-      "recreation": "Ricreazione Sociale e Ospitalità",
+      "recreation": "Ricreazione Sociale e Alberghiera",
       "systems": "Sistemi e Piattaforme",
       "banking": "Bancario",
       "engineering": "Progetti di Ingegneria",
@@ -188,24 +230,24 @@
       "recreation": "Turismo",
       "systems": "Tecnologia",
       "banking": "Servizi finanziari",
-      "engineering": "Infrastrutture",
+      "engineering": "Infrastruttura",
       "commercial": "Attività commerciali",
       "research": "Ricerca",
       "culture": "Manifestazioni artistiche"
     },
     "individual": {
       "inversionEmpresarial": {
-        "title": "Investimento Aziendale - CHE Mondo Libero",
+        "title": "Investimento Imprenditoriale - CHE Mondo Libero",
         "description": "Progetti di investimento e imprenditoria per lo sviluppo economico.",
         "objective": {
           "title": "Obiettivo del Fondo",
           "content": "Facilitare l'accesso al capitale di investimento per imprenditori e aziende che cercano di espandere le loro operazioni o sviluppare nuovi progetti innovativi."
         },
         "types": {
-          "title": "Tipi di Progetti"
+          "title": "Tipi di Investimento"
         },
         "process": {
-          "title": "Processo di Partecipazione",
+          "title": "Processo di Candidatura",
           "content": "Gli interessati possono presentare le loro proposte di investimento attraverso il nostro portale online, dove saranno valutate dal nostro team di esperti."
         },
         "items": [
@@ -217,10 +259,10 @@
       },
       "editorialMedios": {
         "title": "Editoriale e Media Audiovisivi - CHE Mondo Libero",
-        "description": "Sviluppo di contenuti editoriali e mezzi audiovisivi per la diffusione della conoscenza CHE.",
+        "description": "Sviluppo di contenuti editoriali e media audiovisivi per la diffusione della conoscenza CHE.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Sviluppare e promuovere la creazione di contenuti editoriali e mezzi audiovisivi per la diffusione della conoscenza CHE."
+          "content": "Sviluppare e promuovere lo sviluppo di contenuti editoriali e media audiovisivi per la diffusione della conoscenza che."
         },
         "types": {
           "title": "Tipi di Progetti"
@@ -275,11 +317,11 @@
           "Edilizia sociale",
           "Progetti sostenibili",
           "Sviluppo urbano",
-          "Abitazioni accessibili"
+          "Abitazione accessibile"
         ]
       },
       "recreacionSocial": {
-        "title": "Ricreazione Sociale e Ospitalità - CHE Mondo Libero",
+        "title": "Ricreazione Sociale e Alberghiera - CHE Mondo Libero",
         "description": "Progetti di turismo, ricreazione e servizi alberghieri per lo sviluppo sociale.",
         "objective": {
           "title": "Obiettivo del Fondo",
@@ -343,10 +385,10 @@
       },
       "ingenieria": {
         "title": "Progetti di Ingegneria - CHE Mondo Libero",
-        "description": "Infrastrutture e progetti di ingegneria per lo sviluppo sostenibile.",
+        "description": "Infrastruttura e progetti di ingegneria per lo sviluppo sostenibile.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Sviluppare e promuovere infrastrutture e progetti di ingegneria per lo sviluppo sostenibile."
+          "content": "Sviluppare e promuovere infrastruttura e progetti di ingegneria per lo sviluppo sostenibile."
         },
         "types": {
           "title": "Tipi di Progetti"
@@ -356,7 +398,7 @@
           "content": "Gli interessati possono presentare le loro proposte attraverso il nostro portale specializzato, dove saranno valutate dal nostro team di esperti."
         },
         "items": [
-          "Infrastrutture",
+          "Infrastruttura",
           "Ingegneria civile",
           "Progetti ambientali",
           "Sviluppo sostenibile"
@@ -367,7 +409,7 @@
         "description": "Attività commerciali e imprenditoriali secondo i principi CHE.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Sviluppare e promuovere attività commerciali e imprenditoriali secondo i principi CHE."
+          "content": "Sviluppare e promuovere attività commerciali e imprenditoriali secondo i principi che."
         },
         "types": {
           "title": "Tipi di Progetti"
@@ -388,7 +430,7 @@
         "description": "Ricerca scientifica e sviluppo di conoscenze innovative.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Sviluppare e promuovere la ricerca scientifica e lo sviluppo di conoscenze innovative."
+          "content": "Sviluppare e promuovere ricerca scientifica e sviluppo di conoscenze innovative."
         },
         "types": {
           "title": "Tipi di Progetti"
@@ -406,10 +448,10 @@
       },
       "arteCultura": {
         "title": "Arte e Cultura - CHE Mondo Libero",
-        "description": "Manifestazioni artistiche e progetti culturali trasformatori.",
+        "description": "Manifestazioni artistiche e progetti culturali trasformativi.",
         "objective": {
           "title": "Obiettivo del Fondo",
-          "content": "Sviluppare e promuovere manifestazioni artistiche e progetti culturali trasformatori."
+          "content": "Sviluppare e promuovere manifestazioni artistiche e progetti culturali trasformativi."
         },
         "types": {
           "title": "Tipi di Progetti"
@@ -434,12 +476,30 @@
     "title": "CHE - Corporazione Eresia Economica",
     "status": "Stato: Base aziendale funzionante correttamente"
   },
+  "herejiasIA": {
+    "documents": {
+      "economia_vs_ciencia": {
+        "title": "L'Economia è una Scienza?",
+        "description": "Dialogo tra Mauricio Rivadeneira e ChatGPT-4 sulla natura scientifica dell'economia",
+        "available_languages": "Disponibile in:"
+      }
+    },
+    "download": "Scarica",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "pt": "Português",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano"
+    }
+  },
   "academicInvitation": {
     "title": "Invito alla Comunità Accademica",
     "greeting": "Cari colleghi, professori e studenti di economia e scienze affini:",
-    "intro": "Come fisico ed economista, ho sviluppato una ricerca che propone un approccio sperimentale rigoroso all'economia, cercando di trasformarla in una vera scienza sperimentale.",
-    "platform": "Questa piattaforma (corpherejiaeconomica.com) contiene le mie tesi, libri, conferenze e dialoghi con intelligenza artificiale sull'economia, disponibili in sei lingue grazie al supporto di Claude AI. Sebbene le traduzioni automatiche non siano perfette, rendono il contenuto accessibile a un pubblico globale.",
-    "invitation": "Vi invito a esplorare questi argomenti e a considerare se offrono prospettive preziose per ripensare i fondamenti della teoria economica.",
+    "intro": "Come fisico ed economista, ho sviluppato una ricerca che propone un approccio sperimentale rigoroso per l'economia, cercando di trasformarla in una vera scienza sperimentale.",
+    "platform": "Questa piattaforma (corpherejiaeconomica.com) contiene le mie tesi, libri, conferenze e dialoghi con l'intelligenza artificiale sull'economia, disponibili in sei lingue grazie al supporto di Claude AI. Sebbene le traduzioni automatiche non siano perfette, rendono il contenuto accessibile a un pubblico globale.",
+    "invitation": "Vi invito a esplorare questi argomenti e considerare se offrono prospettive preziose per ripensare i fondamenti della teoria economica.",
     "dialogues": "I dialoghi con l'IA che troverete qui possono servire come punto di partenza per dibattiti accademici più profondi.",
     "closing": "Questo progetto è stato sviluppato con risorse limitate ma con convinzione scientifica. Vi ringrazio in anticipo per il vostro tempo e apertura intellettuale.",
     "signature": "Mauricio Rivadeneira",

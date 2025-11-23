@@ -4,16 +4,16 @@
     "heresies": "Heresies with AI",
     "conferences": "Conferences",
     "library": "Library",
-    "funds": "Revolving Funds",
-    "about": "About",
+    "funds": "Rotatory Funds",
+    "about": "About Us",
     "contact": "Contact"
   },
   "biblioteca": {
     "firstBook": "First Book of Economic Theory",
     "analisisComprehensivo": "Comprehensive Analysis",
-    "comentarioLibroPrimero": "First Book Commentary",
-    "presentacionLibroSegundo": "Second Book Presentation",
-    "editorialNote": "The works are undergoing editorial review. They are published in their current state to facilitate access to knowledge while the professional editing process is completed. We appreciate your understanding."
+    "comentarioLibroPrimero": "Commentary First Book",
+    "presentacionLibroSegundo": "Presentation Second Book",
+    "editorialNote": "The works are under editorial review. They are published in their current state to facilitate access to knowledge while the professional editing process is completed. We appreciate your understanding."
   },
   "header": {
     "kit2": "Kit2 Explanation",
@@ -24,7 +24,7 @@
   "company": {
     "name": "C.H.E. Free World",
     "fullName": "Economic Heresy Corporation",
-    "subtitle": "A global social project for development throughout the world"
+    "subtitle": "A global social project for development worldwide"
   },
   "about": {
     "title": "About Us",
@@ -37,7 +37,7 @@
     "natureType": "Non-profit corporation",
     "character": "Character",
     "characterType": "International",
-    "taxId": "TAX ID",
+    "taxId": "Tax ID",
     "taxIdValue": "[To be renewed]",
     "email": "Email",
     "emailValue": "contacto@corpherejiaeconomica.com"
@@ -59,8 +59,8 @@
       "comprehensiveAnalysis": "Comprehensive Analysis",
       "firstBook": "First Book",
       "secondBook": "Second Book",
-      "firstBookCommentary": "First Book Commentary",
-      "secondBookPresentation": "Second Book Presentation"
+      "firstBookCommentary": "Commentary First Book",
+      "secondBookPresentation": "Presentation Second Book"
     },
     "articleTitles": {
       "proven": "Proven",
@@ -69,7 +69,7 @@
       "savingsInColombia": "Savings in Colombia Conceptual Error",
       "inertialInflation": "The Inertial Inflation Problem",
       "fiscalDeficit": "The Fiscal Deficit Problem",
-      "checkToWorldSystem": "Check to the World Economic System",
+      "checkToWorldSystem": "Check to World Economic System",
       "hereticEconomistReflections": "Heretic Economist Reflections"
     }
   },
@@ -113,7 +113,7 @@
       },
       "author": {
         "title": "Author Presentation",
-        "description": "Biography and trajectory of the author"
+        "description": "Author's biography and trajectory"
       }
     },
     "date": "Date",
@@ -124,11 +124,11 @@
     "title": "Kit2 Explanation",
     "subtitle": "Modernized Kit2 system for CHE content distribution",
     "whatIs": "What is Kit2?",
-    "description": "The Kit2 system is a CHE innovation for viral distribution of educational content with a commission model that benefits the entire distributive chain.",
+    "description": "The Kit2 system is a CHE innovation for viral distribution of educational content with a commission model that benefits the entire distribution chain.",
     "mainFeatures": "Main features:",
     "features": {
-      "personalizedPdf": "Personalized PDF with user name",
-      "validity": "1-year exact validity",
+      "personalizedPdf": "Personalized PDF with user's name",
+      "validity": "Validity of exactly 1 year",
       "configurableCommissions": "Configurable commissions by agreement",
       "viralDistribution": "Viral distribution: User 0→1→2→3...",
       "multipleKit2s": "Possibility of multiple simultaneous Kit2s"
@@ -148,6 +148,48 @@
       "email": "Email",
       "password": "Password",
       "signIn": "Sign In"
+    },
+    "forgotPassword": {
+      "title": "Recover Password",
+      "subtitle": "Kit2 - Magic Savings Tree",
+      "step1": {
+        "title": "Step 1: Verify your identity",
+        "description": "Enter your email and phone to verify your account",
+        "emailLabel": "Email",
+        "emailPlaceholder": "your@email.com",
+        "phoneLabel": "Phone",
+        "phonePlaceholder": "+57 300 123 4567",
+        "sendCodeButton": "Send verification code",
+        "sendingButton": "Sending..."
+      },
+      "step2": {
+        "title": "Step 2: Enter the code",
+        "description": "We have sent a 6-digit code to your email",
+        "codeLabel": "Verification code",
+        "codePlaceholder": "123456",
+        "verifyButton": "Verify code",
+        "verifyingButton": "Verifying...",
+        "resendCode": "Didn't receive the code? Check your spam folder"
+      },
+      "step3": {
+        "title": "Step 3: New password",
+        "description": "Enter your new password",
+        "passwordLabel": "New Password",
+        "passwordPlaceholder": "••••••••",
+        "passwordHint": "Minimum 6 characters",
+        "updateButton": "Update password",
+        "updatingButton": "Updating..."
+      },
+      "messages": {
+        "codeSent": "✅ Code sent. Check your email (and spam folder).",
+        "codeVerified": "✅ Code verified successfully.",
+        "passwordUpdated": "✅ Password updated. Redirecting to login...",
+        "userNotFound": "No user found with this email and phone.",
+        "invalidCode": "Invalid or expired code. Try again.",
+        "passwordTooShort": "Password must be at least 6 characters.",
+        "genericError": "Error processing. Try again."
+      },
+      "backToLogin": "Back to login"
     }
   },
   "account": {
@@ -160,7 +202,7 @@
     "commissionsDescription": "Review your distribution earnings"
   },
   "funds": {
-    "title": "The 11 CHE Revolving Funds",
+    "title": "The 11 CHE Rotatory Funds",
     "subtitle": "Statutory structure of the Economic Heresy Corporation for global development",
     "viewDetails": "View details",
     "status": {
@@ -172,7 +214,7 @@
       "editorial": "Editorial and Audiovisual Media",
       "healing": "Emotional Healing",
       "housing": "Housing",
-      "recreation": "Social Recreation and Hotel",
+      "recreation": "Social and Hotel Recreation",
       "systems": "Systems and Platforms",
       "banking": "Banking",
       "engineering": "Engineering Projects",
@@ -196,13 +238,13 @@
     "individual": {
       "inversionEmpresarial": {
         "title": "Business Investment - CHE Free World",
-        "description": "Investment projects and entrepreneurship for economic development.",
+        "description": "Investment and entrepreneurship projects for economic development.",
         "objective": {
           "title": "Fund Objective",
           "content": "Facilitate access to investment capital for entrepreneurs and companies seeking to expand their operations or develop new innovative projects."
         },
         "types": {
-          "title": "Investment Types"
+          "title": "Types of Investment"
         },
         "process": {
           "title": "Application Process",
@@ -223,7 +265,7 @@
           "content": "Develop and promote development of editorial content and audiovisual media for the dissemination of che knowledge."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -244,7 +286,7 @@
           "content": "Develop and promote emotional wellness and integral healing programs for personal development."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -265,7 +307,7 @@
           "content": "Develop and promote innovative and accessible housing solutions for global communities."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -279,14 +321,14 @@
         ]
       },
       "recreacionSocial": {
-        "title": "Social Recreation and Hotel - CHE Free World",
+        "title": "Social and Hotel Recreation - CHE Free World",
         "description": "Tourism, recreation and hotel services projects for social development.",
         "objective": {
           "title": "Fund Objective",
           "content": "Develop and promote tourism, recreation and hotel services projects for social development."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -294,7 +336,7 @@
         },
         "items": [
           "Community tourism",
-          "Recreation centers",
+          "Recreational centers",
           "Hotel services",
           "Tourism development"
         ]
@@ -307,7 +349,7 @@
           "content": "Develop and promote development of innovative technologies and digital platforms."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -328,7 +370,7 @@
           "content": "Develop and promote alternative financial services and community banking."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -349,7 +391,7 @@
           "content": "Develop and promote infrastructure and engineering projects for sustainable development."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -370,7 +412,7 @@
           "content": "Develop and promote commercial and business activities under che principles."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -391,7 +433,7 @@
           "content": "Develop and promote scientific research and innovative knowledge development."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -412,7 +454,7 @@
           "content": "Develop and promote artistic manifestations and transformative cultural projects."
         },
         "types": {
-          "title": "Project Types"
+          "title": "Types of Projects"
         },
         "process": {
           "title": "Participation Process",
@@ -428,7 +470,7 @@
     }
   },
   "development": {
-    "banner": "This project is in development phase. Some sections might be incomplete."
+    "banner": "This project is under development. Some sections may be incomplete."
   },
   "homepage": {
     "title": "CHE - Economic Heresy Corporation",
@@ -454,9 +496,9 @@
   },
   "academicInvitation": {
     "title": "Invitation to the Academic Community",
-    "greeting": "Dear colleagues, professors, and students of economics and related sciences:",
-    "intro": "As a physicist and economist, I have developed research proposing a rigorous experimental approach to economics, seeking to transform it into a true experimental science.",
-    "platform": "This platform (corpherejiaeconomica.com) contains my theses, books, conferences, and dialogues with artificial intelligence about economics, available in six languages thanks to Claude AI support. While automatic translations are not perfect, they make the content accessible to a global audience.",
+    "greeting": "Dear colleagues, professors and students of economics and related sciences:",
+    "intro": "As a physicist and economist, I have developed research that proposes a rigorous experimental approach to economics, seeking to transform it into a true experimental science.",
+    "platform": "This platform (corpherejiaeconomica.com) contains my theses, books, conferences and dialogues with artificial intelligence about economics, available in six languages thanks to Claude AI support. While automatic translations are not perfect, they make the content accessible to a global audience.",
     "invitation": "I invite you to explore these arguments and consider whether they offer valuable perspectives for rethinking the foundations of economic theory.",
     "dialogues": "The AI dialogues you will find here can serve as a starting point for deeper academic debates.",
     "closing": "This project has been developed with limited resources but with scientific conviction. I thank you in advance for your time and intellectual openness.",

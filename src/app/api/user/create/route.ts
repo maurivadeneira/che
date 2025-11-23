@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data: existingUser } = await supabase
-      .from('users')
+      .from('user_profiles')  // ← CAMBIADO: era 'users'
       .select('id')
       .eq('auth_user_id', auth_user_id)
       .single();
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data: newUser, error: insertError } = await supabase
-      .from('users')
+      .from('user_profiles')  // ← CAMBIADO: era 'users'
       .insert([
         {
           auth_user_id,

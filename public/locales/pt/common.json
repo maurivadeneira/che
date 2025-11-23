@@ -4,12 +4,12 @@
     "heresies": "Heresias com IA",
     "conferences": "Conferências",
     "library": "Biblioteca",
-    "funds": "Fundos Rotativos",
+    "funds": "Fundos Rotatórios",
     "about": "Sobre Nós",
     "contact": "Contato"
   },
   "biblioteca": {
-    "firstBook": "Primeiro Livro de Teoria Económica",
+    "firstBook": "Primeiro Livro de Teoria Econômica",
     "analisisComprehensivo": "Análise Abrangente",
     "comentarioLibroPrimero": "Comentário Primeiro Livro",
     "presentacionLibroSegundo": "Apresentação Segundo Livro",
@@ -24,11 +24,11 @@
   "company": {
     "name": "C.H.E. Mundo Livre",
     "fullName": "Corporação Heresia Econômica",
-    "subtitle": "Um projeto social global para desenvolvimento em todo o mundo"
+    "subtitle": "Um projeto social global para desenvolvimento no mundo inteiro"
   },
   "about": {
     "title": "Sobre Nós",
-    "corporateInfo": "Informações Corporativas",
+    "corporateInfo": "Informação Corporativa",
     "foundation": "Fundação",
     "foundationDate": "5 de Março de 2014",
     "headquarters": "Sede Principal",
@@ -37,14 +37,14 @@
     "natureType": "Corporação sem fins lucrativos",
     "character": "Caráter",
     "characterType": "Internacional",
-    "taxId": "CNPJ",
-    "taxIdValue": "[A ser renovado]",
+    "taxId": "RUT/NIT",
+    "taxIdValue": "[A renovar]",
     "email": "Email",
     "emailValue": "contacto@corpherejiaeconomica.com"
   },
   "contact": {
     "title": "Contato",
-    "contactInfo": "Informações de Contato",
+    "contactInfo": "Informação de Contato",
     "primaryEmail": "Email Principal",
     "primaryEmailValue": "contacto@corpherejiaeconomica.com",
     "headquarters": "Sede Principal",
@@ -59,8 +59,8 @@
       "comprehensiveAnalysis": "Análise Abrangente",
       "firstBook": "Primeiro Livro",
       "secondBook": "Segundo Livro",
-      "firstBookCommentary": "Comentário do Primeiro Livro",
-      "secondBookPresentation": "Apresentação do Segundo Livro"
+      "firstBookCommentary": "Comentário Primeiro Livro",
+      "secondBookPresentation": "Apresentação Segundo Livro"
     },
     "articleTitles": {
       "proven": "Comprovado",
@@ -70,7 +70,7 @@
       "inertialInflation": "O Problema da Inflação Inercial",
       "fiscalDeficit": "O Problema do Déficit Fiscal",
       "checkToWorldSystem": "Xeque ao Sistema Econômico Mundial",
-      "hereticEconomistReflections": "Reflexões do Economista Herege"
+      "hereticEconomistReflections": "Reflexões Economista Herege"
     }
   },
   "heresies": {
@@ -79,7 +79,7 @@
     "dialogues": {
       "bigBang": {
         "title": "Questionando o Big Bang",
-        "description": "Análise crítica da teoria do Big Bang sob perspectivas econômicas alternativas"
+        "description": "Análise crítica da teoria do Big Bang desde perspectivas econômicas alternativas"
       },
       "economyVsScience": {
         "title": "Economia vs Ciência",
@@ -88,6 +88,10 @@
       "extraterrestrials": {
         "title": "Extraterrestres",
         "description": "Implicações econômicas do contato extraterrestre"
+      },
+      "questioningPhysics": {
+        "title": "Questionando a Física",
+        "description": "Análise crítica dos fundamentos físicos desde perspectivas econômicas"
       }
     }
   },
@@ -97,11 +101,19 @@
     "items": {
       "intro": {
         "title": "Introdução à Heresia Econômica",
-        "description": "Conferência introdutória sobre Heresia Econômica"
+        "description": "Conferência introdutória à Heresia Econômica"
       },
       "fundamentals": {
         "title": "Fundamentos da Heresia Econômica",
         "description": "Fundamentos da Heresia Econômica"
+      },
+      "kit": {
+        "title": "Kit de Heresia Econômica",
+        "description": "Ferramentas para análise econômica alternativa"
+      },
+      "author": {
+        "title": "Apresentação do Autor",
+        "description": "Biografia e trajetória do autor"
       }
     },
     "date": "Data",
@@ -111,43 +123,86 @@
   "kit2": {
     "title": "Explicação Kit2",
     "subtitle": "Sistema Kit2 modernizado para distribuição de conteúdo CHE",
-    "whatIs": "O que é o Kit2?",
-    "description": "O sistema Kit2 é uma inovação da CHE para distribuição viral de conteúdo educativo com modelo de comissões que beneficia toda a cadeia distributiva.",
+    "whatIs": "O que é Kit2?",
+    "description": "O sistema Kit2 é uma inovação da CHE para distribuição viral de conteúdo educativo com um modelo de comissões que beneficia toda a cadeia distributiva.",
     "mainFeatures": "Características principais:",
     "features": {
       "personalizedPdf": "PDF personalizado com nome do usuário",
-      "validity": "Validade de exatamente 1 ano",
+      "validity": "Validade de 1 ano exato",
       "configurableCommissions": "Comissões configuráveis por acordo",
       "viralDistribution": "Distribuição viral: Usuário 0→1→2→3...",
       "multipleKit2s": "Possibilidade de múltiplos Kit2s simultâneos"
-    }
+    },
+    "viewGuide": "Ver Guia Familiar Sistema Kit2"
   },
   "auth": {
     "register": {
-      "title": "Registrar-se na CHE",
+      "title": "Registrar no CHE",
       "fullName": "Nome completo",
       "email": "Email",
       "password": "Senha",
       "createAccount": "Criar Conta"
     },
     "login": {
-      "title": "Entrar",
+      "title": "Iniciar Sessão",
       "email": "Email",
       "password": "Senha",
-      "signIn": "Entrar"
+      "signIn": "Iniciar Sessão"
+    },
+    "forgotPassword": {
+      "title": "Recuperar Senha",
+      "subtitle": "Kit2 - Árvore Mágica da Poupança",
+      "step1": {
+        "title": "Passo 1: Verifique sua identidade",
+        "description": "Digite seu email e telefone para verificar sua conta",
+        "emailLabel": "Email",
+        "emailPlaceholder": "seu@email.com",
+        "phoneLabel": "Telefone",
+        "phonePlaceholder": "+57 300 123 4567",
+        "sendCodeButton": "Enviar código de verificação",
+        "sendingButton": "Enviando..."
+      },
+      "step2": {
+        "title": "Passo 2: Digite o código",
+        "description": "Enviamos um código de 6 dígitos para seu email",
+        "codeLabel": "Código de verificação",
+        "codePlaceholder": "123456",
+        "verifyButton": "Verificar código",
+        "verifyingButton": "Verificando...",
+        "resendCode": "Não recebeu o código? Verifique sua pasta de spam"
+      },
+      "step3": {
+        "title": "Passo 3: Nova senha",
+        "description": "Digite sua nova senha",
+        "passwordLabel": "Nova Senha",
+        "passwordPlaceholder": "••••••••",
+        "passwordHint": "Mínimo 6 caracteres",
+        "updateButton": "Atualizar senha",
+        "updatingButton": "Atualizando..."
+      },
+      "messages": {
+        "codeSent": "✅ Código enviado. Verifique seu email (e pasta de spam).",
+        "codeVerified": "✅ Código verificado com sucesso.",
+        "passwordUpdated": "✅ Senha atualizada. Redirecionando ao login...",
+        "userNotFound": "Nenhum usuário encontrado com este email e telefone.",
+        "invalidCode": "Código inválido ou expirado. Tente novamente.",
+        "passwordTooShort": "A senha deve ter pelo menos 6 caracteres.",
+        "genericError": "Erro ao processar. Tente novamente."
+      },
+      "backToLogin": "Voltar ao login"
     }
   },
   "account": {
     "title": "Minha Conta",
-    "panel": "Painel do Usuário CHE",
-    "developmentNote": "Funcionalidade em desenvolvimento - Sistema de autenticação empresarial em breve.",
+    "panel": "Painel de Usuário CHE",
+    "developmentNote": "Funcionalidade em desenvolvimento - Sistema de autenticação enterprise em breve.",
     "myKit2s": "Meus Kit2s",
-    "kit2sDescription": "Gerencie seus Kit2s ativos e expirados",
+    "kit2sDescription": "Gerencie seus Kit2s ativos e vencidos",
     "commissions": "Comissões",
     "commissionsDescription": "Revise seus ganhos por distribuição"
   },
   "funds": {
-    "title": "Os 11 Fundos Rotativos CHE",
+    "title": "Os 11 Fundos Rotatórios CHE",
     "subtitle": "Estrutura estatutária da Corporação Heresia Econômica para desenvolvimento global",
     "viewDetails": "Ver detalhes",
     "status": {
@@ -156,7 +211,7 @@
     },
     "items": {
       "business": "Investimento Empresarial",
-      "editorial": "Editorial e Mídia Audiovisual",
+      "editorial": "Editorial e Meios Audiovisuais",
       "healing": "Cura Emocional",
       "housing": "Habitação",
       "recreation": "Recreação Social e Hoteleira",
@@ -183,17 +238,17 @@
     "individual": {
       "inversionEmpresarial": {
         "title": "Investimento Empresarial - CHE Mundo Livre",
-        "description": "Projetos de investimento e empreendedorismo para o desenvolvimento econômico.",
+        "description": "Projetos de investimento e empreendedorismo para desenvolvimento econômico.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Facilitar o acesso ao capital de investimento para empreendedores e empresas que buscam expandir suas operações ou desenvolver novos projetos inovadores."
+          "content": "Facilitar o acesso a capital de investimento para empreendedores e empresas que buscam expandir suas operações ou desenvolver novos projetos inovadores."
         },
         "types": {
-          "title": "Tipos de Projetos"
+          "title": "Tipos de Investimento"
         },
         "process": {
-          "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas de investimento através do nosso portal online, onde serão avaliadas pela nossa equipe de especialistas."
+          "title": "Processo de Aplicação",
+          "content": "Os interessados podem apresentar suas propostas de investimento através de nosso portal online, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Capital semente para startups",
@@ -203,18 +258,18 @@
         ]
       },
       "editorialMedios": {
-        "title": "Editorial e Mídia Audiovisual - CHE Mundo Livre",
-        "description": "Desenvolvimento de conteúdo editorial e meios audiovisuais para a difusão do conhecimento CHE.",
+        "title": "Editorial e Meios Audiovisuais - CHE Mundo Livre",
+        "description": "Desenvolvimento de conteúdo editorial e meios audiovisuais para difusão do conhecimento CHE.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover a criação de conteúdo editorial e meios audiovisuais para a difusão do conhecimento CHE."
+          "content": "Desenvolver e promover desenvolvimento de conteúdo editorial e meios audiovisuais para difusão do conhecimento che."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Livros e publicações especializadas",
@@ -225,17 +280,17 @@
       },
       "sanacionEmocional": {
         "title": "Cura Emocional - CHE Mundo Livre",
-        "description": "Programas de bem-estar emocional e cura integral para o desenvolvimento pessoal.",
+        "description": "Programas de bem-estar emocional e cura integral para desenvolvimento pessoal.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover programas de bem-estar emocional e cura integral para o desenvolvimento pessoal."
+          "content": "Desenvolver e promover programas de bem-estar emocional e cura integral para desenvolvimento pessoal."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Terapias alternativas",
@@ -256,7 +311,7 @@
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Habitação social",
@@ -267,17 +322,17 @@
       },
       "recreacionSocial": {
         "title": "Recreação Social e Hoteleira - CHE Mundo Livre",
-        "description": "Projetos de turismo, recreação e serviços hoteleiros para o desenvolvimento social.",
+        "description": "Projetos de turismo, recreação e serviços hoteleiros para desenvolvimento social.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover projetos de turismo, recreação e serviços hoteleiros para o desenvolvimento social."
+          "content": "Desenvolver e promover projetos de turismo, recreação e serviços hoteleiros para desenvolvimento social."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Turismo comunitário",
@@ -291,14 +346,14 @@
         "description": "Desenvolvimento de tecnologias e plataformas digitais inovadoras.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover o desenvolvimento de tecnologias e plataformas digitais inovadoras."
+          "content": "Desenvolver e promover desenvolvimento de tecnologias e plataformas digitais inovadoras."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Plataformas digitais",
@@ -309,38 +364,38 @@
       },
       "bancario": {
         "title": "Bancário - CHE Mundo Livre",
-        "description": "Serviços financeiros alternativos e banca comunitária.",
+        "description": "Serviços financeiros alternativos e banco comunitário.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover serviços financeiros alternativos e banca comunitária."
+          "content": "Desenvolver e promover serviços financeiros alternativos e banco comunitário."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Microfinanças",
-          "Banca comunitária",
+          "Banco comunitário",
           "Serviços financeiros",
           "Sistemas alternativos"
         ]
       },
       "ingenieria": {
         "title": "Projetos de Engenharia - CHE Mundo Livre",
-        "description": "Infraestrutura e projetos de engenharia para o desenvolvimento sustentável.",
+        "description": "Infraestrutura e projetos de engenharia para desenvolvimento sustentável.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover infraestrutura e projetos de engenharia para o desenvolvimento sustentável."
+          "content": "Desenvolver e promover infraestrutura e projetos de engenharia para desenvolvimento sustentável."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Infraestrutura",
@@ -354,14 +409,14 @@
         "description": "Atividades comerciais e empresariais sob princípios CHE.",
         "objective": {
           "title": "Objetivo do Fundo",
-          "content": "Desenvolver e promover atividades comerciais e empresariais sob princípios CHE."
+          "content": "Desenvolver e promover atividades comerciais e empresariais sob princípios che."
         },
         "types": {
           "title": "Tipos de Projetos"
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Comércio ético",
@@ -382,7 +437,7 @@
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Pesquisa independente",
@@ -403,7 +458,7 @@
         },
         "process": {
           "title": "Processo de Participação",
-          "content": "Os interessados podem apresentar suas propostas através do nosso portal especializado, onde serão avaliadas pela nossa equipe de especialistas."
+          "content": "Os interessados podem apresentar suas propostas através de nosso portal especializado, onde serão avaliadas por nossa equipe de especialistas."
         },
         "items": [
           "Expressões artísticas",
@@ -415,20 +470,38 @@
     }
   },
   "development": {
-    "banner": "Este projeto está em fase de desenvolvimento. Algumas seções podem estar incompletas."
+    "banner": "Este projeto encontra-se em fase de desenvolvimento. Algumas seções podem estar incompletas."
   },
   "homepage": {
     "title": "CHE - Corporação Heresia Econômica",
-    "status": "Status: Base empresarial funcionando corretamente"
+    "status": "Estado: Base enterprise funcionando corretamente"
+  },
+  "herejiasIA": {
+    "documents": {
+      "economia_vs_ciencia": {
+        "title": "A Economia é uma Ciência?",
+        "description": "Diálogo entre Mauricio Rivadeneira e ChatGPT-4 sobre a natureza científica da economia",
+        "available_languages": "Disponível em:"
+      }
+    },
+    "download": "Baixar",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "pt": "Português",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano"
+    }
   },
   "academicInvitation": {
     "title": "Convite à Comunidade Acadêmica",
-    "greeting": "Caros colegas, professores e estudantes de economia e ciências afins:",
+    "greeting": "Estimados colegas, professores e estudantes de economia e ciências afins:",
     "intro": "Como físico e economista, desenvolvi uma pesquisa que propõe uma abordagem experimental rigorosa para a economia, buscando transformá-la em uma verdadeira ciência experimental.",
-    "platform": "Esta plataforma (corpherejiaeconomica.com) contém minhas teses, livros, conferências e diálogos com inteligência artificial sobre economia, disponíveis em seis idiomas graças ao apoio do Claude AI. Embora as traduções automáticas não sejam perfeitas, permitem que o conteúdo seja acessível a um público global.",
+    "platform": "Esta plataforma (corpherejiaeconomica.com) contém minhas teses, livros, conferências e diálogos com inteligência artificial sobre economia, disponíveis em seis idiomas graças ao apoio de Claude AI. Embora as traduções automáticas não sejam perfeitas, permitem que o conteúdo seja acessível a uma audiência global.",
     "invitation": "Convido vocês a explorar estes argumentos e considerar se oferecem perspectivas valiosas para repensar os fundamentos da teoria econômica.",
     "dialogues": "Os diálogos com IA que encontrarão aqui podem servir como ponto de partida para debates acadêmicos mais profundos.",
-    "closing": "Este projeto foi desenvolvido com recursos limitados, mas com convicção científica. Agradeço antecipadamente seu tempo e abertura intelectual.",
+    "closing": "Este projeto foi desenvolvido com recursos limitados mas com convicção científica. Agradeço antecipadamente seu tempo e abertura intelectual.",
     "signature": "Mauricio Rivadeneira",
     "title_signature": "Físico e Economista"
   }

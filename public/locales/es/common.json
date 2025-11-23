@@ -148,6 +148,48 @@
       "email": "Email",
       "password": "Contraseña",
       "signIn": "Iniciar Sesión"
+    },
+    "forgotPassword": {
+      "title": "Recuperar Contraseña",
+      "subtitle": "Kit2 - Árbol Mágico del Ahorro",
+      "step1": {
+        "title": "Paso 1: Verifica tu identidad",
+        "description": "Ingresa tu email y teléfono para verificar tu cuenta",
+        "emailLabel": "Email",
+        "emailPlaceholder": "tu@email.com",
+        "phoneLabel": "Teléfono",
+        "phonePlaceholder": "+57 300 123 4567",
+        "sendCodeButton": "Enviar código de verificación",
+        "sendingButton": "Enviando..."
+      },
+      "step2": {
+        "title": "Paso 2: Ingresa el código",
+        "description": "Hemos enviado un código de 6 dígitos a tu email",
+        "codeLabel": "Código de verificación",
+        "codePlaceholder": "123456",
+        "verifyButton": "Verificar código",
+        "verifyingButton": "Verificando...",
+        "resendCode": "¿No recibiste el código? Revisa tu carpeta de spam"
+      },
+      "step3": {
+        "title": "Paso 3: Nueva contraseña",
+        "description": "Ingresa tu nueva contraseña",
+        "passwordLabel": "Nueva Contraseña",
+        "passwordPlaceholder": "••••••••",
+        "passwordHint": "Mínimo 6 caracteres",
+        "updateButton": "Actualizar contraseña",
+        "updatingButton": "Actualizando..."
+      },
+      "messages": {
+        "codeSent": "✅ Código enviado. Revisa tu email (y carpeta de spam).",
+        "codeVerified": "✅ Código verificado correctamente.",
+        "passwordUpdated": "✅ Contraseña actualizada. Redirigiendo al login...",
+        "userNotFound": "No se encontró ningún usuario con este email y teléfono.",
+        "invalidCode": "Código inválido o expirado. Intenta de nuevo.",
+        "passwordTooShort": "La contraseña debe tener al menos 6 caracteres.",
+        "genericError": "Error al procesar. Intenta de nuevo."
+      },
+      "backToLogin": "Volver al login"
     }
   },
   "account": {
