@@ -10,3 +10,8 @@ export function getSupabaseClient() {
   
   return createClientComponentClient();
 }
+
+// Alias para compatibilidad con código que usa createClient()
+export function createClient() {
+  return getSupabaseClient();
+}
