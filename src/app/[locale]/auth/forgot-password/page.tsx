@@ -3,8 +3,15 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from '@/components/providers/TranslationProvider';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 export default function ForgotPasswordPage() {
+  const { t } = useTranslation();
+  const params = useParams();
+  const locale = params.locale as string;
+  
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
@@ -33,7 +40,6 @@ export default function ForgotPasswordPage() {
     console.log('Teléfono normalizado:', normalizedPhone);
 
     try {
-      // Buscar usuario por EMAIL Y TELÉFONO
       const { data: profileResults, error: profileError } = await supabase
         .from('user_profiles')
         .select('id, nombre_completo, telefono, email')
@@ -47,7 +53,7 @@ export default function ForgotPasswordPage() {
 
       if (profileError || !profileData) {
         console.error('Error en query:', profileError);
-        setError('Los datos no coinciden.');
+        setError(t('auth.forgotPassword.messages.userNotFound'));
         setLoading(false);
         return;
       }
@@ -68,7 +74,7 @@ export default function ForgotPasswordPage() {
 
       if (codeError) {
         console.error('Error guardando código:', codeError);
-        setError('Error al generar código de recuperación.');
+        setError(t('auth.forgotPassword.messages.genericError'));
         setLoading(false);
         return;
       }
@@ -85,16 +91,16 @@ export default function ForgotPasswordPage() {
       console.log('Respuesta envío email:', emailResult);
 
       if (!emailResponse.ok) {
-        setError('Error al enviar el código por email.');
+        setError(t('auth.forgotPassword.messages.genericError'));
         setLoading(false);
         return;
       }
 
-      setSuccess('Código enviado a tu email. Revisa tu bandeja de entrada.');
+      setSuccess(t('auth.forgotPassword.messages.codeSent'));
       setStep(2);
     } catch (err) {
       console.error('Error general:', err);
-      setError('Error inesperado. Intenta nuevamente.');
+      setError(t('auth.forgotPassword.messages.genericError'));
     } finally {
       setLoading(false);
     }
@@ -108,7 +114,6 @@ export default function ForgotPasswordPage() {
     try {
       const normalizedPhone = normalizePhone(phone);
 
-      // Buscar usuario por EMAIL Y TELÉFONO
       const { data: profileResults } = await supabase
         .from('user_profiles')
         .select('id')
@@ -119,7 +124,7 @@ export default function ForgotPasswordPage() {
       const profileData = profileResults?.[0];
 
       if (!profileData) {
-        setError('Error de validación.');
+        setError(t('auth.forgotPassword.messages.genericError'));
         setLoading(false);
         return;
       }
@@ -133,15 +138,15 @@ export default function ForgotPasswordPage() {
         .maybeSingle();
 
       if (error || !codeData) {
-        setError('Código inválido o expirado.');
+        setError(t('auth.forgotPassword.messages.invalidCode'));
         setLoading(false);
         return;
       }
 
-      setSuccess('Código verificado. Ingresa tu nueva contraseña.');
+      setSuccess(t('auth.forgotPassword.messages.codeVerified'));
       setStep(3);
     } catch (err) {
-      setError('Error al verificar el código.');
+      setError(t('auth.forgotPassword.messages.genericError'));
     } finally {
       setLoading(false);
     }
@@ -150,12 +155,17 @@ export default function ForgotPasswordPage() {
   const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    
+    if (newPassword.length < 6) {
+      setError(t('auth.forgotPassword.messages.passwordTooShort'));
+      return;
+    }
+    
     setLoading(true);
 
     try {
       const normalizedPhone = normalizePhone(phone);
 
-      // Buscar usuario por EMAIL Y TELÉFONO
       const { data: profileResults } = await supabase
         .from('user_profiles')
         .select('id')
@@ -166,7 +176,7 @@ export default function ForgotPasswordPage() {
       const profileData = profileResults?.[0];
 
       if (!profileData) {
-        setError('Error de validación.');
+        setError(t('auth.forgotPassword.messages.genericError'));
         setLoading(false);
         return;
       }
@@ -189,7 +199,7 @@ export default function ForgotPasswordPage() {
       console.log('Reset response body:', resetResult);
 
       if (!resetResponse.ok) {
-        setError(resetResult.error || 'Error al actualizar la contraseña.');
+        setError(resetResult.error || t('auth.forgotPassword.messages.genericError'));
         setLoading(false);
         return;
       }
@@ -200,13 +210,13 @@ export default function ForgotPasswordPage() {
         .eq('created_by', profileData.id)
         .eq('code', code);
 
-      setSuccess('Contraseña actualizada exitosamente. Redirigiendo...');
+      setSuccess(t('auth.forgotPassword.messages.passwordUpdated'));
       setTimeout(() => {
-        router.push('/es/auth/login');
+        router.push(`/${locale}/auth/login`);
       }, 2000);
     } catch (err) {
       console.error('Error al restablecer la contraseña:', err);
-      setError('Error al restablecer la contraseña.');
+      setError(t('auth.forgotPassword.messages.genericError'));
     } finally {
       setLoading(false);
     }
@@ -219,128 +229,178 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Recuperar contraseña</h1>
-        
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-            {error}
-          </div>
-        )}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 py-12 px-4">
+      <div className="max-w-md w-full space-y-8">
+        <div>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            {t('auth.forgotPassword.title')}
+          </h2>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            {t('auth.forgotPassword.subtitle')}
+          </p>
+        </div>
 
-        {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-            {success}
-          </div>
-        )}
-
-        {step === 1 && (
-          <form onSubmit={handleValidateUser}>
-            <p className="text-gray-600 mb-4">Ingresa tus datos registrados</p>
-            
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
+        <div className="bg-white rounded-lg shadow-xl p-8">
+          {error && (
+            <div className="rounded-md bg-red-50 p-4 mb-4">
+              <div className="text-sm text-red-700">{error}</div>
             </div>
+          )}
 
-            <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Teléfono</label>
-              <input
-                type="text"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="573045558862"
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <p className="text-sm text-gray-500 mt-1">Sin espacios ni símbolos</p>
+          {success && (
+            <div className="rounded-md bg-green-50 p-4 mb-4">
+              <div className="text-sm text-green-700">{success}</div>
             </div>
+          )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
-            >
-              {loading ? 'Validando...' : 'Continuar'}
-            </button>
+          {step === 1 && (
+            <form onSubmit={handleValidateUser} className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t('auth.forgotPassword.step1.title')}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {t('auth.forgotPassword.step1.description')}
+                </p>
+              </div>
 
-            <button
-              type="button"
-              onClick={() => router.push('/es/auth/login')}
-              className="w-full mt-3 text-blue-600 hover:underline"
-            >
-              Volver al login
-            </button>
-          </form>
-        )}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('auth.forgotPassword.step1.emailLabel')}
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t('auth.forgotPassword.step1.emailPlaceholder')}
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  required
+                />
+              </div>
 
-        {step === 2 && (
-          <form onSubmit={handleVerifyCode}>
-            <p className="text-gray-600 mb-4">Ingresa el código enviado a tu email</p>
-            
-            <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Código de 6 dígitos</label>
-              <input
-                type="text"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                maxLength={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('auth.forgotPassword.step1.phoneLabel')}
+                </label>
+                <input
+                  id="phone"
+                  type="text"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder={t('auth.forgotPassword.step1.phonePlaceholder')}
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  required
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
-            >
-              {loading ? 'Verificando...' : 'Verificar código'}
-            </button>
+              <button
+                type="submit"
+                disabled={loading}
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? t('auth.forgotPassword.step1.sendingButton') : t('auth.forgotPassword.step1.sendCodeButton')}
+              </button>
 
-            <button
-              type="button"
-              onClick={handleBack}
-              className="w-full mt-3 text-blue-600 hover:underline"
-            >
-              Volver
-            </button>
-          </form>
-        )}
+              <div className="text-center">
+                <Link 
+                  href={`/${locale}/auth/login`}
+                  className="text-sm font-medium text-green-600 hover:text-green-500"
+                >
+                  {t('auth.forgotPassword.backToLogin')}
+                </Link>
+              </div>
+            </form>
+          )}
 
-        {step === 3 && (
-          <form onSubmit={handleResetPassword}>
-            <p className="text-gray-600 mb-4">Ingresa tu nueva contraseña</p>
-            
-            <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Nueva contraseña</label>
-              <input
-                type="password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                minLength={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <p className="text-sm text-gray-500 mt-1">Mínimo 6 caracteres</p>
-            </div>
+          {step === 2 && (
+            <form onSubmit={handleVerifyCode} className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t('auth.forgotPassword.step2.title')}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {t('auth.forgotPassword.step2.description')}
+                </p>
+              </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
-            >
-              {loading ? 'Actualizando...' : 'Actualizar contraseña'}
-            </button>
-          </form>
-        )}
+              <div>
+                <label htmlFor="code" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('auth.forgotPassword.step2.codeLabel')}
+                </label>
+                <input
+                  id="code"
+                  type="text"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  placeholder={t('auth.forgotPassword.step2.codePlaceholder')}
+                  maxLength={6}
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  required
+                />
+                <p className="mt-2 text-xs text-gray-500">
+                  {t('auth.forgotPassword.step2.resendCode')}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? t('auth.forgotPassword.step2.verifyingButton') : t('auth.forgotPassword.step2.verifyButton')}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleBack}
+                className="w-full text-sm font-medium text-gray-600 hover:text-gray-500"
+              >
+                {t('auth.forgotPassword.backToLogin')}
+              </button>
+            </form>
+          )}
+
+          {step === 3 && (
+            <form onSubmit={handleResetPassword} className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t('auth.forgotPassword.step3.title')}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {t('auth.forgotPassword.step3.description')}
+                </p>
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('auth.forgotPassword.step3.passwordLabel')}
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder={t('auth.forgotPassword.step3.passwordPlaceholder')}
+                  minLength={6}
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  required
+                />
+                <p className="mt-1 text-xs text-gray-500">
+                  {t('auth.forgotPassword.step3.passwordHint')}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? t('auth.forgotPassword.step3.updatingButton') : t('auth.forgotPassword.step3.updateButton')}
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );
