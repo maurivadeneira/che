@@ -11,9 +11,9 @@ export async function POST(request: NextRequest) {
     );
 
     const body = await request.json();
-    const { auth_user_id, email, nombre, apellido } = body;
+    const { auth_user_id, email, nombre, apellido, telefono } = body;  // ← AGREGADO telefono
 
-    if (!auth_user_id || !email || !nombre || !apellido) {
+    if (!auth_user_id || !email || !nombre || !apellido || !telefono) {  // ← AGREGADO telefono
       return NextResponse.json(
         { error: 'Datos incompletos' },
         { status: 400 }
@@ -34,14 +34,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insertar usando SOLO columnas que existen
+    // Generar UUID manualmente
+    const userId = crypto.randomUUID();
+
+    // Insertar con teléfono
     const { data: newUser, error: insertError } = await supabase
       .from('user_profiles')
       .insert([
         {
+          id: userId,
           auth_user_id,
           email,
           nombre_completo: `${nombre} ${apellido}`,
+          telefono,  // ← AGREGADO telefono
           verificado: false,
         }
       ])
@@ -63,6 +68,7 @@ export async function POST(request: NextRequest) {
           id: newUser.id,
           email: newUser.email,
           nombre_completo: newUser.nombre_completo,
+          telefono: newUser.telefono,  // ← AGREGADO telefono
         }
       },
       { status: 201 }

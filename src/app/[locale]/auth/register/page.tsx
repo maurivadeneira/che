@@ -13,6 +13,7 @@ export default function RegisterPage() {
     nombre: '',
     apellido: '',
     email: '',
+    telefono: '',  // ← NUEVO
     password: '',
     confirmPassword: '',
   });
@@ -45,7 +46,7 @@ export default function RegisterPage() {
       return;
     }
 
-    if (!formData.nombre || !formData.apellido || !formData.email) {
+    if (!formData.nombre || !formData.apellido || !formData.email || !formData.telefono) {
       setError('Todos los campos son obligatorios');
       setLoading(false);
       return;
@@ -60,6 +61,7 @@ export default function RegisterPage() {
           data: {
             nombre: formData.nombre,
             apellido: formData.apellido,
+            telefono: formData.telefono,  // ← NUEVO
           }
         }
       });
@@ -78,7 +80,7 @@ export default function RegisterPage() {
         return;
       }
 
-      // 2. Crear entrada en la tabla users
+      // 2. Crear entrada en la tabla user_profiles
       const response = await fetch('/api/user/create', {
         method: 'POST',
         headers: {
@@ -89,6 +91,7 @@ export default function RegisterPage() {
           email: formData.email,
           nombre: formData.nombre,
           apellido: formData.apellido,
+          telefono: formData.telefono,  // ← NUEVO
         }),
       });
 
@@ -196,6 +199,24 @@ export default function RegisterPage() {
                 className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                 placeholder="tu@email.com"
               />
+            </div>
+
+            {/* ← CAMPO TELÉFONO NUEVO */}
+            <div>
+              <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">
+                Teléfono
+              </label>
+              <input
+                id="telefono"
+                name="telefono"
+                type="text"
+                required
+                value={formData.telefono}
+                onChange={handleChange}
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                placeholder="573045558862"
+              />
+              <p className="mt-1 text-xs text-gray-500">Sin espacios ni símbolos (ejemplo: 573045558862)</p>
             </div>
 
             <div>
