@@ -22,9 +22,9 @@ export async function GET(request: NextRequest) {
 
     const authUserId = session.user.id;
 
-    // Obtener datos del usuario de la tabla users
+    // Obtener datos del usuario de la tabla user_profiles (CAMBIADO)
     const { data: userData, error: userError } = await supabase
-      .from('users')
+      .from('user_profiles')  // ← CAMBIADO de 'users' a 'user_profiles'
       .select('*')
       .eq('auth_user_id', authUserId)
       .single();
@@ -37,88 +37,51 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Obtener Kit2 activos del usuario
-    const { data: kit2Data, error: kit2Error } = await supabase
-      .from('kit2_instances')
-      .select(`
-        id,
-        codigo_unico,
-        nivel_xn,
-        estado,
-        fecha_creacion,
-        fecha_expiracion,
-        template:template_id (
-          nombre,
-          descripcion
-        )
-      `)
-      .eq('user_id', userData.id)
-      .order('fecha_creacion', { ascending: false });
+    // Separar nombre y apellido del nombre_completo
+    const nombreCompleto = userData.nombre_completo || '';
+    const partesNombre = nombreCompleto.split(' ');
+    const nombre = partesNombre[0] || '';
+    const apellido = partesNombre.slice(1).join(' ') || '';
 
-    if (kit2Error) {
-      console.error('Error obteniendo Kit2:', kit2Error);
-    }
+    // Obtener Kit2 activos del usuario (por ahora vacío, se implementará después)
+    const kit2Data: any[] = [];
 
-    // Obtener cuentas bancarias
-    const { data: cuentasData, error: cuentasError } = await supabase
-      .from('user_cuentas_bancarias')
-      .select('*')
-      .eq('user_id', userData.id);
+    // Obtener cuentas bancarias (por ahora vacío)
+    const cuentasData: any[] = [];
 
-    if (cuentasError) {
-      console.error('Error obteniendo cuentas:', cuentasError);
-    }
-
-    // Obtener estadísticas básicas
-    const { data: bonificaciones, error: bonifError } = await supabase
-      .from('kit2_purchases')
-      .select('agradecimiento_monto_usd, fecha_compra, estado')
-      .eq('beneficiario_user_id', userData.id)
-      .eq('estado', 'completado');
-
-    const totalBonificaciones = bonificaciones?.reduce(
-      (sum, b) => sum + (parseFloat(b.agradecimiento_monto_usd) || 0), 
-      0
-    ) || 0;
-
-    // Contar invitados directos
-    const { data: invitadosDirectos, error: invError } = await supabase
-      .from('kit2_purchases')
-      .select('id')
-      .eq('invitador_user_id', userData.id)
-      .eq('estado', 'completado');
-
-    const totalInvitados = invitadosDirectos?.length || 0;
+    // Estadísticas básicas (por ahora en 0)
+    const totalBonificaciones = 0;
+    const totalInvitados = 0;
 
     // Construir respuesta
     const response = {
       user: {
         id: userData.id,
         email: userData.email,
-        nombre: userData.nombre,
-        apellido: userData.apellido,
-        nombre_completo: `${userData.nombre} ${userData.apellido}`,
-        telefono: userData.telefono,
-        whatsapp: userData.whatsapp,
-        pais: userData.pais,
-        ciudad: userData.ciudad,
-        direccion: userData.direccion,
-        identificacion: userData.identificacion,
-        paypal_email: userData.paypal_email,
-        fecha_nacimiento: userData.fecha_nacimiento,
-        genero: userData.genero,
-        activo: userData.activo,
-        email_verificado: userData.email_verificado,
-        idioma_preferido: userData.idioma_preferido,
+        nombre,
+        apellido,
+        nombre_completo: userData.nombre_completo,
+        telefono: userData.telefono || '',
+        whatsapp: userData.telefono || '', // Usar teléfono como whatsapp por ahora
+        pais: userData.pais || '',
+        ciudad: '', // No existe en user_profiles aún
+        direccion: '', // No existe en user_profiles aún
+        identificacion: '', // No existe en user_profiles aún
+        paypal_email: '', // No existe en user_profiles aún
+        fecha_nacimiento: '', // No existe en user_profiles aún
+        genero: '', // No existe en user_profiles aún
+        activo: true, // Por defecto true
+        email_verificado: userData.verificado || false,
+        idioma_preferido: 'es', // Por defecto español
         created_at: userData.created_at,
       },
-      kit2: kit2Data || [],
-      cuentas_bancarias: cuentasData || [],
+      kit2: kit2Data,
+      cuentas_bancarias: cuentasData,
       estadisticas: {
-        total_kit2_activos: kit2Data?.filter(k => k.estado === 'activo').length || 0,
+        total_kit2_activos: 0,
         total_bonificaciones_recibidas: totalBonificaciones,
         total_invitados_directos: totalInvitados,
-        cantidad_bonificaciones: bonificaciones?.length || 0,
+        cantidad_bonificaciones: 0,
       },
     };
 
