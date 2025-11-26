@@ -5,7 +5,6 @@ import { createClient } from '@supabase/supabase-js';
 
 export async function POST(request: NextRequest) {
   try {
-    // ✅ MOVIDO AQUÍ - Crear cliente DENTRO de la función
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -21,8 +20,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Verificar si ya existe
     const { data: existingUser } = await supabase
-      .from('user_profiles')  // ← CAMBIADO: era 'users'
+      .from('user_profiles')
       .select('id')
       .eq('auth_user_id', auth_user_id)
       .single();
@@ -34,16 +34,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Insertar usando SOLO columnas que existen
     const { data: newUser, error: insertError } = await supabase
-      .from('user_profiles')  // ← CAMBIADO: era 'users'
+      .from('user_profiles')
       .insert([
         {
           auth_user_id,
           email,
-          nombre,
-          apellido,
-          activo: true,
-          email_verificado: false,
+          nombre_completo: `${nombre} ${apellido}`,
+          verificado: false,
         }
       ])
       .select()
@@ -63,8 +62,7 @@ export async function POST(request: NextRequest) {
         user: {
           id: newUser.id,
           email: newUser.email,
-          nombre: newUser.nombre,
-          apellido: newUser.apellido,
+          nombre_completo: newUser.nombre_completo,
         }
       },
       { status: 201 }
