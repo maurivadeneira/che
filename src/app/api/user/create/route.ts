@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Generar UUID manualmente
-    const userId = crypto.randomUUID();
+    const userId = auth_user_id;  // Usar el mismo ID de auth.users
 
     // Insertar en public.users
     const { data: newUser, error: insertError } = await supabase
