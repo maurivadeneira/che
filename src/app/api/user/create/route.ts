@@ -11,18 +11,18 @@ export async function POST(request: NextRequest) {
     );
 
     const body = await request.json();
-    const { auth_user_id, email, nombre, apellido, telefono } = body;  // ← AGREGADO telefono
+    const { auth_user_id, email, nombre, apellido, telefono } = body;
 
-    if (!auth_user_id || !email || !nombre || !apellido || !telefono) {  // ← AGREGADO telefono
+    if (!auth_user_id || !email || !nombre || !apellido || !telefono) {
       return NextResponse.json(
         { error: 'Datos incompletos' },
         { status: 400 }
       );
     }
 
-    // Verificar si ya existe
+    // Verificar si ya existe en public.users
     const { data: existingUser } = await supabase
-      .from('user_profiles')
+      .from('users')  // ← CAMBIO: user_profiles → users
       .select('id')
       .eq('auth_user_id', auth_user_id)
       .single();
@@ -37,17 +37,19 @@ export async function POST(request: NextRequest) {
     // Generar UUID manualmente
     const userId = crypto.randomUUID();
 
-    // Insertar con teléfono
+    // Insertar en public.users
     const { data: newUser, error: insertError } = await supabase
-      .from('user_profiles')
+      .from('users')  // ← CAMBIO: user_profiles → users
       .insert([
         {
           id: userId,
           auth_user_id,
           email,
-          nombre_completo: `${nombre} ${apellido}`,
-          telefono,  // ← AGREGADO telefono
-          verificado: false,
+          nombre,  // ← CAMBIO: separado en lugar de nombre_completo
+          apellido,  // ← CAMBIO: campo separado
+          telefono,
+          activo: true,  // ← NUEVO: campo de public.users
+          email_verificado: false,  // ← NUEVO: campo de public.users
         }
       ])
       .select()
@@ -67,8 +69,9 @@ export async function POST(request: NextRequest) {
         user: {
           id: newUser.id,
           email: newUser.email,
-          nombre_completo: newUser.nombre_completo,
-          telefono: newUser.telefono,  // ← AGREGADO telefono
+          nombre: newUser.nombre,
+          apellido: newUser.apellido,
+          telefono: newUser.telefono,
         }
       },
       { status: 201 }
