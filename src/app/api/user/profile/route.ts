@@ -22,9 +22,9 @@ export async function GET(request: NextRequest) {
 
     const authUserId = session.user.id;
 
-    // Obtener datos del usuario de la tabla user_profiles (CAMBIADO)
+    // Obtener datos del usuario de public.users
     const { data: userData, error: userError } = await supabase
-      .from('user_profiles')  // ← CAMBIADO de 'users' a 'user_profiles'
+      .from('users')  // ← CAMBIO: user_profiles → users
       .select('*')
       .eq('auth_user_id', authUserId)
       .single();
@@ -37,13 +37,12 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Separar nombre y apellido del nombre_completo
-    const nombreCompleto = userData.nombre_completo || '';
-    const partesNombre = nombreCompleto.split(' ');
-    const nombre = partesNombre[0] || '';
-    const apellido = partesNombre.slice(1).join(' ') || '';
+    // public.users ya tiene nombre y apellido separados
+    const nombre = userData.nombre || '';
+    const apellido = userData.apellido || '';
+    const nombreCompleto = `${nombre} ${apellido}`.trim();
 
-    // Obtener Kit2 activos del usuario (por ahora vacío, se implementará después)
+    // Obtener Kit2 activos del usuario (por ahora vacío)
     const kit2Data: any[] = [];
 
     // Obtener cuentas bancarias (por ahora vacío)
@@ -60,19 +59,19 @@ export async function GET(request: NextRequest) {
         email: userData.email,
         nombre,
         apellido,
-        nombre_completo: userData.nombre_completo,
+        nombre_completo: nombreCompleto,
         telefono: userData.telefono || '',
-        whatsapp: userData.telefono || '', // Usar teléfono como whatsapp por ahora
+        whatsapp: userData.whatsapp || userData.telefono || '',
         pais: userData.pais || '',
-        ciudad: '', // No existe en user_profiles aún
-        direccion: '', // No existe en user_profiles aún
-        identificacion: '', // No existe en user_profiles aún
-        paypal_email: '', // No existe en user_profiles aún
-        fecha_nacimiento: '', // No existe en user_profiles aún
-        genero: '', // No existe en user_profiles aún
-        activo: true, // Por defecto true
-        email_verificado: userData.verificado || false,
-        idioma_preferido: 'es', // Por defecto español
+        ciudad: userData.ciudad || '',
+        direccion: userData.direccion || '',
+        identificacion: userData.identificacion || '',
+        paypal_email: userData.paypal_email || '',
+        fecha_nacimiento: userData.fecha_nacimiento || '',
+        genero: userData.genero || '',
+        activo: userData.activo !== false,
+        email_verificado: userData.email_verificado || false,
+        idioma_preferido: userData.idioma_preferido || 'es',
         created_at: userData.created_at,
       },
       kit2: kit2Data,

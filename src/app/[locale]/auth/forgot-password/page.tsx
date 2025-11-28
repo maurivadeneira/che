@@ -41,8 +41,8 @@ export default function ForgotPasswordPage() {
 
     try {
       const { data: profileResults, error: profileError } = await supabase
-        .from('user_profiles')
-        .select('id, nombre_completo, telefono, email')
+        .from('users')
+        .select('id, nombre, apellido, telefono, email')
         .eq('telefono', normalizedPhone)
         .eq('email', email)
         .limit(1);
@@ -115,7 +115,7 @@ export default function ForgotPasswordPage() {
       const normalizedPhone = normalizePhone(phone);
 
       const { data: profileResults } = await supabase
-        .from('user_profiles')
+        .from('users')
         .select('id')
         .eq('telefono', normalizedPhone)
         .eq('email', email)
@@ -167,7 +167,7 @@ export default function ForgotPasswordPage() {
       const normalizedPhone = normalizePhone(phone);
 
       const { data: profileResults } = await supabase
-        .from('user_profiles')
+        .from('users')
         .select('id')
         .eq('telefono', normalizedPhone)
         .eq('email', email)

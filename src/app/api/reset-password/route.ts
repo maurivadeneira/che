@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     // Buscar el auth_user_id vinculado
     const { data: profile } = await supabaseAdmin
-      .from('user_profiles')
+      .from('users')  // ← CAMBIO: user_profiles → users
       .select('auth_user_id')
       .eq('id', userId)
       .single();
