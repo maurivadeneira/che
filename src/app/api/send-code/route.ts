@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+// API endpoint para envío de códigos de verificación
+   import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
