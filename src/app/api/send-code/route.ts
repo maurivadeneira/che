@@ -1,16 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    // 🔍 DEBUG - Ver variables de entorno
-    console.log('=== DEBUG SMTP CONFIG ===');
-    console.log('SMTP_HOST:', process.env.SMTP_HOST);
-    console.log('SMTP_PORT:', process.env.SMTP_PORT);
-    console.log('SMTP_USER:', process.env.SMTP_USER);
-    console.log('SMTP_PASSWORD:', process.env.SMTP_PASSWORD ? 'EXISTS' : 'UNDEFINED');
-    console.log('========================');
-    
     const { email, code } = await request.json();
 
     if (!email || !code) {
@@ -20,20 +14,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Configurar transporter de nodemailer
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    });
-
-    // Enviar email
-    await transporter.sendMail({
-      from: `"${process.env.SMTP_FROM_NAME}" <${process.env.SMTP_FROM}>`,
+    // Enviar email usando Resend
+    const { data, error } = await resend.emails.send({
+      from: 'CHE MundoLibre <che.mundolibre@corpherejiaeconomica.com>',
       to: email,
       subject: 'Código de recuperación - CHE',
       html: `
@@ -70,20 +53,21 @@ export async function POST(request: NextRequest) {
         </body>
         </html>
       `,
-      text: `
-Tu código de recuperación de contraseña es: ${code}
-
-Este código expira en 10 minutos.
-Si no solicitaste este código, ignora este mensaje.
-
-CHE - Corporación Herejía Económica
-corpherejiaeconomica.com
-      `,
     });
 
+    if (error) {
+      console.error('Error enviando email con Resend:', error);
+      return NextResponse.json(
+        { error: 'Error al enviar email: ' + error.message },
+        { status: 500 }
+      );
+    }
+
+    console.log('Email enviado exitosamente:', data);
     return NextResponse.json({ success: true });
+    
   } catch (error: any) {
-    console.error('Error enviando email:', error);
+    console.error('Error en send-code:', error);
     return NextResponse.json(
       { error: 'Error al enviar email: ' + error.message },
       { status: 500 }
