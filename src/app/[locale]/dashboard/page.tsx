@@ -220,9 +220,15 @@ export default function DashboardPage() {
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-8">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Tu Información</h2>
-            <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
-              Editar Datos
-            </button>
+            <button 
+  onClick={() => {
+    console.log('Click en Editar Datos');
+    router.push('/es/dashboard/editar-perfil');
+  }}
+  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium"
+>
+  Editar Datos
+</button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
