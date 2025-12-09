@@ -1,235 +1,331 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default function ActivarKit2Page() {
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const [step, setStep] = useState(1);
-  const [codigo, setCodigo] = useState('');
-  const [loading, setLoading] = useState(false);
+  const supabase = createClientComponentClient();
+  
+  const [codigoRef, setCodigoRef] = useState('');
+  const [invitadorInfo, setInvitadorInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [error, setError] = useState('');
-  const [datosKit2, setDatosKit2] = useState<any>(null);
+  
   const [formData, setFormData] = useState({
     email: '',
+    password: '',
     nombre: '',
-    apellido: '',
-    pais: 'Colombia'
+    telefono: ''
   });
 
-  const validarCodigo = async () => {
-    setLoading(true);
-    setError('');
-    
-    try {
-      const res = await fetch(`/api/kit2/validar-codigo?codigo=${codigo}`);
-      const data = await res.json();
-      
-      if (!res.ok) {
-        setError(data.error || 'Codigo no valido');
-        return;
-      }
-      
-      setDatosKit2(data);
-      setStep(2);
-    } catch (err) {
-      setError('Error de conexion');
-    } finally {
+  useEffect(() => {
+    const codigo = searchParams.get('ref');
+    if (codigo) {
+      setCodigoRef(codigo);
+      verificarCodigo(codigo);
+    } else {
+      setError('Código de referencia no válido');
       setLoading(false);
+    }
+    
+    verificarSesion();
+  }, [searchParams]);
+
+  const verificarSesion = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
     }
   };
 
-  const iniciarCompra = async () => {
-    setLoading(true);
-    setError('');
-    
+  const verificarCodigo = async (codigo) => {
     try {
-      const res = await fetch('/api/kit2/iniciar-compra', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          origen_codigo: codigo,
-          ...formData
-        })
+      const { data, error } = await supabase
+        .from('user_kit2_creation')
+        .select(`
+          *,
+          users:user_id (
+            email,
+            user_profiles (nombre_completo)
+          )
+        `)
+        .eq('codigo_referencia', codigo)
+        .eq('estado', 'completado')
+        .single();
+
+      if (error || !data) {
+        setError('Código de referencia no válido o expirado');
+        setLoading(false);
+        return;
+      }
+
+      setInvitadorInfo({
+        nombre: data.users.user_profiles?.nombre_completo || data.users.email,
+        email: data.users.email,
+        benefactor_nombre: data.benefactor_nombre,
+        benefactor_email: data.benefactor_email
       });
       
-      const data = await res.json();
-      
-      if (!res.ok) {
-        setError(data.error || 'Error al procesar');
-        return;
-      }
-      
-      setStep(3);
-      setDatosKit2({ ...datosKit2, ...data });
+      setLoading(false);
     } catch (err) {
-      setError('Error de conexion');
-    } finally {
+      console.error('Error verificando código:', err);
+      setError('Error al verificar el código');
       setLoading(false);
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      if (isLogin) {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password
+        });
+
+        if (error) throw error;
+
+        const { data: activacion } = await supabase
+          .from('user_kit2_activaciones')
+          .select('*')
+          .eq('user_id', data.user.id)
+          .eq('codigo_referencia', codigoRef)
+          .single();
+
+        if (activacion) {
+          router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
+        } else {
+          await crearActivacion(data.user.id);
+        }
+        
+      } else {
+        const { data, error } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              nombre_completo: formData.nombre,
+              telefono: formData.telefono
+            }
+          }
+        });
+
+        if (error) throw error;
+
+        await supabase.from('user_profiles').insert({
+          user_id: data.user.id,
+          nombre_completo: formData.nombre,
+          telefono: formData.telefono
+        });
+
+        await crearActivacion(data.user.id);
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  const crearActivacion = async (userId) => {
+    try {
+      const { data: invitador } = await supabase
+        .from('user_kit2_creation')
+        .select('user_id, benefactor_user_id')
+        .eq('codigo_referencia', codigoRef)
+        .single();
+
+      const { error } = await supabase
+        .from('user_kit2_activaciones')
+        .insert({
+          user_id: userId,
+          codigo_referencia: codigoRef,
+          invitador_user_id: invitador.user_id,
+          benefactor_user_id: invitador.benefactor_user_id,
+          estado: 'pago_x0_pendiente',
+          paso_actual: 'pago_x0',
+          fecha_expiracion: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+        });
+
+      if (error) throw error;
+
+      router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
+      
+    } catch (err) {
+      console.error('Error creando activación:', err);
+      throw err;
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Verificando código...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error && !invitadorInfo) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-red-50 border border-red-200 rounded-lg p-6">
+          <h2 className="text-xl font-bold text-red-800 mb-2">Error</h2>
+          <p className="text-red-600">{error}</p>
+          <button
+            onClick={() => router.push('/')}
+            className="mt-4 w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700"
+          >
+            Volver al inicio
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h1 className="text-3xl font-bold text-center mb-8 text-indigo-900">
-            Activar Kit2
-          </h1>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4">
+      <div className="max-w-md mx-auto">
+        
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+          <div className="text-center">
+            <div className="text-5xl mb-4">🌳</div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+              El Árbol Mágico del Ahorro
+            </h1>
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+              <p className="text-sm text-gray-600 mb-2">Te invitó:</p>
+              <p className="text-lg font-bold text-green-700">
+                {invitadorInfo?.nombre}
+              </p>
+              <p className="text-sm text-gray-500">{invitadorInfo?.email}</p>
+            </div>
+          </div>
+        </div>
 
-          {/* PASO 1: Validar código */}
-          {step === 1 && (
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Código de invitación
-                </label>
-                <input
-                  type="text"
-                  value={codigo}
-                  onChange={(e) => setCodigo(e.target.value.toUpperCase())}
-                  placeholder="HE-K2-XXXXX"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                />
-              </div>
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          
+          <div className="flex mb-6 bg-gray-100 rounded-lg p-1">
+            <button
+              onClick={() => setIsLogin(false)}
+              className={`flex-1 py-2 px-4 rounded-md transition-colors ${
+                !isLogin 
+                  ? 'bg-white text-green-600 font-semibold shadow'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              Registrarse
+            </button>
+            <button
+              onClick={() => setIsLogin(true)}
+              className={`flex-1 py-2 px-4 rounded-md transition-colors ${
+                isLogin 
+                  ? 'bg-white text-green-600 font-semibold shadow'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              Ya tengo cuenta
+            </button>
+          </div>
 
-              {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                  {error}
-                </div>
-              )}
-
-              <button
-                onClick={validarCodigo}
-                disabled={!codigo || loading}
-                className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
-              >
-                {loading ? 'Validando...' : 'Continuar'}
-              </button>
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+              <p className="text-sm text-red-600">{error}</p>
             </div>
           )}
 
-          {/* PASO 2: Formulario de datos */}
-          {step === 2 && datosKit2 && (
-            <div className="space-y-6">
-              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
-                <p className="text-sm text-indigo-800">
-                  Invitado por: <span className="font-semibold">{datosKit2.invitador.nombre} {datosKit2.invitador.apellido}</span>
-                </p>
-                <p className="text-sm text-indigo-800 mt-1">
-                  Kit2: <span className="font-semibold">{datosKit2.kit2.nombre}</span>
-                </p>
-                <p className="text-sm text-indigo-800 mt-1">
-                  Precio: <span className="font-semibold">${datosKit2.kit2.precio} USD</span>
-                </p>
-                {datosKit2.beneficiario && (
-                  <p className="text-sm text-indigo-800 mt-1">
-                    Beneficiario: <span className="font-semibold">{datosKit2.beneficiario.nombre} {datosKit2.beneficiario.apellido}</span>
-                  </p>
-                )}
-              </div>
-
-              <div className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            
+            {!isLogin && (
+              <>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Nombre *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nombre completo
                   </label>
                   <input
                     type="text"
+                    required
                     value={formData.nombre}
-                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Tu nombre completo"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Apellido *
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Teléfono
                   </label>
                   <input
-                    type="text"
-                    value={formData.apellido}
-                    onChange={(e) => setFormData({ ...formData, apellido: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    type="tel"
+                    required
+                    value={formData.telefono}
+                    onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Tu número de teléfono"
                   />
                 </div>
+              </>
+            )}
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    País
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.pais}
-                    onChange={(e) => setFormData({ ...formData, pais: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  />
-                </div>
-              </div>
-
-              {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                  {error}
-                </div>
-              )}
-
-              <button
-                onClick={iniciarCompra}
-                disabled={!formData.email || !formData.nombre || !formData.apellido || loading}
-                className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
-              >
-                {loading ? 'Procesando...' : 'Continuar al pago'}
-              </button>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="tu@email.com"
+              />
             </div>
-          )}
 
-          {/* PASO 3: Confirmación */}
-          {step === 3 && datosKit2 && (
-            <div className="space-y-6 text-center">
-              <div className="text-6xl">🎉</div>
-              <h2 className="text-2xl font-bold text-gray-900">¡Compra iniciada!</h2>
-              
-              <div className="bg-gray-50 rounded-lg p-6 text-left space-y-2">
-                <p className="text-sm text-gray-600">
-                  Número de orden: <span className="font-mono font-semibold">{datosKit2.numero_orden}</span>
-                </p>
-                <p className="text-sm text-gray-600">
-                  Total a pagar: <span className="font-semibold">${datosKit2.monto_agradecimiento + datosKit2.monto_productos} USD</span>
-                </p>
-                <p className="text-sm text-gray-600">
-                  Agradecimiento: <span className="font-semibold">${datosKit2.monto_agradecimiento} USD</span>
-                </p>
-                <p className="text-sm text-gray-600">
-                  Productos: <span className="font-semibold">${datosKit2.monto_productos} USD</span>
-                </p>
-              </div>
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <p className="text-sm text-yellow-800">
-                  Recibirás un email con las instrucciones de pago.
-                </p>
-              </div>
-
-              <button
-                onClick={() => router.push('/')}
-                className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
-              >
-                Volver al inicio
-              </button>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                required
+                value={formData.password}
+                onChange={(e) => setFormData({...formData, password: e.target.value})}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="Mínimo 6 caracteres"
+                minLength={6}
+              />
             </div>
-          )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:bg-gray-400"
+            >
+              {loading ? 'Procesando...' : isLogin ? 'Iniciar Sesión' : 'Registrarse'}
+            </button>
+          </form>
+
+          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-800">
+              <strong>🔒 Tu seguridad:</strong> Solo verás los métodos de pago después de registrarte. 
+              Nunca pediremos contraseñas de bancos.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 text-center text-sm text-gray-600">
+          <p>Al registrarte aceptas los términos y condiciones</p>
+          <p className="mt-2">¿Necesitas ayuda? <a href="/contacto" className="text-green-600 hover:underline">Contáctanos</a></p>
         </div>
       </div>
     </div>
