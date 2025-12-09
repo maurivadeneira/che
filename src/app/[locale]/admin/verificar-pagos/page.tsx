@@ -8,7 +8,7 @@ export default function AdminVerificarPagosPage() {
   const supabase = createClientComponentClient();
   const router = useRouter();
   
-  const [activaciones, setActivaciones] = useState([]);
+  const [activaciones, setActivaciones] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('pendientes');
 
