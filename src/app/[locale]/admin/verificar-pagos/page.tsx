@@ -52,6 +52,7 @@ export default function AdminVerificarPagosPage() {
   const verificarPago = async (activacionId: string, tipoPago: string, aprobar: boolean) => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
       
       let updateData;
       if (tipoPago === 'x0') {
