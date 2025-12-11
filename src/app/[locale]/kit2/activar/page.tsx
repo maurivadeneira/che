@@ -1,6 +1,6 @@
 'use client';
 
-// Importamos React para poder usar React.FormEvent
+// Importamos React para usar React.FormEvent y los hooks
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -35,6 +35,7 @@ export default function ActivarKit2Page() {
     const codigo = searchParams.get('ref');
     if (codigo) {
       setCodigoRef(codigo);
+      // 2. CORRECCIÓN: El tipado de 'codigo' ya está en la definición de verificarCodigo
       verificarCodigo(codigo);
     } else {
       setError('Código de referencia no válido');
@@ -73,7 +74,6 @@ export default function ActivarKit2Page() {
         return;
       }
 
-      // El tipo de setInvitadorInfo ahora está definido, resolviendo el segundo error.
       setInvitadorInfo({
         nombre: data.users.user_profiles?.nombre_completo || data.users.email,
         email: data.users.email,
@@ -97,6 +97,7 @@ export default function ActivarKit2Page() {
 
     try {
       if (isLogin) {
+        // --- LÓGICA DE LOGIN ---
         const { data, error } = await supabase.auth.signInWithPassword({
           email: formData.email,
           password: formData.password
@@ -104,6 +105,11 @@ export default function ActivarKit2Page() {
 
         if (error) throw error;
 
+        // Comprobación de que el usuario existe antes de buscar activaciones
+        if (!data.user) {
+             throw new Error("Error de inicio de sesión. Usuario no encontrado.");
+        }
+        
         const { data: activacion } = await supabase
           .from('user_kit2_activaciones')
           .select('*')
@@ -118,6 +124,7 @@ export default function ActivarKit2Page() {
         }
         
       } else {
+        // --- LÓGICA DE REGISTRO ---
         const { data, error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
@@ -130,23 +137,30 @@ export default function ActivarKit2Page() {
         });
 
         if (error) throw error;
-
+        
+        // 4. CORRECCIÓN FINAL: Comprobación de nulidad de data.user (Soluciona "Type error: 'data.user' is possibly 'null'")
+        if (!data.user) {
+             // Esto sucede si el registro fue exitoso pero requiere confirmación por email.
+             // Aquí podrías querer manejarlo diferente, pero forzamos el error para salir.
+             throw new Error("Registro pendiente. Revisa tu email para completar la activación.");
+        }
+        
         await supabase.from('user_profiles').insert({
-          user_id: data.user.id,
+          user_id: data.user.id, // Ahora TS sabe que data.user existe
           nombre_completo: formData.nombre,
           telefono: formData.telefono
         });
 
         await crearActivacion(data.user.id);
       }
-    } catch (err: any) { // Usamos 'any' aquí para manejar errores sin tipado específico
+    } catch (err: any) {
       console.error('Error:', err);
-      setError(err.message);
+      setError(err.message || 'Ocurrió un error inesperado durante el proceso.');
       setLoading(false);
     }
   };
 
-  const crearActivacion = async (userId: string) => { // Agregamos un tipado simple a userId
+  const crearActivacion = async (userId: string) => {
     try {
       const { data: invitador } = await supabase
         .from('user_kit2_creation')
@@ -154,13 +168,18 @@ export default function ActivarKit2Page() {
         .eq('codigo_referencia', codigoRef)
         .single();
 
+      // Aseguramos que invitador no sea null antes de acceder a sus propiedades
+      if (!invitador) {
+        throw new Error("No se pudo encontrar la referencia de invitación.");
+      }
+
       const { error } = await supabase
         .from('user_kit2_activaciones')
         .insert({
           user_id: userId,
           codigo_referencia: codigoRef,
-          invitador_user_id: invitador!.user_id, // Uso de '!' asumido si es que esperas que exista
-          benefactor_user_id: invitador!.benefactor_user_id,
+          invitador_user_id: invitador.user_id,
+          benefactor_user_id: invitador.benefactor_user_id,
           estado: 'pago_x0_pendiente',
           paso_actual: 'pago_x0',
           fecha_expiracion: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
