@@ -42,7 +42,7 @@ export default function ActivarKit2Page() {
     }
   };
 
-  const verificarCodigo = async (codigo) => {
+  const verificarCodigo = async (codigo: string) => {
     try {
       const { data, error } = await supabase
         .from('user_kit2_creation')
