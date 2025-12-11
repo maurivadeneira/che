@@ -4,6 +4,14 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
+// Define esta interfaz en la parte superior del archivo page.tsx
+interface InvitadorInfo {
+  nombre: string;
+  email: string;
+  benefactor_nombre: string | null;
+  benefactor_email: string | null;
+}
+
 export default function ActivarKit2Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
