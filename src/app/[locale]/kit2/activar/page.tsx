@@ -10,7 +10,7 @@ export default function ActivarKit2Page() {
   const supabase = createClientComponentClient();
   
   const [codigoRef, setCodigoRef] = useState('');
-  const [invitadorInfo, setInvitadorInfo] = useState(null);
+  const [invitadorInfo, setInvitadorInfo] = useState<InvitadorInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
   const [error, setError] = useState('');
