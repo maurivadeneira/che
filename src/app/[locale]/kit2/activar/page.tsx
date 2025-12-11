@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// Importamos React para poder usar React.FormEvent
+import React, { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-// Define esta interfaz en la parte superior del archivo page.tsx
+// 1. CORRECCIÓN: Definición de la interfaz InvitadorInfo (Soluciona "Cannot find name 'InvitadorInfo'")
 interface InvitadorInfo {
   nombre: string;
   email: string;
@@ -50,6 +51,7 @@ export default function ActivarKit2Page() {
     }
   };
 
+  // 2. CORRECCIÓN: Tipado de parámetro 'codigo' (Soluciona "Parameter 'codigo' implicitly has an 'any' type.")
   const verificarCodigo = async (codigo: string) => {
     try {
       const { data, error } = await supabase
@@ -71,6 +73,7 @@ export default function ActivarKit2Page() {
         return;
       }
 
+      // El tipo de setInvitadorInfo ahora está definido, resolviendo el segundo error.
       setInvitadorInfo({
         nombre: data.users.user_profiles?.nombre_completo || data.users.email,
         email: data.users.email,
@@ -86,7 +89,8 @@ export default function ActivarKit2Page() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  // 3. CORRECCIÓN: Tipado de parámetro 'e' (Soluciona "Parameter 'e' implicitly has an 'any' type.")
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     setLoading(true);
@@ -135,14 +139,14 @@ export default function ActivarKit2Page() {
 
         await crearActivacion(data.user.id);
       }
-    } catch (err) {
+    } catch (err: any) { // Usamos 'any' aquí para manejar errores sin tipado específico
       console.error('Error:', err);
       setError(err.message);
       setLoading(false);
     }
   };
 
-  const crearActivacion = async (userId) => {
+  const crearActivacion = async (userId: string) => { // Agregamos un tipado simple a userId
     try {
       const { data: invitador } = await supabase
         .from('user_kit2_creation')
@@ -155,8 +159,8 @@ export default function ActivarKit2Page() {
         .insert({
           user_id: userId,
           codigo_referencia: codigoRef,
-          invitador_user_id: invitador.user_id,
-          benefactor_user_id: invitador.benefactor_user_id,
+          invitador_user_id: invitador!.user_id, // Uso de '!' asumido si es que esperas que exista
+          benefactor_user_id: invitador!.benefactor_user_id,
           estado: 'pago_x0_pendiente',
           paso_actual: 'pago_x0',
           fecha_expiracion: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
