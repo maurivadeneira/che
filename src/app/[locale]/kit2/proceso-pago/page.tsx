@@ -85,11 +85,19 @@ export default function ProcesoPagoPage() {
     .maybeSingle();
 
             if (actError) throw actError;
-            // Aserción de tipo para usar ActivacionData
-            setActivacion(activacionData as ActivacionData);
 
-            // 5. CORRECCIÓN de lógica: Usar el ID de benefactor de la data recién cargada
-            const benefactorId = (activacionData as ActivacionData).benefactor_user_id;
+// Verificar si existe la activación
+if (!activacionData) {
+    setError('No se encontró una activación activa. Por favor, activa tu Kit2 primero.');
+    setLoading(false);
+    return;
+}
+
+// Aserción de tipo para usar ActivacionData
+setActivacion(activacionData as ActivacionData);
+
+// Ya no cargamos métodos de pago (comentado temporalmente)
+// const benefactorId = (activacionData as ActivacionData).benefactor_user_id;
 
             // Temporal - métodos vacíos hasta que haya usuarios reales
 setBenefactorMetodos([]);
