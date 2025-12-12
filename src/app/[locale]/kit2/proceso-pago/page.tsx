@@ -82,7 +82,7 @@ export default function ProcesoPagoPage() {
     .select('*')
     .eq('user_id', user.id)
     .eq('codigo_referencia', codigoRef)
-    .single();
+    .maybeSingle();
 
             if (actError) throw actError;
             // Aserción de tipo para usar ActivacionData
