@@ -78,21 +78,11 @@ export default function ProcesoPagoPage() {
             }
             
             const { data: activacionData, error: actError } = await supabase
-                .from('user_kit2_activaciones')
-                .select(`
-                    *,
-                    invitador:invitador_user_id (
-                        email,
-                        user_profiles (nombre_completo)
-                    ),
-                    benefactor:benefactor_user_id (
-                        email,
-                        user_profiles (nombre_completo, telefono)
-                    )
-                `)
-                .eq('user_id', user.id)
-                .eq('codigo_referencia', codigoRef)
-                .single();
+    .from('user_kit2_activaciones')
+    .select('*')
+    .eq('user_id', user.id)
+    .eq('codigo_referencia', codigoRef)
+    .single();
 
             if (actError) throw actError;
             // Aserción de tipo para usar ActivacionData
@@ -101,14 +91,8 @@ export default function ProcesoPagoPage() {
             // 5. CORRECCIÓN de lógica: Usar el ID de benefactor de la data recién cargada
             const benefactorId = (activacionData as ActivacionData).benefactor_user_id;
 
-            const { data: metodosX0 } = await supabase
-                .from('user_metodos_pago')
-                .select('tipo, identificador, categoria, nombre_titular') // Seleccionar campos para el tipado
-                .eq('user_id', benefactorId)
-                .eq('activa', true);
-
-            // CORRECCIÓN 6: El tipo del argumento ahora coincide (MetodoPago[])
-            setBenefactorMetodos(metodosX0 || []);
+            // Temporal - métodos vacíos hasta que haya usuarios reales
+setBenefactorMetodos([]);
 
             // El array de cheMetodos ya tenía el tipo correcto inferido de MetodoPago
             setCheMetodos([
