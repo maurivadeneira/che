@@ -1,6 +1,5 @@
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { NextResponse } from 'next/server';
 import { generarKit2PDF } from '@/lib/pdf/kit2-generator';
 
 export async function POST(request: Request) {
@@ -11,10 +10,13 @@ export async function POST(request: Request) {
     const { instance_id } = body;
 
     if (!instance_id) {
-      return NextResponse.json({ error: 'instance_id requerido' }, { status: 400 });
+      return new Response(JSON.stringify({ error: 'instance_id requerido' }), { 
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    // Obtener datos de la instancia con joins
+    // Obtener datos de la instancia
     const { data: instance, error: instanceError } = await supabase
       .from('kit2_instances')
       .select(`
@@ -22,13 +24,17 @@ export async function POST(request: Request) {
         codigo_unico,
         user_id,
         invitador_user_id,
+        beneficiario_asignado_id,
         nivel_xn
       `)
       .eq('id', instance_id)
       .single();
 
     if (instanceError || !instance) {
-      return NextResponse.json({ error: 'Instancia no encontrada' }, { status: 404 });
+      return new Response(JSON.stringify({ error: 'Instancia no encontrada' }), { 
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     // Obtener datos del dueño
@@ -45,9 +51,20 @@ export async function POST(request: Request) {
       .eq('id', instance.invitador_user_id)
       .single();
 
-    // Obtener datos del beneficiario (X0) - el invitador del invitador
+    // Obtener datos del beneficiario (X0)
+    // Prioridad: 1) beneficiario_asignado_id, 2) invitador del invitador
     let beneficiario = { nombre: 'CHE', apellido: '' };
-    if (instance.invitador_user_id) {
+    
+    if (instance.beneficiario_asignado_id) {
+      // Caso autores/raíz: beneficiario asignado administrativamente
+      const { data: benefData } = await supabase
+        .from('users')
+        .select('nombre, apellido')
+        .eq('id', instance.beneficiario_asignado_id)
+        .single();
+      if (benefData) beneficiario = benefData;
+    } else if (instance.invitador_user_id) {
+      // Caso normal: buscar invitador del invitador
       const { data: invitadorInstance } = await supabase
         .from('kit2_instances')
         .select('invitador_user_id')
@@ -82,7 +99,7 @@ export async function POST(request: Request) {
     });
 
     // Retornar PDF como descarga
-    return new NextResponse(new Uint8Array(pdfBuffer), {
+    return new Response(Buffer.from(pdfBuffer), {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="kit2-${instance.codigo_unico}.pdf"`,
@@ -91,9 +108,9 @@ export async function POST(request: Request) {
 
   } catch (error) {
     console.error('Error generando Kit2 PDF:', error);
-    return NextResponse.json(
-      { error: 'Error generando PDF' },
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ error: 'Error generando PDF' }), { 
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
