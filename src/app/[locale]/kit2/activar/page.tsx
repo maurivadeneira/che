@@ -228,6 +228,7 @@ export default function ActivarKit2Page() {
             productos_monto_usd: 25,
             numero_orden: numeroOrden,
             template_id: 'b0000001-0000-0000-0000-000000000001',
+            nivel_xn_calculado: 1,
             chain_id: 'c0000001-0000-0000-0000-000000000001',
             iniciado_at: new Date().toISOString()
           });
