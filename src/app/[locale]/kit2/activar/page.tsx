@@ -111,12 +111,12 @@ export default function ActivarKit2Page() {
       // Verificar si el usuario ya tiene sesión
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        // Verificar si ya tiene una activación pendiente
+        // Verificar si ya tiene una compra pendiente
         const { data: activacion } = await supabase
           .from('kit2_purchases')
           .select('*')
-          .eq('user_id', session.user.id)
-          .eq('instance_id', instance.id)
+          .eq('comprador_user_id', session.user.id)
+          .eq('origen_instance_id', instance.id)
           .single();
 
         if (activacion) {
@@ -196,22 +196,35 @@ export default function ActivarKit2Page() {
       const { data: existingPurchase } = await supabase
         .from('kit2_purchases')
         .select('*')
-        .eq('user_id', userId)
-        .eq('instance_id', instanceId)
+        .eq('comprador_user_id', userId)
+        .eq('origen_instance_id', instanceId)
         .single();
 
       if (!existingPurchase) {
+        // Obtener datos del beneficiario
+        const { data: instance } = await supabase
+          .from('kit2_instances')
+          .select('user_id, beneficiario_asignado_id')
+          .eq('id', instanceId)
+          .single();
+
         // Crear nueva compra
         const { error } = await supabase
           .from('kit2_purchases')
           .insert({
-            user_id: userId,
-            instance_id: instanceId,
-            codigo_usado: codigoRef,
-            estado: 'pendiente_pago_beneficiario',
-            monto_total: 35,
-            monto_beneficiario: 10,
-            monto_che: 25
+            comprador_user_id: userId,
+            origen_instance_id: instanceId,
+            origen_codigo_kit2: codigoRef,
+            origen_user_id: instance?.user_id,
+            beneficiario_user_id: instance?.beneficiario_asignado_id,
+            invitador_user_id: instance?.user_id,
+            estado: 'pendiente',
+            agradecimiento_estado: 'pendiente',
+            productos_estado: 'pendiente',
+            monto_total_usd: 35,
+            agradecimiento_monto_usd: 10,
+            productos_monto_usd: 25,
+            iniciado_at: new Date().toISOString()
           });
 
         if (error) throw error;
