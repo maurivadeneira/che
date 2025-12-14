@@ -209,7 +209,7 @@ export default function ActivarKit2Page() {
           .single();
 
         // Generar número de orden único
-        const numeroOrden = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+        const numeroOrden = `K2-${Date.now().toString(36).toUpperCase()}`;
 
         // Crear nueva compra
         const { error } = await supabase
