@@ -221,7 +221,6 @@ export default function ActivarKit2Page() {
             estado: 'pendiente',
             agradecimiento_estado: 'pendiente',
             productos_estado: 'pendiente',
-            monto_total_usd: 35,
             agradecimiento_monto_usd: 10,
             productos_monto_usd: 25,
             iniciado_at: new Date().toISOString()
