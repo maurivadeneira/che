@@ -208,6 +208,9 @@ export default function ActivarKit2Page() {
           .eq('id', instanceId)
           .single();
 
+        // Generar número de orden único
+        const numeroOrden = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+
         // Crear nueva compra
         const { error } = await supabase
           .from('kit2_purchases')
@@ -223,6 +226,7 @@ export default function ActivarKit2Page() {
             productos_estado: 'pendiente',
             agradecimiento_monto_usd: 10,
             productos_monto_usd: 25,
+            numero_orden: numeroOrden,
             iniciado_at: new Date().toISOString()
           });
 
