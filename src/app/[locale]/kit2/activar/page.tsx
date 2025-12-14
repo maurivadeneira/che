@@ -1,33 +1,33 @@
 'use client';
 
-// Importamos React para usar React.FormEvent y los hooks
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-// 1. CORRECCIÓN: Definición de la interfaz InvitadorInfo (Soluciona "Cannot find name 'InvitadorInfo'")
 interface InvitadorInfo {
   nombre: string;
   email: string;
-  benefactor_nombre: string | null;
-  benefactor_email: string | null;
+  beneficiario_nombre: string;
+  beneficiario_email: string;
 }
 
 export default function ActivarKit2Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const supabase = createClientComponentClient();
-  
+
   const [codigoRef, setCodigoRef] = useState('');
+  const [instanceId, setInstanceId] = useState('');
   const [invitadorInfo, setInvitadorInfo] = useState<InvitadorInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
   const [error, setError] = useState('');
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     nombre: '',
+    apellido: '',
     telefono: ''
   });
 
@@ -35,52 +35,96 @@ export default function ActivarKit2Page() {
     const codigo = searchParams.get('ref');
     if (codigo) {
       setCodigoRef(codigo);
-      // 2. CORRECCIÓN: El tipado de 'codigo' ya está en la definición de verificarCodigo
       verificarCodigo(codigo);
     } else {
       setError('Código de referencia no válido');
       setLoading(false);
     }
-    
-    verificarSesion();
   }, [searchParams]);
 
-  const verificarSesion = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
-      router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
-    }
-  };
-
-  // 2. CORRECCIÓN: Tipado de parámetro 'codigo' (Soluciona "Parameter 'codigo' implicitly has an 'any' type.")
   const verificarCodigo = async (codigo: string) => {
     try {
-      const { data, error } = await supabase
-        .from('user_kit2_creation')
+      // Buscar la instancia por codigo_unico
+      const { data: instance, error: instanceError } = await supabase
+        .from('kit2_instances')
         .select(`
-          *,
-          users:user_id (
-            email,
-            user_profiles (nombre_completo)
-          )
+          id,
+          codigo_unico,
+          user_id,
+          beneficiario_asignado_id,
+          invitador_user_id
         `)
-        .eq('codigo_referencia', codigo)
-        .eq('estado', 'completado')
+        .eq('codigo_unico', codigo)
+        .eq('estado', 'activo')
         .single();
 
-      if (error || !data) {
+      if (instanceError || !instance) {
         setError('Código de referencia no válido o expirado');
         setLoading(false);
         return;
       }
 
-      setInvitadorInfo({
-        nombre: data.users.user_profiles?.nombre_completo || data.users.email,
-        email: data.users.email,
-        benefactor_nombre: data.benefactor_nombre,
-        benefactor_email: data.benefactor_email
-      });
+      setInstanceId(instance.id);
+
+      // Obtener datos del dueño (invitador)
+      const { data: dueno } = await supabase
+        .from('users')
+        .select('nombre, apellido, email')
+        .eq('id', instance.user_id)
+        .single();
+
+      // Obtener datos del beneficiario
+      let beneficiario = { nombre: 'CHE', apellido: '', email: 'info@corpherejiaeconomica.com' };
       
+      if (instance.beneficiario_asignado_id) {
+        const { data: benefData } = await supabase
+          .from('users')
+          .select('nombre, apellido, email')
+          .eq('id', instance.beneficiario_asignado_id)
+          .single();
+        if (benefData) beneficiario = benefData;
+      } else if (instance.invitador_user_id) {
+        // Buscar invitador del invitador
+        const { data: invitadorInstance } = await supabase
+          .from('kit2_instances')
+          .select('invitador_user_id')
+          .eq('user_id', instance.invitador_user_id)
+          .single();
+        
+        if (invitadorInstance?.invitador_user_id) {
+          const { data: benefData } = await supabase
+            .from('users')
+            .select('nombre, apellido, email')
+            .eq('id', invitadorInstance.invitador_user_id)
+            .single();
+          if (benefData) beneficiario = benefData;
+        }
+      }
+
+      setInvitadorInfo({
+        nombre: `${dueno?.nombre || ''} ${dueno?.apellido || ''}`.trim() || 'Usuario',
+        email: dueno?.email || '',
+        beneficiario_nombre: `${beneficiario.nombre} ${beneficiario.apellido}`.trim(),
+        beneficiario_email: beneficiario.email
+      });
+
+      // Verificar si el usuario ya tiene sesión
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        // Verificar si ya tiene una activación pendiente
+        const { data: activacion } = await supabase
+          .from('kit2_purchases')
+          .select('*')
+          .eq('user_id', session.user.id)
+          .eq('instance_id', instance.id)
+          .single();
+
+        if (activacion) {
+          router.push(`/es/kit2/proceso-pago?ref=${codigo}`);
+          return;
+        }
+      }
+
       setLoading(false);
     } catch (err) {
       console.error('Error verificando código:', err);
@@ -89,7 +133,6 @@ export default function ActivarKit2Page() {
     }
   };
 
-  // 3. CORRECCIÓN: Tipado de parámetro 'e' (Soluciona "Parameter 'e' implicitly has an 'any' type.")
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
@@ -97,100 +140,87 @@ export default function ActivarKit2Page() {
 
     try {
       if (isLogin) {
-        // --- LÓGICA DE LOGIN ---
+        // LOGIN
         const { data, error } = await supabase.auth.signInWithPassword({
           email: formData.email,
           password: formData.password
         });
 
         if (error) throw error;
+        if (!data.user) throw new Error("Error de inicio de sesión");
 
-        // Comprobación de que el usuario existe antes de buscar activaciones
-        if (!data.user) {
-             throw new Error("Error de inicio de sesión. Usuario no encontrado.");
-        }
-        
-        const { data: activacion } = await supabase
-          .from('user_kit2_activaciones')
-          .select('*')
-          .eq('user_id', data.user.id)
-          .eq('codigo_referencia', codigoRef)
-          .single();
+        await crearOContinuarCompra(data.user.id);
 
-        if (activacion) {
-          router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
-        } else {
-          await crearActivacion(data.user.id);
-        }
-        
       } else {
-        // --- LÓGICA DE REGISTRO ---
+        // REGISTRO
         const { data, error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
           options: {
             data: {
-              nombre_completo: formData.nombre,
+              nombre: formData.nombre,
+              apellido: formData.apellido,
               telefono: formData.telefono
             }
           }
         });
 
         if (error) throw error;
-        
-        // 4. CORRECCIÓN FINAL: Comprobación de nulidad de data.user (Soluciona "Type error: 'data.user' is possibly 'null'")
         if (!data.user) {
-             // Esto sucede si el registro fue exitoso pero requiere confirmación por email.
-             // Aquí podrías querer manejarlo diferente, pero forzamos el error para salir.
-             throw new Error("Registro pendiente. Revisa tu email para completar la activación.");
+          throw new Error("Registro exitoso. Revisa tu email para confirmar tu cuenta.");
         }
-        
-        await supabase.from('user_profiles').insert({
-          user_id: data.user.id, // Ahora TS sabe que data.user existe
-          nombre_completo: formData.nombre,
-          telefono: formData.telefono
+
+        // Crear registro en nuestra tabla users
+        await supabase.from('users').upsert({
+          id: data.user.id,
+          auth_user_id: data.user.id,
+          email: formData.email,
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          telefono: formData.telefono,
+          activo: true
         });
 
-        await crearActivacion(data.user.id);
+        await crearOContinuarCompra(data.user.id);
       }
     } catch (err: any) {
       console.error('Error:', err);
-      setError(err.message || 'Ocurrió un error inesperado durante el proceso.');
+      setError(err.message || 'Ocurrió un error inesperado');
       setLoading(false);
     }
   };
 
-  const crearActivacion = async (userId: string) => {
+  const crearOContinuarCompra = async (userId: string) => {
     try {
-      const { data: invitador } = await supabase
-        .from('user_kit2_creation')
-        .select('user_id, benefactor_user_id')
-        .eq('codigo_referencia', codigoRef)
+      // Verificar si ya existe una compra para este usuario e instancia
+      const { data: existingPurchase } = await supabase
+        .from('kit2_purchases')
+        .select('*')
+        .eq('user_id', userId)
+        .eq('instance_id', instanceId)
         .single();
 
-      // Aseguramos que invitador no sea null antes de acceder a sus propiedades
-      if (!invitador) {
-        throw new Error("No se pudo encontrar la referencia de invitación.");
+      if (!existingPurchase) {
+        // Crear nueva compra
+        const { error } = await supabase
+          .from('kit2_purchases')
+          .insert({
+            user_id: userId,
+            instance_id: instanceId,
+            codigo_usado: codigoRef,
+            estado: 'pendiente_pago_beneficiario',
+            monto_total: 35,
+            monto_beneficiario: 10,
+            monto_che: 25
+          });
+
+        if (error) throw error;
       }
 
-      const { error } = await supabase
-        .from('user_kit2_activaciones')
-        .insert({
-          user_id: userId,
-          codigo_referencia: codigoRef,
-          invitador_user_id: invitador.user_id,
-          benefactor_user_id: invitador.benefactor_user_id,
-          estado: 'pago_x0_pendiente',
-          paso_actual: 'pago_x0',
-          fecha_expiracion: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
-        });
+      router.push(`/es/kit2/proceso-pago?ref=${codigoRef}`);
 
-      if (error) throw error;
-
-      router.push(`/kit2/proceso-pago?ref=${codigoRef}`);
-      
     } catch (err) {
-      console.error('Error creando activación:', err);
+      console.error('Error creando compra:', err);
       throw err;
     }
   };
@@ -226,7 +256,8 @@ export default function ActivarKit2Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4">
       <div className="max-w-md mx-auto">
-        
+
+        {/* Info del invitador */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <div className="text-center">
             <div className="text-5xl mb-4">🌳</div>
@@ -238,18 +269,23 @@ export default function ActivarKit2Page() {
               <p className="text-lg font-bold text-green-700">
                 {invitadorInfo?.nombre}
               </p>
-              <p className="text-sm text-gray-500">{invitadorInfo?.email}</p>
+            </div>
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mt-4">
+              <p className="text-sm text-gray-600 mb-2">Tu pago de agradecimiento ($10) irá a:</p>
+              <p className="text-lg font-bold text-orange-700">
+                {invitadorInfo?.beneficiario_nombre}
+              </p>
             </div>
           </div>
         </div>
 
+        {/* Formulario */}
         <div className="bg-white rounded-lg shadow-lg p-6">
-          
           <div className="flex mb-6 bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => setIsLogin(false)}
               className={`flex-1 py-2 px-4 rounded-md transition-colors ${
-                !isLogin 
+                !isLogin
                   ? 'bg-white text-green-600 font-semibold shadow'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
@@ -259,7 +295,7 @@ export default function ActivarKit2Page() {
             <button
               onClick={() => setIsLogin(true)}
               className={`flex-1 py-2 px-4 rounded-md transition-colors ${
-                isLogin 
+                isLogin
                   ? 'bg-white text-green-600 font-semibold shadow'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
@@ -275,21 +311,35 @@ export default function ActivarKit2Page() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            
             {!isLogin && (
               <>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Nombre completo
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.nombre}
-                    onChange={(e) => setFormData({...formData, nombre: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Tu nombre completo"
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Nombre
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.nombre}
+                      onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Apellido
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.apellido}
+                      onChange={(e) => setFormData({...formData, apellido: e.target.value})}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      placeholder="Tu apellido"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -301,7 +351,7 @@ export default function ActivarKit2Page() {
                     required
                     value={formData.telefono}
                     onChange={(e) => setFormData({...formData, telefono: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     placeholder="Tu número de teléfono"
                   />
                 </div>
@@ -317,7 +367,7 @@ export default function ActivarKit2Page() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                 placeholder="tu@email.com"
               />
             </div>
@@ -331,7 +381,7 @@ export default function ActivarKit2Page() {
                 required
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                 placeholder="Mínimo 6 caracteres"
                 minLength={6}
               />
@@ -342,21 +392,19 @@ export default function ActivarKit2Page() {
               disabled={loading}
               className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:bg-gray-400"
             >
-              {loading ? 'Procesando...' : isLogin ? 'Iniciar Sesión' : 'Registrarse'}
+              {loading ? 'Procesando...' : isLogin ? 'Iniciar Sesión y Continuar' : 'Registrarse y Continuar'}
             </button>
           </form>
 
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-sm text-blue-800">
-              <strong>🔒 Tu seguridad:</strong> Solo verás los métodos de pago después de registrarte. 
-              Nunca pediremos contraseñas de bancos.
+              <strong>🔒 Tu seguridad:</strong> Nunca pediremos contraseñas de bancos ni información sensible.
             </p>
           </div>
         </div>
 
         <div className="mt-6 text-center text-sm text-gray-600">
-          <p>Al registrarte aceptas los términos y condiciones</p>
-          <p className="mt-2">¿Necesitas ayuda? <a href="/contacto" className="text-green-600 hover:underline">Contáctanos</a></p>
+          <p>¿Necesitas ayuda? <a href="/contacto" className="text-green-600 hover:underline">Contáctanos</a></p>
         </div>
       </div>
     </div>
