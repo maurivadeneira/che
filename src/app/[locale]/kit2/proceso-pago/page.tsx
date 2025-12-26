@@ -86,15 +86,127 @@ export default function ProcesoPagoPage() {
 
             if (actError) throw actError;
 
-// Verificar si existe la activación
+// Si no existe activación, crearla automáticamente
 if (!activacionData) {
-    setError('No se encontró una activación activa. Por favor, activa tu Kit2 primero.');
+    // Buscar la instancia del Kit2 por código de referencia
+    const { data: kit2Instance, error: kit2Error } = await supabase
+        .from('kit2_instances')
+        .select(`
+            id,
+            user_id,
+            beneficiario_asignado_id,
+            codigo_unico
+        `)
+        .eq('codigo_unico', codigoRef)
+        .single();
+
+    if (kit2Error || !kit2Instance) {
+        setError('Código de referencia inválido. Verifica el enlace de tu Kit2.');
+        setLoading(false);
+        return;
+    }
+
+    // Obtener datos del invitador (dueño del Kit2)
+    const { data: invitadorData, error: invError } = await supabase
+        .from('users')
+        .select('id, email, nombre')
+        .eq('id', kit2Instance.user_id)
+        .single();
+
+    if (invError) throw invError;
+
+    // Obtener datos del benefactor (X0 - quien recibe los $10)
+    const { data: benefactorData, error: benError } = await supabase
+        .from('users')
+        .select('id, email, nombre')
+        .eq('id', kit2Instance.beneficiario_asignado_id)
+        .single();
+
+    if (benError) throw benError;
+
+    // Crear la nueva activación
+    const { data: nuevaActivacion, error: createError } = await supabase
+        .from('user_kit2_activaciones')
+        .insert({
+            user_id: user.id,
+            codigo_referencia: codigoRef,
+            kit2_instance_id: kit2Instance.id,
+            invitador_user_id: kit2Instance.user_id,
+            benefactor_user_id: kit2Instance.beneficiario_asignado_id,
+            estado: 'pago_x0_pendiente',
+            paso_actual: 'pago_x0'
+        })
+        .select()
+        .single();
+
+    if (createError) throw createError;
+
+    // Construir objeto de activación con los datos relacionados
+    const activacionCompleta = {
+        ...nuevaActivacion,
+        invitador: {
+            email: invitadorData.email,
+            user_profiles: { nombre_completo: invitadorData.nombre }
+        },
+        benefactor: {
+            email: benefactorData.email,
+            user_profiles: { nombre_completo: benefactorData.nombre }
+        }
+    };
+
+    setActivacion(activacionCompleta as ActivacionData);
+    
+    // Cargar métodos de pago del benefactor
+    const { data: metodosBenefactor } = await supabase
+        .from('user_metodos_pago')
+        .select('tipo, identificador, categoria, nombre_titular')
+        .eq('user_id', kit2Instance.beneficiario_asignado_id);
+    
+    if (metodosBenefactor && metodosBenefactor.length > 0) {
+        setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
+    }
+    
     setLoading(false);
     return;
 }
 
+// Si ya existe activación, cargar datos relacionados
+const { data: invitadorData } = await supabase
+    .from('users')
+    .select('id, email, nombre')
+    .eq('id', activacionData.invitador_user_id)
+    .single();
+
+const { data: benefactorData } = await supabase
+    .from('users')
+    .select('id, email, nombre')
+    .eq('id', activacionData.benefactor_user_id)
+    .single();
+
+const activacionCompleta = {
+    ...activacionData,
+    invitador: {
+        email: invitadorData?.email || '',
+        user_profiles: { nombre_completo: invitadorData?.nombre || '' }
+    },
+    benefactor: {
+        email: benefactorData?.email || '',
+        user_profiles: { nombre_completo: benefactorData?.nombre || '' }
+    }
+};
+
 // Aserción de tipo para usar ActivacionData
-setActivacion(activacionData as ActivacionData);
+setActivacion(activacionCompleta as ActivacionData);
+
+// Cargar métodos de pago del benefactor
+const { data: metodosBenefactor } = await supabase
+    .from('user_metodos_pago')
+    .select('tipo, identificador, categoria, nombre_titular')
+    .eq('user_id', activacionData.benefactor_user_id);
+
+if (metodosBenefactor && metodosBenefactor.length > 0) {
+    setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
+}
 
 // Ya no cargamos métodos de pago (comentado temporalmente)
 // const benefactorId = (activacionData as ActivacionData).benefactor_user_id;
