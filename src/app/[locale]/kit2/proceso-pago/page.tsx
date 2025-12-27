@@ -371,7 +371,7 @@ setBenefactorMetodos([]);
                 <div className={`bg-white rounded-lg shadow-lg p-6 mb-6 ${!pasoX0Completado ? 'ring-2 ring-blue-500' : ''}`}>
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold text-gray-800">
-                            Paso 1: Pagar $10 a tu Benefactor
+                            Paso 1: Pagar $10 USD a tu Benefactor
                         </h2>
                         {pasoX0Completado && (
                             <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
@@ -421,8 +421,11 @@ setBenefactorMetodos([]);
                         {!pasoX0Completado ? (
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Subir comprobante de pago ($10)
-                                </label>
+    Subir comprobante de pago ($10 USD)
+</label>
+<p className="text-xs text-gray-500 mb-2">
+    Después de hacer tu pago, toma una captura de pantalla o descarga el comprobante y súbelo aquí.
+</p>
                                 <input
                                     type="file"
                                     accept="image/*,.pdf"
