@@ -208,25 +208,22 @@ if (metodosBenefactor && metodosBenefactor.length > 0) {
     setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
 }
 
+// Cargar métodos de CHE
+setCheMetodos([
+    {
+        tipo: 'PayPal',
+        identificador: 'maurivadeneira@yahoo.es',
+        categoria: 'digital'
+    },
+    {
+        tipo: 'Nequi',
+        identificador: '3045558862',
+        categoria: 'digital'
+    }
+]);
 
+setLoading(false);
 
-
-            // El array de cheMetodos ya tenía el tipo correcto inferido de MetodoPago
-            setCheMetodos([
-                {
-                    tipo: 'PayPal',
-                    identificador: 'che@corpherejiaeconomica.com',
-                    categoria: 'digital'
-                },
-                {
-                    tipo: 'Bancolombia',
-                    identificador: '12345678901',
-                    nombre_titular: 'Corporación Herejía Económica',
-                    categoria: 'banco'
-                }
-            ]);
-
-            setLoading(false);
         } catch (err: any) {
             console.error('Error cargando datos:', err);
             setError(err.message || 'Error cargando información');
