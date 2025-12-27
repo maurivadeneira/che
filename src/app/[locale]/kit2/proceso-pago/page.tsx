@@ -208,11 +208,8 @@ if (metodosBenefactor && metodosBenefactor.length > 0) {
     setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
 }
 
-// Ya no cargamos métodos de pago (comentado temporalmente)
-// const benefactorId = (activacionData as ActivacionData).benefactor_user_id;
 
-            // Temporal - métodos vacíos hasta que haya usuarios reales
-setBenefactorMetodos([]);
+
 
             // El array de cheMetodos ya tenía el tipo correcto inferido de MetodoPago
             setCheMetodos([
