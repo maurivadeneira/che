@@ -491,8 +491,11 @@ setLoading(false);
                 <strong>Arrastra tu comprobante aquí</strong>
             </p>
             <p className="text-xs text-gray-500 mb-2">
-                o haz clic para seleccionar un archivo
-            </p>
+    o haz clic para seleccionar un archivo
+</p>
+<p className="text-xs text-gray-400 mb-1">
+    💡 También puedes pegar una captura (Ctrl+V) después de hacer clic
+</p>
             <p className="text-xs text-gray-400">
                 Formatos: imagen o PDF
             </p>
