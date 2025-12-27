@@ -23,6 +23,7 @@ interface UserProfile {
 // Define la estructura para las relaciones de usuario (Invitador/Benefactor).
 interface UserRelation {
     email: string;
+    pais?: string;
     user_profiles: UserProfile | null;
 }
 
@@ -145,7 +146,7 @@ if (!activacionData) {
     // Obtener datos del benefactor (X0 - quien recibe los $10)
     const { data: benefactorData, error: benError } = await supabase
         .from('users')
-        .select('id, email, nombre')
+        .select('id, email, nombre, pais')
         .eq('id', kit2Instance.beneficiario_asignado_id)
         .single();
 
@@ -177,6 +178,7 @@ if (!activacionData) {
         },
         benefactor: {
             email: benefactorData.email,
+            pais: benefactorData.pais,
             user_profiles: { nombre_completo: benefactorData.nombre }
         }
     };
@@ -206,7 +208,7 @@ const { data: invitadorData } = await supabase
 
 const { data: benefactorData } = await supabase
     .from('users')
-    .select('id, email, nombre')
+    .select('id, email, nombre, pais')
     .eq('id', activacionData.benefactor_user_id)
     .single();
 
@@ -491,8 +493,13 @@ setLoading(false);
                 <div className={`bg-white rounded-lg shadow-lg p-6 ${pasoX0Completado && !pasoCheCompletado ? 'ring-2 ring-blue-500' : ''} ${!pasoX0Completado ? 'opacity-50' : ''}`}>
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold text-gray-800">
-                            Paso 2: Pagar $25 a CHE
-                        </h2>
+    Paso 2: Pagar $25 USD a CHE
+    {tasaCambio && monedaLocal !== 'USD' && (
+        <span className="block text-sm font-normal text-green-600 mt-1">
+            ≈ {(25 * tasaCambio).toLocaleString()} {monedaLocal} (tasa del día)
+        </span>
+    )}
+</h2>
                         {pasoCheCompletado && (
                             <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
                                 ✓ Completado
@@ -515,6 +522,9 @@ setLoading(false);
                             <p className="font-semibold text-gray-700 mb-2">
                                 Corporación Herejía Económica
                             </p>
+                            <p className="text-sm text-blue-600 mb-2">
+    💡 Escoge la cuenta que te quede más fácil para pagar a CHE:
+</p>
 
                             <div className="space-y-3">
                                 {cheMetodos.map((metodo, idx) => (
