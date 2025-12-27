@@ -452,35 +452,73 @@ setLoading(false);
                         </div>
 
                         {!pasoX0Completado ? (
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-    Subir comprobante de pago ($10 USD)
-</label>
-<p className="text-xs text-gray-500 mb-2">
-    Después de hacer tu pago, toma una captura de pantalla o descarga el comprobante y súbelo aquí.
-</p>
-                                <input
-                                    type="file"
-                                    accept="image/*,.pdf"
-                                    onChange={(e) => {
-                                        if (e.target.files && e.target.files[0]) {
-                                            handleUploadComprobante('x0', e.target.files[0]);
-                                        }
-                                    }}
-                                    disabled={uploadingX0}
-                                    className="block w-full text-sm text-gray-500
-                                        file:mr-4 file:py-2 file:px-4
-                                        file:rounded-lg file:border-0
-                                        file:text-sm file:font-semibold
-                                        file:bg-green-50 file:text-green-700
-                                        hover:file:bg-green-100
-                                        disabled:opacity-50"
-                                />
-                                {uploadingX0 && (
-                                    <p className="text-sm text-blue-600 mt-2">Subiendo...</p>
-                                )}
-                            </div>
-                        ) : (
+    <div>
+        {/* Mensaje de PayPal obligatorio si es otro país */}
+        {paisUsuario && activacion?.benefactor?.pais && 
+         paisUsuario !== activacion.benefactor.pais && (
+            <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-3 mb-4">
+                <p className="text-sm text-yellow-800">
+                    <strong>⚠️ Pago internacional:</strong> Como estás en {paisUsuario} y {activacion?.benefactor?.user_profiles?.nombre_completo} está en {activacion.benefactor.pais}, debes usar <strong>PayPal</strong> para este pago.
+                </p>
+            </div>
+        )}
+        
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+            Subir comprobante de pago ($10 USD)
+        </label>
+        
+        {/* Área de arrastrar y soltar */}
+        <div 
+            className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-green-500 hover:bg-green-50 transition-colors cursor-pointer"
+            onClick={() => document.getElementById('file-upload-x0')?.click()}
+            onDragOver={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.add('border-green-500', 'bg-green-50');
+            }}
+            onDragLeave={(e) => {
+                e.currentTarget.classList.remove('border-green-500', 'bg-green-50');
+            }}
+            onDrop={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.remove('border-green-500', 'bg-green-50');
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    handleUploadComprobante('x0', e.dataTransfer.files[0]);
+                }
+            }}
+        >
+            <div className="text-4xl mb-2">📄</div>
+            <p className="text-sm text-gray-600 mb-1">
+                <strong>Arrastra tu comprobante aquí</strong>
+            </p>
+            <p className="text-xs text-gray-500 mb-2">
+                o haz clic para seleccionar un archivo
+            </p>
+            <p className="text-xs text-gray-400">
+                Formatos: imagen o PDF
+            </p>
+        </div>
+        
+        <input
+            id="file-upload-x0"
+            type="file"
+            accept="image/*,.pdf"
+            onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                    handleUploadComprobante('x0', e.target.files[0]);
+                }
+            }}
+            disabled={uploadingX0}
+            className="hidden"
+        />
+        
+        {uploadingX0 && (
+            <div className="mt-3 text-center">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-500 mx-auto"></div>
+                <p className="text-sm text-blue-600 mt-2">Subiendo comprobante...</p>
+            </div>
+        )}
+    </div>
+) : (
                             <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                                 <p className="text-sm text-green-700">
                                     ✓ Comprobante recibido. Esperando verificación.
