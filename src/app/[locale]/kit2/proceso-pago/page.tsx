@@ -57,10 +57,37 @@ export default function ProcesoPagoPage() {
     const [uploadingX0, setUploadingX0] = useState(false);
     const [uploadingChe, setUploadingChe] = useState(false);
     const [error, setError] = useState('');
+    const [tasaCambio, setTasaCambio] = useState<number | null>(null);
+const [monedaLocal, setMonedaLocal] = useState<string>('USD');
+const [paisUsuario, setPaisUsuario] = useState<string>('');
 
     useEffect(() => {
-        cargarDatos();
-    }, []);
+    cargarDatos();
+    obtenerTasaCambio();
+}, []);
+
+const obtenerTasaCambio = async () => {
+    try {
+        const geoResponse = await fetch('https://ipapi.co/json/');
+        const geoData = await geoResponse.json();
+        const pais = geoData.country_name || '';
+        const moneda = geoData.currency || 'USD';
+        
+        setPaisUsuario(pais);
+        setMonedaLocal(moneda);
+        
+        if (moneda !== 'USD') {
+            const rateResponse = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+            const rateData = await rateResponse.json();
+            const tasa = rateData.rates[moneda];
+            if (tasa) {
+                setTasaCambio(tasa);
+            }
+        }
+    } catch (error) {
+        console.error('Error obteniendo tasa de cambio:', error);
+    }
+};
 
     const cargarDatos = async () => {
         try {
@@ -231,6 +258,8 @@ setLoading(false);
         }
     };
 
+
+
     // CORRECCIÓN 7: Tipado de parámetros 'tipo' y 'file'
     const handleUploadComprobante = async (tipo: 'x0' | 'che', file: File) => {
         if (!activacion || !activacion.id) {
@@ -365,8 +394,13 @@ setLoading(false);
                 <div className={`bg-white rounded-lg shadow-lg p-6 mb-6 ${!pasoX0Completado ? 'ring-2 ring-blue-500' : ''}`}>
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold text-gray-800">
-                            Paso 1: Pagar $10 USD a tu Benefactor
-                        </h2>
+    Paso 1: Pagar $10 USD a tu Benefactor
+    {tasaCambio && monedaLocal !== 'USD' && (
+        <span className="block text-sm font-normal text-green-600 mt-1">
+            ≈ {(10 * tasaCambio).toLocaleString()} {monedaLocal} (tasa del día)
+        </span>
+    )}
+</h2>
                         {pasoX0Completado && (
                             <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
                                 ✓ Completado
@@ -392,6 +426,9 @@ setLoading(false);
                             <p className="text-sm text-gray-600 mb-4">
                                 Email: {activacion?.benefactor?.email}
                             </p>
+                            <p className="text-sm text-blue-600 mb-2">
+    💡 Escoge la cuenta que te quede más fácil para pagarle a {activacion?.benefactor?.user_profiles?.nombre_completo}:
+</p>
 
                             <div className="space-y-3">
                                 {benefactorMetodos.map((metodo, idx) => (
