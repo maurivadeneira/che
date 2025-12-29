@@ -299,11 +299,12 @@ setLoading(false);
         paso_actual: 'pago_che'
     }
                 : {
-                    pago_che_comprobante_url: publicUrl,
-                    pago_che_fecha_subida: new Date().toISOString(),
-                    estado: 'pago_che_subido',
-                    paso_actual: 'verificacion'
-                };
+    pago_che_comprobante_url: publicUrl,
+    pago_che_fecha_subida: new Date().toISOString(),
+    pago_che_fecha_verificacion: new Date().toISOString(),
+    estado: 'activo',
+    fecha_activacion: new Date().toISOString()
+};
 
             const { error: updateError } = await supabase
                 .from('user_kit2_activaciones')
