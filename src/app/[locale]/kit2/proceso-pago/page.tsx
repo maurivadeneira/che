@@ -291,12 +291,13 @@ setLoading(false);
                 .getPublicUrl(filename);
 
             const updateData = tipo === 'x0' 
-                ? {
-                    pago_x0_comprobante_url: publicUrl,
-                    pago_x0_fecha_subida: new Date().toISOString(),
-                    estado: 'pago_x0_subido',
-                    paso_actual: 'pago_che'
-                }
+    ? {
+        pago_x0_comprobante_url: publicUrl,
+        pago_x0_fecha_subida: new Date().toISOString(),
+        pago_x0_fecha_verificacion: new Date().toISOString(),
+        estado: 'pago_x0_verificado',
+        paso_actual: 'pago_che'
+    }
                 : {
                     pago_che_comprobante_url: publicUrl,
                     pago_che_fecha_subida: new Date().toISOString(),
