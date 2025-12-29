@@ -526,8 +526,8 @@ setLoading(false);
 ) : (
                             <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                                 <p className="text-sm text-green-700">
-                                    ✓ Comprobante recibido. Esperando verificación.
-                                </p>
+    ✓ Pago verificado
+</p>
                             </div>
                         )}
                     </div>
@@ -617,8 +617,8 @@ setLoading(false);
                         ) : pasoCheCompletado ? (
                             <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                                 <p className="text-sm text-green-700">
-                                    ✓ Comprobante recibido. Esperando verificación.
-                                </p>
+    ✓ Pago completado - Kit2 Activo
+</p>
                             </div>
                         ) : null}
                     </div>
