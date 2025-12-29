@@ -316,8 +316,17 @@ setLoading(false);
             await cargarDatos();
             
             if (tipo === 'che') {
-                router.push('/kit2/verificacion');
-            }
+    // Enviar Kit2 por email
+    try {
+        await fetch('/api/email/enviar-kit2', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ activacion_id: activacion.id })
+        });
+    } catch (emailError) {
+        console.error('Error enviando email:', emailError);
+    }
+}
 
         } catch (err: any) {
             console.error('Error subiendo comprobante:', err);
