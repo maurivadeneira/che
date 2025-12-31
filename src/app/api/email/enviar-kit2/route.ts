@@ -62,16 +62,33 @@ export async function POST(request: NextRequest) {
       const codigo = `AMA-${iniciales}-${String(Date.now()).slice(-3)}`;
 
       // El beneficiario del nuevo kit2 es el invitador de esta activación
-      const { data: nuevoKit2, error: kit2Error } = await supabase
-        .from('kit2_instances')
-        .insert({
-          user_id: comprador.id,
-          codigo_unico: codigo,
-          beneficiario_asignado_id: activacion.invitador_user_id,
-          estado: 'activo'
-        })
-        .select()
-        .single();
+      // Obtener template_id y chain_id del kit2 del invitador
+const { data: kit2Invitador } = await supabase
+    .from('kit2_instances')
+    .select('template_id, chain_id')
+    .eq('user_id', activacion.invitador_user_id)
+    .single();
+
+const fechaActivacion = new Date();
+const fechaExpiracion = new Date();
+fechaExpiracion.setFullYear(fechaExpiracion.getFullYear() + 1); // 1 año de validez
+
+const { data: nuevoKit2, error: kit2Error } = await supabase
+    .from('kit2_instances')
+    .insert({
+      user_id: comprador.id,
+      codigo_unico: codigo,
+      template_id: kit2Invitador?.template_id || 'd0000001-0000-0000-0000-000000000001',
+      chain_id: kit2Invitador?.chain_id || 'c0000001-0000-0000-0000-000000000001',
+      nivel_xn: 1,
+      beneficiario_asignado_id: activacion.invitador_user_id,
+      invitador_user_id: activacion.invitador_user_id,
+      fecha_activacion: fechaActivacion.toISOString(),
+      fecha_expiracion: fechaExpiracion.toISOString(),
+      estado: 'activo'
+    })
+    .select()
+    .single();
 
       if (kit2Error) {
         console.error('Error creando Kit2:', kit2Error);
