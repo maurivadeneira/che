@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import { createClient } from '@supabase/supabase-js';
 import { generarKit2PDF } from '@/lib/pdf/kit2-generator';
 
@@ -8,15 +8,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -124,7 +116,7 @@ export async function POST(request: NextRequest) {
       .eq('activo', true)
       .order('orden');
 
-    // Generar PDF directamente (sin fetch)
+    // Generar PDF directamente
     const pdfBuffer = await generarKit2PDF({
       nombreDueno: `${comprador.nombre || ''} ${comprador.apellido || ''}`.trim() || 'Usuario',
       nombreBeneficiario: `${beneficiario.nombre} ${beneficiario.apellido}`.trim(),
@@ -134,9 +126,9 @@ export async function POST(request: NextRequest) {
       obras: obras || [],
     });
 
-    // Enviar email con el Kit2
-    await transporter.sendMail({
-      from: `"${process.env.SMTP_FROM_NAME}" <${process.env.SMTP_FROM}>`,
+    // Enviar email con Resend
+    const { error: emailError } = await resend.emails.send({
+      from: 'CHE - Corporación Herejía Económica <onboarding@resend.dev>',
       to: comprador.email,
       subject: '🎉 ¡Tu Kit2 está listo! - Corporación Herejía Económica',
       html: `
@@ -170,11 +162,15 @@ export async function POST(request: NextRequest) {
       attachments: [
         {
           filename: `Kit2-${kit2Instance.codigo_unico}.pdf`,
-          content: Buffer.from(pdfBuffer),
-          contentType: 'application/pdf'
+          content: Buffer.from(pdfBuffer).toString('base64'),
         }
       ]
     });
+
+    if (emailError) {
+      console.error('Error enviando email:', emailError);
+      return NextResponse.json({ error: 'Error enviando email: ' + emailError.message }, { status: 500 });
+    }
 
     // Marcar que el email fue enviado
     await supabase
