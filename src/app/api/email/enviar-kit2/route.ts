@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createClient } from '@supabase/supabase-js';
+import { generarKit2PDF } from '@/lib/pdf/kit2-generator';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -35,7 +36,7 @@ export async function POST(request: NextRequest) {
     // Obtener datos del comprador
     const { data: comprador } = await supabase
       .from('users')
-      .select('id, nombre, email')
+      .select('id, nombre, apellido, email')
       .eq('id', activacion.user_id)
       .single();
 
@@ -43,15 +44,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Usuario no encontrado' }, { status: 404 });
     }
 
-    // Crear Kit2 para el nuevo usuario si no existe
+    // Buscar Kit2 existente del comprador
     const { data: kit2Existente } = await supabase
       .from('kit2_instances')
-      .select('id')
+      .select('id, codigo_unico, invitador_user_id, beneficiario_asignado_id')
       .eq('user_id', comprador.id)
       .single();
 
     let kit2Instance;
     if (!kit2Existente) {
+      // Obtener template_id y chain_id del kit2 del invitador
+      const { data: kit2Invitador } = await supabase
+        .from('kit2_instances')
+        .select('template_id, chain_id')
+        .eq('user_id', activacion.invitador_user_id)
+        .single();
+
       // Generar código único para el nuevo Kit2
       const iniciales = (comprador.nombre || 'NN')
         .split(' ')
@@ -61,34 +69,26 @@ export async function POST(request: NextRequest) {
         .substring(0, 3);
       const codigo = `AMA-${iniciales}-${String(Date.now()).slice(-3)}`;
 
-      // El beneficiario del nuevo kit2 es el invitador de esta activación
-      // Obtener template_id y chain_id del kit2 del invitador
-const { data: kit2Invitador } = await supabase
-    .from('kit2_instances')
-    .select('template_id, chain_id')
-    .eq('user_id', activacion.invitador_user_id)
-    .single();
+      const fechaActivacion = new Date();
+      const fechaExpiracion = new Date();
+      fechaExpiracion.setFullYear(fechaExpiracion.getFullYear() + 1);
 
-const fechaActivacion = new Date();
-const fechaExpiracion = new Date();
-fechaExpiracion.setFullYear(fechaExpiracion.getFullYear() + 1); // 1 año de validez
-
-const { data: nuevoKit2, error: kit2Error } = await supabase
-    .from('kit2_instances')
-    .insert({
-      user_id: comprador.id,
-      codigo_unico: codigo,
-      template_id: kit2Invitador?.template_id || 'd0000001-0000-0000-0000-000000000001',
-      chain_id: kit2Invitador?.chain_id || 'c0000001-0000-0000-0000-000000000001',
-      nivel_xn: 1,
-      beneficiario_asignado_id: activacion.invitador_user_id,
-      invitador_user_id: activacion.invitador_user_id,
-      fecha_activacion: fechaActivacion.toISOString(),
-      fecha_expiracion: fechaExpiracion.toISOString(),
-      estado: 'activo'
-    })
-    .select()
-    .single();
+      const { data: nuevoKit2, error: kit2Error } = await supabase
+        .from('kit2_instances')
+        .insert({
+          user_id: comprador.id,
+          codigo_unico: codigo,
+          template_id: kit2Invitador?.template_id || 'd0000001-0000-0000-0000-000000000001',
+          chain_id: kit2Invitador?.chain_id || 'c0000001-0000-0000-0000-000000000001',
+          nivel_xn: 1,
+          beneficiario_asignado_id: activacion.invitador_user_id,
+          invitador_user_id: activacion.invitador_user_id,
+          fecha_activacion: fechaActivacion.toISOString(),
+          fecha_expiracion: fechaExpiracion.toISOString(),
+          estado: 'activo'
+        })
+        .select()
+        .single();
 
       if (kit2Error) {
         console.error('Error creando Kit2:', kit2Error);
@@ -99,19 +99,40 @@ const { data: nuevoKit2, error: kit2Error } = await supabase
       kit2Instance = kit2Existente;
     }
 
-    // Generar el PDF del Kit2
-    const pdfResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/kit2/generar-pdf`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ instance_id: kit2Instance.id })
-    });
+    // Obtener datos del invitador (X1)
+    const { data: invitador } = await supabase
+      .from('users')
+      .select('nombre, apellido')
+      .eq('id', kit2Instance.invitador_user_id)
+      .single();
 
-    if (!pdfResponse.ok) {
-      console.error('Error generando PDF');
-      return NextResponse.json({ error: 'Error generando PDF' }, { status: 500 });
+    // Obtener datos del beneficiario (X0)
+    let beneficiario = { nombre: 'CHE', apellido: '' };
+    if (kit2Instance.beneficiario_asignado_id) {
+      const { data: benefData } = await supabase
+        .from('users')
+        .select('nombre, apellido')
+        .eq('id', kit2Instance.beneficiario_asignado_id)
+        .single();
+      if (benefData) beneficiario = benefData;
     }
 
-    const pdfBuffer = await pdfResponse.arrayBuffer();
+    // Obtener obras incluidas
+    const { data: obras } = await supabase
+      .from('kit2_documentos')
+      .select('titulo, autor')
+      .eq('activo', true)
+      .order('orden');
+
+    // Generar PDF directamente (sin fetch)
+    const pdfBuffer = await generarKit2PDF({
+      nombreDueno: `${comprador.nombre || ''} ${comprador.apellido || ''}`.trim() || 'Usuario',
+      nombreBeneficiario: `${beneficiario.nombre} ${beneficiario.apellido}`.trim(),
+      nombreInvitador: `${invitador?.nombre || ''} ${invitador?.apellido || ''}`.trim() || 'CHE',
+      codigoUnico: kit2Instance.codigo_unico,
+      linkActivacion: `https://corpherejiaeconomica.com/es/kit2/activar?ref=${kit2Instance.codigo_unico}`,
+      obras: obras || [],
+    });
 
     // Enviar email con el Kit2
     await transporter.sendMail({
