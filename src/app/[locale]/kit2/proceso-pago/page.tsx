@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-// --- NUEVAS INTERFACES PARA TIPADO (CORRECCIÓN) ---
-
-// Define la estructura de un método de pago, basada en cómo se usa en el código.
+// --- INTERFACES ---
 interface MetodoPago {
     tipo: string;
     identificador: string;
@@ -14,34 +12,27 @@ interface MetodoPago {
     nombre_titular?: string; 
 }
 
-// Define la estructura para el perfil de usuario anidado en la activación.
 interface UserProfile {
     nombre_completo: string | null;
     telefono?: string | null;
 }
 
-// Define la estructura para las relaciones de usuario (Invitador/Benefactor).
 interface UserRelation {
     email: string;
     pais?: string;
     user_profiles: UserProfile | null;
 }
 
-// Define la estructura principal de los datos de la Activación.
-// Es crucial para tipar el estado 'activacion'.
 interface ActivacionData {
     id: string; 
-    estado: string; // Ej: 'pago_x0_pendiente', 'pago_che_subido', 'activo'
+    estado: string; 
     paso_actual: string; 
     invitador: UserRelation;
-    benefactor: UserRelation; // Simplificado, pero cubre los campos usados
+    benefactor: UserRelation; 
     pago_x0_comprobante_url: string | null;
     pago_che_comprobante_url: string | null;
-    benefactor_user_id: string; // Necesario para la carga de métodos
-    // ... otros campos que pueda tener la tabla user_kit2_activaciones
+    benefactor_user_id: string; 
 }
-
-// --- FIN INTERFACES ---
 
 export default function ProcesoPagoPage() {
     const searchParams = useSearchParams();
@@ -49,46 +40,41 @@ export default function ProcesoPagoPage() {
     const supabase = createClientComponentClient();
     
     const [loading, setLoading] = useState(true);
-    // CORRECCIÓN 1: Tipado del estado 'activacion'
     const [activacion, setActivacion] = useState<ActivacionData | null>(null);
-    // CORRECCIÓN 2: Tipado del estado 'benefactorMetodos'
     const [benefactorMetodos, setBenefactorMetodos] = useState<MetodoPago[]>([]);
-    // CORRECCIÓN 3: Tipado del estado 'cheMetodos'
     const [cheMetodos, setCheMetodos] = useState<MetodoPago[]>([]);
     const [uploadingX0, setUploadingX0] = useState(false);
     const [uploadingChe, setUploadingChe] = useState(false);
     const [error, setError] = useState('');
     const [tasaCambio, setTasaCambio] = useState<number | null>(null);
-const [monedaLocal, setMonedaLocal] = useState<string>('USD');
-const [paisUsuario, setPaisUsuario] = useState<string>('');
+    const [monedaLocal, setMonedaLocal] = useState<string>('USD');
+    const [paisUsuario, setPaisUsuario] = useState<string>('');
 
     useEffect(() => {
-    cargarDatos();
-    obtenerTasaCambio();
-}, []);
+        cargarDatos();
+        obtenerTasaCambio();
+    }, []);
 
-const obtenerTasaCambio = async () => {
-    try {
-        const geoResponse = await fetch('https://ipapi.co/json/');
-        const geoData = await geoResponse.json();
-        const pais = geoData.country_name || '';
-        const moneda = geoData.currency || 'USD';
-        
-        setPaisUsuario(pais);
-        setMonedaLocal(moneda);
-        
-        if (moneda !== 'USD') {
-            const rateResponse = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-            const rateData = await rateResponse.json();
-            const tasa = rateData.rates[moneda];
-            if (tasa) {
-                setTasaCambio(tasa);
+    const obtenerTasaCambio = async () => {
+        try {
+            const geoResponse = await fetch('https://ipapi.co/json/');
+            const geoData = await geoResponse.json();
+            const pais = geoData.country_name || '';
+            const moneda = geoData.currency || 'USD';
+            
+            setPaisUsuario(pais);
+            setMonedaLocal(moneda);
+            
+            if (moneda !== 'USD') {
+                const rateResponse = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const rateData = await rateResponse.json();
+                const tasa = rateData.rates[moneda];
+                if (tasa) setTasaCambio(tasa);
             }
+        } catch (error) {
+            console.error('Error obteniendo tasa de cambio:', error);
         }
-    } catch (error) {
-        console.error('Error obteniendo tasa de cambio:', error);
-    }
-};
+    };
 
     const cargarDatos = async () => {
         try {
@@ -99,546 +85,211 @@ const obtenerTasaCambio = async () => {
             }
 
             const codigoRef = searchParams.get('ref');
-            
-            // 4. CORRECCIÓN de aserción: Asegurarse que user.id no es null/undefined
-            if (!user.id) {
-                throw new Error("ID de usuario no disponible.");
-            }
+            if (!user.id) throw new Error("ID de usuario no disponible.");
             
             const { data: activacionData, error: actError } = await supabase
-    .from('user_kit2_activaciones')
-    .select('*')
-    .eq('user_id', user.id)
-    .eq('codigo_referencia', codigoRef)
-    .maybeSingle();
+                .from('user_kit2_activaciones')
+                .select('*')
+                .eq('user_id', user.id)
+                .eq('codigo_referencia', codigoRef)
+                .maybeSingle();
 
             if (actError) throw actError;
 
-// Si no existe activación, crearla automáticamente
-if (!activacionData) {
-    // Buscar la instancia del Kit2 por código de referencia
-    const { data: kit2Instance, error: kit2Error } = await supabase
-        .from('kit2_instances')
-        .select(`
-            id,
-            user_id,
-            beneficiario_asignado_id,
-            codigo_unico
-        `)
-        .eq('codigo_unico', codigoRef)
-        .single();
+            let currentAct = activacionData;
 
-    if (kit2Error || !kit2Instance) {
-        setError('Código de referencia inválido. Verifica el enlace de tu Kit2.');
-        setLoading(false);
-        return;
-    }
+            if (!activacionData) {
+                const { data: kit2Instance, error: kit2Error } = await supabase
+                    .from('kit2_instances')
+                    .select('id, user_id, beneficiario_asignado_id')
+                    .eq('codigo_unico', codigoRef)
+                    .single();
 
-    // Obtener datos del invitador (dueño del Kit2)
-    const { data: invitadorData, error: invError } = await supabase
-        .from('users')
-        .select('id, email, nombre')
-        .eq('id', kit2Instance.user_id)
-        .single();
+                if (kit2Error || !kit2Instance) {
+                    setError('Código de referencia inválido.');
+                    setLoading(false);
+                    return;
+                }
 
-    if (invError) throw invError;
+                const { data: nuevaActivacion, error: createError } = await supabase
+                    .from('user_kit2_activaciones')
+                    .insert({
+                        user_id: user.id,
+                        codigo_referencia: codigoRef,
+                        kit2_instance_id: kit2Instance.id,
+                        invitador_user_id: kit2Instance.user_id,
+                        benefactor_user_id: kit2Instance.beneficiario_asignado_id,
+                        estado: 'pago_x0_pendiente',
+                        paso_actual: 'pago_x0'
+                    })
+                    .select()
+                    .single();
 
-    // Obtener datos del benefactor (X0 - quien recibe los $10)
-    const { data: benefactorData, error: benError } = await supabase
-        .from('users')
-        .select('id, email, nombre, pais')
-        .eq('id', kit2Instance.beneficiario_asignado_id)
-        .single();
+                if (createError) throw createError;
+                currentAct = nuevaActivacion;
+            }
 
-    if (benError) throw benError;
+            // Cargar perfiles relacionados
+            const { data: invData } = await supabase.from('users').select('email, nombre').eq('id', currentAct.invitador_user_id).single();
+            const { data: benData } = await supabase.from('users').select('email, nombre, pais').eq('id', currentAct.benefactor_user_id).single();
 
-    // Crear la nueva activación
-    const { data: nuevaActivacion, error: createError } = await supabase
-        .from('user_kit2_activaciones')
-        .insert({
-            user_id: user.id,
-            codigo_referencia: codigoRef,
-            kit2_instance_id: kit2Instance.id,
-            invitador_user_id: kit2Instance.user_id,
-            benefactor_user_id: kit2Instance.beneficiario_asignado_id,
-            estado: 'pago_x0_pendiente',
-            paso_actual: 'pago_x0'
-        })
-        .select()
-        .single();
+            setActivacion({
+                ...currentAct,
+                invitador: { email: invData?.email || '', user_profiles: { nombre_completo: invData?.nombre || '' } },
+                benefactor: { email: benData?.email || '', pais: benData?.pais || '', user_profiles: { nombre_completo: benData?.nombre || '' } }
+            });
 
-    if (createError) throw createError;
+            // Cargar métodos
+            const { data: mBen } = await supabase.from('user_metodos_pago').select('*').eq('user_id', currentAct.benefactor_user_id);
+            if (mBen) setBenefactorMetodos(mBen as MetodoPago[]);
 
-    // Construir objeto de activación con los datos relacionados
-    const activacionCompleta = {
-        ...nuevaActivacion,
-        invitador: {
-            email: invitadorData.email,
-            user_profiles: { nombre_completo: invitadorData.nombre }
-        },
-        benefactor: {
-            email: benefactorData.email,
-            pais: benefactorData.pais,
-            user_profiles: { nombre_completo: benefactorData.nombre }
-        }
-    };
+            setCheMetodos([
+                { tipo: 'PayPal', identificador: 'maurivadeneira@yahoo.es', categoria: 'digital' },
+                { tipo: 'Nequi', identificador: '3045558862', categoria: 'digital' }
+            ]);
 
-    setActivacion(activacionCompleta as ActivacionData);
-    
-    // Cargar métodos de pago del benefactor
-    const { data: metodosBenefactor } = await supabase
-        .from('user_metodos_pago')
-        .select('tipo, identificador, categoria, nombre_titular')
-        .eq('user_id', kit2Instance.beneficiario_asignado_id);
-    
-    if (metodosBenefactor && metodosBenefactor.length > 0) {
-        setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
-    }
-    
-    setLoading(false);
-    return;
-}
-
-// Si ya existe activación, cargar datos relacionados
-const { data: invitadorData } = await supabase
-    .from('users')
-    .select('id, email, nombre')
-    .eq('id', activacionData.invitador_user_id)
-    .single();
-
-const { data: benefactorData } = await supabase
-    .from('users')
-    .select('id, email, nombre, pais')
-    .eq('id', activacionData.benefactor_user_id)
-    .single();
-
-const activacionCompleta = {
-    ...activacionData,
-    invitador: {
-        email: invitadorData?.email || '',
-        user_profiles: { nombre_completo: invitadorData?.nombre || '' }
-    },
-    benefactor: {
-        email: benefactorData?.email || '',
-        user_profiles: { nombre_completo: benefactorData?.nombre || '' }
-    }
-};
-
-// Aserción de tipo para usar ActivacionData
-setActivacion(activacionCompleta as ActivacionData);
-
-// Cargar métodos de pago del benefactor
-const { data: metodosBenefactor } = await supabase
-    .from('user_metodos_pago')
-    .select('tipo, identificador, categoria, nombre_titular')
-    .eq('user_id', activacionData.benefactor_user_id);
-
-if (metodosBenefactor && metodosBenefactor.length > 0) {
-    setBenefactorMetodos(metodosBenefactor as MetodoPago[]);
-}
-
-// Cargar métodos de CHE
-setCheMetodos([
-    {
-        tipo: 'PayPal',
-        identificador: 'maurivadeneira@yahoo.es',
-        categoria: 'digital'
-    },
-    {
-        tipo: 'Nequi',
-        identificador: '3045558862',
-        categoria: 'digital'
-    }
-]);
-
-setLoading(false);
-
+            setLoading(false);
         } catch (err: any) {
-            console.error('Error cargando datos:', err);
-            setError(err.message || 'Error cargando información');
+            setError(err.message);
             setLoading(false);
         }
     };
 
-
-
-    // CORRECCIÓN 7: Tipado de parámetros 'tipo' y 'file'
     const handleUploadComprobante = async (tipo: 'x0' | 'che', file: File) => {
-        if (!activacion || !activacion.id) {
-             setError('Error: Datos de activación incompletos.');
-             return;
-        }
-
-        if (tipo === 'x0') setUploadingX0(true);
-        else setUploadingChe(true);
-        
+        if (!activacion) return;
+        tipo === 'x0' ? setUploadingX0(true) : setUploadingChe(true);
         setError('');
 
         try {
             const { data: { user } } = await supabase.auth.getUser();
-            if (!user) throw new Error('Usuario no autenticado.');
+            if (!user) throw new Error('No auth');
             
-            const filename = `${user.id}_${tipo}_${Date.now()}_${file.name}`;
-            const { data, error: uploadError } = await supabase.storage
-                .from('comprobantes-pago')
-                .upload(filename, file);
+            const filename = `${user.id}_${tipo}_${Date.now()}`;
+            const { error: upErr } = await supabase.storage.from('comprobantes-pago').upload(filename, file);
+            if (upErr) throw upErr;
 
-            if (uploadError) throw uploadError;
-
-            // La obtención de la URL pública también puede ser tipada
-            const { data: { publicUrl } } = supabase.storage
-                .from('comprobantes-pago')
-                .getPublicUrl(filename);
+            const { data: { publicUrl } } = supabase.storage.from('comprobantes-pago').getPublicUrl(filename);
 
             const updateData = tipo === 'x0' 
-    ? {
-        pago_x0_comprobante_url: publicUrl,
-        pago_x0_fecha_subida: new Date().toISOString(),
-        pago_x0_fecha_verificacion: new Date().toISOString(),
-        estado: 'pago_x0_verificado',
-        paso_actual: 'pago_che'
-    }
-                : {
-    pago_che_comprobante_url: publicUrl,
-    pago_che_fecha_subida: new Date().toISOString(),
-    pago_che_fecha_verificacion: new Date().toISOString(),
-    estado: 'activo',
-    fecha_activacion: new Date().toISOString()
-};
+                ? { pago_x0_comprobante_url: publicUrl, estado: 'pago_x0_verificado', paso_actual: 'pago_che' }
+                : { pago_che_comprobante_url: publicUrl, estado: 'activo' };
 
-            const { error: updateError } = await supabase
-                .from('user_kit2_activaciones')
-                .update(updateData)
-                .eq('id', activacion.id);
-
-            if (updateError) throw updateError;
-
+            await supabase.from('user_kit2_activaciones').update(updateData).eq('id', activacion.id);
             await cargarDatos();
-            
-            if (tipo === 'che') {
-    // Enviar Kit2 por email
-    try {
-        await fetch('/api/email/enviar-kit2', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ activacion_id: activacion.id })
-        });
-    } catch (emailError) {
-        console.error('Error enviando email:', emailError);
-    }
-}
-
         } catch (err: any) {
-            console.error('Error subiendo comprobante:', err);
-            setError(err.message || 'Error al subir el comprobante. Intenta de nuevo.');
+            setError(err.message);
         } finally {
             setUploadingX0(false);
             setUploadingChe(false);
         }
     };
 
-    if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
-                    <p className="mt-4 text-gray-600">Cargando información...</p>
-                </div>
-            </div>
-        );
-    }
+    if (loading) return (
+        <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+        </div>
+    );
 
     const pasoX0Completado = activacion?.estado !== 'pago_x0_pendiente';
-    const pasoCheCompletado = activacion?.estado === 'pago_che_subido' || 
-                                activacion?.estado === 'verificacion_completa' || 
-                                activacion?.estado === 'activo';
+    const pasoCheCompletado = activacion?.estado === 'activo';
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4">
-            <div className="max-w-3xl mx-auto">
+        <div className="min-h-screen bg-gray-50 py-8 px-4">
+            <div className="max-w-xl mx-auto">
                 
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                    <div className="text-center">
-                        <div className="text-5xl mb-4">🌳</div>
-                        <h1 className="text-2xl font-bold text-gray-800 mb-2">
-                            Activa tu Kit2
-                        </h1>
-                        <p className="text-gray-600">
-                            Invitado por: <strong>{activacion?.invitador?.user_profiles?.nombre_completo}</strong>
-                        </p>
-                    </div>
-
-                    <div className="mt-6 flex items-center justify-between">
-                        <div className={`flex-1 text-center ${pasoX0Completado ? 'text-green-600' : 'text-blue-600'}`}>
-                            <div className={`w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center ${
-                                pasoX0Completado ? 'bg-green-500' : 'bg-blue-500'
-                            } text-white font-bold`}>
-                                {pasoX0Completado ? '✓' : '1'}
-                            </div>
-                            <p className="text-xs font-medium">Pago a Benefactor</p>
-                        </div>
-                        <div className={`flex-1 border-t-2 ${pasoX0Completado ? 'border-green-500' : 'border-gray-300'}`}></div>
-                        <div className={`flex-1 text-center ${pasoCheCompletado ? 'text-green-600' : pasoX0Completado ? 'text-blue-600' : 'text-gray-400'}`}>
-                            <div className={`w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center ${
-                                pasoCheCompletado ? 'bg-green-500' : pasoX0Completado ? 'bg-blue-500' : 'bg-gray-300'
-                            } text-white font-bold`}>
-                                {pasoCheCompletado ? '✓' : '2'}
-                            </div>
-                            <p className="text-xs font-medium">Pago a CHE</p>
-                        </div>
-                        <div className={`flex-1 border-t-2 ${pasoCheCompletado ? 'border-green-500' : 'border-gray-300'}`}></div>
-                        <div className={`flex-1 text-center ${pasoCheCompletado ? 'text-blue-600' : 'text-gray-400'}`}>
-                            <div className={`w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center ${
-                                pasoCheCompletado ? 'bg-blue-500' : 'bg-gray-300'
-                            } text-white font-bold`}>
-                                3
-                            </div>
-                            <p className="text-xs font-medium">Verificación</p>
-                        </div>
-                    </div>
+                {/* CABECERA */}
+                <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 text-center">
+                    <span className="text-4xl">🌱</span>
+                    <h1 className="text-2xl font-bold text-gray-800 mt-2">Finaliza tu Activación</h1>
+                    <p className="text-gray-500 text-sm">Invitado por {activacion?.invitador?.user_profiles?.nombre_completo}</p>
                 </div>
 
-                {error && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-                        <p className="text-red-600">{error}</p>
-                    </div>
-                )}
+                {error && <div className="bg-red-50 text-red-600 p-4 rounded-xl mb-6 text-sm border border-red-100">{error}</div>}
 
-                <div className={`bg-white rounded-lg shadow-lg p-6 mb-6 ${!pasoX0Completado ? 'ring-2 ring-blue-500' : ''}`}>
-                    <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-xl font-bold text-gray-800">
-    Paso 1: Pagar $10 USD a tu Benefactor
-    {tasaCambio && monedaLocal !== 'USD' && (
-        <span className="block text-sm font-normal text-green-600 mt-1">
-            ≈ {(10 * tasaCambio).toLocaleString()} {monedaLocal} (tasa del día)
-        </span>
-    )}
-</h2>
-                        {pasoX0Completado && (
-                            <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
-                                ✓ Completado
-                            </span>
-                        )}
+                {/* PASO 1: BENEFACTOR */}
+                <section className={`bg-white rounded-2xl shadow-sm p-6 mb-6 border-2 ${!pasoX0Completado ? 'border-blue-500' : 'border-transparent'}`}>
+                    <div className="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 className="font-bold text-lg text-gray-800">1. Pago de Agradecimiento</h2>
+                            <p className="text-green-600 font-bold">$10.00 USD 
+                                {tasaCambio && ` ≈ ${(10 * tasaCambio).toLocaleString()} ${monedaLocal}`}
+                            </p>
+                        </div>
+                        {pasoX0Completado && <span className="bg-green-100 text-green-700 text-xs py-1 px-3 rounded-full font-bold">✓ RECIBIDO</span>}
                     </div>
 
                     {!pasoX0Completado && (
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                            <p className="text-sm text-blue-800">
-                                <strong>¿Por qué pagar al benefactor?</strong><br/>
-                                El benefactor ({activacion?.benefactor?.user_profiles?.nombre_completo}) es quien 
-                                está DOS niveles arriba de ti en el árbol. Ya trabajó antes y merece su recompensa.
-                            </p>
+                        <div className="space-y-4">
+                            <div className="bg-blue-50 p-4 rounded-xl">
+                                <p className="text-xs text-blue-700">Paga a <strong>{activacion?.benefactor?.user_profiles?.nombre_completo}</strong> usando:</p>
+                                <div className="mt-3 space-y-2">
+                                    {benefactorMetodos.map((m, i) => (
+                                        <div key={i} className="bg-white p-3 rounded-lg text-sm border border-blue-100">
+                                            <p className="font-bold">{m.tipo}</p>
+                                            <p className="text-gray-600 select-all">{m.identificador}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* UPLOAD AREA */}
+                            <div 
+                                onClick={() => document.getElementById('fileX0')?.click()}
+                                className="border-2 border-dashed border-gray-200 rounded-2xl p-8 text-center bg-gray-50 active:bg-blue-50 transition-colors cursor-pointer"
+                            >
+                                <input id="fileX0" type="file" className="hidden" accept="image/*,application/pdf" onChange={(e) => e.target.files?.[0] && handleUploadComprobante('x0', e.target.files[0])} />
+                                <span className="text-3xl">📸</span>
+                                <p className="text-sm font-bold text-gray-700 mt-2">Toca aquí para subir el comprobante</p>
+                                <p className="text-xs text-gray-400 mt-1">Foto de la pantalla o Galería</p>
+                                {uploadingX0 && <div className="mt-2 animate-pulse text-blue-600 font-bold text-xs">Subiendo archivo...</div>}
+                            </div>
                         </div>
                     )}
+                </section>
 
-                    <div className="space-y-4">
-                        <div className="bg-gray-50 rounded-lg p-4">
-                            <p className="font-semibold text-gray-700 mb-2">
-                                Benefactor: {activacion?.benefactor?.user_profiles?.nombre_completo}
+                {/* PASO 2: CHE */}
+                <section className={`bg-white rounded-2xl shadow-sm p-6 mb-6 border-2 ${pasoX0Completado && !pasoCheCompletado ? 'border-blue-500' : 'border-transparent'} ${!pasoX0Completado ? 'opacity-40 pointer-events-none' : ''}`}>
+                    <div className="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 className="font-bold text-lg text-gray-800">2. Pago de Contenido CHE</h2>
+                            <p className="text-green-600 font-bold">$25.00 USD 
+                                {tasaCambio && ` ≈ ${(25 * tasaCambio).toLocaleString()} ${monedaLocal}`}
                             </p>
-                            <p className="text-sm text-gray-600 mb-4">
-                                Email: {activacion?.benefactor?.email}
-                            </p>
-                            <p className="text-sm text-blue-600 mb-2">
-    💡 Escoge la cuenta que te quede más fácil para pagarle a {activacion?.benefactor?.user_profiles?.nombre_completo}:
-</p>
-
-                            <div className="space-y-3">
-                                {benefactorMetodos.map((metodo, idx) => (
-                                    <div key={idx} className="bg-white border border-gray-200 rounded-lg p-3">
-                                        <p className="font-medium text-gray-800">
-                                            {metodo.categoria === 'digital' ? '💳' : '🏦'} {metodo.tipo}
-                                        </p>
-                                        <p className="text-sm text-gray-600 mt-1">
-                                            {metodo.identificador}
-                                        </p>
-                                        {metodo.nombre_titular && (
-                                            <p className="text-xs text-gray-500 mt-1">
-                                                Titular: {metodo.nombre_titular}
-                                            </p>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
                         </div>
-
-                        {!pasoX0Completado ? (
-    <div>
-        {/* Mensaje de PayPal obligatorio si es otro país */}
-        {paisUsuario && activacion?.benefactor?.pais && 
-         paisUsuario !== activacion.benefactor.pais && (
-            <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-3 mb-4">
-                <p className="text-sm text-yellow-800">
-                    <strong>⚠️ Pago internacional:</strong> Como estás en {paisUsuario} y {activacion?.benefactor?.user_profiles?.nombre_completo} está en {activacion.benefactor.pais}, debes usar <strong>PayPal</strong> para este pago.
-                </p>
-            </div>
-        )}
-        
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-            Subir comprobante de pago ($10 USD)
-        </label>
-        
-        {/* Área de arrastrar y soltar */}
-        <div 
-            className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-green-500 hover:bg-green-50 transition-colors cursor-pointer"
-            onClick={() => document.getElementById('file-upload-x0')?.click()}
-            onDragOver={(e) => {
-                e.preventDefault();
-                e.currentTarget.classList.add('border-green-500', 'bg-green-50');
-            }}
-            onDragLeave={(e) => {
-                e.currentTarget.classList.remove('border-green-500', 'bg-green-50');
-            }}
-            onDrop={(e) => {
-                e.preventDefault();
-                e.currentTarget.classList.remove('border-green-500', 'bg-green-50');
-                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                    handleUploadComprobante('x0', e.dataTransfer.files[0]);
-                }
-            }}
-        >
-            <div className="text-4xl mb-2">📄</div>
-            <p className="text-sm text-gray-600 mb-1">
-                <strong>Arrastra tu comprobante aquí</strong>
-            </p>
-            <p className="text-xs text-gray-500 mb-2">
-    o haz clic para seleccionar un archivo
-</p>
-<p className="text-xs text-gray-400 mb-1">
-    💡 También puedes pegar una captura (Ctrl+V) después de hacer clic
-</p>
-            <p className="text-xs text-gray-400">
-                Formatos: imagen o PDF
-            </p>
-        </div>
-        
-        <input
-            id="file-upload-x0"
-            type="file"
-            accept="image/*,.pdf"
-            onChange={(e) => {
-                if (e.target.files && e.target.files[0]) {
-                    handleUploadComprobante('x0', e.target.files[0]);
-                }
-            }}
-            disabled={uploadingX0}
-            className="hidden"
-        />
-        
-        {uploadingX0 && (
-            <div className="mt-3 text-center">
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-500 mx-auto"></div>
-                <p className="text-sm text-blue-600 mt-2">Subiendo comprobante...</p>
-            </div>
-        )}
-    </div>
-) : (
-                            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                                <p className="text-sm text-green-700">
-    ✓ Pago verificado
-</p>
-                            </div>
-                        )}
-                    </div>
-                </div>
-
-                <div className={`bg-white rounded-lg shadow-lg p-6 ${pasoX0Completado && !pasoCheCompletado ? 'ring-2 ring-blue-500' : ''} ${!pasoX0Completado ? 'opacity-50' : ''}`}>
-                    <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-xl font-bold text-gray-800">
-    Paso 2: Pagar $25 USD a CHE
-    {tasaCambio && monedaLocal !== 'USD' && (
-        <span className="block text-sm font-normal text-green-600 mt-1">
-            ≈ {(25 * tasaCambio).toLocaleString()} {monedaLocal} (tasa del día)
-        </span>
-    )}
-</h2>
-                        {pasoCheCompletado && (
-                            <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
-                                ✓ Completado
-                            </span>
-                        )}
+                        {pasoCheCompletado && <span className="bg-green-100 text-green-700 text-xs py-1 px-3 rounded-full font-bold">✓ RECIBIDO</span>}
                     </div>
 
                     {!pasoCheCompletado && pasoX0Completado && (
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                            <p className="text-sm text-blue-800">
-                                <strong>¿Por qué pagar a CHE?</strong><br/>
-                                Este pago es por el contenido educativo completo: libros, artículos, conferencias 
-                                y tu Kit2 personalizado.
-                            </p>
+                        <div className="space-y-4">
+                            <div className="bg-blue-50 p-4 rounded-xl">
+                                <p className="text-xs text-blue-700">Cuentas oficiales de la Corporación:</p>
+                                <div className="mt-3 space-y-2">
+                                    {cheMetodos.map((m, i) => (
+                                        <div key={i} className="bg-white p-3 rounded-lg text-sm border border-blue-100">
+                                            <p className="font-bold">{m.tipo}</p>
+                                            <p className="text-gray-600 select-all">{m.identificador}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div 
+                                onClick={() => document.getElementById('fileChe')?.click()}
+                                className="border-2 border-dashed border-gray-200 rounded-2xl p-8 text-center bg-gray-50 active:bg-blue-50 transition-colors cursor-pointer"
+                            >
+                                <input id="fileChe" type="file" className="hidden" accept="image/*,application/pdf" onChange={(e) => e.target.files?.[0] && handleUploadComprobante('che', e.target.files[0])} />
+                                <span className="text-3xl">🧾</span>
+                                <p className="text-sm font-bold text-gray-700 mt-2">Toca aquí para subir el comprobante</p>
+                                <p className="text-xs text-gray-400 mt-1">Sube el pago de los $25 USD</p>
+                                {uploadingChe && <div className="mt-2 animate-pulse text-blue-600 font-bold text-xs">Subiendo archivo...</div>}
+                            </div>
                         </div>
                     )}
+                </section>
 
-                    <div className="space-y-4">
-                        <div className="bg-gray-50 rounded-lg p-4">
-                            <p className="font-semibold text-gray-700 mb-2">
-                                Corporación Herejía Económica
-                            </p>
-                            <p className="text-sm text-blue-600 mb-2">
-    💡 Escoge la cuenta que te quede más fácil para pagar a CHE:
-</p>
-
-                            <div className="space-y-3">
-                                {cheMetodos.map((metodo, idx) => (
-                                    <div key={idx} className="bg-white border border-gray-200 rounded-lg p-3">
-                                        <p className="font-medium text-gray-800">
-                                            {metodo.categoria === 'digital' ? '💳' : '🏦'} {metodo.tipo}
-                                        </p>
-                                        <p className="text-sm text-gray-600 mt-1">
-                                            {metodo.identificador}
-                                        </p>
-                                        {metodo.nombre_titular && (
-                                            <p className="text-xs text-gray-500 mt-1">
-                                                Titular: {metodo.nombre_titular}
-                                            </p>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {pasoX0Completado && !pasoCheCompletado ? (
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Subir comprobante de pago ($25)
-                                </label>
-                                <input
-                                    type="file"
-                                    accept="image/*,.pdf"
-                                    onChange={(e) => {
-                                        if (e.target.files && e.target.files[0]) {
-                                            handleUploadComprobante('che', e.target.files[0]);
-                                        }
-                                    }}
-                                    disabled={uploadingChe}
-                                    className="block w-full text-sm text-gray-500
-                                        file:mr-4 file:py-2 file:px-4
-                                        file:rounded-lg file:border-0
-                                        file:text-sm file:font-semibold
-                                        file:bg-green-50 file:text-green-700
-                                        hover:file:bg-green-100
-                                        disabled:opacity-50"
-                                />
-                                {uploadingChe && (
-                                    <p className="text-sm text-blue-600 mt-2">Subiendo...</p>
-                                )}
-                            </div>
-                        ) : pasoCheCompletado ? (
-                            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                                <p className="text-sm text-green-700">
-    ✓ Pago completado - Kit2 Activo
-</p>
-                            </div>
-                        ) : null}
-                    </div>
-                </div>
-
-                <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <p className="text-sm text-blue-800">
-                        <strong>🔒 Seguridad:</strong> Tus comprobantes serán verificados por nuestro equipo. 
-                        Te notificaremos por email cuando tu Kit2 esté listo para descargar.
-                    </p>
-                </div>
+                <p className="text-center text-xs text-gray-400 px-8">
+                    Una vez subidos, nuestro sistema verificará los pagos y recibirás tu Kit2 por correo electrónico.
+                </p>
             </div>
         </div>
     );
