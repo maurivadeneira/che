@@ -81,7 +81,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Retornar PDF como descarga
-    return new NextResponse(pdfBuffer, {
+    return new NextResponse(Buffer.from(pdfBuffer), {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="Kit2-${kit2Instance.codigo_unico}.pdf"`,
