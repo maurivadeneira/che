@@ -188,8 +188,19 @@ export default function ProcesoPagoPage() {
             } else {
                 await cargarDatos();
             }
-        } catch (err) { setError('Error al subir comprobante'); }
+        } catch (err) { 
+            console.error('Error al subir:', err);
+            setError('Error al subir comprobante'); 
+        }
         finally { setUploadingX0(false); setUploadingChe(false); }
+    };
+
+    // FIX CHROME MÓVIL: Función para trigger manual
+    const triggerFileInput = (inputId: string) => {
+        const input = document.getElementById(inputId) as HTMLInputElement;
+        if (input) {
+            input.click();
+        }
     };
 
     if (loading) return <div className="min-h-screen flex items-center justify-center">Cargando sistema de pagos...</div>;
@@ -246,17 +257,25 @@ export default function ProcesoPagoPage() {
                                 </div>
                             </div>
 
-                            {/* BOTÓN GIGANTE DE SUBIDA PASO 1 */}
+                            {/* BOTÓN GIGANTE DE SUBIDA PASO 1 - FIX CHROME MÓVIL */}
                             <div
-                                onClick={() => document.getElementById('file-upload-x0')?.click()}
+                                onClick={() => triggerFileInput('file-upload-x0')}
                                 className="w-full bg-blue-50 hover:bg-blue-100 border-4 border-dashed border-blue-400 p-12 rounded-[2rem] text-center cursor-pointer transition-all active:scale-95 group shadow-inner"
                             >
                                 <div className="text-7xl mb-4 group-hover:scale-110 transition-transform">📸</div>
                                 <p className="text-2xl font-black text-blue-700 italic uppercase">Toca para subir comprobante</p>
                                 <p className="text-blue-500 font-bold opacity-70">Cámara o Galería</p>
                                 {uploadingX0 && <div className="mt-4 font-black text-blue-600 animate-pulse text-xl">PROCESANDO...</div>}
-                                <input id="file-upload-x0" type="file" className="hidden" accept="image/*,.pdf" onChange={(e) => e.target.files?.[0] && handleUploadComprobante('x0', e.target.files[0])} />
                             </div>
+                            
+                            {/* INPUT VISIBLE PERO FUERA DE VISTA - FIX CHROME MÓVIL */}
+                            <input 
+                                id="file-upload-x0" 
+                                type="file" 
+                                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                                accept="image/*,.pdf" 
+                                onChange={(e) => e.target.files?.[0] && handleUploadComprobante('x0', e.target.files[0])} 
+                            />
                         </div>
                     )}
                 </div>
@@ -291,17 +310,25 @@ export default function ProcesoPagoPage() {
                                 </div>
                             </div>
 
-                            {/* BOTÓN GIGANTE DE SUBIDA PASO 2 */}
+                            {/* BOTÓN GIGANTE DE SUBIDA PASO 2 - FIX CHROME MÓVIL */}
                             <div
-                                onClick={() => document.getElementById('file-upload-che')?.click()}
+                                onClick={() => triggerFileInput('file-upload-che')}
                                 className="w-full bg-green-600 hover:bg-green-700 p-12 rounded-[2rem] text-center cursor-pointer shadow-2xl transition-all active:scale-95 group"
                             >
                                 <div className="text-7xl mb-4 group-hover:rotate-12 transition-transform">🚀</div>
                                 <p className="text-2xl font-black text-white italic uppercase tracking-tight">Finalizar y activar Kit2</p>
                                 <p className="text-white/80 font-bold">Sube el comprobante de $25 aquí</p>
                                 {uploadingChe && <div className="mt-4 font-black text-white animate-bounce text-xl">ACTIVANDO...</div>}
-                                <input id="file-upload-che" type="file" className="hidden" accept="image/*,.pdf" onChange={(e) => e.target.files?.[0] && handleUploadComprobante('che', e.target.files[0])} />
                             </div>
+                            
+                            {/* INPUT VISIBLE PERO FUERA DE VISTA - FIX CHROME MÓVIL */}
+                            <input 
+                                id="file-upload-che" 
+                                type="file" 
+                                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                                accept="image/*,.pdf" 
+                                onChange={(e) => e.target.files?.[0] && handleUploadComprobante('che', e.target.files[0])} 
+                            />
                         </div>
                     )}
                 </div>
