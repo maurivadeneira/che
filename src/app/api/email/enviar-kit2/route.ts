@@ -8,7 +8,6 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-
 export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
@@ -130,33 +129,76 @@ export async function POST(request: NextRequest) {
     const { error: emailError } = await resend.emails.send({
       from: 'CHE - Corporación Herejía Económica <onboarding@resend.dev>',
       to: comprador.email,
-      subject: '🎉 ¡Tu Kit2 está listo! - Corporación Herejía Económica',
+      subject: '🎉 ¡Tu Kit2 está listo! - Bienvenido al Árbol Mágico del Ahorro',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #16a34a;">¡Felicitaciones ${comprador.nombre}!</h1>
-          <p>Tu compra ha sido completada exitosamente. Ahora eres parte del Árbol Mágico del Ahorro.</p>
-          
-          <div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 20px; margin: 20px 0;">
-            <h2 style="color: #166534; margin-top: 0;">Tu Kit2 Personalizado</h2>
-            <p><strong>Código único:</strong> ${kit2Instance.codigo_unico}</p>
-            <p>Adjunto encontrarás tu Kit2 en PDF. Compártelo con amigos y familiares para que ellos también puedan participar.</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+          <!-- Header -->
+          <div style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%); padding: 40px 20px; text-align: center; border-radius: 8px 8px 0 0;">
+            <div style="font-size: 60px; margin-bottom: 10px;">🌳</div>
+            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">¡Felicitaciones ${comprador.nombre}!</h1>
+            <p style="color: #c8e6c9; margin: 10px 0 0 0; font-size: 16px;">Ahora eres parte del Árbol Mágico del Ahorro</p>
           </div>
           
-          <h3>¿Qué sigue?</h3>
-          <ol>
-            <li>Descarga y guarda tu Kit2 (PDF adjunto)</li>
-            <li>Comparte tu Kit2 con personas interesadas</li>
-            <li>Cuando alguien active un Kit2 usando tu código, recibirás $10 USD</li>
-          </ol>
+          <!-- Kit2 Info -->
+          <div style="background: #f1f8e9; border: 2px solid #aed581; border-radius: 8px; padding: 25px; margin: 20px;">
+            <h2 style="color: #33691e; margin-top: 0; font-size: 22px;">📦 Tu Kit2 Personalizado</h2>
+            <p style="margin: 15px 0;"><strong style="color: #558b2f;">Código único:</strong> <span style="font-family: monospace; background: #dcedc8; padding: 5px 10px; border-radius: 4px; font-size: 18px;">${kit2Instance.codigo_unico}</span></p>
+            <p style="color: #555; line-height: 1.6;">Tu Kit2 está adjunto en este correo en formato PDF. Úsalo para invitar a amigos y familiares a unirse al sistema.</p>
+          </div>
           
-          <p>También puedes acceder a todo el contenido educativo en nuestra plataforma:</p>
-          <p><a href="https://www.corpherejiaeconomica.com/es/biblioteca" style="background: #16a34a; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Ir a la Biblioteca</a></p>
+          <!-- Pasos siguientes -->
+          <div style="padding: 0 20px;">
+            <h3 style="color: #2e7d32; border-bottom: 2px solid #81c784; padding-bottom: 10px;">🚀 ¿Qué sigue ahora?</h3>
+            <ol style="color: #424242; line-height: 1.8; padding-left: 20px;">
+              <li><strong>Descarga y guarda</strong> tu Kit2 (PDF adjunto)</li>
+              <li><strong>Comparte tu código</strong> con personas interesadas</li>
+              <li><strong>Gana $10 USD</strong> por cada persona que active su Kit2 usando tu código</li>
+              <li><strong>Aprende y edúcate</strong> con las obras incluidas</li>
+            </ol>
+          </div>
           
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="color: #6b7280; font-size: 12px;">
-            Corporación Herejía Económica<br>
-            Este email fue enviado porque completaste la compra de un Kit2.
-          </p>
+          <!-- Biblioteca -->
+          <div style="background: #e3f2fd; border-left: 4px solid #1976d2; padding: 20px; margin: 20px;">
+            <h3 style="color: #0d47a1; margin-top: 0; font-size: 18px;">📚 Accede a todas las obras incluidas</h3>
+            <p style="color: #555; margin-bottom: 15px;">Tu Kit2 incluye acceso completo a nuestra biblioteca de contenido educativo:</p>
+            <ul style="color: #424242; line-height: 1.8; margin: 15px 0;">
+              <li>📖 <strong>Libros</strong> en 6 idiomas (ES, EN, PT, FR, DE, IT)</li>
+              <li>📄 <strong>Artículos</strong> de economía alternativa</li>
+              <li>🎥 <strong>Conferencias</strong> y videos educativos</li>
+              <li>🌳 <strong>Guía completa</strong> del Sistema Kit2</li>
+            </ul>
+            <div style="text-align: center; margin-top: 25px;">
+              <a href="https://corpherejiaeconomica.com/es/biblioteca" 
+                 style="display: inline-block; background: #1976d2; color: white; padding: 15px 40px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                🔗 Acceder a la Biblioteca
+              </a>
+            </div>
+          </div>
+          
+          <!-- Tu Link de Referido -->
+          <div style="background: #fff3e0; border: 2px solid #ffb74d; border-radius: 8px; padding: 20px; margin: 20px;">
+            <h3 style="color: #e65100; margin-top: 0;">🔗 Tu Link de Invitación</h3>
+            <p style="color: #555; margin-bottom: 10px;">Comparte este enlace para que otros puedan unirse:</p>
+            <div style="background: white; padding: 15px; border-radius: 4px; border: 1px solid #ffb74d; font-family: monospace; word-break: break-all; font-size: 14px; color: #d84315;">
+              https://corpherejiaeconomica.com/es/kit2/activar?ref=${kit2Instance.codigo_unico}
+            </div>
+          </div>
+          
+          <!-- Soporte -->
+          <div style="padding: 20px; text-align: center; color: #757575; font-size: 13px;">
+            <p style="margin: 5px 0;">¿Tienes preguntas? Visita nuestra plataforma o contáctanos.</p>
+            <p style="margin: 5px 0;"><a href="https://corpherejiaeconomica.com" style="color: #1976d2; text-decoration: none;">www.corpherejiaeconomica.com</a></p>
+          </div>
+          
+          <!-- Footer -->
+          <div style="background: #f5f5f5; padding: 20px; text-align: center; border-radius: 0 0 8px 8px; border-top: 1px solid #e0e0e0;">
+            <p style="color: #9e9e9e; font-size: 12px; margin: 5px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">
+              Corporación Herejía Económica
+            </p>
+            <p style="color: #bdbdbd; font-size: 11px; margin: 5px 0;">
+              Este email fue enviado porque completaste la activación de tu Kit2.
+            </p>
+          </div>
         </div>
       `,
       attachments: [
