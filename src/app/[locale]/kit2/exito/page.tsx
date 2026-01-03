@@ -7,46 +7,40 @@ export default function ExitoPage() {
     const [nombre, setNombre] = useState('');
 
     useEffect(() => {
-        const obtenerUsuario = async () => {
+        const fetchUser = async () => {
             const { data: { user } } = await supabase.auth.getUser();
             if (user) {
                 const { data } = await supabase.from('users').select('nombre').eq('id', user.id).single();
-                setNombre(data?.nombre || 'Usuario CHE');
+                setNombre(data?.nombre || 'Miembro');
             }
         };
-        obtenerUsuario();
+        fetchUser();
     }, []);
 
     return (
-        <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                <span className="text-4xl">🎉</span>
-            </div>
-            
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 text-center">
+            <div className="mb-6 text-6xl">🎉</div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">¡Activación Exitosa!</h1>
-            <p className="text-gray-600 mb-8">Bienvenido a la comunidad, <span className="font-bold text-green-600">{nombre}</span>. Tu cuenta ya está activa.</p>
+            <p className="text-gray-500 mb-8 max-w-xs">Bienvenido <span className="text-green-600 font-bold">{nombre}</span>. Tu Kit2 ya fue enviado a tu correo y también puedes descargarlo aquí:</p>
 
-            <div className="w-full max-w-sm bg-gray-50 border border-gray-100 rounded-3xl p-8 space-y-4">
-                <p className="text-sm font-medium text-gray-500 uppercase tracking-widest">Tu Material:</p>
-                
-                {/* BOTÓN DE DESCARGA AUTOMÁTICA */}
+            <div className="w-full max-w-sm bg-gray-50 p-8 rounded-[40px] border border-gray-100 shadow-inner">
                 <a 
-                    href="/ruta-a-tu-pdf-o-carpeta/kit2.pdf" 
-                    download
-                    className="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl shadow-lg transition-transform active:scale-95"
+                    href="/kit2.pdf" 
+                    download="Mi_Kit2_CHE.pdf"
+                    className="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-5 rounded-3xl shadow-lg transition-all transform active:scale-95"
                 >
-                    📥 Descargar mi Kit2
+                    📥 DESCARGAR KIT2
                 </a>
-
+                
                 <button 
-                    onClick={() => window.location.href = '/es/dashboard'}
-                    className="block w-full bg-white border border-gray-200 text-gray-700 font-semibold py-3 rounded-2xl hover:bg-gray-50"
+                    onClick={() => window.location.href = '/'}
+                    className="mt-6 text-sm text-gray-400 font-medium hover:text-gray-600"
                 >
-                    Ir al Dashboard
+                    Volver al Inicio
                 </button>
             </div>
 
-            <p className="mt-10 text-xs text-gray-400">Si tienes problemas con la descarga, contacta a soporte.</p>
+            <p className="mt-12 text-[10px] text-gray-300 uppercase tracking-widest">Corporación Heredia Económica</p>
         </div>
     );
 }
