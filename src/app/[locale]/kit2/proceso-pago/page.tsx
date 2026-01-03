@@ -78,29 +78,49 @@ export default function ProcesoPagoPage() {
     };
 
     const cargarDatos = async () => {
-        try {
-            const { data: { user } } = await supabase.auth.getUser();
-            if (!user) return router.push('/');
+    try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return router.push('/');
 
-            const codigoRef = searchParams.get('ref');
-            if (!user.id) throw new Error("ID usuario no disponible.");
+        const codigoRef = searchParams.get('ref');
+        if (!user.id) throw new Error("ID usuario no disponible.");
+        
+        // 1. Buscar activación existente
+        const { data: actData, error: actError } = await supabase
+            .from('user_kit2_activaciones')
+            .select('*')
+            .eq('user_id', user.id)
+            .maybeSingle();
+
+        if (actError) throw actError;
+
+        // --- LÓGICA DE RECUPERACIÓN PARA DAIRO ---
+        // Si ya subió el pago de la corporación (CHE), forzar estado activo y enviar al éxito
+        if (actData?.pago_che_comprobante_url) {
+            console.log("Detectado pago CHE previo, finalizando proceso...");
             
-            // 1. Buscar activación existente
-            const { data: actData, error: actError } = await supabase
-                .from('user_kit2_activaciones')
-                .select('*')
-                .eq('user_id', user.id)
-                .maybeSingle();
-
-            if (actError) throw actError;
-
-            // Si ya está activo, mandar al éxito
-            if (actData?.estado === 'activo') {
-                router.push('/es/kit2/exito');
-                return;
+            // Opcional: Asegurarnos que la DB marque 'activo' si ya hay comprobante
+            if (actData.estado !== 'activo') {
+                await supabase
+                    .from('user_kit2_activaciones')
+                    .update({ estado: 'activo', fecha_activacion: new Date().toISOString() })
+                    .eq('id', actData.id);
             }
+            
+            router.push('/es/kit2/exito');
+            return;
+        }
 
-            let currentAct = actData;
+        // Si ya está marcado como activo por el sistema
+        if (actData?.estado === 'activo') {
+            router.push('/es/kit2/exito');
+            return;
+        }
+        // --- FIN LÓGICA DE RECUPERACIÓN ---
+
+        let currentAct = actData;
+
+        // ... resto de tu código igual (creación de activación, carga de métodos, etc.)
 
             // 2. Si no existe, crearla
             if (!actData) {
